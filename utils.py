@@ -19,7 +19,7 @@ def get_decimal_array_from_string_array(*,
     -
         **A list of validated Decimal objects** if all elements were converted 
         successfully. Returns **None** if the input type is invalid, empty, or 
-        contains any non-convertible strings.
+        contains any non-convertible strings. Trailing zeros in decimals are already **cleaned**. 
 
     **Raises**:
     -
@@ -41,7 +41,8 @@ def get_decimal_array_from_string_array(*,
     for element in string_array:
         try:
             decimal_number: Decimal = Decimal(element)
-            result_array.append(decimal_number)
+            cleaned_decimal_number: Decimal = Decimal(format(decimal_number.normalize(), "f"))
+            result_array.append(cleaned_decimal_number)
         except (TypeError, InvalidOperation):
             continue
 
