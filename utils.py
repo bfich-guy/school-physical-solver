@@ -7,7 +7,7 @@ def get_decimal_array_from_string_array(*,
     """Transforms a collection of strings into high-precision Decimal objects.
 
     This validator performs atomic validation on input data packages. It follows
-    **the "all-or-nothing" rule**: if at least one element fails to convert, **the 
+    **the "fail-fast pattern**: if at least one element fails to convert, **the 
     entire batch is rejected** to prevent downstream calculations from processing
     corrupted data.
 
@@ -35,22 +35,15 @@ def get_decimal_array_from_string_array(*,
     if string_array_is_invalid:
         return None
     
-    string_array_length: int = len(string_array)
-    result_array: list[Decimal] = []
+    decimal_array: list[Decimal] = []
     
     for element in string_array:
         try:
             decimal_number: Decimal = Decimal(element)
             cleaned_decimal_number: Decimal = Decimal(format(decimal_number.normalize(), "f"))
-            result_array.append(cleaned_decimal_number)
+            decimal_array.append(cleaned_decimal_number)
         except (TypeError, InvalidOperation):
-            continue
+            return None
 
-    result_array_length: int = len(result_array)
-    string_and_result_arrays_lengths_are_mismatched: bool = string_array_length != result_array_length
-
-    if string_and_result_arrays_lengths_are_mismatched:
-        return None
-    
-    return result_array
+    return decimal_array
 

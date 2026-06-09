@@ -60,3 +60,23 @@ def get_mass_by_sensible_heat_and_specific_heat_and_delta_temperature(*,
     except ZeroDivisionError:
         return None
 
+def get_mass_by_released_heat_and_calorific_value(*,
+                                                  released_heat: str,
+                                                  calorific_value: str,
+                                                  ) -> Decimal | None:
+    
+    string_value_array: list[str] = [released_heat, calorific_value]
+    decimal_value_array: list[Decimal] | None = get_decimal_array_from_string_array(string_array=string_value_array)
+
+    decimal_value_array_is_none: bool = decimal_value_array is None
+
+    if decimal_value_array_is_none:
+        return None
+    
+    try:
+        decimal_released_heat, decimal_calorific_value = decimal_value_array
+        mass: Decimal = decimal_released_heat / decimal_calorific_value
+        return mass
+    except ZeroDivisionError:
+        return None
+    
