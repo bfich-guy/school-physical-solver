@@ -1,7 +1,7 @@
 from decimal import Decimal
 
 from utils import get_decimal_array_from_string_array
-from config.physics import COULOMB_CONSTANT
+from config import COLOUMB_CONSTANT
 
 def get_electric_field_strength_by_force_and_charge(*,
                                                     force: str,
@@ -44,6 +44,7 @@ def get_electric_field_strength_by_voltage_and_distance(*,
         return None
     
 def get_electric_field_strength_by_charge_and_distance(*,
+                                                       coulomb_constant: Decimal = COLOUMB_CONSTANT,
                                                        charge: str,
                                                        distance: str,
                                                        ) -> Decimal | None:
@@ -58,7 +59,7 @@ def get_electric_field_strength_by_charge_and_distance(*,
     
     try:
         decimal_charge, decimal_distance = decimal_value_array
-        electric_field_strength: Decimal = (COULOMB_CONSTANT * decimal_charge) / pow(decimal_distance, 2)
+        electric_field_strength: Decimal = (coulomb_constant * decimal_charge) / pow(decimal_distance, 2)
         return electric_field_strength
     except ZeroDivisionError:
         return None
