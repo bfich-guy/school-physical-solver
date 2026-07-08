@@ -10,7 +10,7 @@ def get_geometric_progression_sum_by_first_term_and_ratio_and_term_amount(
     term_amount: Decimal,
 ) -> Decimal:
 
-    geometric_progression_sum: Decimal = (first_term * (pow(ratio, term_amount) - 1)) / (ratio - 1)
+    geometric_progression_sum: Decimal = (first_term * (pow(ratio, term_amount) - Decimal("1"))) / (ratio - Decimal("1"))
     return geometric_progression_sum
 
 #endregion
@@ -25,7 +25,7 @@ def get_geometric_progression_term_by_first_term_and_ratio_and_term_amount(
     term_amount: Decimal,
 ) -> Decimal:
 
-    geometric_progression_term: Decimal = first_term * (ratio ** (term_amount - 1))
+    geometric_progression_term: Decimal = first_term * (ratio ** (term_amount - Decimal("1")))
     return geometric_progression_term
 
 #endregion

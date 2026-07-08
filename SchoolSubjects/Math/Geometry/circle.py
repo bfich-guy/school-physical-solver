@@ -11,7 +11,7 @@ def get_circle_area_by_radius(
     radius: Decimal,
 ) -> Decimal:
 
-    circle_area: Decimal = pi * (radius ** 2)
+    circle_area: Decimal = pi * (radius ** Decimal("2"))
     return circle_area
 
 #endregion
@@ -25,7 +25,7 @@ def get_circumference_by_radius(
     radius: Decimal,
 ) -> Decimal:
 
-    circumference: Decimal = 2 * pi * radius
+    circumference: Decimal = Decimal("2") * pi * radius
     return circumference
 
 #endregion

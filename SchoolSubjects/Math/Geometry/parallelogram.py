@@ -31,7 +31,7 @@ def get_parallelogram_area_by_geron_formula(
     diagonal: Decimal,
 ) -> Decimal:
 
-    semiperimeter: Decimal = (first_side + second_side + diagonal) / 2
+    semiperimeter: Decimal = (first_side + second_side + diagonal) / Decimal("2")
     parallelogram_area: Decimal = 2 * (semiperimeter * (semiperimeter - first_side) * (semiperimeter - second_side) * (semiperimeter - diagonal)).sqrt()
     return parallelogram_area
 
