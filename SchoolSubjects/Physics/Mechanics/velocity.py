@@ -2,13 +2,13 @@ from decimal import Decimal
 
 #region Linear velocity
 
-def get_linear_velocity_by_momentum_and_mass(
+def get_linear_velocity_by_momentum_and_object_mass(
     *,
     momentum: Decimal,
-    mass: Decimal,
+    object_mass: Decimal,
 ) -> Decimal:
 
-    linear_velocity: Decimal = momentum / mass
+    linear_velocity: Decimal = momentum / object_mass
     return linear_velocity
 
 
@@ -29,6 +29,16 @@ def get_linear_velocity_by_angular_velocity_and_radius(
 ) -> Decimal:
 
     linear_velocity: Decimal = angular_velocity * radius
+    return linear_velocity
+
+
+def get_linear_velocity_by_travel_distance_and_motion_duration(
+    *,
+    travel_distance: Decimal,
+    motion_duration: Decimal,
+) -> Decimal:
+
+    linear_velocity: Decimal = travel_distance / motion_duration
     return linear_velocity
 
 #endregion

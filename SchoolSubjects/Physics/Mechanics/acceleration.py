@@ -2,13 +2,13 @@ from decimal import Decimal
 
 #region General acceleration
 
-def get_general_acceleration_by_resultant_force_and_mass(
+def get_general_acceleration_by_resultant_force_and_object_mass(
     *,
     resultant_force: Decimal,
-    mass: Decimal,
+    object_mass: Decimal,
 ) -> Decimal:
 
-    general_acceleration: Decimal = resultant_force / mass
+    general_acceleration: Decimal = resultant_force / object_mass
     return general_acceleration
 
 #endregion
@@ -58,5 +58,20 @@ def get_centripetal_acceleration_by_linear_and_angular_velocity(
 
     centripetal_acceleration: Decimal = linear_velocity * angular_velocity
     return centripetal_acceleration
+
+#endregion
+
+
+#region Gravitational acceleration
+
+def get_gravitational_acceleration_by_buoyant_force_and_fluid_density_and_submerged_volume(
+    *,
+    buoyant_force: Decimal,
+    fluid_density: Decimal,
+    submerged_volume: Decimal,
+) -> Decimal:
+
+    gravitational_acceleration: Decimal = buoyant_force / (fluid_density * submerged_volume)
+    return gravitational_acceleration
 
 #endregion

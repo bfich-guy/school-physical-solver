@@ -16,5 +16,4 @@ def get_expected_value_by_values_and_probabilities(
 
     return expected_value
 
-
 #endregion

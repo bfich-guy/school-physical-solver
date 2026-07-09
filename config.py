@@ -11,3 +11,4 @@ PI: Decimal = Decimal("3.14159265358979")
 
 #Physics
 COLOUMB_CONSTANT: Decimal = Decimal("9000000000")
+GRAVITATIONAL_ACCELERATION: Decimal = Decimal("10")

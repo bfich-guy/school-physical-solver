@@ -2,13 +2,13 @@ from decimal import Decimal
 
 #region Momentum
 
-def get_momentum_by_mass_and_linear_velocity(
+def get_momentum_by_object_mass_and_linear_velocity(
     *,
-    mass: Decimal,
+    object_mass: Decimal,
     linear_velocity: Decimal,
 ) -> Decimal:
 
-    momentum: Decimal = mass * linear_velocity
+    momentum: Decimal = object_mass * linear_velocity
     return momentum
 
 
