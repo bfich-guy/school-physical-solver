@@ -1,5 +1,6 @@
 from decimal import Decimal
 
+
 #region Arithmetic progression
 
 def get_arithmetic_progression_sum_by_first_term_and_last_term_and_term_amount(

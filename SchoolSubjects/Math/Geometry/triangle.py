@@ -1,6 +1,7 @@
 from decimal import Decimal
 
-from config import DECIMAL_DEFAULT_COSINUS_VALUE
+from Configuration.global_constants import DECIMAL_DEFAULT_COSINUS_VALUE
+
 
 #region Triangle area
 
@@ -37,6 +38,7 @@ def get_triangle_area_by_geron_formula(
     return triangle_area
 
 #endregion
+
 
 #region Triangle cosinus theorem
 

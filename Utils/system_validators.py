@@ -1,12 +1,13 @@
 from decimal import Decimal, InvalidOperation
 
-from config import DECIMAL_FORMAT_MODE, DECIMAL_ARRAY_VALID_TYPE
+from Configuration.global_constants import DECIMAL_FORMAT_MODE, DECIMAL_ARRAY_VALID_TYPE
 
-def get_decimal_array_from_string_array(*, 
-                                        string_array: list[str] | tuple[str, ...],
-                                        array_valid_type: tuple = DECIMAL_ARRAY_VALID_TYPE,
-                                        format_mode: str = DECIMAL_FORMAT_MODE
-                                        ) -> list[Decimal] | None:
+def get_decimal_array_from_string_array(
+    *, 
+    string_array: list[str] | tuple[str, ...],
+    array_valid_type: tuple = DECIMAL_ARRAY_VALID_TYPE,
+    format_mode: str = DECIMAL_FORMAT_MODE
+) -> list[Decimal] | None:
     
     """Transforms a collection of strings into high-precision Decimal objects.
 

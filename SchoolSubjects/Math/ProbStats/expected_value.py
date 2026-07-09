@@ -1,5 +1,6 @@
 from decimal import Decimal
 
+
 #region Expected value
 
 def get_expected_value_by_values_and_probabilities(

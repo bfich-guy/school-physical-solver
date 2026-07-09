@@ -1,24 +1,25 @@
 from decimal import Decimal
 
+
 #region Linear velocity
 
-def get_linear_velocity_by_momentum_and_object_mass(
+def get_linear_velocity_by_linear_momentum_and_object_mass(
     *,
-    momentum: Decimal,
+    linear_momentum: Decimal,
     object_mass: Decimal,
 ) -> Decimal:
 
-    linear_velocity: Decimal = momentum / object_mass
+    linear_velocity: Decimal = linear_momentum / object_mass
     return linear_velocity
 
 
 def get_linear_velocity_by_kinetic_energy_and_momentum(
     *,
     kinetic_energy: Decimal,
-    momentum: Decimal,
+    linear_momentum: Decimal,
 ) -> Decimal:
 
-    linear_velocity: Decimal = (Decimal("2") * kinetic_energy) / momentum
+    linear_velocity: Decimal = (Decimal("2") * kinetic_energy) / linear_momentum
     return linear_velocity
 
 

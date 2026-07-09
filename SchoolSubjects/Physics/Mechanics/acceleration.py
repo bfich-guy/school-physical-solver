@@ -1,5 +1,6 @@
 from decimal import Decimal
 
+
 #region General acceleration
 
 def get_general_acceleration_by_resultant_force_and_object_mass(

@@ -1,14 +1,15 @@
 from decimal import Decimal
 
+
 #region Kinetic energy
 
-def get_kinetic_energy_by_momentum_and_linear_velocity(
+def get_kinetic_energy_by_linear_momentum_and_linear_velocity(
     *,
-    momentum: Decimal,
+    linear_momentum: Decimal,
     linear_velocity: Decimal,
 ) -> Decimal:
 
-    kinetic_energy: Decimal = (momentum * linear_velocity) / Decimal("2")
+    kinetic_energy: Decimal = (linear_momentum * linear_velocity) / Decimal("2")
     return kinetic_energy
 
 #endregion

@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from config import GRAVITATIONAL_ACCELERATION
+from Configuration.global_constants import GRAVITATIONAL_ACCELERATION
 
 
 #region Resultive force

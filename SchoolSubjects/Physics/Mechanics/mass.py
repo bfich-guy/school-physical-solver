@@ -1,5 +1,6 @@
 from decimal import Decimal
 
+
 #region Object mass
 
 def get_object_mass_by_material_density_and_object_volume(
@@ -22,13 +23,13 @@ def get_object_mass_by_resultant_force_and_general_acceleration(
     return object_mass
 
 
-def get_object_mass_by_momentum_and_linear_velocity(
+def get_object_mass_by_linear_momentum_and_linear_velocity(
     *,
-    momentum: Decimal,
+    linear_momentum: Decimal,
     linear_velocity: Decimal,
 ) -> Decimal:
 
-    object_mass: Decimal = momentum / linear_velocity
+    object_mass: Decimal = linear_momentum / linear_velocity
     return object_mass
 
 
