@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from Configuration.global_constants import PI
+from System.config import PI
 
 
 #region Circle area

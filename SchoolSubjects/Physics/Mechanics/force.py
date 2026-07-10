@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from Configuration.global_constants import GRAVITATIONAL_ACCELERATION
+from System.config import GRAVITATIONAL_ACCELERATION
 
 
 #region Resultive force

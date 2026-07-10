@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from Configuration.global_constants import DECIMAL_DEFAULT_COSINUS_VALUE
+from System.config import DEFAULT_COSINUS_VALUE
 
 
 #region Triangle area
@@ -46,7 +46,7 @@ def get_triangle_third_side_by_cosinus_theorem(
     *,
     first_side: Decimal,
     second_side: Decimal,
-    angle_cosinus: Decimal = DECIMAL_DEFAULT_COSINUS_VALUE,
+    angle_cosinus: Decimal = DEFAULT_COSINUS_VALUE,
 ) -> Decimal:
 
     triangle_third_side: Decimal = ((first_side ** Decimal("2")) + (second_side ** Decimal("2")) - (Decimal("2") * first_side * second_side * angle_cosinus)).sqrt()
