@@ -17,6 +17,6 @@ GRAVITATIONAL_ACCELERATION: Decimal = Decimal("10")
 
 #region Errors
 
-
+#TODO: add errors for validators. 
 
 #endregion

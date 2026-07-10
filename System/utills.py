@@ -1,5 +1,8 @@
 from decimal import Decimal
 
+from System.config import DECIMAL_FORMAT_MODE
+
+
 #region Calculating utils
 
 def compare_two_numbers(
@@ -67,6 +70,54 @@ def compare_two_numbers(
 
 #region System utils
 
-#TODO: write function turn_string_array_to_decimal_array(*, string_array: list[str] | tuple[str, ․․․]) -> list[Decimal]:
+def turn_string_array_to_decimal_array(
+    *, 
+    string_array: list[str] | tuple[str, ...],
+    decimal_format_mode: str = DECIMAL_FORMAT_MODE,
+) -> list[Decimal]:
+
+    """Returns array with only decimal numbers.
+    
+    This function gets the array (list or tuple) and decimals every string there.
+    It cleans trailing zeros inside a decimal numbers. 
+    Finally function returns an array filled with decimal numbers. 
+
+    **Args**:
+
+        **string_array**: **A list or tuple** that can be filled by different data types, not only strings. 
+        **decimal_format_mode**: **A string** "f" that function format() uses for cleaning traling zeros. 
+
+    **Returns**:
+
+        **Array with decimal numbers** inside it. 
+
+    **Raises**:
+
+        **TypeError**, if string_array is not array. 
+        **InvalidOperation**, if array element can't be decimaled. 
+
+    **Examples**:
+
+        >>> turn_string_array_to_decimal_array(string_array=["3.14", "1.41", "2.78"])
+        [Decimal('3.14'), Decimal('1.41'), Decimal('2.78')]
+
+        >>> turn_string_array_to_decimal_array(string_array={"Make this array decimaled, please ->": "3.14"})
+        Traceback (most recent call last):
+        TypeError: ...
+
+        >>> turn_string_array_to_decimal_array(string_array=("3.14", "IT IS PI! DECIMAL IT! JUST DO-O-O IT! Wait, WHY IS THE ER..."))
+        Traceback (most recent call last):
+        decimal.InvalidOperation: ...       
+
+    """
+
+    decimal_array: list[Decimal] = []
+
+    for string in string_array:
+        raw_decimal_number: Decimal = Decimal(string)
+        cleaned_decimal_number: Decimal = Decimal(format(raw_decimal_number.normalize(), decimal_format_mode))
+        decimal_array.append(cleaned_decimal_number)
+
+    return decimal_array
 
 #endregion

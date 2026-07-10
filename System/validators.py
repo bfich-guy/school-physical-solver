@@ -2,6 +2,7 @@ from decimal import Decimal, InvalidOperation
 
 from System.config import DECIMAL_ARRAY_VALID_TYPE
 
+
 #region validators
 
 def can_string_array_be_decimaled(
