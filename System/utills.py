@@ -3,71 +3,6 @@ from decimal import Decimal
 from System.config import DECIMAL_FORMAT_MODE
 
 
-#region Calculating utils
-
-def compare_two_numbers(
-    *,
-    number_1: Decimal,
-    comparing_mark: str,
-    number_2: Decimal,
-) -> bool:
-
-    """Returns boolean variable of comparing Decimal() numbers.
-    
-    This function gets two Decimal() numbers and comparing mark as a string. 
-    It compares that numbers in lambda functions inside an comparing map (dictionary). 
-    Finally function returns a boolean variable of this mathematician expression.
-    
-    **Args**:
-
-        **number_1**: A first number of class Decimal().
-        **comparing_mark**: A comparing mark. Function supports marks **<, <=, ==, >=, >, !=**.
-        **number_2**: A second number of class Decimal().
-    
-    **Returns**:
-    
-        **A boolean variable** of mathematician expression number_1 comparing_mark number_2.
-        If function can't compare numbers (Comparing mark is not a string, for example), functions returns **False**. 
-
-    **Raises**:
-
-        **TypeError**, if numbers are not Decimal() type.  
-
-    **Examples**:
-
-        This function can be used for **comparing discriminant to zero for solving quadratic equations**. 
-
-        >>> compare_two_numbers(number_1=Decimal("100"), comparing_mark=">=", number_2=Decimal("0"))
-        True
-
-        >>> compare_two_numbers(number_1=Decimal("-100"), comparing_mark=">=", number_2=Decimal("0"))
-        False
-        
-        >>> compare_two_numbers(number_1=Decimal("67"), comparing_mark="SIX SEVEN", number_2=Decimal("67"))
-        False
-    """
-
-    comparation_dict: dict[str, callable] = {
-        "<": lambda: number_1 < number_2,
-        "<=": lambda: number_1 <= number_2,
-        "==": lambda: number_1 == number_2,
-        ">=": lambda: number_1 >= number_2,
-        ">": lambda: number_1 > number_2,
-        "!=": lambda: number_1 != number_2,
-    }
-
-    comparator_function: callable | None = comparation_dict.get(comparing_mark, None)
-    comparator_function_is_none: bool = comparator_function is None
-
-    if comparator_function_is_none:
-        return False
-    
-    result: bool = comparator_function()
-    return result
-
-#endregion
-
-
 #region System utils
 
 def turn_string_array_to_decimal_array(
@@ -119,5 +54,76 @@ def turn_string_array_to_decimal_array(
         decimal_array.append(cleaned_decimal_number)
 
     return decimal_array
+
+#endregion
+
+
+#region Calculating utils
+
+def compare_two_numbers(
+    *,
+    number_1: Decimal,
+    comparing_mark: str,
+    number_2: Decimal,
+) -> bool:
+
+    """Returns boolean variable of comparing Decimal() numbers.
+    
+    This function gets two Decimal() numbers and comparing mark as a string. 
+    It compares that numbers in lambda functions inside an comparing map (dictionary). 
+    Finally function returns a boolean variable of this mathematician expression.
+    
+    **Args**:
+
+        **number_1**: A first number of class Decimal().
+        **comparing_mark**: A comparing mark. Function supports marks **<, <=, ==, >=, >, !=**.
+        **number_2**: A second number of class Decimal().
+    
+    **Returns**:
+    
+        **A boolean variable** of mathematician expression number_1 comparing_mark number_2.
+        If function can't compare numbers (Comparing mark is not a string, for example), functions returns **False**. 
+
+    **Raises**:
+
+        **KeyError**, if comparing mark doesn't exist. 
+        **TypeError**, if numbers are not Decimal() type. 
+        **InvalidOperation**, if string can't be decimaled. 
+
+    **Examples**:
+
+        This function can be used for **comparing discriminant to zero for solving quadratic equations**. 
+
+        >>> compare_two_numbers(number_1=Decimal("100"), comparing_mark=">=", number_2=Decimal("0"))
+        True
+
+        >>> compare_two_numbers(number_1=Decimal("-100"), comparing_mark=">=", number_2=Decimal("0"))
+        False
+        
+        >>> compare_two_numbers(number_1=Decimal("67"), comparing_mark="<=>", number_2=Decimal("67"))
+        Traceback (most recent call last):
+        KeyError: ...
+
+        >>> compare_two_numbers(number_1="SQRT OF TWO", comparing_mark="<=", number_2=Decimal("3.14"))
+        Traceback (most recent call last):
+        TypeError: ...
+
+        >>> compare_two_numbers(number_1=Decimal("NUMBER_PI"), comparing_mark="NOTHING COMPARES WITH PI!", number_2=Decimal("WHY IS THERE ER..."))
+        Traceback (most recent call last):
+        decimal.InvalidOperation: ...
+    """
+
+    comparation_dict: dict[str, Callable[[], bool]] = {
+        "<": lambda: number_1 < number_2,
+        "<=": lambda: number_1 <= number_2,
+        "==": lambda: number_1 == number_2,
+        ">=": lambda: number_1 >= number_2,
+        ">": lambda: number_1 > number_2,
+        "!=": lambda: number_1 != number_2,
+    }
+
+    comparator_function: Callable[[], bool] = comparation_dict[comparing_mark]
+    result: bool = comparator_function()
+    return result
 
 #endregion

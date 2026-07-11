@@ -1,20 +1,24 @@
-from decimal import Decimal, InvalidOperation
+from decimal import Decimal
 
 from System.config import DECIMAL_ARRAY_VALID_TYPE
 
 
-#region validators
+#region Incoming data validators
 
-def can_string_array_be_decimaled(
+def can_string_array_be_turned_to_decimal_array(
     *,
-    string_array: list[str] | tuple[str, ․․․],
+    string_array: list[str] | tuple[str, ...],
     decimal_array_valid_type: tuple = DECIMAL_ARRAY_VALID_TYPE,
 ) -> bool:
 
     """Checks whether all strings in the given array can be Decimal() numbers. 
 
-    This function uses **fail-fast pattern**. 
-    It means that if one single string can not be a Decimal() - **array is rejected** and function returns False!
+    This function uses **fail fast and early exit patterns**. That means: 
+
+    -If argument string_array is not an array at all,
+    -If one single string can not be a Decimal(),
+
+    **function returns False**! 
 
     **Args**:
 
@@ -29,26 +33,24 @@ def can_string_array_be_decimaled(
 
         This function can be used **to make sure user wrote a numbers, not words**. 
 
-        >>> can_string_array_be_decimaled(string_array=["3.14", "1.41", "2.72"])
+        >>> can_string_array_be_turned_to_decimal_array(string_array=["3.14", "1.41", "2.72"])
         True
 
-        >>> can_string_array_be_decimaled(string_array=[])
+        >>> can_string_array_be_turned_to_decimal_array(string_array=[])
         False
 
-        >>> string_array={"Okay, empty list isn't valid. JUST DECIMAL PI RIGHT HERE ->": 3.14}
+        >>> can_string_array_be_turned_to_decimal_array(string_array={"OK, empty list isn't valid. JUST DECIMAL PI RIGHT HERE ->": 3.14})
         False
 
-        >>> can_string_array_be_decimaled(string_array=["3.14", "DECIMAL IT! DON'T YOU SEE?!!!", "WAIT! WHY FUNCTION RET..."])
+        >>> can_string_array_be_turned_to_decimal_array(string_array=["3.14", "DECIMAL IT! DON'T YOU SEE?!!!", "WAIT! WHY FUNCTION RET..."])
         False
 
-        >>> can_string_array_be_decimaled(string_array=["I AM RAGING!!! I LEAVE THIS JOB!!!! WHAT THE HE..."])
-        False
     """
 
     string_array_is_empty: bool = not string_array
-    string_array_is_not_valid_type: bool = not isinstance(string_array, decimal_array_valid_type)
+    string_array_is_not_array: bool = not isinstance(string_array, decimal_array_valid_type)
 
-    string_array_is_not_valid: bool = any([string_array_is_not_valid_type, string_array_is_empty])
+    string_array_is_not_valid: bool = any([string_array_is_not_array, string_array_is_empty])
 
     if string_array_is_not_valid:
         return False

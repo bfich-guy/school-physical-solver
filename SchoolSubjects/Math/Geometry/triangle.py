@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from System.config import DEFAULT_COSINUS_VALUE
+from System.config import DEFAULT_COSINUS_VALUE, DEFAULT_SINUS_VALUE
 
 
 #region Triangle area
@@ -19,7 +19,7 @@ def get_triangle_area_by_two_sides_and_angle_sinus(
     *,
     first_side: Decimal,
     second_side: Decimal,
-    angle_sinus: Decimal,
+    angle_sinus: Decimal = DEFAULT_SINUS_VALUE,
 ) -> Decimal:
 
     triangle_area: Decimal = (first_side * second_side * angle_sinus) / Decimal("2")
@@ -42,7 +42,7 @@ def get_triangle_area_by_geron_formula(
 
 #region Triangle cosinus theorem
 
-def get_triangle_third_side_by_cosinus_theorem(
+def get_triangle_third_side_by_cosine_theorem(
     *,
     first_side: Decimal,
     second_side: Decimal,
