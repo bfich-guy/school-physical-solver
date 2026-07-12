@@ -31,16 +31,6 @@ def get_end_temperature_by_delta_temperature_and_start_temperature(
 
 #region Delta temperature
 
-def get_delta_temperature_by_end_temperature_and_start_temperature(
-    *,
-    end_temperature: Decimal,
-    start_temperature: Decimal,
-) -> Decimal:
-
-    delta_temperature: Decimal = end_temperature - start_temperature
-    return delta_temperature
-
-
 def get_delta_temperature_by_sensible_heat_and_specific_heat_and_object_mass(
     *,
     sensible_heat: Decimal,

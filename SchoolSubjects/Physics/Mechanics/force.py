@@ -30,3 +30,17 @@ def get_buoyant_force_by_fluid_density_and_gravitational_acceleration_and_submer
     return buoyant_force
 
 #endregion
+
+
+#region Elastic force
+
+def get_elastic_force_by_spring_stiffness_and_spring_elongation(
+    *,
+    spring_stiffness: Decimal,
+    spring_elongation: Decimal,
+) -> Decimal:
+
+    elastic_force: Decimal = spring_stiffness * spring_elongation
+    return elastic_force
+
+#endregion

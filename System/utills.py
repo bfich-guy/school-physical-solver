@@ -126,4 +126,46 @@ def compare_two_numbers(
     result: bool = comparator_function()
     return result
 
+
+def get_delta_value(
+    *,
+    end_value: Decimal,
+    start_value: Decimal,
+) -> Decimal:
+
+    """Returns delta of two given values.
+
+    This function calculates difference between end_value and start_value.
+    Finally it returns this difference.
+
+    **Args**:
+
+        **end_value**: the end Decimal() value. 
+        **start_value**: the start Decimal() value. 
+
+    **Returns**:
+
+        **A Decimal() value** that equals to mathematical expression end_value - start_value. 
+
+    **Raises**:
+
+        **TypeError**, if at least one given argument is not a Decimal(). 
+
+    **Examples**:
+
+        This function can be used for calculating **deltas of physics and mathemathician concepts**.
+        It means that it calculates delta speed for acceleration or delta coordinates for vectors. 
+
+        >>> get_delta_value(end_value=Decimal("3.14"), start_value=Decimal("0.14"))
+        Decimal("3")
+
+        >>> get_delta_value(end_value="NUMBER PI!!!", start_value="NO START VALUES!!!")
+        Traceback (most recent call last):
+        TypeError: ...
+    
+    """
+
+    result: Decimal = end_value - start_value
+    return result
+
 #endregion
