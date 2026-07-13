@@ -40,7 +40,7 @@ def get_triangle_area_by_geron_formula(
 #endregion
 
 
-#region Triangle cosinus theorem
+#region Triangle cosine theorem
 
 def get_triangle_third_side_by_cosine_theorem(
     *,

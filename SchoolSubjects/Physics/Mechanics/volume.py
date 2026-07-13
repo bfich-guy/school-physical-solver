@@ -3,30 +3,15 @@ from decimal import Decimal
 from System.config import GRAVITATIONAL_ACCELERATION
 
 
-#region Object volume
+#region General volume
 
-def get_object_volume_by_object_mass_and_material_density(
+def get_general_volume_by_general_mass_and_general_density(
     *,
-    object_mass: Decimal,
-    material_density: Decimal,
+    general_mass: Decimal,
+    general_density: Decimal,
 ) -> Decimal:
 
-    object_volume: Decimal = object_mass / material_density
-    return object_volume
-
-#endregion
-
-
-#region Submerged volume
-
-def get_submerged_volume_by_buoyant_force_and_fluid_density_and_gravitational_acceleration(
-    *,
-    buoyant_force: Decimal,
-    fluid_density: Decimal,
-    gravitational_acceleration: Decimal = GRAVITATIONAL_ACCELERATION
-) -> Decimal:
-
-    submerged_volume: Decimal = buoyant_force / (fluid_density * gravitational_acceleration)
-    return submerged_volume
+    general_volume: Decimal = general_mass / general_density
+    return general_volume
 
 #endregion

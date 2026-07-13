@@ -1,7 +1,7 @@
 from decimal import Decimal
 
 
-# region Genereal Polygon
+#region General Polygon
 
 def get_general_polygon_angles_sum_by_side_amount(
     *,
@@ -14,16 +14,16 @@ def get_general_polygon_angles_sum_by_side_amount(
     
 def get_general_polygon_perimeter_by_sides(
     *,
-    sides_array: list[Decimal],
+    sides_list: list[Decimal],
 ) -> Decimal:
 
-    general_polygon_perimeter: Decimal = sum(sides_array)
+    general_polygon_perimeter: Decimal = sum(sides_list)
     return general_polygon_perimeter
 
-# endregion
+#endregion
 
 
-# region Regular Polygon
+#region Regular Polygon
 
 def get_regular_polygon_angle_value_by_side_amount(
     *,
@@ -33,4 +33,4 @@ def get_regular_polygon_angle_value_by_side_amount(
     regular_polygon_angle_value: Decimal = (side_amount - Decimal("2")) * Decimal("180") / side_amount
     return regular_polygon_angle_value
 
-# endregion
+#endregion

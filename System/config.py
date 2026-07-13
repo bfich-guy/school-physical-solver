@@ -18,24 +18,29 @@ GRAVITATIONAL_ACCELERATION: Decimal = Decimal("10")
 
 #region Errors
 
-class ErrorNames(Enum):
-    ArrayIsNotDecimal = "ArrayIsNotDecimal"
-    ZeroDivision = "ZeroDivision"
-    NegativeRoot = "NegativeRoot"
+UNKNOWN_ERROR_TYPE: str = "UNKNOWN"
+UNKNOWN_ERROR_MESSAGE: str = "ERROR ITSELF IS UNKNOWN"
+
+
+class ErrorTypes(Enum):
+    MathError = "MATH_ERROR"
+    LogicError = "LOGIC_ERROR"
 
 
 class ErrorMessages(Enum):
-    ArrayIsNotDecimal = "Для расчетов ожидались числа. Просим вас вводить числа. Для дробных чисел используйте точку. "
-    ZeroDivision = "На ноль делить нельзя! Просим вас выбрать другой делитель, так как правила математики неизменяемы. "
-    NegativeRoot = "Невозможно извлечь корень четной степени из отрицательного числа. Просим вас ввести неотрицательное число. "
+    ZeroDivision = "На ноль делить нельзя!"
+    NegativeRoot = "Подкоренное выражение отрицательным быть не может!"
 
 
-error_dict: dict[str, str] = {
+class Error(Exception):
+    def __init__(self, *, error_type: str, error_message: str) -> None:
+        super().__init__(error_type, error_message)
+        self.error_type: str = error_type
+        self.error_message: str = error_message
 
-    ErrorNames.ArrayIsNotDecimal.value: ErrorMessages.ArrayIsNotDecimal.value,
-    ErrorNames.ZeroDivision.value: ErrorMessages.ZeroDivision.value,
-    ErrorNames.NegativeRoot.value: ErrorMessages.NegativeRoot.value,
 
-}
+    def show(self) -> str:
+        error_text: str = f"[{self.error_type}]: {self.error_message}"
+        return error_text
 
 #endregion

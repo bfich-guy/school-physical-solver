@@ -1,15 +1,15 @@
 from decimal import Decimal
 
 
-#region Travel distance
+#region General distance
 
-def get_travel_distance_by_linear_velocity_and_motion_duration(
+def get_general_distance_by_general_velocity_and_motion_duration(
     *,
-    linear_velocity: Decimal,
+    general_velocity: Decimal,
     motion_duration: Decimal,
 ) -> Decimal:
 
-    travel_distance: Decimal = linear_velocity * motion_duration
-    return travel_distance
+    general_distance: Decimal = general_velocity * motion_duration
+    return general_distance
 
 #endregion

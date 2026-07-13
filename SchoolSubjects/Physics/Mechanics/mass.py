@@ -1,17 +1,21 @@
 from decimal import Decimal
 
 
-#region Object mass
+#region General mass
 
-def get_object_mass_by_material_density_and_object_volume(
+def get_general_mass_by_general_density_and_general_volume(
     *,
-    material_density: Decimal,
-    object_volume: Decimal,
+    general_density: Decimal,
+    general_volume: Decimal,
 ) -> Decimal:
 
-    object_mass: Decimal = material_density * object_volume
-    return object_mass
+    general_mass: Decimal = general_density * general_volume
+    return general_mass
 
+#endregion
+
+
+#region Object mass
 
 def get_object_mass_by_resultant_force_and_general_acceleration(
     *,

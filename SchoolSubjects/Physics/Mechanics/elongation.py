@@ -1,5 +1,6 @@
 from decimal import Decimal
 
+
 #region Spring elongation
 
 def get_spring_elongation_by_elastic_force_and_spring_stiffness(

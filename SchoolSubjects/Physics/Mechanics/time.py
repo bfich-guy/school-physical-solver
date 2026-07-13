@@ -17,13 +17,13 @@ def get_heating_duration_by_joule_heat_and_electric_power(
 
 #region Motion duration
 
-def get_motion_duration_by_travel_distance_and_linear_velocity(
+def get_motion_duration_by_general_distance_and_general_velocity(
     *,
-    travel_distance: Decimal,
-    linear_velocity: Decimal,
+    general_distance: Decimal,
+    general_velocity: Decimal,
 ) -> Decimal:
 
-    motion_duration: Decimal = travel_distance / linear_velocity
+    motion_duration: Decimal = general_distance / general_velocity
     return motion_duration
 
 #endregion

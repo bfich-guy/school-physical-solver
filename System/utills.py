@@ -55,6 +55,44 @@ def turn_string_array_to_decimal_array(
 
     return decimal_array
 
+
+def show_error_text(
+    *,
+    error_type: str = UNKNOWN_ERROR_TYPE,
+    error_message: str = UNKNOWN_ERROR_MESSAGE,
+) -> str:
+
+    """Returns an error text or text of the error itself is unknown.
+    
+    This function gets error type and message and creates an object of class Error().
+    Then it calls the error object's method .show(), what returns the error text. 
+    Finally function returns error text that error object returned. 
+    
+    **Args**:
+    
+        **error_type**: **A string** that represents a type of error. 
+        **error_message**: **A string** that represents a message of error. 
+
+    **Returns**:
+
+        **A string** which is the error text. If non-string arguments are provided, they will be implicitly converted to strings. 
+
+    **Examples**:
+
+        This function can be used to make error more readable for user. 
+
+        >>> show_error(error_type="MATH_ERROR", error_message="На ноль делить нельзя!")
+        '[MATH_ERROR]: На ноль делить нельзя!'
+
+        >>> show_error(error_type=3.14, error_message="NUMBER PI!")
+        '[3.14]: NUMBER PI!'
+
+    """
+
+    error_object: Error = Error(error_type=error_type, error_message=error_message)
+    error_text: str = error_object.show()
+    return error_text
+
 #endregion
 
 
