@@ -14,33 +14,33 @@ def turn_string_list_to_decimal_list(
     """Returns list with only decimal numbers.
     
     This function gets the list and decimals every string there.
-    It cleans trailing zeros inside a decimal numbers. 
-    Finally function returns an array filled with decimal numbers. 
+    It turns string into Decimal() number and cleans trailing zeros inside it. 
+    Finally function returns a list filled with decimal numbers. 
 
     **Args**:
 
-        **string_array**: **A list or tuple** that can be filled by different data types, not only strings. 
+        **string_list**: **A list** that can be filled by different data types, not only strings. 
         **decimal_format_mode**: **A string** "f" that function format() uses for cleaning traling zeros. 
 
     **Returns**:
 
-        **Array with decimal numbers** inside it. 
+        **A list with decimal numbers** inside it. 
 
     **Raises**:
 
-        **TypeError**, if string_array is not array. 
-        **InvalidOperation**, if array element can't be decimaled. 
+        **TypeError**, if string_list is not list. 
+        **InvalidOperation**, if list element can't be decimaled. 
 
     **Examples**:
 
-        >>> turn_string_array_to_decimal_array(string_array=["3.14", "1.41", "2.78"])
+        >>> turn_string_list_to_decimal_list(string_list=["3.14", "1.41", "2.78"])
         [Decimal('3.14'), Decimal('1.41'), Decimal('2.78')]
 
-        >>> turn_string_array_to_decimal_array(string_array={"Make this array decimaled, please ->": "3.14"})
+        >>> turn_string_list_to_decimal_list(string_list={"Make this thing decimaled, please ->": "3.14"})
         Traceback (most recent call last):
         TypeError: ...
 
-        >>> turn_string_array_to_decimal_array(string_array=("3.14", "IT IS PI! DECIMAL IT! JUST DO-O-O IT! Wait, WHY IS THE ER..."))
+        >>> turn_string_list_to_decimal_list(string_list=("3.14", "IT IS PI! DECIMAL IT! JUST DO-O-O IT! Wait, WHY IS THE ER..."))
         Traceback (most recent call last):
         decimal.InvalidOperation: ...       
 
@@ -103,7 +103,7 @@ def do_lists_have_same_length(
 
     This function gets the matrix (list with lists inside) and stores length of first sublist as an etalon length. 
     Then it compares lengths of other lists with etalon by **fail-fast pattern**. 
-    That means if one single length mismatch happened - **function returns False**. 
+    That means if one single length mismatch happened, **function returns False**. 
     Finally function returns a boolean variable that indicates wheter lists have same length or not. 
 
     **Args**:
@@ -153,6 +153,48 @@ def do_lists_have_same_length(
             return False
 
     return lists_have_same_length
+
+
+def clean_trailing_zeros(
+    *,
+    number: Decimal,
+    decimal_format_mode: str = DECIMAL_FORMAT_MODE,
+) -> Decimal:
+
+    """Returns a Decimal() number without trailing zeros.
+
+    This function gets the Decimal() number and default format mode "f".
+    Then it uses built-in function format() to clean trailing zeros. Simply, **it is wrapper** to function format(). 
+    Finally function returns the Decimal() number without trailing zeros at the end. 
+
+    **Args**:
+
+        **number**: **A Decimal() number** that is need to clean from trailing zeros. 
+        **decimal_format_mode**: **A string** that is already given and has value "f". 
+
+    **Returns**:
+
+        **A Decimal() number** without trailing zeros. 
+
+    **Raises**:
+
+        **TypeError**, if given number is not a Decimal(). 
+
+    **Examples**:
+
+        This function can be used to make Decimal() number more readable for user. 
+
+        >>> clean_trailing_zeros(number=Decimal("3.14000"))
+        Decimal("3.14")
+
+        >>> clean_trailing_zeros(number=3.14)
+        Traceback (most recent call last):
+        TypeError: ...
+
+    """
+    
+    cleaned_number: Decimal = Decimal(format(number.normalize(), decimal_format_mode))
+    return cleaned_number
 
 #endregion
 

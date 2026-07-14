@@ -5,57 +5,54 @@ from System.config import DECIMAL_ARRAY_VALID_TYPE
 
 #region System validators
 
-def can_string_array_be_turned_to_decimal_array(
+def can_string_list_be_turned_to_decimal_list(
     *,
     string_list: list[str],
     decimal_array_valid_type: tuple = DECIMAL_ARRAY_VALID_TYPE,
 ) -> bool:
 
-    """Checks whether all strings in the given array can be Decimal() numbers. 
+    """Checks whether all strings in the given list can be Decimal() numbers. 
 
-    This function uses **fail fast and early exit patterns**. That means: 
-
-    -If argument string_array is not an array at all,
-    -If one single string can not be a Decimal(),
-
-    **function returns False**! 
+    This function uses **fail fast and early exit patterns**. 
+    That means if argument string_list is not a list at all or one single string can not be a Decimal(), **function returns False**. 
+    Finally it returns a boolean variable that indicates whether the list can be completely decimaled or not. 
 
     **Args**:
 
-        **string_array**: **A list or tuple** that can be filled by difference data types, not only strings. 
-        **decimal_array_valid_type**: **A tuple with types of arrays** that function supports: **list and tuple**. 
+        **string_list**: **A list** that can be filled by difference data types, not only strings. 
+        **decimal_array_valid_type**: **A tuple with types of arrays** that function supports: **list**. 
 
     **Returns**:
         
-        **A boolean variable** that indicates whether the array can be completely decimaled or not.
+        **A boolean variable** that indicates whether the list can be completely decimaled or not. 
 
     **Examples**:
 
         This function can be used **to make sure user wrote a numbers, not words**. 
 
-        >>> can_string_array_be_turned_to_decimal_array(string_array=["3.14", "1.41", "2.72"])
+        >>> can_string_list_be_turned_to_decimal_list(string_list=["3.14", "1.41", "2.72"])
         True
 
-        >>> can_string_array_be_turned_to_decimal_array(string_array=[])
+        >>> can_string_list_be_turned_to_decimal_list(string_list=[])
         False
 
-        >>> can_string_array_be_turned_to_decimal_array(string_array={"OK, empty list isn't valid. JUST DECIMAL PI RIGHT HERE ->": 3.14})
+        >>> can_string_list_be_turned_to_decimal_list(string_list={"OK, empty list isn't valid. JUST DECIMAL PI RIGHT HERE ->": 3.14})
         False
 
-        >>> can_string_array_be_turned_to_decimal_array(string_array=["3.14", "DECIMAL IT! DON'T YOU SEE?!!!", "WAIT! WHY FUNCTION RET..."])
+        >>> can_string_list_be_turned_to_decimal_list(string_list=["3.14", "DECIMAL IT! DON'T YOU SEE?!!!", "WAIT! WHY FUNCTION RET..."])
         False
 
     """
 
-    string_array_is_empty: bool = not string_list
-    string_array_is_not_array: bool = not isinstance(string_list, decimal_array_valid_type)
+    string_list_is_empty: bool = not string_list
+    string_list_is_not_list: bool = not isinstance(string_list, decimal_array_valid_type)
 
-    string_array_is_not_valid: bool = any([string_array_is_not_array, string_array_is_empty])
+    string_list_is_not_valid: bool = any([string_list_is_empty, string_list_is_not_list])
 
-    if string_array_is_not_valid:
+    if string_list_is_not_valid:
         return False
 
-    string_array_can_be_turned_to_decimal_array: bool = True
+    string_list_can_be_turned_to_decimal_list: bool = True
 
     for string in string_list:
         try:
@@ -63,6 +60,6 @@ def can_string_array_be_turned_to_decimal_array(
         except (TypeError, InvalidOperation):
             return False
 
-    return string_array_can_be_turned_to_decimal_array
+    return string_list_can_be_turned_to_decimal_list
 
 #endregion
