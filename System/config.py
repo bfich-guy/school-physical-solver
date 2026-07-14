@@ -3,7 +3,7 @@ from enum import Enum
 
 #region Global constants
 
-DECIMAL_ARRAY_VALID_TYPE: tuple = (list)
+DECIMAL_ARRAY_VALID_TYPE: tuple = (list,)
 DECIMAL_FORMAT_MODE: str = "f"
 
 PI: Decimal = Decimal("3.14159265358979")
@@ -37,7 +37,6 @@ class Error(Exception):
         super().__init__(error_type, error_message)
         self.error_type: str = error_type
         self.error_message: str = error_message
-
 
     def show(self) -> str:
         error_text: str = f"[{self.error_type}]: {self.error_message}"

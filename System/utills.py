@@ -5,15 +5,15 @@ from System.config import DECIMAL_FORMAT_MODE
 
 #region System utils
 
-def turn_string_array_to_decimal_array(
+def turn_string_list_to_decimal_list(
     *, 
-    string_array: list[str] | tuple[str, ...],
+    string_list: list[str],
     decimal_format_mode: str = DECIMAL_FORMAT_MODE,
 ) -> list[Decimal]:
 
-    """Returns array with only decimal numbers.
+    """Returns list with only decimal numbers.
     
-    This function gets the array (list or tuple) and decimals every string there.
+    This function gets the list and decimals every string there.
     It cleans trailing zeros inside a decimal numbers. 
     Finally function returns an array filled with decimal numbers. 
 
@@ -46,14 +46,14 @@ def turn_string_array_to_decimal_array(
 
     """
 
-    decimal_array: list[Decimal] = []
+    decimal_list: list[Decimal] = []
 
-    for string in string_array:
+    for string in string_list:
         raw_decimal_number: Decimal = Decimal(string)
         cleaned_decimal_number: Decimal = Decimal(format(raw_decimal_number.normalize(), decimal_format_mode))
-        decimal_array.append(cleaned_decimal_number)
+        decimal_list.append(cleaned_decimal_number)
 
-    return decimal_array
+    return decimal_list
 
 
 def show_error_text(
@@ -92,6 +92,67 @@ def show_error_text(
     error_object: Error = Error(error_type=error_type, error_message=error_message)
     error_text: str = error_object.show()
     return error_text
+
+
+def do_lists_have_same_length(
+    *,
+    list_matrix: list[list],
+) -> bool:
+
+    """Returns boolean variable that indicates wheter lists have same length or not. 
+
+    This function gets the matrix (list with lists inside) and stores length of first sublist as an etalon length. 
+    Then it compares lengths of other lists with etalon by **fail-fast pattern**. 
+    That means if one single length mismatch happened - **function returns False**. 
+    Finally function returns a boolean variable that indicates wheter lists have same length or not. 
+
+    **Args**:
+
+        **list_matrix**: **A matrix**. This is a list with sublists inside which lengths are comparing. 
+
+    **Returns**:
+
+        **A boolean variable** that indicates wheter lists have same length or not. 
+
+    **Raises**:
+
+        **IndexError**, if given matrix is empty. 
+        **TypeError**, if matrix doesn't contain iterables.  
+
+    **Examples**:
+
+        This function can be used for comparing lengths of vectors and not let adding vectors with different sizes. 
+
+        >>> do_lists_have_same_length(list_matrix=[[Decimal("0"), Decimal("0")], [Decimal("3"), Decimmal("4")]])
+        True
+
+        >>> do_lists_have_same_length(list_matrix=[[Decimal("0"), Decimal("0"), Decimal("0")], [Decimal("3"), Decimmal("4")]])
+        False
+
+        >>> do_lists_have_same_length(list_matrix=[])
+        Traceback (most recent call last):
+        IndexError: ...
+
+        >>> do_lists_have_same_length(list_matrix=[Decimal("3.14"), "<- IT IS PI! COMPARE IT! WAIT, WHY IS THERE ER..."])
+        Traceback (most recent call last):
+        TypeError: ...
+        
+    """
+
+    etalon_length: int = len(list_matrix[0])
+    current_length: int = 0
+
+    lists_have_same_length: bool = True
+
+    for list_object in list_matrix:
+        current_length: int = len(list_object)
+
+        current_length_and_etalon_length_are_not_equal_to_each_other: bool = current_length != etalon_length
+
+        if current_length_and_etalon_length_are_not_equal_to_each_other:
+            return False
+
+    return lists_have_same_length
 
 #endregion
 

@@ -3,11 +3,11 @@ from decimal import Decimal
 from System.config import DECIMAL_ARRAY_VALID_TYPE
 
 
-#region Incoming data validators
+#region System validators
 
 def can_string_array_be_turned_to_decimal_array(
     *,
-    string_array: list[str] | tuple[str, ...],
+    string_list: list[str],
     decimal_array_valid_type: tuple = DECIMAL_ARRAY_VALID_TYPE,
 ) -> bool:
 
@@ -47,22 +47,22 @@ def can_string_array_be_turned_to_decimal_array(
 
     """
 
-    string_array_is_empty: bool = not string_array
-    string_array_is_not_array: bool = not isinstance(string_array, decimal_array_valid_type)
+    string_array_is_empty: bool = not string_list
+    string_array_is_not_array: bool = not isinstance(string_list, decimal_array_valid_type)
 
     string_array_is_not_valid: bool = any([string_array_is_not_array, string_array_is_empty])
 
     if string_array_is_not_valid:
         return False
 
-    result: bool = True
+    string_array_can_be_turned_to_decimal_array: bool = True
 
-    for string in string_array:
+    for string in string_list:
         try:
             Decimal(string)
         except (TypeError, InvalidOperation):
             return False
 
-    return result
+    return string_array_can_be_turned_to_decimal_array
 
 #endregion
