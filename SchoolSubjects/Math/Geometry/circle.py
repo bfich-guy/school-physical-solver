@@ -1,13 +1,13 @@
 from decimal import Decimal
 
-from System.config import PI
+from System.config import MathConstants
 
 
 #region Circle area
 
 def get_circle_area_by_circle_radius(
     *,
-    pi: Decimal = PI,
+    pi: Decimal = MathConstants.PI.value,
     circle_radius: Decimal,
 ) -> Decimal:
 
@@ -21,7 +21,7 @@ def get_circle_area_by_circle_radius(
 
 def get_circumference_by_radius(
     *,
-    pi: Decimal = PI,
+    pi: Decimal = MathConstants.PI.value,
     circle_radius: Decimal,
 ) -> Decimal:
 

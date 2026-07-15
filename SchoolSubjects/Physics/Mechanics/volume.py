@@ -1,7 +1,5 @@
 from decimal import Decimal
 
-from System.config import GRAVITATIONAL_ACCELERATION
-
 
 #region General volume
 

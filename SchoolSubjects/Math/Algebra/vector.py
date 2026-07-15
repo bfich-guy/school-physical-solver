@@ -1,7 +1,9 @@
 from decimal import decimal
 
+from System.config import MathConstants
 
-#region Vectors
+
+#region Vector sum
 
 def get_vector_sum_by_vectors_coordinates(
     *,
@@ -17,6 +19,10 @@ def get_vector_sum_by_vectors_coordinates(
 
     return vector_sum
 
+#endregion
+
+
+#region Vector magnitude
 
 def get_vector_magnitude_by_delta_coordinates_sum(
     *,
@@ -32,6 +38,10 @@ def get_vector_magnitude_by_delta_coordinates_sum(
     vector_magnitude: Decimal = squared_vector_magnitude.sqrt()
     return vector_magnitude
 
+#endregion
+
+
+#region Vector dot product
 
 def get_vector_dot_product_by_vectors_coordinates(
     *,
@@ -45,6 +55,17 @@ def get_vector_dot_product_by_vectors_coordinates(
         coordinates_sum: Decimal = first_vector_coordinate * second_vector_coordinate
         vector_dot_product += coordinates_sum
 
+    return vector_dot_product
+
+
+def get_vector_dot_product_by_vectors_magnitudes_and_angle_cosinus(
+    *,
+    first_vector_magnitude: Decimal,
+    second_vector_magnitude: Decimal,
+    angle_cosinus: Decimal = MathConstants.DEFAULT_COSINUS.value,
+) -> Decimal:
+
+    vector_dot_product: Decimal = first_vector_magnitude * second_vector_magnitude * angle_cosinus
     return vector_dot_product
 
 #endregion

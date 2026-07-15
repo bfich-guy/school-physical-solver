@@ -17,13 +17,13 @@ def get_kinetic_energy_by_linear_momentum_and_linear_velocity(
 
 #region Potential energy
 
-def get_potential_energy_by_force_and_height(
+def get_potential_energy_by_conservative_force_and_lift_height(
     *,
-    force: Decimal,
-    height: Decimal,
+    conservative_force: Decimal,
+    lift_height: Decimal,
 ) -> Decimal:
 
-    potential_energy: Decimal = force * height
+    potential_energy: Decimal = conservative_force * lift_height
     return potential_energy
 
 #endregion

@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from System.config import DEFAULT_COSINUS_VALUE, DEFAULT_SINUS_VALUE
+from System.config import MathConstants
 
 
 #region Triangle area
@@ -19,7 +19,7 @@ def get_triangle_area_by_two_sides_and_angle_sinus(
     *,
     first_side: Decimal,
     second_side: Decimal,
-    angle_sinus: Decimal = DEFAULT_SINUS_VALUE,
+    angle_sinus: Decimal = MathConstants.DEFAULT_SINUS.value,
 ) -> Decimal:
 
     triangle_area: Decimal = (first_side * second_side * angle_sinus) / Decimal("2")
@@ -46,7 +46,7 @@ def get_triangle_third_side_by_cosine_theorem(
     *,
     first_side: Decimal,
     second_side: Decimal,
-    angle_cosinus: Decimal = DEFAULT_COSINUS_VALUE,
+    angle_cosinus: Decimal = MathConstants.DEFAULT_COSINUS.value,
 ) -> Decimal:
 
     triangle_third_side: Decimal = ((first_side ** Decimal("2")) + (second_side ** Decimal("2")) - (Decimal("2") * first_side * second_side * angle_cosinus)).sqrt()

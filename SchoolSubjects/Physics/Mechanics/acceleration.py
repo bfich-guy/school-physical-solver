@@ -61,18 +61,3 @@ def get_centripetal_acceleration_by_linear_and_angular_velocity(
     return centripetal_acceleration
 
 #endregion
-
-
-#region Gravitational acceleration
-
-def get_gravitational_acceleration_by_buoyant_force_and_fluid_density_and_submerged_volume(
-    *,
-    buoyant_force: Decimal,
-    fluid_density: Decimal,
-    submerged_volume: Decimal,
-) -> Decimal:
-
-    gravitational_acceleration: Decimal = buoyant_force / (fluid_density * submerged_volume)
-    return gravitational_acceleration
-
-#endregion

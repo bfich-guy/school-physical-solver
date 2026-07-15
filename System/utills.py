@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from System.config import DECIMAL_FORMAT_MODE
+from System.config import SystemConstants, ErrorTypes, ErrorMessages, TextConstants
 
 
 #region System utils
@@ -8,7 +8,7 @@ from System.config import DECIMAL_FORMAT_MODE
 def turn_string_list_to_decimal_list(
     *, 
     string_list: list[str],
-    decimal_format_mode: str = DECIMAL_FORMAT_MODE,
+    decimal_format_mode: str = SystemConstants.DECIMAL_FORMAT_MODE.value,
 ) -> list[Decimal]:
 
     """Returns list with only decimal numbers.
@@ -56,10 +56,10 @@ def turn_string_list_to_decimal_list(
     return decimal_list
 
 
-def show_error_text(
+def handle_error_and_get_error_text(
     *,
-    error_type: str = UNKNOWN_ERROR_TYPE,
-    error_message: str = UNKNOWN_ERROR_MESSAGE,
+    error_type: str = ErrorTypes.UNKNOWN_ERROR.value,
+    error_message: str = ErrorMessages.UNKNOWN_ERROR.value,
 ) -> str:
 
     """Returns an error text or text of the error itself is unknown.
@@ -81,16 +81,16 @@ def show_error_text(
 
         This function can be used to make error more readable for user. 
 
-        >>> show_error(error_type="MATH_ERROR", error_message="На ноль делить нельзя!")
+        >>> handle_error_and_get_error_text(error_type="MATH_ERROR", error_message="На ноль делить нельзя!")
         '[MATH_ERROR]: На ноль делить нельзя!'
 
-        >>> show_error(error_type=3.14, error_message="NUMBER PI!")
+        >>> handle_error_and_get_error_text(error_type=3.14, error_message="NUMBER PI!")
         '[3.14]: NUMBER PI!'
 
     """
 
     error_object: Error = Error(error_type=error_type, error_message=error_message)
-    error_text: str = error_object.show()
+    error_text: str = error_object.show()[1]
     return error_text
 
 
@@ -140,25 +140,14 @@ def do_lists_have_same_length(
     """
 
     etalon_length: int = len(list_matrix[0])
-    current_length: int = 0
 
-    lists_have_same_length: bool = True
-
-    for list_object in list_matrix:
-        current_length: int = len(list_object)
-
-        current_length_and_etalon_length_are_not_equal_to_each_other: bool = current_length != etalon_length
-
-        if current_length_and_etalon_length_are_not_equal_to_each_other:
-            return False
-
+    lists_have_same_length: bool = all(len(list_object) == etalon_length for list_object in list_matrix)
     return lists_have_same_length
 
-
-def clean_trailing_zeros(
+def clean_trailing_zeros_from_number(
     *,
-    number: Decimal,
-    decimal_format_mode: str = DECIMAL_FORMAT_MODE,
+    raw_number: Decimal,
+    decimal_format_mode: str = SystemConstants.DECIMAL_FORMAT_MODE.value,
 ) -> Decimal:
 
     """Returns a Decimal() number without trailing zeros.
@@ -184,16 +173,16 @@ def clean_trailing_zeros(
 
         This function can be used to make Decimal() number more readable for user. 
 
-        >>> clean_trailing_zeros(number=Decimal("3.14000"))
+        >>> clean_trailing_zeros_from_number(raw_number=Decimal("3.14000"))
         Decimal("3.14")
 
-        >>> clean_trailing_zeros(number=3.14)
+        >>> clean_trailing_zeros_from_number(raw_number=3.14)
         Traceback (most recent call last):
         TypeError: ...
 
     """
     
-    cleaned_number: Decimal = Decimal(format(number.normalize(), decimal_format_mode))
+    cleaned_number: Decimal = Decimal(format(raw_number.normalize(), decimal_format_mode))
     return cleaned_number
 
 #endregion
@@ -308,5 +297,59 @@ def get_delta_value(
 
     result: Decimal = end_value - start_value
     return result
+
+#endregion
+
+
+#region Text parsing utils
+
+def split_and_strip_string(
+    *,
+    raw_input_string: str,
+    split_string: str = TextConstants.COMMA.value,
+    strip_string: str = TextConstants.SPACE.value,
+) -> str:
+
+    """Returns a list with pure strings without spaces.
+
+    This function gets the raw input string and uses built-in string methods .split() and .strip().
+    At first function splits the text, then it strips substrings in list to clean it from spaces. 
+    Finally function returns the list where are pure strings. 
+
+    **Args**:
+
+        **raw_input_string**: **A string** that should be parsed. 
+        **split_string**: **A string** that is need to divide raw_input_string and has value ",".
+        **strip_string**: **A string** that is need to strip substrings in list and has value " ". 
+
+    **Returns**:
+
+        **A list of pure substrings** without spaces. 
+
+    **Raises**:
+
+        **AttributeError**, if argument raw_input_string is not a string. 
+    
+    **Examples**:
+
+        This function can be used for getting numbers from user for validation and further calculations.
+
+        >>> split_and_strip_string(raw_input_string="10, 20, 30")
+        ['10', '20', '30']
+
+        >>> split_and_strip_string(raw_input_string=3.14)
+        Traceback (most recent call last):
+        AttributeError: ...
+
+    """
+
+    raw_substring_list: list[str] = raw_input_string.split(split_string)
+    cleaned_text_list: list[str] = []
+
+    for raw_string in raw_substring_list:
+        cleaned_string: str = raw_string.strip(strip_string)
+        cleaned_text_list.append(cleaned_string)
+
+    return cleaned_text_list
 
 #endregion
