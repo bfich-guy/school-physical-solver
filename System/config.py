@@ -1,6 +1,7 @@
 from decimal import Decimal, DivisionByZero, InvalidOperation
 from enum import Enum
 
+
 #region Global constants
 
 class SystemConstants(Enum):
@@ -42,13 +43,12 @@ class ErrorMessages(Enum):
     NEGATIVE_ROOT = "Подкоренное выражение отрицательным быть не может!"
 
 
-class Error(Exception):
+class Error():
     def __init__(self, *, error_type: str, error_message: str) -> None:
-        super().__init__(error_type, error_message)
         self.error_type: str = error_type
         self.error_message: str = error_message
 
-    def show(self) -> str:
+    def show(self) -> tuple:
         error_data: tuple = (self.error_type, self.error_message)
         return error_data
 

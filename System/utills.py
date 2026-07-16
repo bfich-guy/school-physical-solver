@@ -144,6 +144,7 @@ def do_lists_have_same_length(
     lists_have_same_length: bool = all(len(list_object) == etalon_length for list_object in list_matrix)
     return lists_have_same_length
 
+
 def clean_trailing_zeros_from_number(
     *,
     raw_number: Decimal,
