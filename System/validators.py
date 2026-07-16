@@ -1,65 +1,65 @@
 from decimal import Decimal
 
-from System.config import DECIMAL_ARRAY_VALID_TYPE
+from System.config import SystemConstants
 
 
 #region System validators
 
-def can_string_list_be_turned_to_decimal_list(
+def can_iterable_object_be_turned_to_decimal_list(
     *,
-    string_list: list[str],
-    decimal_array_valid_type: tuple = DECIMAL_ARRAY_VALID_TYPE,
+    iterable_object: list[str] | tuple[str] | dict[str, str],
+    decimal_iterable_object_valid_type: tuple = SystemConstants.DECIMAL_ITERABLE_OBJECT_VALID_TYPE.value,
 ) -> bool:
 
-    """Checks whether all strings in the given list can be Decimal() numbers. 
+    """Checks whether all strings in the given iterable object can be Decimal() numbers. 
 
     This function uses **fail fast and early exit patterns**. 
-    That means if argument string_list is not a list at all or one single string can not be a Decimal(), **function returns False**. 
-    Finally it returns a boolean variable that indicates whether the list can be completely decimaled or not. 
+    That means if argument iterable_object is not an iterable object at all or one single string can not be a Decimal(), **function returns False**. 
+    Finally it returns a boolean variable that indicates whether the iterable object can be completely decimaled or not. 
 
     **Args**:
 
-        **string_list**: **A list** that can be filled by difference data types, not only strings. 
-        **decimal_array_valid_type**: **A tuple with types of arrays** that function supports: **list**. 
+        **iterable_object**: **An iterable object** that can be filled by difference data types, not only strings. 
+        **decimal_iterable_object_valid_type**: **A tuple with types of iterable objects** that function supports: **list, tuple**. 
 
     **Returns**:
         
-        **A boolean variable** that indicates whether the list can be completely decimaled or not. 
+        **A boolean variable** that indicates whether the iterable object can be completely decimaled or not. 
 
     **Examples**:
 
         This function can be used **to make sure user wrote a numbers, not words**. 
 
-        >>> can_string_list_be_turned_to_decimal_list(string_list=["3.14", "1.41", "2.72"])
+        >>> can_iterable_object_be_turned_to_decimal_list(iterable_object=["3.14", "1.41", "2.72"])
         True
 
-        >>> can_string_list_be_turned_to_decimal_list(string_list=[])
+        >>> can_iterable_object_be_turned_to_decimal_list(iterable_object=())
         False
 
-        >>> can_string_list_be_turned_to_decimal_list(string_list={"OK, empty list isn't valid. JUST DECIMAL PI RIGHT HERE ->": 3.14})
+        >>> can_iterable_object_be_turned_to_decimal_list(iterable_object={"JUST DECIMAL PI RIGHT HERE ->": "3.14"})
         False
 
-        >>> can_string_list_be_turned_to_decimal_list(string_list=["3.14", "DECIMAL IT! DON'T YOU SEE?!!!", "WAIT! WHY FUNCTION RET..."])
+        >>> can_iterable_object_be_turned_to_decimal_list(iterable_object=["3.14", "WAIT! WHY FUNCTION RET..."])
         False
 
     """
 
-    string_list_is_empty: bool = not string_list
-    string_list_is_not_list: bool = not isinstance(string_list, decimal_array_valid_type)
+    iterable_object_is_empty: bool = not iterable_object
+    iterable_object_is_not_iterable_object: bool = not isinstance(iterable_object, decimal_iterable_object_valid_type)
 
-    string_list_is_not_valid: bool = any([string_list_is_empty, string_list_is_not_list])
+    iterable_object_is_not_valid: bool = any([iterable_object_is_empty, iterable_object_is_not_iterable_object])
 
-    if string_list_is_not_valid:
+    if iterable_object_is_not_valid:
         return False
 
-    string_list_can_be_turned_to_decimal_list: bool = True
+    iterable_object_can_be_turned_to_decimal_list: bool = True
 
-    for string in string_list:
+    for string in iterable_object:
         try:
             Decimal(string)
         except (TypeError, InvalidOperation):
             return False
 
-    return string_list_can_be_turned_to_decimal_list
+    return iterable_object_can_be_turned_to_decimal_list
 
 #endregion

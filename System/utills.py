@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from System.config import SystemConstants, ErrorTypes, ErrorMessages, TextConstants
+from System.config import SystemConstants, ErrorTypes, ErrorMessages, TextCharacters
 
 
 #region System utils
@@ -65,8 +65,8 @@ def handle_error_and_get_error_text(
     """Returns an error text or text of the error itself is unknown.
     
     This function gets error type and message and creates an object of class Error().
-    Then it calls the error object's method .show(), what returns the error text. 
-    Finally function returns error text that error object returned. 
+    Then it calls the error object's method .show(), what returns the tuple (error_type, error_message). 
+    Finally function returns error message that error object returned. 
     
     **Args**:
     
@@ -75,23 +75,24 @@ def handle_error_and_get_error_text(
 
     **Returns**:
 
-        **A string** which is the error text. If non-string arguments are provided, they will be implicitly converted to strings. 
+        **A string** which is the error message. If non-string arguments are provided, they will be implicitly converted to strings. 
 
     **Examples**:
 
         This function can be used to make error more readable for user. 
 
         >>> handle_error_and_get_error_text(error_type="MATH_ERROR", error_message="На ноль делить нельзя!")
-        '[MATH_ERROR]: На ноль делить нельзя!'
+        'На ноль делить нельзя!'
 
         >>> handle_error_and_get_error_text(error_type=3.14, error_message="NUMBER PI!")
-        '[3.14]: NUMBER PI!'
+        'NUMBER PI!'
 
     """
 
     error_object: Error = Error(error_type=error_type, error_message=error_message)
-    error_text: str = error_object.show()[1]
-    return error_text
+    error_data: tuple[str, str] = error_object.show()
+    error_message: str = error_data[1]
+    return error_message
 
 
 def do_lists_have_same_length(
@@ -123,10 +124,10 @@ def do_lists_have_same_length(
 
         This function can be used for comparing lengths of vectors and not let adding vectors with different sizes. 
 
-        >>> do_lists_have_same_length(list_matrix=[[Decimal("0"), Decimal("0")], [Decimal("3"), Decimmal("4")]])
+        >>> do_lists_have_same_length(list_matrix=[[Decimal("0"), Decimal("0")], [Decimal("3"), Decimal("4")]])
         True
 
-        >>> do_lists_have_same_length(list_matrix=[[Decimal("0"), Decimal("0"), Decimal("0")], [Decimal("3"), Decimmal("4")]])
+        >>> do_lists_have_same_length(list_matrix=[[Decimal("0"), Decimal("0"), Decimal("0")], [Decimal("3"), Decimal("4")]])
         False
 
         >>> do_lists_have_same_length(list_matrix=[])
@@ -139,7 +140,8 @@ def do_lists_have_same_length(
         
     """
 
-    etalon_length: int = len(list_matrix[0])
+    first_list: list = list_matrix[0]
+    etalon_length: int = len(first_list)
 
     lists_have_same_length: bool = all(len(list_object) == etalon_length for list_object in list_matrix)
     return lists_have_same_length
@@ -307,8 +309,8 @@ def get_delta_value(
 def split_and_strip_string(
     *,
     raw_input_string: str,
-    split_string: str = TextConstants.COMMA.value,
-    strip_string: str = TextConstants.SPACE.value,
+    split_string: str = TextCharacters.COMMA.value,
+    strip_string: str = TextCharacters.SPACE.value,
 ) -> str:
 
     """Returns a list with pure strings without spaces.

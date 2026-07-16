@@ -5,7 +5,7 @@ from enum import Enum
 #region Global constants
 
 class SystemConstants(Enum):
-    DECIMAL_ARRAY_VALID_TYPE = (list,)
+    DECIMAL_ITERABLE_OBJECT_VALID_TYPE = (list, tuple)
     DECIMAL_FORMAT_MODE = "f"
 
 
@@ -20,9 +20,18 @@ class PhysicsConstants(Enum):
     GRAVITATIONAL_ACCELERATION = Decimal("10")
 
 
-class TextConstants(Enum):
+class TextCharacters(Enum):
     COMMA = ","
     SPACE = " "
+
+
+class ComparingMarks(Enum):
+    LESS = "<"
+    LESS_OR_EQUAL = "<="
+    EQUAL = "=="
+    GREATER_OR_EQUAL = ">="
+    GREATER = ">"
+    NOT_EQUAL = "!="
 
 #endregion
 
