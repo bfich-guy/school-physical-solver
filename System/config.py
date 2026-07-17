@@ -5,8 +5,9 @@ from enum import Enum
 #region Global constants
 
 class SystemConstants(Enum):
-    DECIMAL_ITERABLE_OBJECT_VALID_TYPE = (list, tuple)
+    DECIMAL_ITERABLE_OBJECT_VALID_TYPE = (list,)
     DECIMAL_FORMAT_MODE = "f"
+    MAX_INPUT_LENGTH = 32
 
 
 class MathConstants(Enum):

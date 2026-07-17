@@ -95,58 +95,6 @@ def handle_error_and_get_error_text(
     return error_message
 
 
-def do_lists_have_same_length(
-    *,
-    list_matrix: list[list],
-) -> bool:
-
-    """Returns boolean variable that indicates wheter lists have same length or not. 
-
-    This function gets the matrix (list with lists inside) and stores length of first sublist as an etalon length. 
-    Then it compares lengths of other lists with etalon by **fail-fast pattern**. 
-    That means if one single length mismatch happened, **function returns False**. 
-    Finally function returns a boolean variable that indicates wheter lists have same length or not. 
-
-    **Args**:
-
-        **list_matrix**: **A matrix**. This is a list with sublists inside which lengths are comparing. 
-
-    **Returns**:
-
-        **A boolean variable** that indicates wheter lists have same length or not. 
-
-    **Raises**:
-
-        **IndexError**, if given matrix is empty. 
-        **TypeError**, if matrix doesn't contain iterables.  
-
-    **Examples**:
-
-        This function can be used for comparing lengths of vectors and not let adding vectors with different sizes. 
-
-        >>> do_lists_have_same_length(list_matrix=[[Decimal("0"), Decimal("0")], [Decimal("3"), Decimal("4")]])
-        True
-
-        >>> do_lists_have_same_length(list_matrix=[[Decimal("0"), Decimal("0"), Decimal("0")], [Decimal("3"), Decimal("4")]])
-        False
-
-        >>> do_lists_have_same_length(list_matrix=[])
-        Traceback (most recent call last):
-        IndexError: ...
-
-        >>> do_lists_have_same_length(list_matrix=[Decimal("3.14"), "<- IT IS PI! COMPARE IT! WAIT, WHY IS THERE ER..."])
-        Traceback (most recent call last):
-        TypeError: ...
-        
-    """
-
-    first_list: list = list_matrix[0]
-    etalon_length: int = len(first_list)
-
-    lists_have_same_length: bool = all(len(list_object) == etalon_length for list_object in list_matrix)
-    return lists_have_same_length
-
-
 def clean_trailing_zeros_from_number(
     *,
     raw_number: Decimal,
@@ -306,7 +254,7 @@ def get_delta_value(
 
 #region Text parsing utils
 
-def split_and_strip_string(
+def split_and_strip_string_by_divider(
     *,
     raw_input_string: str,
     split_string: str = TextCharacters.COMMA.value,
@@ -337,10 +285,10 @@ def split_and_strip_string(
 
         This function can be used for getting numbers from user for validation and further calculations.
 
-        >>> split_and_strip_string(raw_input_string="10, 20, 30")
+        >>> split_and_strip_string_by_divider(raw_input_string="   10,   20, 30  ")
         ['10', '20', '30']
 
-        >>> split_and_strip_string(raw_input_string=3.14)
+        >>> split_and_strip_string_by_divider(raw_input_string=3.14)
         Traceback (most recent call last):
         AttributeError: ...
 
