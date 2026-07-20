@@ -1,6 +1,21 @@
 from decimal import Decimal
 
 
+#region General duration
+
+def get_general_duration_by_mechanic_work_and_mechanic_power(
+    *,
+    mechanic_work: Decimal,
+    mechanic_power: Decimal,
+) -> Decimal:
+
+    general_duration: Decimal = mechanic_work / mechanic_power
+    return general_duration
+
+
+#endregion
+
+
 #region Heating duration
 
 def get_heating_duration_by_joule_heat_and_electric_power(

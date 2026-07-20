@@ -61,3 +61,18 @@ def get_centripetal_acceleration_by_linear_and_angular_velocity(
     return centripetal_acceleration
 
 #endregion
+
+
+#region Gravitational acceleration
+
+def get_gravitational_acceleration_by_hydrostatic_pressure_and_general_density_and_fluid_height(
+    *,
+    hydrostatic_pressure: Decimal,
+    general_density: Decimal,
+    fluid_height: Decimal,
+) -> Decimal:
+
+    gravitational_acceleration: Decimal = hydrostatic_pressure / (general_density * fluid_height)
+    return gravitational_acceleration
+
+#endregion

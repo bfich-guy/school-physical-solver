@@ -1,6 +1,31 @@
 from decimal import Decimal
 
-from System.config import PhysicsConstants
+from System.config import MathConstants, PhysicsConstants
+
+
+#region General force
+
+def get_general_force_by_mechanic_work_and_general_distance_and_angle_cosinus(
+    *,
+    mechanic_work: Decimal,
+    general_distance: Decimal,
+    angle_cosinus: Decimal = MathConstants.DEFAULT_COSINUS.value,
+) -> Decimal:
+
+    general_force: Decimal = mechanic_work / (general_distance * angle_cosinus)
+    return general_force
+
+
+def get_general_force_by_mechanic_pressure_and_general_area(
+    *,
+    mechanic_pressure: Decimal,
+    general_area: Decimal,
+) -> Decimal:
+
+    general_force: Decimal = mechanic_pressure * general_area
+    return general_force
+
+#endregion
 
 
 #region Resultive force
@@ -55,5 +80,19 @@ def get_friction_force_by_friction_coefficient_and_normal_force(
 
     friction_force: Decimal = friction_coefficient * normal_force
     return friction_force
+
+#endregion
+
+
+#region Gravitational force
+
+def get_gravitational_force_by_potential_energy_and_lift_height(
+    *,
+    potential_energy: Decimal,
+    lift_height: Decimal,
+) -> Decimal:
+
+    gravitational_force: Decimal = potential_energy / lift_height
+    return gravitational_force
 
 #endregion
