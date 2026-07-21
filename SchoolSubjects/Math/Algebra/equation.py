@@ -1,9 +1,23 @@
 from decimal import Decimal
 
 
+#region Linear equation solving
+
+def solve_linear_equation(
+    *,
+    linear_coefficient: Decimal,
+    constant_term: Decimal,
+) -> Decimal:
+
+    root: Decimal = -constant_term / linear_coefficient
+    return root
+
+#endregion
+
+
 #region Quadratic equation solving
 
-def solve_quadratic_equation_by_discriminant(
+def solve_quadratic_equation(
     *,
     quadratic_coefficient: Decimal,
     linear_coefficient: Decimal,
@@ -19,10 +33,6 @@ def solve_quadratic_equation_by_discriminant(
     root_list: list[Decimal] = [root_1, root_2]
     return root_list
 
-#endregion
-
-
-#region Quadratic equation viet theorem
 
 def get_sum_and_product_of_quadratic_equation_roots_by_viet_theorem(
     *,
