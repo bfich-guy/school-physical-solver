@@ -46,6 +46,7 @@ class ErrorTypes(Enum):
 
     MATH_ERROR = "MATH_ERROR"
     LOGIC_ERROR = "LOGIC_ERROR"
+    INPUT_ERROR = "INPUT_ERROR"
 
 
 class ErrorMessages(Enum):
@@ -53,6 +54,7 @@ class ErrorMessages(Enum):
 
     ZERO_DIVISION = "На ноль делить нельзя!"
     NEGATIVE_ROOT = "Подкоренное выражение отрицательным быть не может!"
+    INCORRECT_INPUT = "На вход ожидалось одно число, не меньше и не больше!"
 
 
 class Error():

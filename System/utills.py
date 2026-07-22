@@ -31,7 +31,7 @@ def clean_trailing_zeros_from_decimal_number(
 
 #region Calculating utils
 
-def compare_two_numbers(
+def compare_two_numbers_and_get_result(
     *,
     number_1: Decimal,
     comparing_mark: str,
@@ -72,6 +72,11 @@ def get_decimal_numbers_list_from_raw_string(
     valid_characters: str = SystemConstants.VALID_DIGIT_CHARACTERS.value,
     number_divider_character: str = TextCharacters.DOT.value,
 ) -> list[Decimal]:
+
+    raw_string_does_not_have_valid_characters_at_all: bool = not any(character.isdigit() for character in raw_string)
+
+    if raw_string_does_not_have_valid_characters_at_all:
+        return []
 
     valid_character_index_list: list[int] = []
 
