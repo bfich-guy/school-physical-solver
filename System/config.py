@@ -8,6 +8,7 @@ class SystemConstants(Enum):
     DECIMAL_ITERABLE_OBJECT_VALID_TYPE = (list,)
     DECIMAL_FORMAT_MODE = "f"
     MAX_INPUT_LENGTH = 32
+    VALID_DIGIT_CHARACTERS = "0123456789-."
 
 
 class MathConstants(Enum):
@@ -24,6 +25,7 @@ class PhysicsConstants(Enum):
 class TextCharacters(Enum):
     COMMA = ","
     SPACE = " "
+    DOT = "."
 
 
 class ComparingMarks(Enum):
