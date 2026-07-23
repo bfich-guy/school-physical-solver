@@ -61,6 +61,81 @@ def get_delta_value_of_two_numbers(
     delta_value: Decimal = end_value - start_value
     return delta_value
 
+
+def get_fraction_and_mixed_number_from_decimal_number(
+    *,
+    decimal_number: Decimal,
+    fraction_divider: str = TextCharacters.DOT.value,
+    format_mode: str = SystemConstants.DECIMAL_FORMAT_MODE.value,
+) -> list[list[str]]:
+    
+    string_decimal_number: str = str(decimal_number)
+    integer_part, fraction_part = string_decimal_number.split(fraction_divider)
+    fraction_part_length: int = len(fraction_part)
+
+    fraction_part_length_dividers_list: list[int] = []
+
+    for number in range(1, fraction_part_length + 1):
+        fraction_part_length_is_divisible_integrity_by_number: bool = fraction_part_length % number == 0
+
+        if fraction_part_length_is_divisible_integrity_by_number:
+            fraction_part_length_dividers_list.append(number)
+
+    period_pattern_length: Decimal = Decimal("0")
+
+    for fraction_part_length_divider in fraction_part_length_dividers_list:
+        first_slice: str = fraction_part[0:fraction_part_length_divider]
+        second_slice: str = fraction_part[fraction_part_length_divider:2*fraction_part_length_divider]
+
+        period_pattern_is_broken: bool = first_slice != second_slice
+
+        if period_pattern_is_broken:
+            continue
+        else:
+            period_pattern_length: Decimal = Decimal(str(fraction_part_length_divider))
+            break
+
+    ten_to_the_power_of_period_pattern_length: Decimal = Decimal("10") ** period_pattern_length
+    multiplied_decimal_number: Decimal = Decimal(format((decimal_number * ten_to_the_power_of_period_pattern_length).normalize(), format_mode))
+    multiplied_decimal_number_integer_part, multiplied_decimal_number_fraction_part = str(multiplied_decimal_number).split(fraction_divider)
+  
+    fraction_numerator: str = multiplied_decimal_number_integer_part
+    fraction_denominator: str = str(ten_to_the_power_of_period_pattern_length - Decimal("1"))
+    fraction_list: list[str] = [fraction_numerator, fraction_denominator]
+    
+    mixed_number_integer_part: str = str(Decimal(fraction_numerator) // Decimal(fraction_denominator))
+    mixed_number_fraction_part_numerator: str = str(Decimal(fraction_numerator) - Decimal(mixed_number_integer_part) * Decimal(fraction_denominator))
+    mixed_number_fraction_part_denominator: str = fraction_denominator
+    mixed_number_list: list[str] = [mixed_number_integer_part, mixed_number_fraction_part_numerator, mixed_number_fraction_part_denominator]
+
+    fraction_matrix: list[list[str]] = [fraction_list, mixed_number_list]
+    return fraction_matrix
+
+
+def get_prime_multipliers_of_decimal_number(
+    *,
+    decimal_number: Decimal,
+) -> list[Decimal]:
+
+    prime_multipliers_list: list[Decimal] = []    
+
+    decimal_number_is_not_equal_to_one: bool = decimal_number != Decimal("1")
+    divisor: Decimal = Decimal("2")
+
+    while decimal_number_is_not_equal_to_one:
+        decimal_number_is_divisible_integrity_by_divisor: bool = decimal_number % divisor == Decimal("0")
+
+        if decimal_number_is_divisible_integrity_by_divisor:
+            decimal_number //= divisor
+            prime_multipliers_list.append(divisor)
+            divisor: Decimal = Decimal("2")
+        else:
+            divisor += Decimal("1")
+
+        decimal_number_is_not_equal_to_one: bool = decimal_number != Decimal("1")
+    
+    return prime_multipliers_list
+
 #endregion
 
 
@@ -72,11 +147,6 @@ def get_decimal_numbers_list_from_raw_string(
     valid_characters: str = SystemConstants.VALID_DIGIT_CHARACTERS.value,
     number_divider_character: str = TextCharacters.DOT.value,
 ) -> list[Decimal]:
-
-    raw_string_does_not_have_valid_characters_at_all: bool = not any(character.isdigit() for character in raw_string)
-
-    if raw_string_does_not_have_valid_characters_at_all:
-        return []
 
     valid_character_index_list: list[int] = []
 
