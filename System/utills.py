@@ -31,108 +31,63 @@ def clean_trailing_zeros_from_decimal_number(
 
 #region Calculating utils
 
-def compare_two_numbers_and_get_result(
-    *,
-    number_1: Decimal,
-    comparing_mark: str,
-    number_2: Decimal,
-) -> bool:
-
-    comparation_dict: dict[str, Callable[[], bool]] = {
-        "<": lambda: number_1 < number_2,
-        "<=": lambda: number_1 <= number_2,
-        "==": lambda: number_1 == number_2,
-        ">=": lambda: number_1 >= number_2,
-        ">": lambda: number_1 > number_2,
-        "!=": lambda: number_1 != number_2,
-    }
-
-    comparator_function: Callable[[], bool] = comparation_dict[comparing_mark]
-    result: bool = comparator_function()
-    return result
-
-
-def get_delta_value_of_two_numbers(
-    *,
-    end_value: Decimal,
-    start_value: Decimal,
-) -> Decimal:
-
-    delta_value: Decimal = end_value - start_value
-    return delta_value
-
-
 def get_fraction_and_mixed_number_from_decimal_number(
     *,
-    decimal_number: Decimal,
+    cleaned_decimal_number: Decimal,
     fraction_divider: str = TextCharacters.DOT.value,
-    format_mode: str = SystemConstants.DECIMAL_FORMAT_MODE.value,
 ) -> list[list[str]]:
     
-    string_decimal_number: str = str(decimal_number)
-    integer_part, fraction_part = string_decimal_number.split(fraction_divider)
-    fraction_part_length: int = len(fraction_part)
+    cleaned_decimal_number: Decimal = clean_trailing_zeros_from_decimal_number(raw_decimal_number=cleaned_decimal_number)
+    stringified_decimal_number: str = str(cleaned_decimal_number)
+    decimal_number_integer_part, decimal_number_fraction_part = stringified_decimal_number.split(fraction_divider)
 
-    fraction_part_length_dividers_list: list[int] = []
+    period_pattern_length: int = len(decimal_number_fraction_part)
+    stringified_period_pattern_length: str = str(period_pattern_length)
+    decimaled_period_pattern_length: Decimal = Decimal(stringified_period_pattern_length)
+    ten_to_the_power_of_decimaled_period_pattern_length: Decimal = Decimal("10") ** decimaled_period_pattern_length
 
-    for number in range(1, fraction_part_length + 1):
-        fraction_part_length_is_divisible_integrity_by_number: bool = fraction_part_length % number == 0
+    raw_multiplied_decimal_number: Decimal = cleaned_decimal_number * (ten_to_the_power_of_decimaled_period_pattern_length + Decimal("1"))
+    cleaned_multiplied_decimal_number: Decimal = clean_trailing_zeros_from_decimal_number(raw_decimal_number=raw_multiplied_decimal_number)
+    raw_delta_decimal_number: Decimal = cleaned_multiplied_decimal_number - cleaned_decimal_number
+    cleaned_delta_decimal_number: Decimal = clean_trailing_zeros_from_decimal_number(raw_decimal_number=raw_delta_decimal_number)
 
-        if fraction_part_length_is_divisible_integrity_by_number:
-            fraction_part_length_dividers_list.append(number)
+    cleaned_improrer_fraction_numerator: Decimal = cleaned_delta_decimal_number
+    cleaned_improrer_fraction_denominator: Decimal = ten_to_the_power_of_decimaled_period_pattern_length - Decimal("1")
+    improrer_fraction_list: list[Decimal] = [cleaned_improrer_fraction_numerator, cleaned_improrer_fraction_denominator]
 
-    period_pattern_length: Decimal = Decimal("0")
-
-    for fraction_part_length_divider in fraction_part_length_dividers_list:
-        first_slice: str = fraction_part[0:fraction_part_length_divider]
-        second_slice: str = fraction_part[fraction_part_length_divider:2*fraction_part_length_divider]
-
-        period_pattern_is_broken: bool = first_slice != second_slice
-
-        if period_pattern_is_broken:
-            continue
-        else:
-            period_pattern_length: Decimal = Decimal(str(fraction_part_length_divider))
-            break
-
-    ten_to_the_power_of_period_pattern_length: Decimal = Decimal("10") ** period_pattern_length
-    multiplied_decimal_number: Decimal = Decimal(format((decimal_number * ten_to_the_power_of_period_pattern_length).normalize(), format_mode))
-    multiplied_decimal_number_integer_part, multiplied_decimal_number_fraction_part = str(multiplied_decimal_number).split(fraction_divider)
-  
-    fraction_numerator: str = multiplied_decimal_number_integer_part
-    fraction_denominator: str = str(ten_to_the_power_of_period_pattern_length - Decimal("1"))
-    fraction_list: list[str] = [fraction_numerator, fraction_denominator]
+    raw_mixed_number_integer_part: Decimal = cleaned_improrer_fraction_numerator // cleaned_improrer_fraction_denominator
+    cleaned_mixed_number_integer_part: Decimal = clean_trailing_zeros_from_decimal_number(raw_decimal_number=raw_mixed_number_integer_part)
+    raw_mixed_number_fraction_part_numerator: Decimal = cleaned_improrer_fraction_numerator - (cleaned_mixed_number_integer_part * cleaned_improrer_fraction_denominator)
+    cleaned_mixed_number_fraction_part_numerator: Decimal = clean_trailing_zeros_from_decimal_number(raw_decimal_number=raw_mixed_number_fraction_part_numerator)
+    cleaned_mixed_number_denominator: Decimal = cleaned_improrer_fraction_denominator
+    mixed_number_list: list[Decimal] = [cleaned_mixed_number_integer_part, cleaned_mixed_number_fraction_part_numerator, cleaned_mixed_number_denominator]
     
-    mixed_number_integer_part: str = str(Decimal(fraction_numerator) // Decimal(fraction_denominator))
-    mixed_number_fraction_part_numerator: str = str(Decimal(fraction_numerator) - Decimal(mixed_number_integer_part) * Decimal(fraction_denominator))
-    mixed_number_fraction_part_denominator: str = fraction_denominator
-    mixed_number_list: list[str] = [mixed_number_integer_part, mixed_number_fraction_part_numerator, mixed_number_fraction_part_denominator]
-
-    fraction_matrix: list[list[str]] = [fraction_list, mixed_number_list]
-    return fraction_matrix
+    fraction_and_mixed_number_matrix: list[list[Decimal]] = [improrer_fraction_list, mixed_number_list]
+    return fraction_and_mixed_number_matrix
 
 
 def get_prime_multipliers_of_decimal_number(
     *,
-    decimal_number: Decimal,
+    raw_decimal_number: Decimal,
 ) -> list[Decimal]:
 
+    cleaned_decimal_number: Decimal = clean_trailing_zeros_from_decimal_number(raw_decimal_number=raw_decimal_number)
     prime_multipliers_list: list[Decimal] = []    
-
-    decimal_number_is_not_equal_to_one: bool = decimal_number != Decimal("1")
     divisor: Decimal = Decimal("2")
 
-    while decimal_number_is_not_equal_to_one:
-        decimal_number_is_divisible_integrity_by_divisor: bool = decimal_number % divisor == Decimal("0")
+    cleaned_decimal_number_is_not_equal_to_one: bool = cleaned_decimal_number != Decimal("1")
+
+    while cleaned_decimal_number_is_not_equal_to_one:
+        decimal_number_is_divisible_integrity_by_divisor: bool = cleaned_decimal_number % divisor == Decimal("0")
 
         if decimal_number_is_divisible_integrity_by_divisor:
-            decimal_number //= divisor
+            cleaned_decimal_number //= divisor
             prime_multipliers_list.append(divisor)
             divisor: Decimal = Decimal("2")
         else:
             divisor += Decimal("1")
 
-        decimal_number_is_not_equal_to_one: bool = decimal_number != Decimal("1")
+        cleaned_decimal_number_is_not_equal_to_one: bool = cleaned_decimal_number != Decimal("1")
     
     return prime_multipliers_list
 
@@ -213,8 +168,8 @@ def get_decimal_numbers_list_from_raw_string(
 
     for cleaned_number in cleaned_number_list:
         try:
-            decimal_number: Decimal = Decimal(cleaned_number)
-            decimal_number_list.append(decimal_number)
+            cleaned_decimal_number: Decimal = Decimal(cleaned_number)
+            decimal_number_list.append(cleaned_decimal_number)
         except InvalidOperation:
             continue
 
