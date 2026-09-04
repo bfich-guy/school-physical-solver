@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Математика | Физмат-калькулятор - научный калькулятор для школы по физике и математике
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/subjects.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/subjectsections.css') }}">
+    </head>
+    <body>
+        <header>
+            <div class="solver-header-background">
+                <div class="solver-inline-menu">
+                    <a href="/aboutus" class="solver-inline-menu-button">
+                        О нас
+                    </a>
+                    <a href="/" class="solver-inline-menu-button">
+                        Главная
+                    </a>
+                    <a href="/faq" class="solver-inline-menu-button">
+                        Помощь 
+                    </a>                 
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="solver-classic-background">
+                <p class="solver-title">
+                    Математика
+                </p>
+                <p class="solver-main-text">
+                    Приветствуем Вас на странице математики!
+                    Здесь Вы можете выбрать разделы данной науки: алгебра, геометрия и ТВиС.
+                    Физмат-калькулятор с удовольствием посчитает вам все, что нужно.
+                    Корни квадратного уравнения через дискриминант для него завтрак.
+                    Площадь треугольника через синус найдет одной левой.
+                    Вероятность выпадения орла предскажет как погоду.
+                </p>
+            </div>
+            <div class="solver-logo-background">
+                <div class="subjects-sections-grid">
+                    <div class="subject-section-card">
+                        <p class="subject-section-title">
+                            Алгебра
+                        </p>
+                        <a href="math/algebra" class="subject-section-redirect-button">
+                            Перейти
+                        </a>                        
+                    </div>
+                    <div class="subject-section-card">
+                        <p class="subject-section-title">
+                            Геометрия
+                        </p>
+                        <a href="math/geometry" class="subject-section-redirect-button">
+                            Перейти
+                        </a>                        
+                    </div>
+                    <div class="subject-section-card">
+                        <p class="subject-section-title">
+                            ТВиС
+                        </p>
+                        <a href="math/probstats" class="subject-section-redirect-button">
+                            Перейти
+                        </a>                        
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="solver-footer-background">
+                <p class="solver-footer-text">
+                    Вы можете найти информацию про «Физмат-калькулятор» на странице «О нас».
+                    Если же Вам требуется подсказка для использования сайта - переходите на страницу «Помощь».
+                </p>
+                <p class="solver-footer-text">
+                    «Физмат-калькулятор». Все расчеты верны.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

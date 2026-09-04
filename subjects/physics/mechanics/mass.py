@@ -41,10 +41,11 @@ def get_object_mass_by_sensible_heat_and_specific_heat_and_delta_temperature(
     *,
     sensible_heat: Decimal,
     specific_heat: Decimal,
-    delta_temperature: Decimal,
+    end_temperature: Decimal,
+    start_temperature: Decimal,
 ) -> Decimal:
 
-    object_mass: Decimal = sensible_heat / (specific_heat * delta_temperature)
+    object_mass: Decimal = sensible_heat / (specific_heat * (end_temperature - start_temperature))
     return object_mass
 
 

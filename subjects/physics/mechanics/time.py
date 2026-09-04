@@ -42,3 +42,17 @@ def get_motion_duration_by_general_distance_and_general_velocity(
     return motion_duration
 
 #endregion
+
+
+#region Delta duration
+
+def get_delta_duration_by_delta_velocity_and_linear_acceleration(
+    *,
+    delta_velocity: Decimal,
+    linear_acceleration: Decimal,
+) -> Decimal:
+
+    delta_duration: Decimal = delta_velocity / linear_acceleration
+    return delta_duration
+
+#endregion

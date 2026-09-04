@@ -1,0 +1,31 @@
+.tasks-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 4% 4% 4% 4%;
+    padding-bottom: 4%;
+}
+
+.tasks-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-left: 8%;
+}
+
+.task-redirect-button {
+    background: none;
+    border: none;
+    color: blue;
+    font-size: 32px;
+    font-family: 'Franklin Gothic Medium';
+    align-self: center;
+    padding-bottom: 16px;
+    text-decoration: none;
+}
+
+.task-redirect-button:hover {
+    cursor: pointer;
+    color: darkviolet;
+    scale: 1.2;
+    transition: 1s;
+}

@@ -1,0 +1,60 @@
+/* Subjects */
+
+.subjects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16%;
+    padding: 64px;
+}
+
+.subject-title {
+    color: black;
+    font: bold 64px 'Franklin Gothic Medium';
+    text-align: center;
+    text-shadow: gray 4px 4px;
+}
+
+.subject-card {
+    display: flex;
+    flex-direction: column;
+    border: 8px solid white;
+    border-radius: 16px;
+    justify-content: center;
+}
+
+.subject-redirect-button {
+    background: none;
+    border: none;
+    color: black;
+    text-shadow: gray 4px 4px;
+    font-size: 32px;
+    font-family: 'Franklin Gothic Medium';
+    align-self: center;
+    text-decoration: none;
+}
+
+.subject-redirect-button:hover {
+    cursor: pointer;
+    scale: 1.2;
+    transition: 1s;
+}
+
+
+/* Images */
+
+.subject-background-image {
+    width: 100%;
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.physics-image {
+    background-image: url("/static/images/physics_background.png");
+}
+
+.math-image {
+    background-image: url("/static/images/math_background.png");
+}

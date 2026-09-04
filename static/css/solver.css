@@ -1,0 +1,100 @@
+/* Background */
+
+.solver-header-background {
+    width: 100%;
+    height: 16vh;
+
+    background-image: url("/static/images/school_physmath_solver_logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+    background-attachment: fixed;
+}
+
+.solver-main-background {
+    background-color: white;
+    border-left: 4px dashed black;
+    border-right: 4px dashed black;
+}
+
+.solver-footer-background {
+    background-color: lightgray;
+    border-top: 4px solid gray;
+    border-bottom: 4px solid gray;
+}
+
+.solver-logo-background {
+    width: 100%;
+    height: 100%;
+
+    background-image: url("/static/images/school_physmath_solver_logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+    background-attachment: fixed;
+}
+
+.solver-math-background {
+    width: 100%;
+    height: 100%;
+
+    background-image: url("/static/images/math_background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+    background-attachment: fixed;  
+}
+
+
+/* Text */
+
+.solver-title {
+    color: black;
+    font-size: 32px;
+    font-family: 'Franklin Gothic Medium';
+    text-align: center;
+}
+
+.solver-main-text {
+    color: black;
+    font-size: 32px;
+    font-family: 'Franklin Gothic Medium';
+    text-align: center;
+    margin: 64px 64px;
+}
+
+.solver-footer-text {
+    color: gray;
+    font-family: 'Franklin Gothic Medium';
+    font-size: 32px;
+    text-align: center;
+    margin: 64px 64px;
+}
+
+
+/* Menu */
+
+.solver-inline-menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    gap: 16%;
+    padding: 2% 2%;
+}
+
+.solver-inline-menu-button {
+    background: none;
+    border: none;
+    color: white;
+    text-shadow: gray 4px 4px;
+    font-size: 32px;
+    font-family: 'Franklin Gothic Medium';
+    align-self: center;
+    text-decoration: none;
+}
+
+.solver-inline-menu-button:hover {
+    cursor: pointer;
+    scale: 1.2;
+    transition: 1s;
+}

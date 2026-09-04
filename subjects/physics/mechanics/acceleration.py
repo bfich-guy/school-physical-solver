@@ -17,13 +17,13 @@ def get_general_acceleration_by_resultant_force_and_object_mass(
 
 #region Linear acceleration
 
-def get_linear_acceleration_by_delta_speed_and_delta_time(
+def get_linear_acceleration_by_delta_velocity_and_delta_duration(
     *,
-    delta_speed: Decimal,
-    delta_time: Decimal,
+    delta_velocity: Decimal,
+    delta_duration: Decimal,
 ) -> Decimal:
 
-    linear_acceleration: Decimal = delta_speed / delta_time
+    linear_acceleration: Decimal = delta_velocity / delta_duration
     return linear_acceleration
 
 #endregion

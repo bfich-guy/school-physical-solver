@@ -3,14 +3,14 @@ from decimal import Decimal
 
 #region Electromotive force
 
-def get_electromotive_force_by_general_voltage_and_general_current_and_internal_resistance(
+def get_electromotive_force_by_general_voltage_and_general_current_and_electric_internal_resistance(
     *,
-    general_voltage: Decimal,
-    general_current: Decimal,
-    internal_resistance: Decimal,
+    electric_voltage: Decimal,
+    electric_current: Decimal,
+    electric_internal_resistance: Decimal,
 ) -> Decimal:
 
-    electromotive_force: Decimal = general_voltage + (general_current * internal_resistance)
+    electromotive_force: Decimal = electric_voltage + (electric_current * electric_internal_resistance)
     return electromotive_force
 
 #endregion

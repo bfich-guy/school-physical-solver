@@ -1,36 +1,36 @@
 from decimal import Decimal
 
 
-#region General voltage
+#region Electric voltage
 
-def get_general_voltage_by_general_current_and_electric_power(
+def get_electric_voltage_by_electric_current_and_electric_power(
     *,
-    general_current: Decimal,
+    electric_current: Decimal,
     electric_power: Decimal,
 ) -> Decimal:
 
-    general_voltage: Decimal = electric_power / general_current
-    return general_voltage
+    electric_voltage: Decimal = electric_power / electric_current
+    return electric_voltage
 
 
-def get_general_voltage_by_general_current_and_general_resistance(
+def get_electric_voltage_by_electric_current_and_electric_external_resistance(
     *,
-    general_current: Decimal,
-    general_resistance: Decimal,
+    electric_current: Decimal,
+    electric_external_resistance: Decimal,
 ) -> Decimal:
 
-    general_voltage: Decimal = general_current * general_resistance
-    return general_voltage
+    electric_voltage: Decimal = electric_current * electric_external_resistance
+    return electric_voltage
 
 
-def get_general_voltage_by_electromotive_force_and_general_current_and_internal_resistance(
+def get_electric_voltage_by_electromotive_force_and_electric_current_and_electric_external_resistance(
     *,
     electromotive_force: Decimal,
-    general_current: Decimal,
-    internal_resistance: Decimal,
+    electric_current: Decimal,
+    electric_internal_resistance: Decimal,
 ) -> Decimal:
 
-    general_voltage: Decimal = electromotive_force - (general_current * internal_resistance)
-    return general_voltage
+    electric_voltage: Decimal = electromotive_force - (electric_current * electric_internal_resistance)
+    return electric_voltage
 
 #endregion

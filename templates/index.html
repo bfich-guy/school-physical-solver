@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Физмат-калькулятор - научный калькулятор для школы по физике и математике
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/subjects.css') }}">
+    </head>
+    <body>
+        <header>
+            <div class="solver-header-background">
+                <div class="solver-header-background">
+                    <div class="solver-inline-menu">
+                        <a href="/aboutus" class="solver-inline-menu-button">
+                            О нас
+                        </a>
+                        <a href="/faq" class="solver-inline-menu-button">
+                            Помощь 
+                        </a>                 
+                    </div>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="solver-main-background">
+                <p class="solver-title">
+                    ФИЗМАТ-КАЛЬКУЛЯТОР
+                </p>
+                <p class="solver-main-text">
+                    Физмат-калькулятор - это сайт, созданный для быстрых вычислений школьных формул из учебников.
+                    Он предназначен для экономии времени и высокой производительности на уроке.
+                    В отличии от обычного калькулятора, он не падает от деления на ноль или некорректного ввода.
+                    Его преимущество против нейросетей заключается в скорости и точности вычислений.
+                </p>
+                <p class="solver-main-text">
+                    Физмат-калькулятор может быть использован для решения задач прямо на уроке.
+                    С помощью него учитель сможет подготовить учеников к контрольной или экзаменам.
+                    Он предлагает пользователю интерактивное учебное пособие в сопровождении школьной программы.
+                    Им могут пользоваться учителя, ученики или просто интересующиеся люди.
+                </p>
+            </div>
+            <div class="solver-logo-background">
+                <div class="subjects-grid">
+                    <div class="subject-card subject-background-image physics-image">
+                        <p class="subject-title">
+                            Физика
+                        </p>
+                        <a href="/physics" class="subject-redirect-button">
+                            Перейти
+                        </a>
+                    </div>
+                    <div class="subject-card subject-background-image math-image">
+                        <p class="subject-title">
+                            Математика
+                        </p>
+                        <a href="/math" class="subject-redirect-button">
+                            Перейти
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="solver-footer-background">
+                <p class="solver-footer-text">
+                    «Я написал этот проект, потому что я верю в автоматизацию образования.
+                    Прошло то время, когда знания были доступны только из книг.
+                    Теперь школьников нужно учить быть производительными, а не послушными.»
+                </p>
+                <p class="solver-footer-text">
+                    «Физмат-калькулятор». Все расчеты верны.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

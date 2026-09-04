@@ -1,7 +1,7 @@
 from decimal import Decimal
 
 
-#region Momentum
+#region Linear momentum
 
 def get_linear_momentum_by_object_mass_and_linear_velocity(
     *,

@@ -1,29 +1,16 @@
 from decimal import Decimal
 
 
-#region Triangle height
+#region Trapezoidal figure base (triangle, parallelogram, trapezoid)
 
-def get_triangle_height_by_triangle_area_and_triangle_base(
+def get_trapezoidal_figure_height_by_trapezoidal_figure_area_and_trapezoidal_figure_upper_base_and_trapezoidal_figure_lower_base(
     *,
-    triangle_area: Decimal,
-    triangle_base: Decimal,
+    trapezoidal_figure_area: Decimal,
+    trapezoidal_figure_upper_base: Decimal,
+    trapezoidal_figure_lower_base: Decimal,
 ) -> Decimal:
 
-    triangle_height: Decimal = (Decimal("2") * triangle_area) / triangle_base
-    return triangle_height
-
-#endregion
-
-
-#region Parallelogram height
-
-def get_paralellogram_height_by_parallelogram_area_and_parallelogram_base(
-    *,
-    parallelogram_area: Decimal,
-    parallelogram_base: Decimal,
-) -> Decimal:
-
-    paralellogram_height: Decimal = parallelogram_area / parallelogram_base
-    return paralellogram_height
+    trapezoidal_figure_height: Decimal = (Decimal("2") * trapezoidal_figure_area) / (trapezoidal_figure_upper_base + trapezoidal_figure_lower_base)
+    return trapezoidal_figure_height
 
 #endregion

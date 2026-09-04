@@ -1,7 +1,7 @@
 from decimal import Decimal
 
 
-#region Polygon area
+#region Polygon perimeter
 
 def get_general_polygon_perimeter_by_sides(
     *,
@@ -16,7 +16,7 @@ def get_general_polygon_perimeter_by_sides(
 
 #region Circumference
 
-def get_circumference_by_radius(
+def get_circumference_by_circle_radius(
     *,
     pi: Decimal,
     circle_radius: Decimal,

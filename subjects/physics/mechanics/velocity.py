@@ -61,3 +61,17 @@ def get_angular_velocity_by_linear_velocity_and_radius(
     return angular_velocity
 
 #endregion
+
+
+#region Delta velocity
+
+def get_delta_velocity_by_linear_acceleration_and_delta_duration(
+    *,
+    linear_acceleration: Decimal,
+    delta_duration: Decimal,
+) -> Decimal:
+
+    delta_velocity: Decimal = linear_acceleration * delta_duration
+    return delta_velocity
+
+#endregion

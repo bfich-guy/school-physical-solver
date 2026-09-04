@@ -1,0 +1,38 @@
+.subjects-sections-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16%;
+    padding: 64px;
+}
+
+.subject-section-title {
+    color: black;
+    font: bold 32px 'Franklin Gothic Medium';
+    text-align: center;
+}
+
+.subject-section-card {
+    display: flex;
+    flex-direction: column;
+    border: 8px solid black;
+    border-radius: 16px;
+    justify-content: center;
+    background-color: white;
+}
+
+.subject-section-redirect-button {
+    background: none;
+    border: none;
+    color: black;
+    font-size: 32px;
+    font-family: 'Franklin Gothic Medium';
+    align-self: center;
+    padding-bottom: 16px;
+    text-decoration: none;
+}
+
+.subject-section-redirect-button:hover {
+    cursor: pointer;
+    scale: 1.2;
+    transition: 1s;
+}

@@ -1,0 +1,27 @@
+.aboutus-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 4% 4% 4% 4%;
+}
+
+.aboutus-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.aboutus-title {
+    color: black;
+    font: bold 32px 'Franklin Gothic Medium';
+    text-align: center;
+}
+
+.aboutus-text {
+    color: black;
+    font: bold 32px 'Franklin Gothic Medium';
+    text-align: center;
+    margin-top: 8px;
+    margin-right: 64px;
+    margin-bottom: 64px;
+    margin-left: 64px;
+}

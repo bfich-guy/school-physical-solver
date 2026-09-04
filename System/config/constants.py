@@ -30,5 +30,4 @@ class TextCharacters(Enum):
     SPACE = " "
     DOT = "."
 
-
 #endregion

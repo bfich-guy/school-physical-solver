@@ -22,7 +22,7 @@ def get_specific_heat_by_sensible_heat_and_object_mass_and_delta_temperature(
     *,
     sensible_heat: Decimal,
     object_mass: Decimal,
-    delta_temperature: Decimal,
+    delta_temperature: Decimal
 ) -> Decimal:
 
     specific_heat: Decimal = sensible_heat / (object_mass * delta_temperature)

@@ -3,13 +3,13 @@ from decimal import Decimal
 
 #region Electric power
 
-def get_electric_power_by_general_voltage_and_general_current(
+def get_electric_power_by_electric_voltage_and_electric_current(
     *,
-    general_voltage: Decimal,
-    general_current: Decimal,
+    electric_voltage: Decimal,
+    electric_current: Decimal,
 ) -> Decimal:
 
-    electric_power: Decimal = general_voltage * general_current
+    electric_power: Decimal = electric_voltage * electric_current
     return electric_power
 
 
