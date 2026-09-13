@@ -3,24 +3,35 @@ from fastapi import FastAPI, APIRouter
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
-from config.system import Folders
-from config.server import Mounts
+from system.config.system import Folders
+from system.config.server import Mounts
 
-from utils.server import include_routers
+from system.utils.server import include_routers
 
-from routers.index import index_router
-from routers.aboutus import aboutus_router
+from routers.templates.index import index_router
+from routers.templates.aboutus import aboutus_router
 
-from routers.math import math_router
-from routers.physics import physics_router
+from routers.templates.math import math_router
+from routers.templates.physics import physics_router
 
-from routers.mathfolder.algebra import algebra_router
-from routers.mathfolder.geometry import geometry_router
-from routers.mathfolder.probstats import probstats_router
+from routers.templates.mathfolder.algebra import algebra_router
+from routers.templates.mathfolder.geometry import geometry_router
+from routers.templates.mathfolder.probstats import probstats_router
 
-from routers.physicsfolder.electromagnetics import electromagnetics_router
-from routers.physicsfolder.mechanics import mechanics_router
-from routers.physicsfolder.thermodynamics import thermodynamics_router
+from routers.templates.physicsfolder.electromagnetics import electromagnetics_router
+from routers.templates.physicsfolder.mechanics import mechanics_router
+from routers.templates.physicsfolder.thermodynamics import thermodynamics_router
+
+from routers.templates.mathfolder.algebrafolder.equations import equations_router
+from routers.templates.mathfolder.algebrafolder.functions import functions_router
+from routers.templates.mathfolder.algebrafolder.progressions import progressions_router
+from routers.templates.mathfolder.algebrafolder.vectors import vectors_router
+
+from routers.templates.mathfolder.geometryfolder.circles import circles_router
+from routers.templates.mathfolder.geometryfolder.parallelograms import parallelograms_router
+from routers.templates.mathfolder.geometryfolder.polygons import polygons_router
+from routers.templates.mathfolder.geometryfolder.trapezoids import trapezoids_router
+from routers.templates.mathfolder.geometryfolder.triangles import triangles_router
 
 app = FastAPI()
 
@@ -29,7 +40,7 @@ origins_list: list[str] = [
     "http://localhost:8000",
     "http://127.0.0.1:8000",
     "http://localhost:3000",
-    "https://dachnik-velikie-luki.vercel.app",
+    "https://school-physmath-solver.vercel.app",
 ]
 
 app.add_middleware(
@@ -54,6 +65,17 @@ routers_list: list[APIRouter] = [
     electromagnetics_router,
     mechanics_router,
     thermodynamics_router,
+
+    functions_router,
+    equations_router,
+    progressions_router,
+    vectors_router,
+
+    circles_router,
+    parallelograms_router,
+    polygons_router,
+    trapezoids_router,
+    triangles_router,
 ]
 
 include_routers(

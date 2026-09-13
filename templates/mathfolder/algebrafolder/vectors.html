@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Векторы | Физмат-калькулятор
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/formulas.css') }}">
+        <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
+    </head>
+    <body>
+        <header>
+            <div class="solver-header-background">
+                <div class="solver-inline-menu">
+                    <a href="/aboutus" class="solver-inline-menu-button">
+                        О нас
+                    </a>
+                    <a href="/math/algebra" class="solver-inline-menu-button">
+                        Алгебра
+                    </a>
+                    <a href="/faq" class="solver-inline-menu-button">
+                        Помощь 
+                    </a>                 
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Длина вектора
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Длина n-мерного вектора через координаты
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>|a|</mi>
+                                <mo>=</mo>
+                                <msqrt>
+                                    <msup>
+                                        <msub>
+                                            <mi>Δx</mi>
+                                            <mn>1</mn>
+                                        </msub>
+                                        <mn>2</mn>
+                                    </msup>
+                                    <mo>+</mo>
+                                    <msup>
+                                        <msub>
+                                            <mi>Δx</mi>
+                                            <mn>2</mn>
+                                        </msub>
+                                        <mn>2</mn>
+                                    </msup>
+                                    <mo>+</mo>
+                                    <mo>...</mo>
+                                    <mo>+</mo>
+                                    <msup>
+                                        <msub>
+                                            <mi>Δx</mi>
+                                            <mi>n</mi>
+                                        </msub>
+                                        <mn>2</mn>
+                                    </msup>
+                                </msqrt>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Координаты вектора">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Длина вектора через скалярное произведение
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>|a|</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>|a|</mi>
+                                        <mi>|b|</mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi>cos</mi>
+                                        <mo>(</mo>
+                                        <mi>a</mi>
+                                        <mo>)</mo>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Скалярное произведение">
+                        <input class="formula-input" type="text" placeholder="Магнитуда вектора">
+                        <input class="formula-input" type="text" placeholder="Косинус угла">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="solver-footer-background">
+                <p class="solver-footer-text">
+                    Вы можете найти информацию про «Физмат-калькулятор» на странице «О нас».
+                    Если же Вам требуется подсказка для использования сайта - переходите на страницу «Помощь».
+                </p>
+                <p class="solver-footer-text">
+                    «Физмат-калькулятор». Все расчеты верны.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

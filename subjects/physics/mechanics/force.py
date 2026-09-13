@@ -3,14 +3,14 @@ from decimal import Decimal
 
 #region General force
 
-def get_general_force_by_mechanic_work_and_general_distance_and_angle_cosinus(
+def get_general_force_by_mechanical_work_and_general_distance_and_angle_cosinus(
     *,
-    mechanic_work: Decimal,
+    mechanical_work: Decimal,
     general_distance: Decimal,
     angle_cosinus: Decimal,
 ) -> Decimal:
 
-    general_force: Decimal = mechanic_work / (general_distance * angle_cosinus)
+    general_force: Decimal = mechanical_work / (general_distance * angle_cosinus)
     return general_force
 
 

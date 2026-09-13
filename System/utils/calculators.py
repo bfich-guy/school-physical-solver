@@ -1,4 +1,7 @@
-from decimal import Decimal
+from decimal import Decimal, DivisionByZero, InvalidOperation
+from typing import Callable, Any
+
+from system.config.constants import Errors
 
 
 #region Number calculators
@@ -79,5 +82,26 @@ def get_divisors_of_decimal_number(
         divisors_list.remove(Decimal("1"))
 
     return divisors_list
+
+
+def calculate_value_safely(
+    calculator_function: Callable,
+) -> Any:
+
+    def wrapper(*args, **kwargs) -> Any:
+        try:
+            value: Any = calculator_function(*args, **kwargs)
+            return value
+        
+        except DivisionByZero:
+            return Errors.ZERO_DIVISION.value
+        
+        except InvalidOperation:
+            return Errors.NEGATIVE_ROOT.value
+
+        except Exception as e:
+            return Errors.UNKNOWN_ERROR.value
+
+    return wrapper
 
 #endregion

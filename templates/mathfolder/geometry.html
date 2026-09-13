@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Геометрия | Физмат-калькулятор - научный калькулятор для школы по физике и математике
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/subjects.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/tasks.css') }}">
+        <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
+    </head>
+    <body>
+        <header>
+            <div class="solver-header-background">
+                <div class="solver-inline-menu">
+                    <a href="/aboutus" class="solver-inline-menu-button">
+                        О нас
+                    </a>
+                    <a href="/math" class="solver-inline-menu-button">
+                        Математика
+                    </a>
+                    <a href="/faq" class="solver-inline-menu-button">
+                        Помощь 
+                    </a>                 
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="solver-classic-background">
+                <p class="solver-title">
+                    Геометрия
+                </p>
+                <p class="solver-main-text">
+                    Ниже представлено то, что Физмат-калькулятор может посчитать.
+                    Выберите нужный тип задачи и перейдите по нему.
+                    Вы увидите поля ввода чисел в формулу.
+                    После отправки чисел Вы получите точный ответ или сообщение о неккоректном вводе.
+                    Физмат-калькулятор желает Вам удачи!
+                </p>
+            </div>
+            <div class="solver-classic-background">
+                <div class="tasks-grid">
+                    <div class="task-card">
+                        <a href="geometry/circles" class="task-redirect-button">
+                            Задачи на круги (радиус, диаметр, площадь, окружность)
+                        </a>
+                    </div>
+                    <div class="task-card">
+                        <a href="geometry/parallelograms" class="task-redirect-button">
+                            Задачи на параллелограммы (основания, высоты, площади)
+                        </a>
+                    </div>
+                    <div class="task-card">
+                        <a href="geometry/polygons" class="task-redirect-button">
+                            Задачи на многоугольники (сумма углов, периметр)
+                        </a>
+                    </div>
+                    <div class="task-card">
+                        <a href="geometry/trapezoids" class="task-redirect-button">
+                            Задачи на трапеции (основания, высоты, площади)
+                        </a>
+                    </div>
+                    <div class="task-card">
+                        <a href="geometry/triangles" class="task-redirect-button">
+                            Задачи на треугольники (основания, высоты, площади)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="solver-footer-background">
+                <p class="solver-footer-text">
+                    Вы можете найти информацию про «Физмат-калькулятор» на странице «О нас».
+                    Если же Вам требуется подсказка для использования сайта - переходите на страницу «Помощь».
+                </p>
+                <p class="solver-footer-text">
+                    «Физмат-калькулятор». Все расчеты верны.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

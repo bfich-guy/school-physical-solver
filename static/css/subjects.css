@@ -7,19 +7,19 @@
     padding: 64px;
 }
 
-.subject-title {
-    color: black;
-    font: bold 64px 'Franklin Gothic Medium';
-    text-align: center;
-    text-shadow: gray 4px 4px;
-}
-
 .subject-card {
     display: flex;
     flex-direction: column;
     border: 8px solid white;
     border-radius: 16px;
     justify-content: center;
+}
+
+.subject-title {
+    color: black;
+    font: bold 64px 'Franklin Gothic Medium';
+    text-align: center;
+    text-shadow: gray 4px 4px;
 }
 
 .subject-redirect-button {

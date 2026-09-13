@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Параллелограммы | Физмат-калькулятор
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/formulas.css') }}">
+        <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
+    </head>
+    <body>
+        <header>
+            <div class="solver-header-background">
+                <div class="solver-inline-menu">
+                    <a href="/aboutus" class="solver-inline-menu-button">
+                        О нас
+                    </a>
+                    <a href="/math/geometry" class="solver-inline-menu-button">
+                        Геометрия
+                    </a>
+                    <a href="/faq" class="solver-inline-menu-button">
+                        Помощь 
+                    </a>                 
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Площадь трапеции
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Площадь трапеции через полусумму боковых сторон и высоту
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>S</mi>
+                                <mo>=</mo>
+                                <mo>(</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>a</mi>
+                                        <mo>+</mo>
+                                        <mi>b</mi>
+                                    </mrow>
+                                    <mn>2</mn>
+                                </mfrac>
+                                <mo>)</mo>
+                                <mi>h</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Верхнее основание">
+                        <input class="formula-input" type="text" placeholder="Нижнее основание">
+                        <input class="formula-input" type="text" placeholder="Высота трапеции">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Угол многоугольника
+                </p>
+            </div>
+            <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Угол многоугольника через сумму углов и количество сторон
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <msub>
+                                    <mi>a</mi>
+                                    <mi>n</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>S</mi>
+                                        <mi>n</mi>
+                                    </msub>
+                                    <mi>n</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Сумма углов">
+                        <input class="formula-input" type="text" placeholder="Количество сторон">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="solver-footer-background">
+                <p class="solver-footer-text">
+                    Вы можете найти информацию про «Физмат-калькулятор» на странице «О нас».
+                    Если же Вам требуется подсказка для использования сайта - переходите на страницу «Помощь».
+                </p>
+                <p class="solver-footer-text">
+                    «Физмат-калькулятор». Все расчеты верны.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

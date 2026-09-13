@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Параллелограммы | Физмат-калькулятор
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/formulas.css') }}">
+        <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
+    </head>
+    <body>
+        <header>
+            <div class="solver-header-background">
+                <div class="solver-inline-menu">
+                    <a href="/aboutus" class="solver-inline-menu-button">
+                        О нас
+                    </a>
+                    <a href="/math/geometry" class="solver-inline-menu-button">
+                        Геометрия
+                    </a>
+                    <a href="/faq" class="solver-inline-menu-button">
+                        Помощь 
+                    </a>                 
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Площадь параллелограмма
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Площадь параллелограмма через основание и высоту
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>S</mi>
+                                <mo>=</mo>
+                                <mi>a</mi>
+                                <mi>h</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Основание параллелограмма">
+                        <input class="formula-input" type="text" placeholder="Высота параллелограмма">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Основание параллелограмма
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Основание параллелограмма через площадь и высоту
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>a</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>S</mi>
+                                    <mi>h</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Площадь параллелограмма">
+                        <input class="formula-input" type="text" placeholder="Высота параллелограмма">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Высота параллелограмма
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Высота параллелограмма через площадь и основание
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>h</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>S</mi>
+                                    <mi>a</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Площадь параллелограмма">
+                        <input class="formula-input" type="text" placeholder="Основание параллелограмма">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="solver-footer-background">
+                <p class="solver-footer-text">
+                    Вы можете найти информацию про «Физмат-калькулятор» на странице «О нас».
+                    Если же Вам требуется подсказка для использования сайта - переходите на страницу «Помощь».
+                </p>
+                <p class="solver-footer-text">
+                    «Физмат-калькулятор». Все расчеты верны.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

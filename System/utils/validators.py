@@ -3,31 +3,6 @@ from decimal import Decimal
 from system.config.constants import SystemConstants
 
 
-#region User input validators
-
-def is_user_input_valid_for_parsing(
-    *,
-    user_input: str,
-    input_limit_length: int = SystemConstants.MAX_USER_INPUT_LENGTH.value,
-) -> bool:
-
-    user_input_is_not_a_string: bool = not isinstance(user_input, str)
-
-    if user_input_is_not_a_string:
-        return False
-    
-    user_input_length: int = len(user_input)
-
-    user_input_length_is_too_big: bool = user_input_length > input_limit_length
-
-    if user_input_length_is_too_big:
-        return False
-        
-    return True
-
-#endregion
-
-
 #region Number validators
 
 def is_decimal_number_prime(
@@ -77,15 +52,44 @@ def does_triangle_exist(
     third_side: Decimal,
 ) -> bool:
 
-    triangle_inequality_is_broken: bool = any([
-        first_side + second_side <= third_side,
-        second_side + third_side <= first_side,
-        third_side + first_side <= second_side,
+    does_triangle_exist: bool = any([
+        first_side + second_side > third_side,
+        second_side + third_side < first_side,
+        third_side + first_side > second_side,
     ])
 
-    if triangle_inequality_is_broken:
-        return False
+    return does_triangle_exist
 
-    return True
+
+def are_vectors_collinear(
+    *,
+    first_vector: list[Decimal],
+    second_vector: list[Decimal],
+) -> bool:
+
+    some_vector_is_dot: bool = all(coordinate == Decimal("0") for coordinate in first_vector) or all(coordinate == Decimal("0") for coordinate in second_vector)
+    
+    if some_vector_is_dot:
+        return True
+
+    suggest_scalar: Decimal | None = None
+
+    for first_vector_coordinate, second_vector_coordinate in zip(first_vector, second_vector):
+        both_coordinates_are_not_zeros: bool = all([
+            first_vector_coordinate != Decimal("0"),
+            second_vector_coordinate != Decimal("0"),
+        ])
+
+        if both_coordinates_are_not_zeros:
+            suggest_scalar: Decimal | None = second_vector_coordinate / first_vector_coordinate
+            break
+        else:
+            continue
+
+    if not suggest_scalar:
+        return False
+    else:
+        are_vectors_collinear: bool = all([first_vector_coordinate * suggest_scalar == second_vector_coordinate for first_vector_coordinate, second_vector_coordinate in zip(first_vector, second_vector)])
+        return are_vectors_collinear
 
 #endregion

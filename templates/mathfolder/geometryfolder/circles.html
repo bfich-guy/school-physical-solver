@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Круги | Физмат-калькулятор
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/formulas.css') }}">
+        <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
+    </head>
+    <body>
+        <header>
+            <div class="solver-header-background">
+                <div class="solver-inline-menu">
+                    <a href="/aboutus" class="solver-inline-menu-button">
+                        О нас
+                    </a>
+                    <a href="/math/geometry" class="solver-inline-menu-button">
+                        Геометрия
+                    </a>
+                    <a href="/faq" class="solver-inline-menu-button">
+                        Помощь 
+                    </a>                 
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Площадь круга
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Площадь круга через радиус
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>S</mi>
+                                <mo>=</mo>
+                                <mi>π</mi>
+                                <msup>
+                                    <mi>r</mi>
+                                    <mn>2</mn>
+                                </msup>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Радиус окружности">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Длина окружности
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Длина окружности через радиус
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>l</mi>
+                                <mo>=</mo>
+                                <mn>2</mn>
+                                <mi>π</mi>
+                                <mi>r</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Радиус окружности">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="solver-footer-background">
+                <p class="solver-footer-text">
+                    Вы можете найти информацию про «Физмат-калькулятор» на странице «О нас».
+                    Если же Вам требуется подсказка для использования сайта - переходите на страницу «Помощь».
+                </p>
+                <p class="solver-footer-text">
+                    «Физмат-калькулятор». Все расчеты верны.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

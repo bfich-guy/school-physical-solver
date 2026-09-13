@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Уравнения | Физмат-калькулятор
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/formulas.css') }}">
+        <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
+    </head>
+    <body>
+        <header>
+            <div class="solver-header-background">
+                <div class="solver-inline-menu">
+                    <a href="/aboutus" class="solver-inline-menu-button">
+                        О нас
+                    </a>
+                    <a href="/math/algebra" class="solver-inline-menu-button">
+                        Алгебра
+                    </a>
+                    <a href="/faq" class="solver-inline-menu-button">
+                        Помощь 
+                    </a>                 
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Арифметическая прогрессия
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сумма арифметической прогрессии
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>S</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mo>(</mo>
+                                        <msub>
+                                            <mi>a</mi>
+                                            <mn>1</mn>
+                                        </msub>
+                                        <mo>+</mo>
+                                        <msub>
+                                            <mi>a</mi>
+                                            <mi>n</mi>
+                                        </msub>
+                                        <mo>)</mo>
+                                        <mi>n</mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mn>2</mn>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Первый элемент">
+                        <input class="formula-input" type="text" placeholder="Последний элемент">
+                        <input class="formula-input" type="text" placeholder="Количество">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            N-ый элемент арифметической прогрессии
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <msub>
+                                    <mi>a</mi>
+                                    <mi>n</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>a</mi>
+                                    <mn>1</mn>
+                                </msub>
+                                <mo>+</mo>
+                                <mi>b</mi>
+                                <mrow>
+                                    <mo>(</mo>
+                                    <mi>n</mi>
+                                    <mo>−</mo>
+                                    <mn>1</mn>
+                                    <mo>)</mo>
+                                </mrow>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Первый элемент">
+                        <input class="formula-input" type="text" placeholder="Шаг прогрессии">
+                        <input class="formula-input" type="text" placeholder="Количество">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Геометрическая прогрессия
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сумма геометрической прогрессии
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>S</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <msub>
+                                            <mi>b</mi>
+                                            <mn>1</mn>
+                                        </msub>
+                                        <mrow>
+                                            <mo>(</mo>
+                                            <msup>
+                                                <mi>q</mi>
+                                                <mi>n</mi>
+                                            </msup>
+                                            <mo>−</mo>
+                                            <mn>1</mn>
+                                            <mo>)</mo>
+                                        </mrow>
+                                    </mrow>
+                                    <mrow>
+                                        <mi>q</mi>
+                                        <mo>−</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Первый элемент">
+                        <input class="formula-input" type="text" placeholder="Шаг прогрессии">
+                        <input class="formula-input" type="text" placeholder="Количество">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            N-ый элемент геометрической прогрессии
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <msub>
+                                    <mi>b</mi>
+                                    <mi>n</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>b</mi>
+                                    <mn>1</mn>
+                                </msub>
+                                <mrow>
+                                    <mo>(</mo>
+                                    <msup>
+                                        <mi>q</mi>
+                                        <mrow>
+                                            <mi>n</mi>
+                                            <mo>−</mo>
+                                            <mn>1</mn>
+                                        </mrow>
+                                    </msup>
+                                    <mo>)</mo>
+                                </mrow>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Первый элемент">
+                        <input class="formula-input" type="text" placeholder="Шаг прогрессии">
+                        <input class="formula-input" type="text" placeholder="Количество">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="solver-footer-background">
+                <p class="solver-footer-text">
+                    Вы можете найти информацию про «Физмат-калькулятор» на странице «О нас».
+                    Если же Вам требуется подсказка для использования сайта - переходите на страницу «Помощь».
+                </p>
+                <p class="solver-footer-text">
+                    «Физмат-калькулятор». Все расчеты верны.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

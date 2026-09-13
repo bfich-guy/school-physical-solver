@@ -5,7 +5,7 @@
     padding-bottom: 4%;
 }
 
-.tasks-card {
+.task-card {
     display: flex;
     flex-direction: row;
     justify-content: left;

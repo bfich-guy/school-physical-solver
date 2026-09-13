@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Электромагнетизм | Физмат-калькулятор - научный калькулятор для школы по физике и математике
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/subjects.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/tasks.css') }}">
+        <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
+    </head>
+    <body>
+        <header>
+            <div class="solver-header-background">
+                <div class="solver-inline-menu">
+                    <a href="/aboutus" class="solver-inline-menu-button">
+                        О нас
+                    </a>
+                    <a href="/physics" class="solver-inline-menu-button">
+                        Физика
+                    </a>
+                    <a href="/faq" class="solver-inline-menu-button">
+                        Помощь 
+                    </a>                 
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="solver-classic-background">
+                <p class="solver-title">
+                    Электромагнетизм
+                </p>
+                <p class="solver-main-text">
+                    Ниже представлено то, что Физмат-калькулятор может посчитать.
+                    Выберите нужный тип задачи и перейдите по нему.
+                    Вы увидите поля ввода чисел в формулу.
+                    После отправки чисел Вы получите точный ответ или сообщение о неккоректном вводе.
+                    Физмат-калькулятор желает вам удачи!
+                </p>
+            </div>
+            <div class="solver-classic-background">
+                <div class="tasks-grid">
+                    <div class="tasks-card">
+                        <a href="electromagnetics/angle" class="task-redirect-button">
+                            Задачи на поиск угла (синусы углов от силы Лоренца)
+                        </a>
+                    </div>
+                    <div class="task-card">
+                        <a href="electromagnetics/area" class="task-redirect-button">
+                            Задачи на поиск площади (поперечные сечения проводников)
+                        </a>
+                    </div>
+                    <div class="task-card">
+                        <a href="electromagnetics/charge" class="task-redirect-button">
+                            Задачи на поиск заряда (частиц)
+                        </a>
+                    </div>
+                    <div class="task-card">
+                        <a href="electromagnetics/current" class="task-redirect-button">
+                            Задачи на поиск тока (законы Ома, Ватта и через ЭДС)
+                        </a>
+                    </div>
+                    <div class="task-card">
+                        <a href="electromagnetics/force" class="task-redirect-button">
+                            Задачи на поиск силы (ЭДС и Лорецна)
+                        </a>
+                    </div>
+                    <div class="task-card">
+                        <a href="electromagnetics/induction" class="task-redirect-button">
+                            Задачи на поиск индукции (электромагнитной)
+                        </a>
+                    </div>
+                    <div class="task-card">
+                        <a href="electromagnetics/length" class="task-redirect-button">
+                            Задачи на поиск длины (проводников)
+                        </a>
+                    </div>
+                    <div class="task-card">
+                        <a href="electromagnetics/power" class="task-redirect-button">
+                            Задачи на поиск мощности (через закон Ватта и Джоуля-Ленца)
+                        </a>
+                    </div>
+                    <div class="task-card">
+                        <a href="electromagnetics/resistance" class="task-redirect-button">
+                            Задачи на поиск сопротивления (внешнего, удельного, внутреннего)
+                        </a>
+                    </div>
+                    <div class="task-card">
+                        <a href="electromagnetics/velocity" class="task-redirect-button">
+                            Задачи на поиск скорости (частиц)
+                        </a>
+                    </div>
+                    <div class="task-card">
+                        <a href="electromagnetics/voltage" class="task-redirect-button">
+                            Задачи на поиск напряжения (законы Ома, Ватта и через ЭДС)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="solver-footer-background">
+                <p class="solver-footer-text">
+                    Вы можете найти информацию про «Физмат-калькулятор» на странице «О нас».
+                    Если же Вам требуется подсказка для использования сайта - переходите на страницу «Помощь».
+                </p>
+                <p class="solver-footer-text">
+                    «Физмат-калькулятор». Все расчеты верны.
+                </p>
+            </div>
+        </footer>
+    </body>
+</html>

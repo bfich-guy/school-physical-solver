@@ -30,3 +30,19 @@ def get_lorentz_force_by_electric_charge_and_particle_velocity_and_magnetic_indu
     return lorentz_force
 
 #endregion
+
+
+#region Ampere force
+
+def get_ampere_force_by_magnetic_induction_and_electric_current_and_conductor_length_and_angle_sinus(
+    *,
+    magnetic_induction: Decimal,
+    electric_current: Decimal,
+    conductor_length: Decimal,
+    angle_sinus: Decimal,
+) -> Decimal:
+
+    ampere_force: Decimal = magnetic_induction * electric_current * conductor_length * angle_sinus
+    return ampere_force
+
+#endregion

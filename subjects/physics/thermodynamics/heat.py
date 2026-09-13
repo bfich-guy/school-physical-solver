@@ -71,3 +71,27 @@ def get_joule_heat_by_electric_power_and_heating_duration(
     return joule_heat
 
 #endregion
+
+
+#region Thermal heat
+
+def get_useful_thermal_heat_by_thermal_efficiency_and_spent_thermal_heat(
+    *,
+    thermal_efficiency: Decimal,
+    spent_thermal_heat: Decimal,
+) -> Decimal:
+
+    useful_thermal_heat: Decimal = (thermal_efficiency * spent_thermal_heat) / Decimal("100")
+    return useful_thermal_heat
+
+
+def get_spent_thermal_heat_by_thermal_efficiency_and_useful_thermal_heat(
+    *,
+    thermal_efficiency: Decimal,
+    useful_thermal_heat: Decimal,
+) -> Decimal:
+
+    spent_thermal_heat: Decimal = (useful_thermal_heat / thermal_efficiency) * Decimal("100")
+    return spent_thermal_heat
+
+#endregion

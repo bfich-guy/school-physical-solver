@@ -22,4 +22,24 @@ def get_electric_power_by_joule_heat_and_heating_duration(
     electric_power: Decimal = joule_heat / heating_duration
     return electric_power
 
+
+def get_useful_electric_power_by_electrical_efficiency_and_spent_electric_power(
+    *,
+    electrical_efficiency: Decimal,
+    spent_electric_power: Decimal,
+) -> Decimal:
+
+    useful_electric_power: Decimal = (electrical_efficiency * spent_electric_power) / Decimal("100")
+    return useful_electric_power
+
+
+def get_spent_electric_power_by_electrical_efficiency_and_useful_electric_power(
+    *,
+    electrical_efficiency: Decimal,
+    useful_electric_power: Decimal,
+) -> Decimal:
+
+    spent_electric_power: Decimal = (useful_electric_power / electrical_efficiency) * Decimal("100")
+    return spent_electric_power
+
 #endregion

@@ -29,7 +29,7 @@ def get_geometric_mean_by_numbers_product_and_amount(
     numbers_product: Decimal = reduce(operator.mul, numbers_list)
     numbers_amount: Decimal = Decimal(len(numbers_list))
 
-    geometric_mean: Decimal = pow(numbers_product, Decimal("1") / numbers_amount)
+    geometric_mean: Decimal = pow(numbers_product, (Decimal("1") / numbers_amount))
     return geometric_mean
 
 #endregion

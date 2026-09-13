@@ -14,4 +14,16 @@ def get_magnetic_induction_by_lorentz_force_and_electric_charge_and_particle_vel
     magnetic_induction: Decimal = lorentz_force / (electric_charge * particle_velocity * angle_sinus)
     return magnetic_induction
 
+
+def get_magnetic_induction_by_ampere_force_and_electric_current_and_conductor_length_and_angle_sinus(
+    *,
+    ampere_force: Decimal,
+    electric_current: Decimal,
+    conductor_length: Decimal,
+    angle_sinus: Decimal,
+) -> Decimal:
+    
+    magnetic_induction: Decimal = ampere_force / (electric_current * conductor_length * angle_sinus)
+    return magnetic_induction
+
 #endregion
