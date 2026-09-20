@@ -15,11 +15,31 @@
     justify-content: center;
 }
 
-.subject-title {
+.subject-info-card {
+    border: 4px solid lightgray;
+    border-radius: 16px;
+    background-color: white;
+    margin: 16px 16px;
+}
+
+.subject-name {
     color: black;
     font: bold 64px 'Franklin Gothic Medium';
     text-align: center;
     text-shadow: gray 4px 4px;
+}
+
+.subject-title {
+    color: black;
+    font: bold 32px 'Franklin Gothic Medium';
+    text-align: center;
+}
+
+.subject-text {
+    color: black;
+    font: bold 32px 'Franklin Gothic Medium';
+    text-align: left;
+    margin: 16px 16px;
 }
 
 .subject-redirect-button {
@@ -29,8 +49,8 @@
     text-shadow: gray 4px 4px;
     font-size: 32px;
     font-family: 'Franklin Gothic Medium';
-    align-self: center;
     text-decoration: none;
+    align-self: center;
 }
 
 .subject-redirect-button:hover {
@@ -42,19 +62,34 @@
 
 /* Images */
 
-.subject-background-image {
+.subject-physics-image {
     width: 100%;
     height: 100%;
 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.physics-image {
     background-image: url("/static/images/physics_background.png");
+
+    border: 4px solid lightgray;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
 }
 
-.math-image {
+.subject-math-image {
+    width: 100%;
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     background-image: url("/static/images/math_background.png");
+
+    border: 4px solid lightgray;
+    border-radius: 16px;
+
+    display: flex;
+    flex-direction: column;
 }

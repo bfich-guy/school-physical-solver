@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>
-            Треугольники | Физмат-калькулятор
+            Электричество | Физмат-калькулятор
         </title>
         <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', path='css/formulas.css') }}">
@@ -24,14 +24,14 @@
         <main>
             <div class="formula-header">
                 <p class="formula-title">
-                    Площадь треугольника
+                    Площадь попереченого сечения проводника
                 </p>
             </div>
             <div class="formulas-grid">
                 <div class="formula-card">
                     <div class="formula-card-info">
                         <p class="formula-name">
-                            Площадь треугольника через основание и высоту
+                            Площадь попереченого сечения проводника через удельное сопротивление
                         </p>
                         <p class="formula-object">
                             <math display="block">
@@ -39,167 +39,18 @@
                                 <mo>=</mo>
                                 <mfrac>
                                     <mrow>
-                                        <mi>a</mi>
-                                        <mi>h</mi>
+                                        <mi>ρ</mi>
+                                        <mi>l</mi>
                                     </mrow>
-                                    <mn>2</mn>
+                                    <mi>R</mi>
                                 </mfrac>
                             </math>
                         </p>
                     </div>
                     <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Основание треугольника">
-                        <input class="formula-input" type="text" placeholder="Высота треугольника">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Площадь треугольника через формулу Герона
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>S</mi>
-                                <mo>=</mo>
-                                <msqrt>
-                                    <mi>p</mi>
-                                    <mo>(</mo>
-                                    <mi>p</mi>
-                                    <mo>−</mo>
-                                    <mi>a</mi>
-                                    <mo>)</mo>
-                                    <mo>(</mo>
-                                    <mi>p</mi>
-                                    <mo>−</mo>
-                                    <mi>b</mi>
-                                    <mo>)</mo>
-                                    <mo>(</mo>
-                                    <mi>p</mi>
-                                    <mo>−</mo>
-                                    <mi>c</mi>
-                                    <mo>)</mo>
-                                </msqrt>
-                            </math>
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>p</mi>
-                                <mo>=</mo>
-                                <mfrac>
-                                    <mrow>
-                                        <mi>a</mi>
-                                        <mo>+</mo>
-                                        <mi>b</mi>
-                                        <mo>+</mo>
-                                        <mi>c</mi>
-                                    </mrow>
-                                    <mn>2</mn>
-                                </mfrac>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Стороны треугольника (a, b, c)">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Площадь треугольника через смежные стороны и синус угла между ними
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>S</mi>
-                                <mo>=</mo>
-                                <mfrac>
-                                    <mn>1</mn>
-                                    <mn>2</mn>
-                                </mfrac>
-                                <mi>a</mi>
-                                <mi>b</mi>
-                                <mi>sin</mi>
-                                <msup>
-                                    <mi>a</mi>
-                                    <mtext>°</mtext>
-                                </msup>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Основание треугольника">
-                        <input class="formula-input" type="text" placeholder="Высота треугольника">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Площадь треугольника через радиус вписанной окружности
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>S</mi>
-                                <mo>=</mo>
-                                <mfrac>
-                                    <mrow>
-                                        <mi>P</mi>
-                                        <mi>r</mi>
-                                    </mrow>
-                                    <mn>2</mn>
-                                </mfrac>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Периметр треугольника">
-                        <input class="formula-input" type="text" placeholder="Радиус вписанной окружности">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Площадь треугольника через радиус описанной окружности
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>S</mi>
-                                <mo>=</mo>
-                                <mfrac>
-                                    <mrow>
-                                        <mi>a</mi>
-                                        <mi>b</mi>
-                                        <mi>c</mi>
-                                    </mrow>
-                                    <mrow>
-                                        <mn>4</mn>
-                                        <mi>R</mi>
-                                    </mrow>
-                                </mfrac>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Стороны треугольника (a, b, c)">
-                        <input class="formula-input" type="text" placeholder="Радиус описанной окружности">
+                        <input class="formula-input" type="text" placeholder="Удельное сопротивление">
+                        <input class="formula-input" type="text" placeholder="Длина проводника">
+                        <input class="formula-input" type="text" placeholder="Итоговое сопротивление">
                     </div>
                     <div class="formula-card-button">
                         <button class="formula-calculate-button">
@@ -210,92 +61,27 @@
             </div>
             <div class="formula-header">
                 <p class="formula-title">
-                    Основание треугольника
+                    Электрический заряд
                 </p>
             </div>
             <div class="formulas-grid">
                 <div class="formula-card">
                     <div class="formula-card-info">
                         <p class="formula-name">
-                            Основание треугольника через площадь и высоту
+                            Электрический заряд через силу Лоренца
                         </p>
                         <p class="formula-object">
                             <math display="block">
-                                <mi>a</mi>
+                                <mi>q</mi>
                                 <mo>=</mo>
                                 <mfrac>
-                                    <mi>S</mi>
-                                    <mi>h</mi>
-                                </mfrac>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Площадь треугольника">
-                        <input class="formula-input" type="text" placeholder="Высота треугольника">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="formula-header">
-                <p class="formula-title">
-                    Высота треугольника
-                </p>
-            </div>
-            <div class="formulas-grid">
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Высота треугольника через площадь и основание
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>h</mi>
-                                <mo>=</mo>
-                                <mfrac>
-                                    <mi>S</mi>
-                                    <mi>a</mi>
-                                </mfrac>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Площадь треугольника">
-                        <input class="formula-input" type="text" placeholder="Основание треугольника">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-            </div>
-            <div class="formula-header">
-                <p class="formula-title">
-                    Стороны треугольника
-                </p>
-            </div>
-            <div class="formulas-grid">
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Смежная сторона треугольника через его площадь
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>a</mi>
-                                <mo>=</mo>
-                                <mfrac>
+                                    <msub>
+                                        <mi>F</mi>
+                                        <mtext>l</mtext>
+                                    </msub>
                                     <mrow>
-                                        <mn>2</mn>
-                                        <mi>S</mi>
-                                    </mrow>
-                                    <mrow>
-                                        <mi>b</mi>
+                                        <mi>v</mi>
+                                        <mi>B</mi>
                                         <mi>sin</mi>
                                         <msup>
                                             <mi>a</mi>
@@ -307,8 +93,9 @@
                         </p>
                     </div>
                     <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Площадь треугольника">
-                        <input class="formula-input" type="text" placeholder="Известная сторона">
+                        <input class="formula-input" type="text" placeholder="Сила Лоренца">
+                        <input class="formula-input" type="text" placeholder="Скорость частицы">
+                        <input class="formula-input" type="text" placeholder="Магнитная индукция">
                         <input class="formula-input" type="text" placeholder="Синус угла">
                     </div>
                     <div class="formula-card-button">
@@ -317,220 +104,79 @@
                         </button>
                     </div>
                 </div>
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Противоположная сторона треугольника через теорему косинусов
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>c</mi>
-                                <mo>=</mo>
-                                <msqrt>
-                                    <msup>
-                                        <mi>a</mi>
-                                        <mn>2</mn>
-                                    </msup>
-                                    <mo>+</mo>
-                                    <msup>
-                                        <mi>b</mi>
-                                        <mn>2</mn>
-                                    </msup>
-                                    <mo>−</mo>
-                                    <mn>2</mn>
-                                    <mi>a</mi>
-                                    <mi>b</mi>
-                                    <mi>cos</mi>
-                                    <msup>
-                                        <mi>a</mi>
-                                        <mtext>°</mtext>
-                                    </msup>
-                                </msqrt>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Стороны треугольника (a, b)">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Смежная сторона треугольника через теорему косинусов
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>a</mi>
-                                <mo>=</mo>
-                                <mi>b</mi>
-                                <mi>cos</mi>
-                                <msup>
-                                    <mi>a</mi>
-                                    <mtext>°</mtext>
-                                </msup>
-                                <mo>±</mo>
-                                <msqrt>
-                                    <msup>
-                                        <mrow>
-                                            <mo>(</mo>
-                                            <mi>b</mi>
-                                            <mi>cos</mi>
-                                            <msup>
-                                                <mi>a</mi>
-                                                <mtext>°</mtext>
-                                            </msup>
-                                            <mo>)</mo>
-                                        </mrow>
-                                        <mn>2</mn>
-                                    </msup>
-                                    <mo>+</mo>
-                                    <msup>
-                                        <mi>c</mi>
-                                        <mn>2</mn>
-                                    </msup>
-                                    <mo>−</mo>
-                                    <msup>
-                                        <mi>b</mi>
-                                        <mn>2</mn>
-                                    </msup>
-                                </msqrt>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Стороны треугольника (b, c)">
-                        <input class="formula-input" type="text" placeholder="Косинус угла">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Гипотенуза прямоугольного треугольника через теорему Пифагора
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>c</mi>
-                                <mo>=</mo>
-                                <msqrt>
-                                    <msup>
-                                        <mi>a</mi>
-                                        <mn>2</mn>
-                                    </msup>
-                                    <mo>+</mo>
-                                    <msup>
-                                        <mi>b</mi>
-                                        <mn>2</mn>
-                                    </msup>
-                                </msqrt>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Стороны треугольника (a, b)">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Гипотенуза прямоугольного треугольника через теорему Пифагора
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>a</mi>
-                                <mo>=</mo>
-                                <msqrt>
-                                    <msup>
-                                        <mi>c</mi>
-                                        <mn>2</mn>
-                                    </msup>
-                                    <mo>−</mo>
-                                    <msup>
-                                        <mi>b</mi>
-                                        <mn>2</mn>
-                                    </msup>
-                                </msqrt>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Гипотенуза треугольника">
-                        <input class="formula-input" type="text" placeholder="Известный катет">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Сторона треугольника через радиус описанной окружности
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>a</mi>
-                                <mo>=</mo>
-                                <mfrac>
-                                    <mrow>
-                                        <mn>4</mn>
-                                        <mi>S</mi>
-                                        <mi>R</mi>
-                                    </mrow>
-                                    <mrow>
-                                        <mi>b</mi>
-                                        <mi>c</mi>
-                                    </mrow>
-                                </mfrac>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Площадь треугольника">
-                        <input class="formula-input" type="text" placeholder="Радиус описанной окружности">
-                        <input class="formula-input" type="text" placeholder="Стороны треугольника (b, c)">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
             </div>
             <div class="formula-header">
                 <p class="formula-title">
-                    Периметр треугольника
+                    Сила тока
                 </p>
             </div>
             <div class="formulas-grid">
                 <div class="formula-card">
                     <div class="formula-card-info">
                         <p class="formula-name">
-                            Периметр треугольника через радиус вписанной окружности
+                            Сила тока через закон Ватта
                         </p>
                         <p class="formula-object">
                             <math display="block">
-                                <mi>P</mi>
+                                <mi>I</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>P</mi>
+                                    <mi>U</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Потребляемая мощность">
+                        <input class="formula-input" type="text" placeholder="Напряжение на участке цепи">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сила тока через закон Ома
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>I</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>U</mi>
+                                    <mi>R</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Напряжение на участке цепи">
+                        <input class="formula-input" type="text" placeholder="Сопротивление проводника">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сила тока через ЭДС
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>I</mi>
                                 <mo>=</mo>
                                 <mfrac>
                                     <mrow>
-                                        <mn>2</mn>
-                                        <mi>S</mi>
+                                        <mi>E</mi>
+                                        <mo>−</mo>
+                                        <mi>U</mi>
                                     </mrow>
                                     <mi>r</mi>
                                 </mfrac>
@@ -538,8 +184,47 @@
                         </p>
                     </div>
                     <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Площадь треугольника">
-                        <input class="formula-input" type="text" placeholder="Радиус вписанной окружности">
+                        <input class="formula-input" type="text" placeholder="ЭДС">
+                        <input class="formula-input" type="text" placeholder="Напряжение на внешней цепи">
+                        <input class="formula-input" type="text" placeholder="Внутреннее сопротивление">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сила тока через силу Ампера
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>I</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>F</mi>
+                                        <mi>a</mi>
+                                    </msub>
+                                    <mrow>
+                                        <mi>B</mi>
+                                        <mi>l</mi>
+                                        <mi>sin</mi>
+                                        <msup>
+                                            <mi>a</mi>
+                                            <mtext>°</mtext>
+                                        </msup>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="ЭДС">
+                        <input class="formula-input" type="text" placeholder="Напряжение на внешней цепи">
+                        <input class="formula-input" type="text" placeholder="Внутреннее сопротивление">
                     </div>
                     <div class="formula-card-button">
                         <button class="formula-calculate-button">
@@ -550,48 +235,100 @@
             </div>
             <div class="formula-header">
                 <p class="formula-title">
-                    Тригонометрические функции углов
+                    ЭДС
                 </p>
             </div>
             <div class="formulas-grid">
                 <div class="formula-card">
                     <div class="formula-card-info">
                         <p class="formula-name">
-                            Косинус угла треугольника через теорему косинусов
+                            ЭДС через внутреннее сопротивление
                         </p>
                         <p class="formula-object">
                             <math display="block">
-                                <mi>cos</mi>
-                                <mi>a</mi>
+                                <mi>E</mi>
+                                <mo>=</mo>
+                                <mi>U</mi>
+                                <mo>(</mo>
+                                <mi>R</mi>
+                                <mo>+</mo>
+                                <mi>r</mi>
+                                <mo>)</mo>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Напряжение на внешней цепи">
+                        <input class="formula-input" type="text" placeholder="Внешнее сопротивление">
+                        <input class="formula-input" type="text" placeholder="Внутреннее сопротивление">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Длина проводника
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Длина проводника через удельное сопротивление
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>l</mi>
                                 <mo>=</mo>
                                 <mfrac>
                                     <mrow>
-                                        <msup>
-                                            <mi>a</mi>
-                                            <mn>2</mn>
-                                        </msup>
-                                        <mo>+</mo>
-                                        <msup>
-                                            <mi>b</mi>
-                                            <mn>2</mn>
-                                        </msup>
-                                        <mo>−</mo>
-                                        <msup>
-                                            <mi>c</mi>
-                                            <mn>2</mn>
-                                        </msup>
+                                        <mi>R</mi>
+                                        <mi>S</mi>
                                     </mrow>
-                                    <mrow>
-                                        <mn>2</mn>
-                                        <mi>a</mi>
-                                        <mi>b</mi>
-                                    </mrow>
+                                    <mi>ρ</mi>
                                 </mfrac>
                             </math>
                         </p>
                     </div>
                     <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Стороны треугольника (a, b, c)">
+                        <input class="formula-input" type="text" placeholder="Напряжение на внешней цепи">
+                        <input class="formula-input" type="text" placeholder="Внешнее сопротивление">
+                        <input class="formula-input" type="text" placeholder="Внутреннее сопротивление">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Мощность
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Мощность через закон Ватта
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>P</mi>
+                                <mo>=</mo>
+                                <mi>U</mi>
+                                <mi>I</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Напряжение на внешней цепи">
+                        <input class="formula-input" type="text" placeholder="Сила тока в цепи">
                     </div>
                     <div class="formula-card-button">
                         <button class="formula-calculate-button">
@@ -602,29 +339,230 @@
                 <div class="formula-card">
                     <div class="formula-card-info">
                         <p class="formula-name">
-                            Синус угла треугольника через его площадь
+                            Мощность через закон Джоуля-Ленца
                         </p>
                         <p class="formula-object">
                             <math display="block">
-                                <mi>sin</mi>
-                                <mi>a</mi>
+                                <mi>P</mi>
                                 <mo>=</mo>
                                 <mfrac>
-                                    <mrow>
-                                        <mn>2</mn>
-                                        <mi>S</mi>
-                                    </mrow>
-                                    <mrow>
-                                        <mi>a</mi>
-                                        <mi>b</mi>
-                                    </mrow>
+                                    <mi>Q</mi>
+                                    <mi>t</mi>
                                 </mfrac>
                             </math>
                         </p>
                     </div>
                     <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Площадь треугольника">
-                        <input class="formula-input" type="text" placeholder="Стороны треугольника (a, b)">
+                        <input class="formula-input" type="text" placeholder="Количество теплоты">
+                        <input class="formula-input" type="text" placeholder="Пройденное время">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Сопротивление
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сопротивление на участке цепи через закон Ома
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>R</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>U</mi>
+                                    <mi>I</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Напряжение на участке цепи">
+                        <input class="formula-input" type="text" placeholder="Сила тока в цепи">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сопротивление проводника через площадь поперечного сечения
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>R</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>ρ</mi>
+                                        <mi>l</mi>
+                                    </mrow>
+                                    <mi>S</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Удельное сопротивление материала">
+                        <input class="formula-input" type="text" placeholder="Длина проводника">
+                        <input class="formula-input" type="text" placeholder="Площадь попереченого сечения">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Удельное сопротивление материала проводника через его длину
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>ρ</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>S</mi>
+                                        <mi>R</mi>
+                                    </mrow>
+                                    <mi>l</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Площадь попереченого сечения">
+                        <input class="formula-input" type="text" placeholder="Сопротивление проводника">
+                        <input class="formula-input" type="text" placeholder="Длина проводника">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Внутреннее сопротивление проводника через ЭДС
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>r</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>E</mi>
+                                        <mo>−</mo>
+                                        <mi>U</mi>
+                                    </mrow>
+                                    <mi>I</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="ЭДС">
+                        <input class="formula-input" type="text" placeholder="Напряжение на внешней цепи">
+                        <input class="formula-input" type="text" placeholder="Сила тока в цепи">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Напряжение
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Напряжение на участке цепи через закон Ватта
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>U</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>P</mi>
+                                    <mi>I</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Потребляемая мощность">
+                        <input class="formula-input" type="text" placeholder="Сила тока в цепи">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Напряжение на участке цепи через закон Ома
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>U</mi>
+                                <mo>=</mo>
+                                <mi>I</mi>
+                                <mi>R</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Сила тока в цепи">
+                        <input class="formula-input" type="text" placeholder="Сопротивление проводника">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Напряжение на внешней цепи через ЭДС
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>U</mi>
+                                <mo>=</mo>
+                                <mi>E</mi>
+                                <mo>−</mo>
+                                <mi>I</mi>
+                                <mi>r</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Площадь попереченого сечения">
+                        <input class="formula-input" type="text" placeholder="Сопротивление проводника">
+                        <input class="formula-input" type="text" placeholder="Длина проводника">
                     </div>
                     <div class="formula-card-button">
                         <button class="formula-calculate-button">

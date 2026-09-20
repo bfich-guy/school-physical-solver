@@ -2,25 +2,22 @@
 <html>
     <head>
         <title>
-            Параллелограммы | Физмат-калькулятор
+            Трапеции | Физмат-калькулятор
         </title>
         <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', path='css/formulas.css') }}">
         <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
     </head>
-    <body>
+    <body class="solver-physmath-background">
         <header>
             <div class="solver-header-background">
-                <div class="solver-inline-menu">
-                    <a href="/aboutus" class="solver-inline-menu-button">
-                        О нас
-                    </a>
-                    <a href="/math/geometry" class="solver-inline-menu-button">
-                        Геометрия
-                    </a>
-                    <a href="/faq" class="solver-inline-menu-button">
-                        Помощь 
-                    </a>                 
+                <div class="solver-header-menu">
+                    <p class="solver-header-text">
+                        Физмат-калькулятор
+                    </p>
+                    <p class="solver-header-text">
+                        Все расчеты верны
+                    </p>
                 </div>
             </div>
         </header>
@@ -55,8 +52,7 @@
                         </p>
                     </div>
                     <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Верхнее основание">
-                        <input class="formula-input" type="text" placeholder="Нижнее основание">
+                        <input class="formula-input" type="text" placeholder="Основания трапеции (a, b)">
                         <input class="formula-input" type="text" placeholder="Высота трапеции">
                     </div>
                     <div class="formula-card-button">
@@ -68,34 +64,75 @@
             </div>
             <div class="formula-header">
                 <p class="formula-title">
-                    Угол многоугольника
+                    Основание трапеции
                 </p>
             </div>
-            <div class="formula-card">
+            <div class="formulas-grid">
+                <div class="formula-card">
                     <div class="formula-card-info">
                         <p class="formula-name">
-                            Угол многоугольника через сумму углов и количество сторон
+                            Основание трапеции через её площадь
                         </p>
                         <p class="formula-object">
                             <math display="block">
-                                <msub>
-                                    <mi>a</mi>
-                                    <mi>n</mi>
-                                </msub>
+                                <mi>a</mi>
                                 <mo>=</mo>
                                 <mfrac>
-                                    <msub>
+                                    <mrow>
+                                        <mn>2</mn>
                                         <mi>S</mi>
-                                        <mi>n</mi>
-                                    </msub>
-                                    <mi>n</mi>
+                                        <mo>−</mo>
+                                        <mi>h</mi>
+                                    </mrow>
+                                    <mi>b</mi>
                                 </mfrac>
                             </math>
                         </p>
                     </div>
                     <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Сумма углов">
-                        <input class="formula-input" type="text" placeholder="Количество сторон">
+                        <input class="formula-input" type="text" placeholder="Площадь трапеции">
+                        <input class="formula-input" type="text" placeholder="Высота трапеции">
+                        <input class="formula-input" type="text" placeholder="Данное основание">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Высота трапеции
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Высота трапеции через её площадь
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>h</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mn>2</mn>
+                                        <mi>S</mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mi>a</mi>
+                                        <mo>+</mo>
+                                        <mi>b</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Площадь трапеции">
+                        <input class="formula-input" type="text" placeholder="Основания трапеции (a, b)">
                     </div>
                     <div class="formula-card-button">
                         <button class="formula-calculate-button">
@@ -107,13 +144,51 @@
         </main>
         <footer>
             <div class="solver-footer-background">
-                <p class="solver-footer-text">
-                    Вы можете найти информацию про «Физмат-калькулятор» на странице «О нас».
-                    Если же Вам требуется подсказка для использования сайта - переходите на страницу «Помощь».
-                </p>
-                <p class="solver-footer-text">
-                    «Физмат-калькулятор». Все расчеты верны.
-                </p>
+                <div class="solver-footer-menu">
+                    <div class="solver-footer-card">
+                        <p class="solver-footer-card-title">
+                            Навигация
+                        </p>
+                        <a class="solver-footer-redirect-button" href="/">
+                            Главная
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics">
+                            Физика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math">
+                            Математика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math/algebra">
+                            Алгебра
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math/geometry">
+                            Геометрия
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/electromagnetics">
+                            Электромагнетизм
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/mechanics">
+                            Механика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/thermodynamics">
+                            Термодинамика
+                        </a>
+                    </div>
+                    <div class="solver-footer-card">
+                        <p class="solver-footer-card-title">
+                            Поддержка
+                        </p>
+                        <a class="solver-footer-redirect-button" href="/usagepolicy">
+                            Политика пользования
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/faq">
+                            Помощь в использовании
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/extrainfo">
+                            Дополнительная информация
+                        </a>
+                    </div>
+                </div>
             </div>
         </footer>
     </body>

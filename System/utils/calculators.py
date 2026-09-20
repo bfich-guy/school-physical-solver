@@ -105,3 +105,45 @@ def calculate_value_safely(
     return wrapper
 
 #endregion
+
+
+#region Decimal calculators
+
+def decimal_sum(decimal_numbers_list: list[Decimal]) -> Decimal:
+    decimal_sum = Decimal("0")
+
+    for decimal_number in decimal_numbers_list:
+        decimal_sum += decimal_number
+
+    return decimal_sum
+
+
+def decimal_product(decimal_numbers_list: list[Decimal]) -> Decimal:
+    decimal_product = Decimal("1")
+
+    for decimal_number in decimal_numbers_list:
+        decimal_product *= decimal_number
+
+    return decimal_product
+
+
+def decimal_logarithm(decimal_value: Decimal, decimal_base: Decimal) -> Decimal:
+    decimal_logarithm: Decimal = (decimal_value.ln() / decimal_base.ln()).quantize(Decimal("1"))
+    return decimal_logarithm
+
+
+def decimal_list_length(decimal_numbers_list) -> Decimal:
+    decimal_list_length: Decimal = Decimal(str(len(decimal_numbers_list)))
+    return decimal_list_length
+
+
+def decimal_factorial(decimal_number) -> Decimal:
+    decimal_factorial = Decimal("1")
+    integered_decimal_number: int = int(str(decimal_number))
+
+    for integer_number in range(2, integered_decimal_number + 1):
+        decimal_factorial *= Decimal(str(integer_number))
+
+    return decimal_factorial
+
+#endregion

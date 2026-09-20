@@ -5,6 +5,8 @@ class Folders(Enum):
     TEMPLATES = "templates"
     STATIC = "static"
 
+    ABOUTUS = "aboutusfolder"
+
     MATH = "mathfolder"
     PHYSICS = "physicsfolder"
 
@@ -19,7 +21,10 @@ class Folders(Enum):
 
 class Files(Enum):
     INDEX = "index"
-    ABOUTUS = "aboutus"
+
+    USAGEPOLICY = "usagepolicy"
+    FAQ = "faq"
+    EXTRAINFO = "extrainfo"
 
     MATH = "math"
     PHYSICS = "physics"
@@ -34,6 +39,7 @@ class Files(Enum):
 
     FUNCTIONS = "functions"
     EQUATIONS = "equations"
+    MEAN = "mean"
     PROGRESSIONS = "progressions"
     VECTORS = "vectors"
 
@@ -42,6 +48,13 @@ class Files(Enum):
     POLYGONS = "polygons"
     TRAPEZOIDS = "trapezoids"
     TRIANGLES = "triangles"
+
+    ELECTRICITY = "electricity"
+    MAGNETISM = "magnetism"
+
+    KINEMATICS = "kinematics"
+    DYNAMICS = "dynamics"
+    STATICS = "statics"
 
     ANSWER = "answer"
 

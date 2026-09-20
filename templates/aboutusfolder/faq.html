@@ -2,15 +2,13 @@
 <html>
     <head>
         <title>
-            Механика | Физмат-калькулятор - научный калькулятор для школы по физике и математике
+            Помощь в использовании | Физмат-калькулятор - научный калькулятор для школы по физике и математике
         </title>
         <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', path='css/subjects.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', path='css/subjectsections.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', path='css/tasks.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/aboutus.css') }}">
         <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
     </head>
-    <body class="solver-physics-background">
+    <body>
         <header>
             <div class="solver-header-background">
                 <div class="solver-header-menu">
@@ -25,34 +23,29 @@
         </header>
         <main>
             <div class="solver-main-background">
-                <div class="subject-section-info-card">
-                    <p class="subject-section-title">
-                        Механика
+                <p class="aboutus-title">
+                    Помощь в использовании
+                </p>
+                <div class="aboutus-card">
+                    <p class="aboutus-text">
+                        Как найти нужную страницу на сайте Физмат-калькулятора?
                     </p>
-                    <p class="subject-section-text">
-                        Ниже представлено то, что Физмат-калькулятор может посчитать.
-                        Выберите нужный тип задачи и перейдите по нему.
-                        Вы увидите поля ввода чисел в формулу.
-                        После отправки чисел Вы получите точный ответ или сообщение о неккоректном вводе.
-                        Физмат-калькулятор желает Вам удачи!
+                    <p class="aboutus-text">
+                        Чтобы найти нужный Вам предмет или тему, выберите его на главной странице.
+                        Далее Вам нужно нажать на его раздел и Вы увидите задачи на конкретные темы.
+                        Нажимайте на тему и Вы увидите конкретные формулы по данной теме.
+                        Так же внизу сайта есть навигация, которая в один клик перенесёт Вас на нужный Вам предмет или его подраздел.
                     </p>
                 </div>
-                <div class="tasks-grid">
-                    <div class="task-card">
-                        <a href="mechanics/dynamics" class="task-redirect-button">
-                            Задачи по динамике
-                        </a>                        
-                    </div>
-                    <div class="task-card">
-                        <a href="mechanics/kinematics" class="task-redirect-button">
-                            Задачи по кинематике
-                        </a>                        
-                    </div>
-                    <div class="task-card">
-                        <a href="mechanics/statics" class="task-redirect-button">
-                            Задачи по статике
-                        </a>                        
-                    </div>
+                <div class="aboutus-card">
+                    <p class="aboutus-text">
+                        Что делать, если нужной формулы не нашлось на сайте?
+                    </p>
+                    <p class="aboutus-text">
+                        Вы можете обратиться к нам и мы добавим новую формулу на определённую тему в конкретную страницу.
+                        Так же у Вас есть вариант воспользоваться другими источниками информации: учебниками или сторонними сайтами про физику и математику.
+                        Помните про соблюдение правил безопасности в Интернете: не делитесь личными данными и не соглашайтесь на сомнительные действия.
+                    </p>
                 </div>
             </div>
         </main>

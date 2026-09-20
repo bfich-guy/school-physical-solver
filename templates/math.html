@@ -9,37 +9,33 @@
         <link rel="stylesheet" href="{{ url_for('static', path='css/subjectsections.css') }}">
         <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
     </head>
-    <body>
+    <body class="solver-math-background">
         <header>
             <div class="solver-header-background">
-                <div class="solver-inline-menu">
-                    <a href="/aboutus" class="solver-inline-menu-button">
-                        О нас
-                    </a>
-                    <a href="/" class="solver-inline-menu-button">
-                        Главная
-                    </a>
-                    <a href="/faq" class="solver-inline-menu-button">
-                        Помощь 
-                    </a>                 
+                <div class="solver-header-menu">
+                    <p class="solver-header-text">
+                        Физмат-калькулятор
+                    </p>
+                    <p class="solver-header-text">
+                        Все расчеты верны
+                    </p>
                 </div>
             </div>
         </header>
         <main>
-            <div class="solver-classic-background">
-                <p class="solver-title">
-                    Математика
-                </p>
-                <p class="solver-main-text">
-                    Приветствуем Вас на странице математики!
-                    Здесь Вы можете выбрать разделы данной науки: алгебра, геометрия и ТВиС.
-                    Физмат-калькулятор с удовольствием посчитает вам все, что нужно.
-                    Корни квадратного уравнения через дискриминант для него завтрак.
-                    Площадь треугольника через синус найдет одной левой.
-                    Вероятность выпадения орла предскажет как погоду.
-                </p>
-            </div>
-            <div class="solver-logo-background">
+            <div class="solver-main-background">
+                <div class="subject-info-card">
+                    <p class="subject-title">
+                        Математика
+                    </p>
+                    <p class="subject-text">
+                        Приветствуем Вас на странице математики!
+                        Здесь Вы можете выбрать разделы данной науки: алгебра и геометрия.
+                        Физмат-калькулятор с удовольствием посчитает вам все, что нужно.
+                        Корни квадратного уравнения через дискриминант для него завтрак.
+                        Площадь треугольника через синус найдет одной левой.
+                    </p>
+                </div>
                 <div class="subjects-sections-grid">
                     <div class="subject-section-card">
                         <p class="subject-section-title">
@@ -57,26 +53,53 @@
                             Перейти
                         </a>                        
                     </div>
-                    <div class="subject-section-card">
-                        <p class="subject-section-title">
-                            ТВиС
-                        </p>
-                        <a href="math/probstats" class="subject-section-redirect-button">
-                            Перейти
-                        </a>                        
-                    </div>
                 </div>
             </div>
         </main>
         <footer>
             <div class="solver-footer-background">
-                <p class="solver-footer-text">
-                    Вы можете найти информацию про «Физмат-калькулятор» на странице «О нас».
-                    Если же Вам требуется подсказка для использования сайта - переходите на страницу «Помощь».
-                </p>
-                <p class="solver-footer-text">
-                    «Физмат-калькулятор». Все расчеты верны.
-                </p>
+                <div class="solver-footer-menu">
+                    <div class="solver-footer-card">
+                        <p class="solver-footer-card-title">
+                            Навигация
+                        </p>
+                        <a class="solver-footer-redirect-button" href="/physics">
+                            Физика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math">
+                            Математика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math/algebra">
+                            Алгебра
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math/geometry">
+                            Геометрия
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/electromagnetics">
+                            Электромагнетизм
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/mechanics">
+                            Механика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/thermodynamics">
+                            Термодинамика
+                        </a>
+                    </div>
+                    <div class="solver-footer-card">
+                        <p class="solver-footer-card-title">
+                            Поддержка
+                        </p>
+                        <a class="solver-footer-redirect-button" href="/usagepolicy">
+                            Политика пользования
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/faq">
+                            Помощь в использовании
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/extrainfo">
+                            Дополнительная информация
+                        </a>
+                    </div>
+                </div>
             </div>
         </footer>
     </body>

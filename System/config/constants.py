@@ -15,7 +15,7 @@ class SystemConstants(Enum):
 
 
 class MathConstants(Enum):
-    PI = Decimal("3.14159265358979")
+    PI = Decimal("3.14")
     DEFAULT_COSINUS = Decimal("0")
     DEFAULT_SINUS = Decimal("1")
 

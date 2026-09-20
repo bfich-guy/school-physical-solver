@@ -3,13 +3,16 @@
     grid-template-columns: repeat(1, 1fr);
     gap: 4% 4% 4% 4%;
     padding-bottom: 4%;
+    border: 4px solid lightgray;
+    border-radius: 16px;
+    background-color: white;
+    margin: 32px 128px;
 }
 
 .task-card {
     display: flex;
     flex-direction: row;
-    justify-content: left;
-    margin-left: 8%;
+    justify-content: center;
 }
 
 .task-redirect-button {
@@ -19,7 +22,7 @@
     font-size: 32px;
     font-family: 'Franklin Gothic Medium';
     align-self: center;
-    padding-bottom: 16px;
+    padding-top: 16px;
     text-decoration: none;
 }
 

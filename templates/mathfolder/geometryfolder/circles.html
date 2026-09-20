@@ -8,23 +8,82 @@
         <link rel="stylesheet" href="{{ url_for('static', path='css/formulas.css') }}">
         <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
     </head>
-    <body>
+    <body class="solver-physmath-background">
         <header>
             <div class="solver-header-background">
-                <div class="solver-inline-menu">
-                    <a href="/aboutus" class="solver-inline-menu-button">
-                        О нас
-                    </a>
-                    <a href="/math/geometry" class="solver-inline-menu-button">
-                        Геометрия
-                    </a>
-                    <a href="/faq" class="solver-inline-menu-button">
-                        Помощь 
-                    </a>                 
+                <div class="solver-header-menu">
+                    <p class="solver-header-text">
+                        Физмат-калькулятор
+                    </p>
+                    <p class="solver-header-text">
+                        Все расчеты верны
+                    </p>
                 </div>
             </div>
         </header>
         <main>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Радиус окружности
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Радиус окружности через площадь
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>r</mi>
+                                <mo>=</mo>
+                                <msqrt>
+                                    <mfrac>
+                                        <mi>S</mi>
+                                        <mi>π</mi>
+                                    </mfrac>
+                                </msqrt>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Площадь окружности">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Радиус окружности через длину окружности
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>r</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>l</mi>
+                                    <mrow>
+                                        <mn>2</mn>
+                                        <mi>π</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Длина окружности">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
             <div class="formula-header">
                 <p class="formula-title">
                     Площадь круга
@@ -57,6 +116,38 @@
                         </button>
                     </div>
                 </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Площадь круга через диаметр
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>S</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>π</mi>
+                                        <msup>
+                                            <mi>d</mi>
+                                            <mn>2</mn>
+                                        </msup>
+                                    </mrow>
+                                    <mn>4</mn>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Диаметр окружности">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
             <div class="formula-header">
                 <p class="formula-title">
                     Длина окружности
@@ -87,17 +178,147 @@
                         </button>
                     </div>
                 </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Длина окружности через диаметр
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>l</mi>
+                                <mo>=</mo>
+                                <mi>π</mi>
+                                <mi>d</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Диаметр окружности">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Радиусы вписанных и описанных окружностей
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Радиус вписанной окружности треугольника через его периметр
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>r</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mn>2</mn>
+                                        <mi>S</mi>
+                                    </mrow>
+                                    <mi>P</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Площадь треугольника">
+                        <input class="formula-input" type="text" placeholder="Периметр треугольника">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Радиус описанной окружности треугольника через его стороны
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>R</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>a</mi>
+                                        <mi>b</mi>
+                                        <mi>c</mi>
+                                    </mrow>
+                                    <mrow>
+                                        <mn>4</mn>
+                                        <mi>S</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Стороны треугольника (a, b, c)">
+                        <input class="formula-input" type="text" placeholder="Радиус описанной окружности">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
             </div>
         </main>
         <footer>
             <div class="solver-footer-background">
-                <p class="solver-footer-text">
-                    Вы можете найти информацию про «Физмат-калькулятор» на странице «О нас».
-                    Если же Вам требуется подсказка для использования сайта - переходите на страницу «Помощь».
-                </p>
-                <p class="solver-footer-text">
-                    «Физмат-калькулятор». Все расчеты верны.
-                </p>
+                <div class="solver-footer-menu">
+                    <div class="solver-footer-card">
+                        <p class="solver-footer-card-title">
+                            Навигация
+                        </p>
+                        <a class="solver-footer-redirect-button" href="/">
+                            Главная
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics">
+                            Физика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math">
+                            Математика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math/algebra">
+                            Алгебра
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math/geometry">
+                            Геометрия
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/electromagnetics">
+                            Электромагнетизм
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/mechanics">
+                            Механика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/thermodynamics">
+                            Термодинамика
+                        </a>
+                    </div>
+                    <div class="solver-footer-card">
+                        <p class="solver-footer-card-title">
+                            Поддержка
+                        </p>
+                        <a class="solver-footer-redirect-button" href="/usagepolicy">
+                            Политика пользования
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/faq">
+                            Помощь в использовании
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/extrainfo">
+                            Дополнительная информация
+                        </a>
+                    </div>
+                </div>
             </div>
         </footer>
     </body>

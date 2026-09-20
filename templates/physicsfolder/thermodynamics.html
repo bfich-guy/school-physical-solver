@@ -6,39 +6,37 @@
         </title>
         <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', path='css/subjects.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/subjectsections.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', path='css/tasks.css') }}">
         <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
     </head>
-    <body>
+    <body class="solver-physics-background">
         <header>
             <div class="solver-header-background">
-                <div class="solver-inline-menu">
-                    <a href="/aboutus" class="solver-inline-menu-button">
-                        О нас
-                    </a>
-                    <a href="/physics" class="solver-inline-menu-button">
-                        Физика
-                    </a>
-                    <a href="/faq" class="solver-inline-menu-button">
-                        Помощь 
-                    </a>                 
+                <div class="solver-header-menu">
+                    <p class="solver-header-text">
+                        Физмат-калькулятор
+                    </p>
+                    <p class="solver-header-text">
+                        Все расчеты верны
+                    </p>
                 </div>
             </div>
         </header>
         <main>
-            <div class="solver-classic-background">
-                <p class="solver-title">
-                    Термодинамика
-                </p>
-                <p class="solver-main-text">
-                    Ниже представлено то, что Физмат-калькулятор может посчитать.
-                    Выберите нужный тип задачи и перейдите по нему.
-                    Вы увидите поля ввода чисел в формулу.
-                    После отправки чисел Вы получите точный ответ или сообщение о неккоректном вводе.
-                    Физмат-калькулятор желает вам удачи!
-                </p>
-            </div>
-            <div class="solver-classic-background">
+            <div class="solver-main-background">
+                <div class="subject-section-info-card">
+                    <p class="subject-section-title">
+                        Термодинамика
+                    </p>
+                    <p class="subject-section-text">
+                        Ниже представлено то, что Физмат-калькулятор может посчитать.
+                        Выберите нужный тип задачи и перейдите по нему.
+                        Вы увидите поля ввода чисел в формулу.
+                        После отправки чисел Вы получите точный ответ или сообщение о неккоректном вводе.
+                        Физмат-калькулятор желает Вам удачи!
+                    </p>
+                </div>
                 <div class="tasks-grid">
                     <div class="task-card">
                         <a href="thermodynamics/heat" class="task-redirect-button">
@@ -55,13 +53,51 @@
         </main>
         <footer>
             <div class="solver-footer-background">
-                <p class="solver-footer-text">
-                    Вы можете найти информацию про «Физмат-калькулятор» на странице «О нас».
-                    Если же Вам требуется подсказка для использования сайта - переходите на страницу «Помощь».
-                </p>
-                <p class="solver-footer-text">
-                    «Физмат-калькулятор». Все расчеты верны.
-                </p>
+                <div class="solver-footer-menu">
+                    <div class="solver-footer-card">
+                        <p class="solver-footer-card-title">
+                            Навигация
+                        </p>
+                        <a class="solver-footer-redirect-button" href="/">
+                            Главная
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics">
+                            Физика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math">
+                            Математика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math/algebra">
+                            Алгебра
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math/geometry">
+                            Геометрия
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/electromagnetics">
+                            Электромагнетизм
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/mechanics">
+                            Механика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/thermodynamics">
+                            Термодинамика
+                        </a>
+                    </div>
+                    <div class="solver-footer-card">
+                        <p class="solver-footer-card-title">
+                            Поддержка
+                        </p>
+                        <a class="solver-footer-redirect-button" href="/usagepolicy">
+                            Политика пользования
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/faq">
+                            Помощь в использовании
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/extrainfo">
+                            Дополнительная информация
+                        </a>
+                    </div>
+                </div>
             </div>
         </footer>
     </body>

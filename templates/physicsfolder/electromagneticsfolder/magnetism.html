@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>
-            Многоугольники | Физмат-калькулятор
+            Электричество | Физмат-калькулятор
         </title>
         <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', path='css/formulas.css') }}">
@@ -24,164 +24,37 @@
         <main>
             <div class="formula-header">
                 <p class="formula-title">
-                    Правильные многоугольники
+                    Сила Ампера
                 </p>
             </div>
             <div class="formulas-grid">
                 <div class="formula-card">
                     <div class="formula-card-info">
                         <p class="formula-name">
-                            Периметр правильного многоугольника через длину его стороны
+                            Сила Ампера через магнитную индукцию
                         </p>
                         <p class="formula-object">
                             <math display="block">
-                                <mi>P</mi>
-                                <mo>=</mo>
-                                <mi>a</mi>
-                                <mi>n</mi>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Длина стороны">
-                        <input class="formula-input" type="text" placeholder="Количество сторон">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Длина стороны правильного многоугольника через его периметр
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>a</mi>
-                                <mo>=</mo>
-                                <mfrac>
-                                    <mi>P</mi>
-                                    <mi>n</mi>
-                                </mfrac>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Периметр многоугольника">
-                        <input class="formula-input" type="text" placeholder="Количество сторон">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Количество сторон правильного многоугольника через его периметр
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>n</mi>
-                                <mo>=</mo>
-                                <mfrac>
-                                    <mi>P</mi>
+                                <msub>
+                                    <mi>F</mi>
                                     <mi>a</mi>
-                                </mfrac>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Периметр многоугольника">
-                        <input class="formula-input" type="text" placeholder="Длина стороны">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Внутренний угол правильного многоугольника через сумму его углов
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
+                                </msub>
+                                <mo>=</mo>
+                                <mi>B</mi>
+                                <mi>I</mi>
+                                <mi>l</mi>
+                                <mi>sin</mi>
                                 <msup>
                                     <mi>a</mi>
                                     <mtext>°</mtext>
                                 </msup>
-                                <mo>=</mo>
-                                <mfrac>
-                                    <mi>S</mi>
-                                    <mi>n</mi>
-                                </mfrac>
                             </math>
                         </p>
                     </div>
                     <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Сумма углов">
-                        <input class="formula-input" type="text" placeholder="Количество сторон">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Сумма углов правильного многоугольника через его внутренний угол
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>S</mi>
-                                <mo>=</mo>
-                                <msup>
-                                    <mi>a</mi>
-                                    <mtext>°</mtext>
-                                </msup>
-                                <mi>n</mi>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Внутренний угол">
-                        <input class="formula-input" type="text" placeholder="Количество сторон">
-                    </div>
-                    <div class="formula-card-button">
-                        <button class="formula-calculate-button">
-                            Посчитать
-                        </button>
-                    </div>
-                </div>
-                <div class="formula-card">
-                    <div class="formula-card-info">
-                        <p class="formula-name">
-                            Количество сторон правильного многоугольника через сумму его углов
-                        </p>
-                        <p class="formula-object">
-                            <math display="block">
-                                <mi>n</mi>
-                                <mo>=</mo>
-                                <mfrac>
-                                    <mi>S</mi>
-                                    <msup>
-                                        <mi>a</mi>
-                                        <mtext>°</mtext>
-                                    </msup>
-                                </mfrac>
-                            </math>
-                        </p>
-                    </div>
-                    <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Сумма углов">
-                        <input class="formula-input" type="text" placeholder="Внутренний угол">
+                        <input class="formula-input" type="text" placeholder="Магнитная индукция">
+                        <input class="formula-input" type="text" placeholder="Сила тока">
+                        <input class="formula-input" type="text" placeholder="Синус угла">
                     </div>
                     <div class="formula-card-button">
                         <button class="formula-calculate-button">
@@ -192,33 +65,83 @@
             </div>
             <div class="formula-header">
                 <p class="formula-title">
-                    Произвольные многоугольники
+                    Сила Лоренца
                 </p>
             </div>
             <div class="formulas-grid">
                 <div class="formula-card">
                     <div class="formula-card-info">
                         <p class="formula-name">
-                            Количество сторон произвольного многоугольника через сумму его углов
+                            Сила Лоренца через магнитную индукцию
                         </p>
                         <p class="formula-object">
                             <math display="block">
-                                <mi>n</mi>
+                                <msub>
+                                    <mi>F</mi>
+                                    <mi>l</mi>
+                                </msub>
                                 <mo>=</mo>
-                                <mfrac>
-                                    <mi>S</mi>
-                                    <msup>
-                                        <mn>180</mn>
-                                        <mtext>°</mtext>
-                                    </msup>
-                                </mfrac>
-                                <mo>+</mo>
-                                <mi>2</mi>
+                                <mi>q</mi>
+                                <mi>v</mi>
+                                <mi>B</mi>
+                                <mi>sin</mi>
+                                <msup>
+                                    <mi>a</mi>
+                                    <mtext>°</mtext>
+                                </msup>
                             </math>
                         </p>
                     </div>
                     <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Сумма углов">
+                        <input class="formula-input" type="text" placeholder="Заряд частицы">
+                        <input class="formula-input" type="text" placeholder="Скорость частицы">
+                        <input class="formula-input" type="text" placeholder="Магнитная индукция">
+                        <input class="formula-input" type="text" placeholder="Синус угла">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Магнитная индукция
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Магнитная индукция через силу Ампера
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>B</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>F</mi>
+                                        <mi>a</mi>
+                                    </msub>
+                                    <mrow>
+                                        <mi>I</mi>
+                                        <mi>l</mi>
+                                        <mi>sin</mi>
+                                        <msup>
+                                            <mi>a</mi>
+                                            <mtext>°</mtext>
+                                        </msup>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Сила тока">
+                        <input class="formula-input" type="text" placeholder="Длина проводника">
+                        <input class="formula-input" type="text" placeholder="Синус угла">
                     </div>
                     <div class="formula-card-button">
                         <button class="formula-calculate-button">
@@ -229,26 +152,165 @@
                 <div class="formula-card">
                     <div class="formula-card-info">
                         <p class="formula-name">
-                            Сумма углов произвольного многоугольника через количество его сторон
+                            Магнитная индукция через силу Лоренца
                         </p>
                         <p class="formula-object">
                             <math display="block">
-                                <mi>S</mi>
+                                <mi>B</mi>
                                 <mo>=</mo>
-                                <mo>(</mo>
-                                <mi>n</mi>
-                                <mo>−</mo>
-                                <mi>2</mi>
-                                <mo>)</mo>
-                                <msup>
-                                    <mi>180</mi>
-                                    <mtext>°</mtext>
-                                </msup>
+                                <mfrac>
+                                    <msub>
+                                        <mi>F</mi>
+                                        <mi>l</mi>
+                                    </msub>
+                                    <mrow>
+                                        <mi>q</mi>
+                                        <mi>v</mi>
+                                        <mi>sin</mi>
+                                        <msup>
+                                            <mi>a</mi>
+                                            <mtext>°</mtext>
+                                        </msup>
+                                    </mrow>
+                                </mfrac>
                             </math>
                         </p>
                     </div>
                     <div class="formula-card-input">
-                        <input class="formula-input" type="text" placeholder="Количество сторон">
+                        <input class="formula-input" type="text" placeholder="Заряд частицы">
+                        <input class="formula-input" type="text" placeholder="Скорость частицы">
+                        <input class="formula-input" type="text" placeholder="Синус угла">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Длина проводника
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Длина проводника через силу Ампера
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>l</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>F</mi>
+                                        <mi>a</mi>
+                                    </msub>
+                                    <mrow>
+                                        <mi>B</mi>
+                                        <mi>I</mi>
+                                        <mi>sin</mi>
+                                        <msup>
+                                            <mi>a</mi>
+                                            <mtext>°</mtext>
+                                        </msup>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Сила Ампера">
+                        <input class="formula-input" type="text" placeholder="Магнитная индукция">
+                        <input class="formula-input" type="text" placeholder="Сила тока">
+                        <input class="formula-input" type="text" placeholder="Синус угла">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Тригонометрические функции углов
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Синус угла через силу Ампера
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>sin</mi>
+                                <msup>
+                                    <mi>a</mi>
+                                    <mtext>°</mtext>
+                                </msup>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>F</mi>
+                                        <mi>a</mi>
+                                    </msub>
+                                    <mrow>
+                                        <mi>q</mi>
+                                        <mi>v</mi>
+                                        <mi>B</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Сила Ампера">
+                        <input class="formula-input" type="text" placeholder="Заряд частицы">
+                        <input class="formula-input" type="text" placeholder="Скорость частицы">
+                        <input class="formula-input" type="text" placeholder="Магнитная индукция">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Синус угла через силу Лоренца
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>sin</mi>
+                                <msup>
+                                    <mi>a</mi>
+                                    <mtext>°</mtext>
+                                </msup>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <msub>
+                                        <mi>F</mi>
+                                        <mi>l</mi>
+                                    </msub>
+                                    <mrow>
+                                        <mi>B</mi>
+                                        <mi>I</mi>
+                                        <mi>l</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Сила Ампера">
+                        <input class="formula-input" type="text" placeholder="Магнитная индукция">
+                        <input class="formula-input" type="text" placeholder="Сила тока">
+                        <input class="formula-input" type="text" placeholder="Длина проводника">
                     </div>
                     <div class="formula-card-button">
                         <button class="formula-calculate-button">
@@ -258,7 +320,7 @@
                 </div>
             </div>
         </main>
-        <footer>
+       <footer>
             <div class="solver-footer-background">
                 <div class="solver-footer-menu">
                     <div class="solver-footer-card">

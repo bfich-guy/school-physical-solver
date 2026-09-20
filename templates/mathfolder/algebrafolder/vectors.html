@@ -8,23 +8,73 @@
         <link rel="stylesheet" href="{{ url_for('static', path='css/formulas.css') }}">
         <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
     </head>
-    <body>
+    <body class="solver-physmath-background">
         <header>
             <div class="solver-header-background">
-                <div class="solver-inline-menu">
-                    <a href="/aboutus" class="solver-inline-menu-button">
-                        О нас
-                    </a>
-                    <a href="/math/algebra" class="solver-inline-menu-button">
-                        Алгебра
-                    </a>
-                    <a href="/faq" class="solver-inline-menu-button">
-                        Помощь 
-                    </a>                 
+                <div class="solver-header-menu">
+                    <p class="solver-header-text">
+                        Физмат-калькулятор
+                    </p>
+                    <p class="solver-header-text">
+                        Все расчеты верны
+                    </p>
                 </div>
             </div>
         </header>
         <main>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Координаты вектора
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Координаты n-мерного вектора через разность конца и начала
+                        </p>
+                    </div>
+                    <p class="formula-object">
+                        <math display="block">
+                            <mi>a</mi>
+                            <mrow>
+                                <mo>{</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>1B</mtext>
+                                </msub>
+                                <mo>−</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>1A</mtext>
+                                </msub>
+                                <mo>;</mo>
+                                <mo>⋯</mo>
+                                <mo>;</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>nB</mtext>
+                                </msub>
+                                <mo>−</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>nA</mtext>
+                                </msub>
+                                <mo>}</mo>
+                            </mrow>
+                        </math>
+                    </p>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Конечные координаты вектора">
+                        <input class="formula-input" type="text" placeholder="Начальные координаты вектора">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
             <div class="formula-header">
                 <p class="formula-title">
                     Длина вектора
@@ -38,7 +88,12 @@
                         </p>
                         <p class="formula-object">
                             <math display="block">
-                                <mi>|a|</mi>
+                                <mi>|</mi>
+                                <mover>
+                                    <mi>a</mi>
+                                    <mo>→</mo>
+                                </mover>
+                                <mi>|</mi>
                                 <mo>=</mo>
                                 <msqrt>
                                     <msup>
@@ -49,15 +104,7 @@
                                         <mn>2</mn>
                                     </msup>
                                     <mo>+</mo>
-                                    <msup>
-                                        <msub>
-                                            <mi>Δx</mi>
-                                            <mn>2</mn>
-                                        </msub>
-                                        <mn>2</mn>
-                                    </msup>
-                                    <mo>+</mo>
-                                    <mo>...</mo>
+                                    <mo>⋯</mo>
                                     <mo>+</mo>
                                     <msup>
                                         <msub>
@@ -86,18 +133,33 @@
                         </p>
                         <p class="formula-object">
                             <math display="block">
-                                <mi>|a|</mi>
+                                <mi>|</mi>
+                                <mover>
+                                    <mi>a</mi>
+                                    <mo>→</mo>
+                                </mover>
+                                <mi>|</mi>
                                 <mo>=</mo>
                                 <mfrac>
                                     <mrow>
-                                        <mi>|a|</mi>
-                                        <mi>|b|</mi>
+                                        <mover>
+                                            <mi>a</mi>
+                                            <mo>→</mo>
+                                        </mover>
+                                        <mover>
+                                            <mi>b</mi>
+                                            <mo>→</mo>
+                                        </mover>
                                     </mrow>
                                     <mrow>
+                                        <mi>|</mi>
+                                        <mover>
+                                            <mi>b</mi>
+                                            <mo>→</mo>
+                                        </mover>
+                                        <mi>|</mi>
                                         <mi>cos</mi>
-                                        <mo>(</mo>
                                         <mi>a</mi>
-                                        <mo>)</mo>
                                     </mrow>
                                 </mfrac>
                             </math>
@@ -105,8 +167,327 @@
                     </div>
                     <div class="formula-card-input">
                         <input class="formula-input" type="text" placeholder="Скалярное произведение">
-                        <input class="formula-input" type="text" placeholder="Магнитуда вектора">
+                        <input class="formula-input" type="text" placeholder="Длина данного вектора">
                         <input class="formula-input" type="text" placeholder="Косинус угла">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Скалярное произведение
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Скалярное произведение n-мерных векторов через сумму произведений соответствующих координат
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mover>
+                                    <mi>a</mi>
+                                    <mo>→</mo>
+                                </mover>
+                                <mover>
+                                    <mi>b</mi>
+                                    <mo>→</mo>
+                                </mover>
+                                <mo>=</mo>
+                                <mrow>
+                                    <msub>
+                                        <mi>x</mi>
+                                        <mtext>1a</mtext>
+                                    </msub>
+                                    <msub>
+                                        <mi>x</mi>
+                                        <mtext>1b</mtext>
+                                    </msub>
+                                    <mo>+</mo>
+                                    <mo>⋯</mo>
+                                    <mo>+</mo>
+                                    <msub>
+                                        <mi>x</mi>
+                                        <mtext>na</mtext>
+                                    </msub>
+                                    <msub>
+                                        <mi>x</mi>
+                                        <mtext>nb</mtext>
+                                    </msub>
+                                </mrow>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Координаты первого вектора">
+                        <input class="formula-input" type="text" placeholder="Координаты второго вектора">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Скалярное произвдение через длины векторов
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mover>
+                                    <mi>a</mi>
+                                    <mo>→</mo>
+                                </mover>
+                                <mover>
+                                    <mi>b</mi>
+                                    <mo>→</mo>
+                                </mover>
+                                <mo>=</mo>
+                                <mi>|</mi>
+                                <mover>
+                                    <mi>a</mi>
+                                    <mo>→</mo>
+                                </mover>
+                                <mi>|</mi>
+                                <mi>|</mi>
+                                <mover>
+                                    <mi>b</mi>
+                                    <mo>→</mo>
+                                </mover>
+                                <mi>|</mi>
+                                <mi>cos</mi>
+                                <mi>a</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Скалярное произведение">
+                        <input class="formula-input" type="text" placeholder="Длина вектора">
+                        <input class="formula-input" type="text" placeholder="Косинус угла">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Косинус угла между векторами
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Косинус угла между векторами через скалярное произведение
+                        </p>
+                    </div>
+                    <p class="formula-object">
+                        <math display="block">
+                            <mi>cos</mi>
+                            <mi>a</mi>
+                            <mo>=</mo>
+                            <mfrac>
+                                <mrow>
+                                    <mover>
+                                        <mi>a</mi>
+                                        <mo>→</mo>
+                                    </mover>
+                                    <mover>
+                                        <mi>b</mi>
+                                        <mo>→</mo>
+                                    </mover>
+                                </mrow>
+                                <mrow>
+                                    <mi>|</mi>
+                                    <mover>
+                                        <mi>a</mi>
+                                        <mo>→</mo>
+                                    </mover>
+                                    <mi>|</mi>
+                                    <mi>|</mi>
+                                    <mover>
+                                        <mi>b</mi>
+                                        <mo>→</mo>
+                                    </mover>
+                                    <mi>|</mi>
+                                </mrow>
+                            </mfrac>
+                        </math>
+                    </p>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Скалярное произведение">
+                        <input class="formula-input" type="text" placeholder="Длина первого вектора">
+                        <input class="formula-input" type="text" placeholder="Длина второго вектора">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="formula-header">
+                <p class="formula-title">
+                    Векторные операции
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сумма векторов
+                        </p>
+                    </div>
+                    <p class="formula-object">
+                        <math display="block">
+                            <mover>
+                                <mi>a</mi>
+                                <mo>→</mo>
+                            </mover>
+                            <mo>+</mo>
+                            <mover>
+                                <mi>b</mi>
+                                <mo>→</mo>
+                            </mover>
+                            <mo>=</mo>
+                            <mrow>
+                                <mo>{</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>1a</mtext>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>1b</mtext>
+                                </msub>
+                                <mo>;</mo>
+                                <mo>⋯</mo>
+                                <mo>;</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>na</mtext>
+                                </msub>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>nb</mtext>
+                                </msub>
+                                <mo>}</mo>
+                            </mrow>
+                        </math>
+                    </p>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Координаты первого вектора">
+                        <input class="formula-input" type="text" placeholder="Координаты второго вектора">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Разность векторов
+                        </p>
+                    </div>
+                    <p class="formula-object">
+                        <math display="block">
+                            <mover>
+                                <mi>a</mi>
+                                <mo>→</mo>
+                            </mover>
+                            <mo>−</mo>
+                            <mover>
+                                <mi>b</mi>
+                                <mo>→</mo>
+                            </mover>
+                            <mo>=</mo>
+                            <mrow>
+                                <mo>{</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>1a</mtext>
+                                </msub>
+                                <mo>−</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>1b</mtext>
+                                </msub>
+                                <mo>;</mo>
+                                <mo>⋯</mo>
+                                <mo>;</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>na</mtext>
+                                </msub>
+                                <mo>−</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>nb</mtext>
+                                </msub>
+                                <mo>}</mo>
+                            </mrow>
+                        </math>
+                    </p>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Координаты первого вектора">
+                        <input class="formula-input" type="text" placeholder="Координаты второго вектора">
+                    </div>
+                    <div class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Умножение вектора на коэффициент
+                        </p>
+                    </div>
+                    <p class="formula-object">
+                        <math display="block">
+                            <mi>k</mi>
+                            <mover>
+                                <mi>a</mi>
+                                <mo>→</mo>
+                            </mover>
+                            <mo>=</mo>
+                            <mrow>
+                                <mo>{</mo>
+                                <mi>k</mi>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>1</mtext>
+                                </msub>
+                                <mo>;</mo>
+                                <mo>⋯</mo>
+                                <mo>;</mo>
+                                <mi>k</mi>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>n</mtext>
+                                </msub>
+                                <mo>}</mo>
+                            </mrow>
+                        </math>
+                    </p>
+                    <div class="formula-card-input">
+                        <input class="formula-input" type="text" placeholder="Координаты первого вектора">
+                        <input class="formula-input" type="text" placeholder="Координаты второго вектора">
                     </div>
                     <div class="formula-card-button">
                         <button class="formula-calculate-button">
@@ -118,13 +499,51 @@
         </main>
         <footer>
             <div class="solver-footer-background">
-                <p class="solver-footer-text">
-                    Вы можете найти информацию про «Физмат-калькулятор» на странице «О нас».
-                    Если же Вам требуется подсказка для использования сайта - переходите на страницу «Помощь».
-                </p>
-                <p class="solver-footer-text">
-                    «Физмат-калькулятор». Все расчеты верны.
-                </p>
+                <div class="solver-footer-menu">
+                    <div class="solver-footer-card">
+                        <p class="solver-footer-card-title">
+                            Навигация
+                        </p>
+                        <a class="solver-footer-redirect-button" href="/">
+                            Главная
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics">
+                            Физика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math">
+                            Математика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math/algebra">
+                            Алгебра
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/math/geometry">
+                            Геометрия
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/electromagnetics">
+                            Электромагнетизм
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/mechanics">
+                            Механика
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/physics/thermodynamics">
+                            Термодинамика
+                        </a>
+                    </div>
+                    <div class="solver-footer-card">
+                        <p class="solver-footer-card-title">
+                            Поддержка
+                        </p>
+                        <a class="solver-footer-redirect-button" href="/usagepolicy">
+                            Политика пользования
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/faq">
+                            Помощь в использовании
+                        </a>
+                        <a class="solver-footer-redirect-button" href="/extrainfo">
+                            Дополнительная информация
+                        </a>
+                    </div>
+                </div>
             </div>
         </footer>
     </body>
