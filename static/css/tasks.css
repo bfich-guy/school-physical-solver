@@ -19,8 +19,7 @@
     background: none;
     border: none;
     color: blue;
-    font-size: 32px;
-    font-family: 'Franklin Gothic Medium';
+    font: bold 24px 'Franklin Gothic Medium';
     align-self: center;
     padding-top: 16px;
     text-decoration: none;

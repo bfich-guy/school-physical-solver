@@ -30,7 +30,7 @@
 
 .subject-section-text {
     color: black;
-    font: bold 32px 'Franklin Gothic Medium';
+    font: bold 24px 'Franklin Gothic Medium';
     text-align: left;
     margin: 16px 16px;
 }
@@ -39,8 +39,7 @@
     background: none;
     border: none;
     color: blue;
-    font-size: 32px;
-    font-family: 'Franklin Gothic Medium';
+    font: bold 32px 'Franklin Gothic Medium';
     align-self: center;
     padding-bottom: 16px;
     text-decoration: none;
