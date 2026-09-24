@@ -15,16 +15,6 @@ def get_circle_area_by_circle_radius(
     return circle_area
 
 
-def get_circle_area_by_circle_diameter(
-    *,
-    pi: Decimal,
-    circle_diameter: Decimal,
-) -> Decimal:
-
-    circle_area: Decimal = (pi * pow(circle_diameter, Decimal("2"))) / Decimal("4")
-    return circle_area
-
-
 def get_circumference_by_circle_radius(
     *,
     pi: Decimal,
@@ -32,16 +22,6 @@ def get_circumference_by_circle_radius(
 ) -> Decimal:
 
     circumference: Decimal = Decimal("2") * pi * circle_radius
-    return circumference
-
-
-def get_circumference_by_circle_diameter(
-    *,
-    pi: Decimal,
-    circle_diameter: Decimal,
-) -> Decimal:
-
-    circumference: Decimal = pi * circle_diameter
     return circumference
 
 
@@ -64,25 +44,6 @@ def get_circle_radius_by_circumference(
     circle_radius: Decimal = circumference / (Decimal("2") * pi)
     return circle_radius
 
-
-def get_triangle_inradius_by_triangle_area_and_triangle_perimeter(
-    *,
-    triangle_area: Decimal,
-    triangle_perimeter: Decimal,
-) -> Decimal:
-
-    triangle_inradius: Decimal = (triangle_area * Decimal("2")) / triangle_perimeter
-    return triangle_inradius
-
-
-def get_triangle_circumradius_by_triangle_sides_and_triangle_area(
-    *,
-    triangle_sides: list[Decimal],
-    triangle_area: Decimal,
-) -> Decimal:
-
-    triangle_circumradius: Decimal = decimal_product(triangle_sides) / (Decimal("4") * triangle_area)
-    return triangle_circumradius
 
 #endregion
 
@@ -250,7 +211,7 @@ def get_trapezoid_height_by_trapezoid_area_and_trapezoid_bases(
 
 #region Triangles
 
-def get_triangle_area_and_triangle_base_and_triangle_height(
+def get_triangle_area_by_triangle_base_and_triangle_height(
     *,
     triangle_base: Decimal,
     triangle_height: Decimal,
@@ -299,6 +260,16 @@ def get_triangle_area_by_triangle_sides_and_triangle_circumradius(
 
     triangle_area: Decimal = decimal_product(triangle_sides) / (Decimal("4") * triangle_circumradius)
     return triangle_area
+
+
+def get_triangle_circumradius_by_triangle_sides_and_triangle_area(
+    *,
+    triangle_sides: list[Decimal],
+    triangle_area: Decimal,
+) -> Decimal:
+
+    triangle_circumradius: Decimal = decimal_product(triangle_sides) / (Decimal("4") * triangle_area)
+    return triangle_circumradius
 
 
 def get_triangle_base_by_triangle_area_and_triangle_height(
@@ -393,6 +364,16 @@ def get_triangle_perimeter_by_triangle_area_and_triangle_inradius(
 
     triangle_perimeter: Decimal = (Decimal("2") * triangle_area) / triangle_inradius
     return triangle_perimeter
+
+
+def get_triangle_inradius_by_triangle_area_and_triangle_perimeter(
+    *,
+    triangle_area: Decimal,
+    triangle_perimeter: Decimal,
+) -> Decimal:
+
+    triangle_inradius: Decimal = (triangle_area * Decimal("2")) / triangle_perimeter
+    return triangle_inradius
 
 
 def get_angle_cosinus_by_cosine_theorem(

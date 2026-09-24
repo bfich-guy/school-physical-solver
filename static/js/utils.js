@@ -2,21 +2,17 @@ import { WidgetsIdRegistry, SolverData } from "./config.js";
 
 
 export function pageSetup() {
-    const solverTitleId = WidgetsIdRegistry["SolverTitle"];
-    const solverSloganId = WidgetsIdRegistry["SolverSlogan"];
+    const SolverHeaderId = WidgetsIdRegistry["SolverHeader"];
     const solverFooterId = WidgetsIdRegistry["SolverFooter"];
 
-    const solverTitleText = SolverData["SolverTitle"];
-    const solverSloganText = SolverData["SolverSlogan"];
+    const SolverHeaderHTML = SolverData["SolverHeader"];
     const solverFooterHTML = SolverData["SolverFooter"];
 
     document.addEventListener("DOMContentLoaded", () => {
-        const solverTitleWidget = document.getElementById(solverTitleId);
-        const solverSloganWidget = document.getElementById(solverSloganId);
+        const solverHeaderWidget = document.getElementById(SolverHeaderId);
         const solverFooterWidget = document.getElementById(solverFooterId);
 
-        solverTitleWidget.textContent = solverTitleText;
-        solverSloganWidget.textContent = solverSloganText;
+        solverHeaderWidget.innerHTML = SolverHeaderHTML;
         solverFooterWidget.innerHTML = solverFooterHTML;
     });
 };

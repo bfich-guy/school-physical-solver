@@ -12,7 +12,6 @@ class Folders(Enum):
 
     ALGEBRA = "algebrafolder"
     GEOMETRY = "geometryfolder"
-    PROBSTATS = "probstatsfolder"
 
     ELECTROMAGNETICS = "electromagneticsfolder"
     MECHANICS = "mechanicsfolder"
@@ -31,30 +30,10 @@ class Files(Enum):
 
     ALGEBRA = "algebra"
     GEOMETRY = "geometry"
-    PROBSTATS = "probstats"
 
     ELECTROMAGNETICS = "electromagnetics"
     MECHANICS = "mechanics"
     THERMODYNAMICS = "thermodynamics"
-
-    FUNCTIONS = "functions"
-    EQUATIONS = "equations"
-    MEAN = "mean"
-    PROGRESSIONS = "progressions"
-    VECTORS = "vectors"
-
-    CIRCLES = "circles"
-    PARALLELOGRAMS = "parallelograms"
-    POLYGONS = "polygons"
-    TRAPEZOIDS = "trapezoids"
-    TRIANGLES = "triangles"
-
-    ELECTRICITY = "electricity"
-    MAGNETISM = "magnetism"
-
-    KINEMATICS = "kinematics"
-    DYNAMICS = "dynamics"
-    STATICS = "statics"
 
     ANSWER = "answer"
 

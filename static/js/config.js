@@ -1,6 +1,5 @@
 export const WidgetsIdRegistry = {
-    "SolverTitle": "solver-title",
-    "SolverSlogan": "solver-slogan",
+    "SolverHeader": "solver-header",
     "SolverFooter": "solver-footer",
 };
 
@@ -8,6 +7,14 @@ export const WidgetsIdRegistry = {
 export const SolverData = {
     "SolverTitle": "Физмат-калькулятор",
     "SolverSlogan": "Все расчёты верны!",
+    "SolverHeader": `
+        <a href="/" class="solver-header-button">
+            Главная
+        </a>
+        <a href="/answer" class="solver-header-button">
+            Журнал
+        </a>
+    `,
     "SolverFooter": `
         <div class="solver-footer-card">
             <p class="solver-footer-card-title">

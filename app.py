@@ -9,6 +9,7 @@ from system.config.server import Mounts
 from system.utils.server import include_routers
 
 from routers.templates.index import index_router
+from routers.templates.answer import answer_router
 
 from routers.templates.aboutusrouter.extrainfo import extrainfo_router
 from routers.templates.aboutusrouter.faq import faq_router 
@@ -23,25 +24,6 @@ from routers.templates.mathfolder.geometry import geometry_router
 from routers.templates.physicsfolder.electromagnetics import electromagnetics_router
 from routers.templates.physicsfolder.mechanics import mechanics_router
 from routers.templates.physicsfolder.thermodynamics import thermodynamics_router
-
-from routers.templates.mathfolder.algebrafolder.equations import equations_router
-from routers.templates.mathfolder.algebrafolder.functions import functions_router
-from routers.templates.mathfolder.algebrafolder.mean import mean_router
-from routers.templates.mathfolder.algebrafolder.progressions import progressions_router
-from routers.templates.mathfolder.algebrafolder.vectors import vectors_router
-
-from routers.templates.mathfolder.geometryfolder.circles import circles_router
-from routers.templates.mathfolder.geometryfolder.parallelograms import parallelograms_router
-from routers.templates.mathfolder.geometryfolder.polygons import polygons_router
-from routers.templates.mathfolder.geometryfolder.trapezoids import trapezoids_router
-from routers.templates.mathfolder.geometryfolder.triangles import triangles_router
-
-from routers.templates.physicsfolder.electromagneticsfolder.electricity import electricity_router
-from routers.templates.physicsfolder.electromagneticsfolder.magnetism import magnetism_router
-
-from routers.templates.physicsfolder.mechanicsfolder.dynamics import dynamics_router
-from routers.templates.physicsfolder.mechanicsfolder.kinematics import kinematics_router
-from routers.templates.physicsfolder.mechanicsfolder.statics import statics_router
 
 
 app = FastAPI()
@@ -65,6 +47,7 @@ app.add_middleware(
 
 routers_list: list[APIRouter] = [
     index_router,
+    answer_router,
 
     extrainfo_router,
     faq_router,
@@ -78,25 +61,6 @@ routers_list: list[APIRouter] = [
     electromagnetics_router,
     mechanics_router,
     thermodynamics_router,
-
-    equations_router,
-    functions_router,
-    mean_router,
-    progressions_router,
-    vectors_router,
-
-    circles_router,
-    parallelograms_router,
-    polygons_router,
-    trapezoids_router,
-    triangles_router,
-
-    electricity_router,
-    magnetism_router,
-
-    dynamics_router,
-    kinematics_router,
-    statics_router,
 ]
 
 include_routers(

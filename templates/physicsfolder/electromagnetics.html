@@ -5,48 +5,1167 @@
             Электромагнетизм | Физмат-калькулятор - научный калькулятор для школы по физике и математике
         </title>
         <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', path='css/subjects.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', path='css/subjectsections.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', path='css/tasks.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/formulas.css') }}">
         <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
     </head>
     <body class="solver-physics-background">
         <header>
             <div class="solver-header-background">
-                <div class="solver-header-menu">
-                    <p id="solver-title" class="solver-header-text">
-                        
-                    </p>
-                    <p id="solver-slogan" class="solver-header-text">
-                        
-                    </p>
+                <div id="solver-header" class="solver-header-menu">
+                    
                 </div>
             </div>
         </header>
         <main>
-            <div class="solver-main-background">
-                <div class="subject-section-info-card">
-                    <p class="subject-section-title">
-                        Электромагнетизм
-                    </p>
-                    <p class="subject-section-text">
-                        Ниже представлено то, что Физмат-калькулятор может посчитать.
-                        Выберите нужный тип задачи и перейдите по нему.
-                        Вы увидите поля ввода чисел в формулу.
-                        После отправки чисел Вы получите точный ответ или сообщение о неккоректном вводе.
-                        Физмат-калькулятор желает Вам удачи!
-                    </p>
-                </div>
-                <div class="tasks-grid">
-                    <div class="task-card">
-                        <a href="electromagnetics/electricity" class="task-redirect-button">
-                            Задачи на электричество
-                        </a>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Законы Ома, Ватта, Джоуля-Ленца, Кулона
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Напряжение на участке цепи по закону Ома
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>U</mi>
+                                <mo>=</mo>
+                                <mi>I</mi>
+                                <mi>R</mi>
+                            </math>
+                        </p>
                     </div>
-                    <div class="task-card">
-                        <a href="electromagnetics/magnetism" class="task-redirect-button">
-                            Задачи на магнетизм
-                        </a>
+                    <div class="formula-card-input">
+                        <input id="ohms-law-electric-current" class="formula-input" type="text" placeholder="Сила тока в цепи">
+                        <input id="ohms-law-electric-resistance" class="formula-input" type="text" placeholder="Сопротивление цепи">
+                    </div>
+                    <div id="get-electric-voltage-by-ohms-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сила тока на участке по закону Ома
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>I</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>U</mi>
+                                    <mi>R</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="ohms-law-electric-voltage" class="formula-input" type="text" placeholder="Напряжение цепи">
+                        <input id="ohms-law-electric-resistance" class="formula-input" type="text" placeholder="Сопротивление цепи">
+                    </div>
+                    <div id="get-electric-current-by-ohms-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сопротивление на участке цепи по закону Ома
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>R</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>U</mi>
+                                    <mi>I</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="ohms-law-electric-voltage" class="formula-input" type="text" placeholder="Напряжение цепи">
+                        <input id="ohms-law-electric-current" class="formula-input" type="text" placeholder="Сила тока в цепи">
+                    </div>
+                    <div id="get-electric-power-by-ohms-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Потребляемая мощность по закону Ватта
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>P</mi>
+                                <mo>=</mo>
+                                <mi>U</mi>
+                                <mi>I</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="watts-law-electric-voltage" class="formula-input" type="text" placeholder="Напряжение цепи">
+                        <input id="watts-law-electric-current" class="formula-input" type="text" placeholder="Сила тока в цепи">
+                    </div>
+                    <div id="get-electric-power-by-watts-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Напряжение по закону Ватта
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>U</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>P</mi>
+                                    <mi>I</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="watts-law-electric-power" class="formula-input" type="text" placeholder="Потребляемая мощность">
+                        <input id="watts-law-electric-current" class="formula-input" type="text" placeholder="Сила тока в цепи">
+                    </div>
+                    <div id="get-electric-voltage-by-watts-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сила тока по закону Ватта
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>I</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>P</mi>
+                                    <mi>U</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="watts-law-electric-power" class="formula-input" type="text" placeholder="Потребляемая мощность">
+                        <input id="watts-law-electric-voltage" class="formula-input" type="text" placeholder="Напряжение в цепи">
+                    </div>
+                    <div id="get-electric-current-by-watts-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Теплота проводника по закону Джоуля-Ленца
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>Q</mi>
+                                <mo>=</mo>
+                                <mi>P</mi>
+                                <mi>t</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="joule-lenz-law-electric-power" class="formula-input" type="text" placeholder="Потребляемая мощность">
+                        <input id="joule-lenz-law-heating-duration" class="formula-input" type="text" placeholder="Пройденное время">
+                    </div>
+                    <div id="get-joule-heat-by-joule-lenz-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Потребляемая мощность по закону Джоуля-Ленца 
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>P</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>Q</mi>
+                                    <mi>t</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="joule-lenz-law-joule-heat" class="formula-input" type="text" placeholder="Теплота проводника">
+                        <input id="joule-lenz-law-heating-duration" class="formula-input" type="text" placeholder="Пройденное время">
+                    </div>
+                    <div id="get-electric-power-by-joule-lenz-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Потребляемая мощность по закону Джоуля-Ленца 
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>t</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>Q</mi>
+                                    <mi>P</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="joule-lenz-law-joule-heat" class="formula-input" type="text" placeholder="Теплота проводника">
+                        <input id="joule-lenz-law-electric-power" class="formula-input" type="text" placeholder="Потребляемая мощность">
+                    </div>
+                    <div id="get-heating-duration-by-joule-lenz-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Электростатическая сила по закону Кулона
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>F</mi>
+                                <mo>=</mo>
+                                <mi>k</mi>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>|</mi>
+                                        <msub>
+                                            <mi>q</mi>
+                                            <mn>1</mn>
+                                        </msub>
+                                        <mi>|</mi>
+                                        <mi>|</mi>
+                                        <msub>
+                                            <mi>q</mi>
+                                            <mn>2</mn>
+                                        </msub>
+                                        <mi>|</mi>
+                                    </mrow>
+                                    <msup>
+                                        <mi>r</mi>
+                                        <mi>2</mi>
+                                    </msup>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="coulombs-law-charges-modules" class="formula-input" type="text" placeholder="Модули зарядов (q1, q2)">
+                        <input id="coulombs-law-charges-distance" class="formula-input" type="text" placeholder="Расстояние между зарядами">
+                    </div>
+                    <div id="get-coloumbs-force-by-coulombs-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Модуль неизвестного заряда по закону Кулона
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>|</mi>
+                                <msub>
+                                    <mi>q</mi>
+                                    <mn>1</mn>
+                                </msub>
+                                <mi>|</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>F</mi>
+                                        <msup>
+                                            <mi>r</mi>
+                                            <mi>2</mi>
+                                        </msup>
+                                    </mrow>
+                                    <mrow>
+                                        <mi>k</mi>
+                                        <mi>|</mi>
+                                        <msub>
+                                            <mi>q</mi>
+                                            <mn>2</mn>
+                                        </msub>
+                                        <mi>|</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="coulombs-law-coulumb-force" class="formula-input" type="text" placeholder="Электростатическая сила">
+                        <input id="coulombs-law-charges-distance" class="formula-input" type="text" placeholder="Расстояние между зарядами">
+                        <input id="coulombs-law-given-charge-module" class="formula-input" type="text" placeholder="Известный модуль заряда">
+                    </div>
+                    <div id="get-coloumbs-force-by-coulombs-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Расстояние между зарядами по закону Кулона
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>r</mi>
+                                <mo>=</mo>
+                                <msqrt>
+                                    <mfrac>
+                                        <mrow>
+                                            <mi>k</mi>
+                                            <mi>|</mi>
+                                            <msub>
+                                                <mi>q</mi>
+                                                <mn>1</mn>
+                                            </msub>
+                                            <mi>|</mi>
+                                            <mi>|</mi>
+                                            <msub>
+                                                <mi>q</mi>
+                                                <mn>2</mn>
+                                            </msub>
+                                            <mi>|</mi>
+                                        </mrow>
+                                        <mi>F</mi>
+                                    </mfrac>
+                                </msqrt>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="coulombs-law-charge-modules" class="formula-input" type="text" placeholder="Модули зарядов">
+                        <input id="coulombs-law-coulomb-force" class="formula-input" type="text" placeholder="Электростатическая сила">
+                    </div>
+                    <div id="get-coloumbs-force-by-coulombs-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Законы проводников (сопротивление и ЭДС)
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сопротивление проводника
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>R</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>ρ</mi>
+                                        <mi>l</mi>
+                                    </mrow>
+                                    <mi>S</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="conductor-resistance-law-conductor-electric-resistivity" class="formula-input" type="text" placeholder="Удельное сопротивление">
+                        <input id="conductor-resistance-law-conductor-length" class="formula-input" type="text" placeholder="Длина проводника">
+                        <input id="conductor-resistance-law-conductor-cross-sectional-area" class="formula-input" type="text" placeholder="Площадь сечения">
+                    </div>
+                    <div id="get-conductor-resistance-by-conductor-resistance-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Удельное сопротивление материала проводника
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>ρ</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>R</mi>
+                                        <mi>S</mi>
+                                    </mrow>
+                                    <mi>l</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="conductor-resistance-law-conductor-electric-resistance" class="formula-input" type="text" placeholder="Сопротивление проводника">
+                        <input id="conductor-resistance-law-conductor-cross-sectional-area" class="formula-input" type="text" placeholder="Площадь сечения">
+                        <input id="conductor-resistance-law-conductor-length" class="formula-input" type="text" placeholder="Длина проводника">
+                    </div>
+                    <div id="get-conductor-electric-resistivity-by-conductor-resistance-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Длина проводника
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>l</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>R</mi>
+                                        <mi>S</mi>
+                                    </mrow>
+                                    <mi>ρ</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="conductor-resistance-law-conductor-electric-resistance" class="formula-input" type="text" placeholder="Сопротивление проводника">
+                        <input id="conductor-resistance-law-conductor-cross-sectional-area" class="formula-input" type="text" placeholder="Площадь сечения">
+                        <input id="conductor-resistance-law-conductor-electric-resistivity" class="formula-input" type="text" placeholder="Удельное сопротивление">
+                    </div>
+                    <div id="get-conductor-length-by-conductor-resistance-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Площадь поперечного сечения проводника
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>S</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>ρ</mi>
+                                        <mi>l</mi>
+                                    </mrow>
+                                    <mi>R</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="conductor-resistance-law-conductor-electric-resistivity" class="formula-input" type="text" placeholder="Удельное сопротивление">
+                        <input id="conductor-resistance-law-conductor-length" class="formula-input" type="text" placeholder="Длина проводника">
+                        <input id="conductor-resistance-law-conductor-electric-resistance" class="formula-input" type="text" placeholder="Сопротивление проводника">
+                    </div>
+                    <div id="get-conductor-cross-sectional-area-by-conductor-resistance-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            ЭДС по полному закону Ома
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>E</mi>
+                                <mo>=</mo>
+                                <mi>U</mi>
+                                <mo>+</mo>
+                                <mi>I</mi>
+                                <mi>r</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="ohms-full-law-electric-voltage" class="formula-input" type="text" placeholder="Напряжение в цепи">
+                        <input id="ohms-full-law-electric-current" class="formula-input" type="text" placeholder="Сила тока в цепи">
+                        <input id="ohms-full-law-electric-internal-resistance" class="formula-input" type="text" placeholder="Внутреннее сопротивление">
+                    </div>
+                    <div id="get-electromotive-force-by-ohms-full-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Напряжение по полному закону Ома
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>U</mi>
+                                <mo>=</mo>
+                                <mi>E</mi>
+                                <mo>−</mo>
+                                <mi>I</mi>
+                                <mi>r</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="ohms-full-law-electromotive-force" class="formula-input" type="text" placeholder="ЭДС в цепи">
+                        <input id="ohms-full-law-electric-current" class="formula-input" type="text" placeholder="Сила тока в цепи">
+                        <input id="ohms-full-law-electric-internal-resistance" class="formula-input" type="text" placeholder="Внутреннее сопротивление">
+                    </div>
+                    <div id="get-electric-voltage-by-ohms-full-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сила тока по полному закону Ома
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>I</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>E</mi>
+                                        <mo>−</mo>
+                                        <mi>U</mi>
+                                    </mrow>
+                                    <mi>r</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="ohms-full-law-electromotive-force" class="formula-input" type="text" placeholder="ЭДС в цепи">
+                        <input id="ohms-full-law-electric-voltage" class="formula-input" type="text" placeholder="Напряжение в цепи">
+                        <input id="ohms-full-law-electric-internal-resistance" class="formula-input" type="text" placeholder="Внутреннее сопротивление">
+                    </div>
+                    <div id="get-electric-current-by-ohms-full-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Внутреннее сопротивление по полному закону Ома
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>r</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>E</mi>
+                                        <mo>−</mo>
+                                        <mi>U</mi>
+                                    </mrow>
+                                    <mi>I</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="ohms-full-law-electromotive-force" class="formula-input" type="text" placeholder="ЭДС в цепи">
+                        <input id="ohms-full-law-electric-voltage" class="formula-input" type="text" placeholder="Напряжение в цепи">
+                        <input id="ohms-full-law-electric-internal-resistance" class="formula-input" type="text" placeholder="Внутреннее сопротивление">
+                    </div>
+                    <div id="get-electric-internal-resistance-by-ohms-full-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Законы Ампера, Лоренца и Фарадея
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сила Ампера по его закону
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>F</mi>
+                                <mo>=</mo>
+                                <mi>B</mi>
+                                <mi>I</mi>
+                                <mi>l</mi>
+                                <mi>sin</mi>
+                                <mi>α</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="amperes-law-magnetic-induction" class="formula-input" type="text" placeholder="Магнитная индукция">
+                        <input id="amperes-law-electric-current" class="formula-input" type="text" placeholder="Сила тока">
+                        <input id="amperes-law-conductor-length" class="formula-input" type="text" placeholder="Длина проводника">
+                        <input id="amperes-law-angle-sinus" class="formula-input" type="text" placeholder="Синус угла">
+                    </div>
+                    <div id="get-ampere-force-by-ampere-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Магнитная индукция по закону Ампера
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>B</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mrow>
+                                        <mi>I</mi>
+                                        <mi>l</mi>
+                                        <mi>sin</mi>
+                                        <mi>α</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="amperes-law-ampere-force" class="formula-input" type="text" placeholder="Сила Ампера">
+                        <input id="amperes-law-electric-current" class="formula-input" type="text" placeholder="Сила тока">
+                        <input id="amperes-law-conductor-length" class="formula-input" type="text" placeholder="Длина проводника">
+                        <input id="amperes-law-angle-sinus" class="formula-input" type="text" placeholder="Синус угла">
+                    </div>
+                    <div id="get-magnetic-induction-by-ampere-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сила тока по закону Ампера
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>I</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mrow>
+                                        <mi>B</mi>
+                                        <mi>l</mi>
+                                        <mi>sin</mi>
+                                        <mi>α</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="amperes-law-ampere-force" class="formula-input" type="text" placeholder="Сила Ампера">
+                        <input id="amperes-law-magnetic-induction" class="formula-input" type="text" placeholder="Магнитная индукция">
+                        <input id="amperes-law-conductor-length" class="formula-input" type="text" placeholder="Длина проводника">
+                        <input id="amperes-law-angle-sinus" class="formula-input" type="text" placeholder="Синус угла">
+                    </div>
+                    <div id="get-electric-current-by-ampere-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Длина проводника по закону Ампера
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>l</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mrow>
+                                        <mi>B</mi>
+                                        <mi>I</mi>
+                                        <mi>sin</mi>
+                                        <mi>α</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="amperes-law-ampere-force" class="formula-input" type="text" placeholder="Сила Ампера">
+                        <input id="amperes-law-magnetic-induction" class="formula-input" type="text" placeholder="Магнитная индукция">
+                        <input id="amperes-law-electric-current" class="formula-input" type="text" placeholder="Сила тока">
+                        <input id="amperes-law-angle-sinus" class="formula-input" type="text" placeholder="Синус угла">
+                    </div>
+                    <div id="get-conductor-length-by-ampere-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Синус угла по закону Ампера
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>sin</mi>
+                                <mi>α</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mrow>
+                                        <mi>B</mi>
+                                        <mi>I</mi>
+                                        <mi>l</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="amperes-law-ampere-force" class="formula-input" type="text" placeholder="Сила Ампера">
+                        <input id="amperes-law-magnetic-induction" class="formula-input" type="text" placeholder="Магнитная индукция">
+                        <input id="amperes-law-electric-current" class="formula-input" type="text" placeholder="Сила тока">
+                        <input id="amperes-law-conductor-length" class="formula-input" type="text" placeholder="Длина проводника">
+                    </div>
+                    <div id="get-angle-sinus-by-ampere-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сила Лоренца по его закону
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>F</mi>
+                                <mo>=</mo>
+                                <mi>q</mi>
+                                <mi>v</mi>
+                                <mi>B</mi>
+                                <mi>sin</mi>
+                                <mi>α</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="lorentz-law-particle-charge" class="formula-input" type="text" placeholder="Заряд частицы">
+                        <input id="lorentz-law-particle-velocity" class="formula-input" type="text" placeholder="Скорость частицы">
+                        <input id="lorentz-law-magnetic-induction" class="formula-input" type="text" placeholder="Магнитная индукция">
+                        <input id="lorentz-law-angle-sinus" class="formula-input" type="text" placeholder="Синус угла">
+                    </div>
+                    <div id="get-lorentz-force-by-lorentz-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Заряд частицы по закону Лоренца
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>q</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mrow>
+                                        <mi>v</mi>
+                                        <mi>B</mi>
+                                        <mi>sin</mi>
+                                        <mi>α</mi>                                        
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="lorentz-law-lorentz-force" class="formula-input" type="text" placeholder="Сила Лоренца">
+                        <input id="lorentz-law-particle-velocity" class="formula-input" type="text" placeholder="Скорость частицы">
+                        <input id="lorentz-law-magnetic-induction" class="formula-input" type="text" placeholder="Магнитная индукция">
+                        <input id="lorentz-law-angle-sinus" class="formula-input" type="text" placeholder="Синус угла">
+                    </div>
+                    <div id="get-particle-charge-by-lorentz-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Скорость частицы по закону Лоренца
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>v</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mrow>
+                                        <mi>q</mi>
+                                        <mi>B</mi>
+                                        <mi>sin</mi>
+                                        <mi>α</mi>                                        
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="lorentz-law-lorentz-force" class="formula-input" type="text" placeholder="Сила Лоренца">
+                        <input id="lorentz-law-particle-charge" class="formula-input" type="text" placeholder="Заряд частицы">
+                        <input id="lorentz-law-magnetic-induction" class="formula-input" type="text" placeholder="Магнитная индукция">
+                        <input id="lorentz-law-angle-sinus" class="formula-input" type="text" placeholder="Синус угла">
+                    </div>
+                    <div id="get-particle-velocity-by-lorentz-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Магнитная индукция по закону Лоренца
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>B</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mrow>
+                                        <mi>q</mi>
+                                        <mi>v</mi>
+                                        <mi>sin</mi>
+                                        <mi>α</mi>                                        
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="lorentz-law-lorentz-force" class="formula-input" type="text" placeholder="Сила Лоренца">
+                        <input id="lorentz-law-particle-charge" class="formula-input" type="text" placeholder="Заряд частицы">
+                        <input id="lorentz-law-particle-velocity" class="formula-input" type="text" placeholder="Скорость частицы">
+                        <input id="lorentz-law-angle-sinus" class="formula-input" type="text" placeholder="Синус угла">
+                    </div>
+                    <div id="get-magnetic-induction-by-lorentz-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Синус угла по закону Лоренца
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>sin</mi>
+                                <mi>α</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mrow>
+                                        <mi>q</mi>
+                                        <mi>v</mi>
+                                        <mi>B</mi>                                     
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="lorentz-law-lorentz-force" class="formula-input" type="text" placeholder="Сила Лоренца">
+                        <input id="lorentz-law-particle-charge" class="formula-input" type="text" placeholder="Заряд частицы">
+                        <input id="lorentz-law-particle-velocity" class="formula-input" type="text" placeholder="Скорость частицы">
+                        <input id="lorentz-law-magnetic-induction" class="formula-input" type="text" placeholder="Магнитная индукция">
+                    </div>
+                    <div id="get-angle-sinus-by-lorentz-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            ЭДС по закону Фарадея
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>E</mi>
+                                <mo>=</mo>
+                                <mi>−</mi>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>Δ</mi>
+                                        <mi>Φ</mi> 
+                                    </mrow>
+                                    <mrow>
+                                        <mi>Δ</mi>
+                                        <mi>t</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="faradays-law-delta-magnetic-flux" class="formula-input" type="text" placeholder="Измнение магнитного потока">
+                        <input id="faradays-law-delta-duration" class="formula-input" type="text" placeholder="Изменение времени">
+                    </div>
+                    <div id="get-electromotive-force-by-faradays-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Изменение магнитного потока по закону Фарадея
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>Δ</mi>
+                                <mi>Φ</mi>
+                                <mo>=</mo>
+                                <mi>−</mi>
+                                <mi>E</mi>
+                                <mi>Δ</mi>
+                                <mi>t</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="faradays-law-electromotive-force" class="formula-input" type="text" placeholder="Электромагнитная индукция">
+                        <input id="faradays-law-delta-duration" class="formula-input" type="text" placeholder="Изменение времени">
+                    </div>
+                    <div id="get-delta-magnetic-flux-by-faradays-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Изменение времени по закону Фарадея
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>Δ</mi>
+                                <mi>t</mi>
+                                <mo>=</mo>
+                                <mi>−</mi>
+                                <mi>E</mi>
+                                <mi>Δ</mi>
+                                <mi>Φ</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="faradays-law-electromotive-force" class="formula-input" type="text" placeholder="Электромагнитная индукция">
+                        <input id="faradays-law-delta-magnetic-flux" class="formula-input" type="text" placeholder="Измнение магнитного потока">
+                    </div>
+                    <div id="get-delta-duration-by-faradays-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Закон магнитного потока
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Магнитный поток по его закону
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>Φ</mi>
+                                <mo>=</mo>
+                                <mi>B</mi>
+                                <mi>S</mi>
+                                <mi>cos</mi>
+                                <mi>α</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="magnetic-flux-law-magnetic-induction" class="formula-input" type="text" placeholder="Магнитная индукция">
+                        <input id="magnetic-flux-law-contour-area" class="formula-input" type="text" placeholder="Площадь контура">
+                        <input id="magnetic-flux-law-angle-cosinus" class="formula-input" type="text" placeholder="Косинус угла">
+                    </div>
+                    <div id="get-magnetic-flux-by-magnetic-flux-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Магнитная индукция по закону магнитного потока
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>B</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>Φ</mi>
+                                    <mrow>
+                                        <mi>S</mi>
+                                        <mi>cos</mi>
+                                        <mi>α</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="magnetic-flux-law-magnetic-flux" class="formula-input" type="text" placeholder="Магнитный поток">
+                        <input id="magnetic-flux-law-contour-area" class="formula-input" type="text" placeholder="Площадь контура">
+                        <input id="magnetic-flux-law-angle-cosinus" class="formula-input" type="text" placeholder="Косинус угла">
+                    </div>
+                    <div id="get-magnetic-induction-by-magnetic-flux-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Магнитная индукция по закону магнитного потока
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>S</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>Φ</mi>
+                                    <mrow>
+                                        <mi>B</mi>
+                                        <mi>cos</mi>
+                                        <mi>α</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="magnetic-flux-law-magnetic-flux" class="formula-input" type="text" placeholder="Магнитный поток">
+                        <input id="magnetic-flux-law-magnetic-induction" class="formula-input" type="text" placeholder="Магнитная индукция">
+                        <input id="magnetic-flux-law-angle-cosinus" class="formula-input" type="text" placeholder="Косинус угла">
+                    </div>
+                    <div id="get-contour-area-by-magnetic-flux-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Косинус угла по закону магнитного потока
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>cos</mi>
+                                <mi>α</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>Φ</mi>
+                                    <mrow>
+                                        <mi>B</mi>
+                                        <mi>S</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="magnetic-flux-law-magnetic-flux" class="formula-input" type="text" placeholder="Магнитный поток">
+                        <input id="magnetic-flux-law-magnetic-induction" class="formula-input" type="text" placeholder="Магнитная индукция">
+                        <input id="magnetic-flux-law-contour-area" class="formula-input" type="text" placeholder="Площадь контура">
+                    </div>
+                    <div id="get-angle-cosinus-by-magnetic-flux-law" class="formula-card-button">
+                        <button class="formula-calculate-button">
+                            Посчитать
+                        </button>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Журнал - научный калькулятор для школы по физике и математике
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/subjects.css') }}">
+        <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
+    </head>
+    <body>
+        <header>
+            <div class="solver-header-background">
+                <div id="solver-header" class="solver-header-menu">
+                    
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="solver-main-background">
+                <p class="solver-main-text">
+                    Здесь «Физмат-калькулятор» хранит всё, что он когда либо решал в сессии.
+                    Посчитайте что-нибудь в предметах и Ваш расчёт будет здесь.
+                    Например, если вы найдёте площадь треугольника, в журнале будет записано нечто вроде «Площадь треугольника: 100»
+                </p>
+                <p class="solver-main-text">
+                    Помните, «Физмат-калькулятор» - забывчивая машина: после закрытия сайта журнал сбрасывается!
+                </p>
+            </div>
+        </main>
+        <footer>
+            <div class="solver-footer-background">
+                <div id="solver-footer" class="solver-footer-menu">
+                    
+                </div>
+            </div>
+        </footer>
+        <script src="/static/js/pagesetup.js" type="module"></script>
+    </body>
+</html>

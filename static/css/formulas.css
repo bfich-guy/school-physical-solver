@@ -13,7 +13,7 @@
 
 .formulas-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .formula-card {
@@ -38,9 +38,13 @@
 }
 
 .formula-object {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: 4px solid gray;
-    padding: 16px;
+    padding: 8px;
     font-size: 24px;
+    width: auto;
 }
 
 .formula-card-input {

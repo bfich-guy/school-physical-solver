@@ -109,6 +109,15 @@ def calculate_value_safely(
 
 #region Decimal calculators
 
+def decimal_length(decimal_numbers_list: list[Decimal]) -> Decimal:
+    decimal_length = Decimal("0")
+
+    for _ in decimal_numbers_list:
+        decimal_length += Decimal("1")
+
+    return decimal_length
+
+
 def decimal_sum(decimal_numbers_list: list[Decimal]) -> Decimal:
     decimal_sum = Decimal("0")
 

@@ -117,7 +117,7 @@ def get_object_acceleration_by_newtons_second_law(
 #endregion
 
 
-#region Amonton-Kulons law
+#region Amontons-Coloumb law
 
 def get_normal_force_by_amontons_coulomb_law(
     *,
@@ -389,7 +389,6 @@ def get_object_height_by_potential_energy_and_weight_force(
 
     object_height: Decimal = potential_energy / weight_force
     return object_height
-
 
 #endregion
 
