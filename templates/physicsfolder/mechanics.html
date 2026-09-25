@@ -5,9 +5,7 @@
             Механика | Физмат-калькулятор - научный калькулятор для школы по физике и математике
         </title>
         <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', path='css/subjects.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', path='css/subjectsections.css') }}">
-        <link rel="stylesheet" href="{{ url_for('static', path='css/tasks.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/formulas.css') }}">
         <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
     </head>
     <body class="solver-physics-background">
@@ -19,34 +17,1306 @@
             </div>
         </header>
         <main>
-            <div class="solver-main-background">
-                <div class="subject-section-info-card">
-                    <p class="subject-section-title">
-                        Механика
-                    </p>
-                    <p class="subject-section-text">
-                        Ниже представлено то, что Физмат-калькулятор может посчитать.
-                        Выберите нужный тип задачи и перейдите по нему.
-                        Вы увидите поля ввода чисел в формулу.
-                        После отправки чисел Вы получите точный ответ или сообщение о неккоректном вводе.
-                        Физмат-калькулятор желает Вам удачи!
-                    </p>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Законы динамиики
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Результирующая сила по второму закону Ньютона
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mover>
+                                    <mi>F</mi>
+                                    <mi>→</mi>
+                                </mover>
+                                <mo>=</mo>
+                                <mi>m</mi>
+                                <mover>
+                                    <mi>a</mi>
+                                    <mi>→</mi>
+                                </mover>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="newtons-second-law-object-mass" class="formula-input" type="text" placeholder="Масса тела">
+                        <input id="newtons-second-law-object-acceleration" class="formula-input" type="text" placeholder="Ускорение тела">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-resultive-force-by-newtons-second-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
                 </div>
-                <div class="tasks-grid">
-                    <div class="task-card">
-                        <a href="mechanics/dynamics" class="task-redirect-button">
-                            Задачи по динамике
-                        </a>                        
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Масса тела по второму закону Ньютона
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>m</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mover>
+                                        <mi>F</mi>
+                                        <mi>→</mi>
+                                    </mover>
+                                    <mover>
+                                        <mi>a</mi>
+                                        <mi>→</mi>
+                                    </mover>
+                                </mfrac>
+                            </math>
+                        </p>
                     </div>
-                    <div class="task-card">
-                        <a href="mechanics/kinematics" class="task-redirect-button">
-                            Задачи по кинематике
-                        </a>                        
+                    <div class="formula-card-input">
+                        <input id="newtons-second-law-resultive-force" class="formula-input" type="text" placeholder="Результирующая сила">
+                        <input id="newtons-second-law-object-acceleration" class="formula-input" type="text" placeholder="Ускорение тела">
                     </div>
-                    <div class="task-card">
-                        <a href="mechanics/statics" class="task-redirect-button">
-                            Задачи по статике
-                        </a>                        
+                    <div class="formula-card-button">
+                        <button id="get-object-mass-by-newtons-second-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Ускорение тела по второму закону Ньютона
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mover>
+                                    <mi>a</mi>
+                                    <mi>→</mi>
+                                </mover>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mover>
+                                        <mi>F</mi>
+                                        <mi>→</mi>
+                                    </mover>
+                                    <mi>m</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="newtons-second-law-resultive-force" class="formula-input" type="text" placeholder="Результирующая сила">
+                        <input id="newtons-second-law-object-mass" class="formula-input" type="text" placeholder="Масса тела">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-object-acceleration-by-newtons-second-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сила упругости по закону Гука
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>F</mi>
+                                <mo>=</mo>
+                                <mi>k</mi>
+                                <mi>Δ</mi>
+                                <mi>x</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="hookes-law-spring-stiffness" class="formula-input" type="text" placeholder="Коэффициент жёсткости">
+                        <input id="hookes-law-spring-elongation" class="formula-input" type="text" placeholder="Удлинение пружины">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-hookes-force-by-hookes-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Коэффициент жёсткости по закону Гука
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>k</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mrow>
+                                        <mi>Δ</mi>
+                                        <mi>x</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="hookes-law-hookes-force" class="formula-input" type="text" placeholder="Сила упругости">
+                        <input id="hookes-law-spring-elongation" class="formula-input" type="text" placeholder="Удлинение пружины">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-spring-stiffness-by-hookes-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Удлинение пружины по закону Гука
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>Δ</mi>
+                                <mi>x</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mi>k</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="hookes-law-hookes-force" class="formula-input" type="text" placeholder="Сила упругости">
+                        <input id="hookes-law-spring-stiffness" class="formula-input" type="text" placeholder="Жёсткость пружины">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-spring-elongation-by-hookes-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сила трения по закону Амонтона-Кулона
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>F</mi>
+                                <mo>=</mo>
+                                <mi>μ</mi>
+                                <mi>N</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="amontons-coulumb-law-friction-coefficient" class="formula-input" type="text" placeholder="Коэффициент трения">
+                        <input id="amontons-coulumb-law-normal-force" class="formula-input" type="text" placeholder="Нормальная реакция опоры">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-friction-force-by-amontons-coulumb-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Коэффициент трения по закону Амонтона-Кулона
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>μ</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mi>N</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="amontons-coulumb-law-friction-force" class="formula-input" type="text" placeholder="Сила трения">
+                        <input id="amontons-coulumb-law-normal-force" class="formula-input" type="text" placeholder="Нормальная реакция опоры">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-friction-coefficient-by-amontons-coulumb-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Нормальная реакция опоры по закону Амонтона-Кулона
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>N</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mi>μ</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="amontons-coulumb-law-friction-force" class="formula-input" type="text" placeholder="Сила трения">
+                        <input id="amontons-coulumb-law-friction-coefficient" class="formula-input" type="text" placeholder="Коэффициент трения">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-normal-force-by-amontons-coulumb-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Нормальная реакция опоры по её закону
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>N</mi>
+                                <mo>=</mo>
+                                <mi>F</mi>
+                                <mi>cos</mi>
+                                <mi>α</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="normal-force-law-weight-force" class="formula-input" type="text" placeholder="Сила тяжести">
+                        <input id="normal-force-law-angle-cosinus" class="formula-input" type="text" placeholder="Косинус угла">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-normal-force-by-normal-force-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сила тяжести по закону нормальной реакции опоры
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>F</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>N</mi>
+                                    <mrow>
+                                        <mi>cos</mi>
+                                        <mi>α</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="normal-force-law-normal-force" class="formula-input" type="text" placeholder="Нормальная реакция опоры">
+                        <input id="normal-force-law-angle-cosinus" class="formula-input" type="text" placeholder="Косинус угла">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-weight-force-by-normal-force-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Косинус угла по закону нормальной реакции опоры
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>cos</mi>
+                                <mi>α</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>N</mi>
+                                    <mi>F</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="normal-force-law-normal-force" class="formula-input" type="text" placeholder="Нормальная реакция опоры">
+                        <input id="normal-force-law-weight-force" class="formula-input" type="text" placeholder="Сила тяжести">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-angle-cosinus-by-normal-force-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Импульс тела по закону импульса
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mover>
+                                    <mi>p</mi>
+                                    <mi>→</mi>
+                                </mover>
+                                <mo>=</mo>
+                                <mi>m</mi>
+                                <mover>
+                                    <mi>v</mi>
+                                    <mi>→</mi>
+                                </mover>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="momentum-law-object-mass" class="formula-input" type="text" placeholder="Масса тела">
+                        <input id="momentum-law-object-velocity" class="formula-input" type="text" placeholder="Скорость тела">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-object-momentum-by-momentum-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Масса тела по закону импульса
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>m</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mover>
+                                        <mi>p</mi>
+                                        <mi>→</mi>
+                                    </mover>
+                                    <mover>
+                                        <mi>v</mi>
+                                        <mi>→</mi>
+                                    </mover>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="momentum-law-object-momentum" class="formula-input" type="text" placeholder="Импульс тела">
+                        <input id="momentum-law-object-velocity" class="formula-input" type="text" placeholder="Скорость тела">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-object-mass-by-momentum-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Скорость тела по закону импульса
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mover>
+                                    <mi>v</mi>
+                                    <mi>→</mi>
+                                </mover>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mover>
+                                        <mi>p</mi>
+                                        <mi>→</mi>
+                                    </mover>
+                                    <mi>m</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="momentum-law-object-momentum" class="formula-input" type="text" placeholder="Импульс тела">
+                        <input id="momentum-law-object-mass" class="formula-input" type="text" placeholder="Масса тела">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-object-velocity-by-momentum-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Масса тела через закон сохранения импульса
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>m</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mover>
+                                            <msub>
+                                                <mrow>
+                                                    <mi>p</mi>
+                                                    <mo>′</mo>
+                                                </mrow>
+                                                <mn>1</mn>
+                                            </msub>
+                                            <mi>→</mi>
+                                        </mover>
+                                        <mo>+</mo>
+                                        <mover>
+                                            <msub>
+                                                <mrow>
+                                                    <mi>p</mi>
+                                                    <mo>′</mo>
+                                                </mrow>
+                                                <mn>2</mn>
+                                            </msub>
+                                            <mi>→</mi>
+                                        </mover>
+                                        <mo>−</mo>
+                                        <mover>
+                                            <msub>
+                                                <mi>p</mi>
+                                                <mn>2</mn>
+                                            </msub>
+                                            <mi>→</mi>
+                                        </mover>
+                                    </mrow>
+                                    <mover>
+                                        <msub>
+                                            <mi>v</mi>
+                                            <mn>1</mn>
+                                        </msub>
+                                        <mi>→</mi>
+                                    </mover>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="momentum-conversation-law-given-momentums" class="formula-input" type="text" placeholder="Импульсы тел (p1', p2', p2)">
+                        <input id="momentum-conversation-law-first-initial-velocity" class="formula-input" type="text" placeholder="Начальная скорость тела">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-object-mass-by-momentum-conversation-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Начальная скорость тела через закон сохранения импульса
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mover>
+                                    <msub>
+                                        <mi>v</mi>
+                                        <mn>1</mn>
+                                    </msub>
+                                    <mi>→</mi>
+                                </mover>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mover>
+                                            <msub>
+                                                <mrow>
+                                                    <mi>p</mi>
+                                                    <mo>′</mo>
+                                                </mrow>
+                                                <mn>1</mn>
+                                            </msub>
+                                            <mi>→</mi>
+                                        </mover>
+                                        <mo>+</mo>
+                                        <mover>
+                                            <msub>
+                                                <mrow>
+                                                    <mi>p</mi>
+                                                    <mo>′</mo>
+                                                </mrow>
+                                                <mn>2</mn>
+                                            </msub>
+                                            <mi>→</mi>
+                                        </mover>
+                                        <mo>−</mo>
+                                        <mover>
+                                            <msub>
+                                                <mi>p</mi>
+                                                <mn>2</mn>
+                                            </msub>
+                                            <mi>→</mi>
+                                        </mover>
+                                    </mrow>
+                                    <mover>
+                                        <msub>
+                                            <mi>m</mi>
+                                            <mn>1</mn>
+                                        </msub>
+                                        <mi>→</mi>
+                                    </mover>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="momentum-conversation-law-given-momentums" class="formula-input" type="text" placeholder="Импульсы тел (p1', p2', p2)">
+                        <input id="momentum-conversation-law-object-mass" class="formula-input" type="text" placeholder="Масса тела">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-object-initial-velocity-by-momentum-conversation-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Конечная скорость тела через закон сохранения импульса
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mover>
+                                    <msub>
+                                        <mi>u</mi>
+                                        <mn>1</mn>
+                                    </msub>
+                                    <mi>→</mi>
+                                </mover>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mover>
+                                            <msub>
+                                                <mi>p</mi>
+                                                <mn>1</mn>
+                                            </msub>
+                                            <mi>→</mi>
+                                        </mover>
+                                        <mo>+</mo>
+                                        <mover>
+                                            <msub>
+                                                <mi>p</mi>
+                                                <mn>2</mn>
+                                            </msub>
+                                            <mi>→</mi>
+                                        </mover>
+                                        <mo>−</mo>
+                                        <mover>
+                                            <msub>
+                                                <mrow>
+                                                    <mi>p</mi>
+                                                    <mo>′</mo>
+                                                </mrow>
+                                                <mn>2</mn>
+                                            </msub>
+                                            <mi>→</mi>
+                                        </mover>
+                                    </mrow>
+                                    <mover>
+                                        <msub>
+                                            <mi>m</mi>
+                                            <mn>1</mn>
+                                        </msub>
+                                        <mi>→</mi>
+                                    </mover>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="momentum-conversation-law-given-momentums" class="formula-input" type="text" placeholder="Импульсы тел (p1, p2, p2')">
+                        <input id="momentum-conversation-law-object-mass" class="formula-input" type="text" placeholder="Масса тела">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-object-final-velocity-by-momentum-conversation-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Кинетическая энергия по её закону
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>E</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>p</mi>
+                                        <mi>v</mi>
+                                    </mrow>
+                                    <mn>2</mn>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="kinetic-energy-law-object-momentum" class="formula-input" type="text" placeholder="Импульс тела">
+                        <input id="kinetic-energy-law-object-velocity" class="formula-input" type="text" placeholder="Скорость тела">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-kinetic-energy-by-kinetic-energy-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Импульс тела через закон кинетической энергии
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>p</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mn>2</mn>
+                                        <mi>E</mi>
+                                    </mrow>
+                                    <mn>v</mn>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="kinetic-energy-law-kinetic-energy" class="formula-input" type="text" placeholder="Кинетическая энергия">
+                        <input id="kinetic-energy-law-object-velocity" class="formula-input" type="text" placeholder="Скорость тела">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-object-momentum-by-kinetic-energy-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Импульс тела через закон кинетической энергии
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>v</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mn>2</mn>
+                                        <mi>E</mi>
+                                    </mrow>
+                                    <mn>p</mn>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="kinetic-energy-law-kinetic-energy" class="formula-input" type="text" placeholder="Кинетическая энергия">
+                        <input id="kinetic-energy-law-object-momentum" class="formula-input" type="text" placeholder="Импульс тела">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-object-velocity-by-kinetic-energy-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Потенциальная энергия по её закону
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>E</mi>
+                                <mo>=</mo>
+                                <mi>F</mi>
+                                <mi>h</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="potential-energy-law-weight-force" class="formula-input" type="text" placeholder="Сила тяжести">
+                        <input id="potential-energy-law-object-height" class="formula-input" type="text" placeholder="Высота тела над поверхностью">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-potential-energy-by-potential-energy-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Сила тяжести через по закону потенциальной энергии
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>F</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>E</mi>
+                                    <mi>h</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="potential-energy-law-potential-energy" class="formula-input" type="text" placeholder="Потенциальная энергия">
+                        <input id="potential-energy-law-object-height" class="formula-input" type="text" placeholder="Высота тела над поверхностью">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-weight-force-by-potential-energy-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Высота тела над поверхностью по закону потенциальной энергии
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>h</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>E</mi>
+                                    <mi>F</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="potential-energy-law-potential-energy" class="formula-input" type="text" placeholder="Потенциальная энергия">
+                        <input id="potential-energy-law-weight-force" class="formula-input" type="text" placeholder="Сила тяжести">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-object-height-by-potential-energy-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Законы кинематики
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Изменение скорости по закону линейного ускорения
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>Δ</mi>
+                                <mover>
+                                    <mi>v</mi>
+                                    <mi>→</mi>
+                                </mover>
+                                <mo>=</mo>
+                                <mover>
+                                    <mi>a</mi>
+                                    <mi>→</mi>
+                                </mover>
+                                <mi>Δ</mi>
+                                <mi>t</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="linear-acceleration-law-object-linear-acceleration" class="formula-input" type="text" placeholder="Ускорение тела">
+                        <input id="linear-acceleration-law-delta-time-duration" class="formula-input" type="text" placeholder="Изменение времени">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-linear-acceleration-by-linear-acceleration-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Линейное ускорение по его закону
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mover>
+                                    <mi>a</mi>
+                                    <mi>→</mi>
+                                </mover>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>Δ</mi>
+                                        <mover>
+                                            <mi>v</mi>
+                                            <mi>→</mi>
+                                        </mover>
+                                    </mrow>
+                                    <mrow>
+                                        <mi>Δ</mi>
+                                        <mi>t</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="linear-acceleration-law-delta-object-velocity" class="formula-input" type="text" placeholder="Изменение скорости">
+                        <input id="linear-acceleration-law-delta-time-duration" class="formula-input" type="text" placeholder="Изменение времени">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-object-linear-acceleration-by-linear-acceleration-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Изменение скорости по закону линейного ускорения
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>Δ</mi>
+                                <mi>t</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mi>Δ</mi>
+                                        <mover>
+                                            <mi>v</mi>
+                                            <mi>→</mi>
+                                        </mover>
+                                    </mrow>
+                                    <mover>
+                                        <mi>a</mi>
+                                        <mi>→</mi>
+                                    </mover>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="linear-acceleration-law-delta-time-duration" class="formula-input" type="text" placeholder="Изменение времени">
+                        <input id="linear-acceleration-law-object-linear-acceleration" class="formula-input" type="text" placeholder="Ускорение тела">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-linear-acceleration-by-linear-acceleration-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Центростремительное ускорение по его закону
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mover>
+                                    <mi>a</mi>
+                                    <mi>→</mi>
+                                </mover>
+                                <mo>=</mo>
+                                <mi>v</mi>
+                                <mi>ω</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="centripetal-acceleration-law-linear-velocity" class="formula-input" type="text" placeholder="Линейная скорость">
+                        <input id="centripetal-acceleration-law-angular-velocity" class="formula-input" type="text" placeholder="Угловая скорость">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-centripetal-acceleration-by-centripetal-acceleration-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Линейная скорость по закону центростремительного ускорения
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>v</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mover>
+                                        <mi>a</mi>
+                                        <mi>→</mi>
+                                    </mover>
+                                    <mi>ω</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="centripetal-acceleration-law-centripetal-acceleration" class="formula-input" type="text" placeholder="Центростремительное ускорение">
+                        <input id="centripetal-acceleration-law-angular-velocity" class="formula-input" type="text" placeholder="Угловая скорость">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-linear-velocity-by-centripetal-acceleration-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Угловая скорость по закону центростремительного ускорения
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>ω</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mover>
+                                        <mi>a</mi>
+                                        <mi>→</mi>
+                                    </mover>
+                                    <mi>v</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="centripetal-acceleration-law-centripetal-acceleration" class="formula-input" type="text" placeholder="Центростремительное ускорение">
+                        <input id="centripetal-acceleration-law-linear-velocity" class="formula-input" type="text" placeholder="Линейная скорость">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-angular-velocity-by-centripetal-acceleration-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="formula-header">
+                <p class="formula-title">
+                    Законы статики
+                </p>
+            </div>
+            <div class="formulas-grid">
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Приложенная сила по закону Паскаля
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>F</mi>
+                                <mo>=</mo>
+                                <mi>p</mi>
+                                <mi>S</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="pascals-law-mechanical-pressure" class="formula-input" type="text" placeholder="Механическое давление">
+                        <input id="pascals-law-object-area" class="formula-input" type="text" placeholder="Площадь поверхности">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-mechanical-pressure-by-pascals-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Площадь поверхности по закону Паскаля
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>S</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mi>p</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="pascals-law-applied-force" class="formula-input" type="text" placeholder="Прикладываемая сила">
+                        <input id="pascals-law-mechanical-pressure" class="formula-input" type="text" placeholder="Механическое давление">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-object-area-by-pascals-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Механическое давление по закону Паскаля
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>p</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mi>S</mi>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="pascals-law-applied-force" class="formula-input" type="text" placeholder="Прикладываемая сила">
+                        <input id="pascals-law-object-area" class="formula-input" type="text" placeholder="Площадь поверхности">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-mechanical-pressure-by-pascals-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Выталкивающая сила по закону Архимеда
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>F</mi>
+                                <mo>=</mo>
+                                <mi>ρ</mi>
+                                <mi>V</mi>
+                                <mi>g</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="archimedes-law-fluid-density" class="formula-input" type="text" placeholder="Плотность жидкости или газа">
+                        <input id="archimedes-law-submerged-volume" class="formula-input" type="text" placeholder="Объём погружённой части тела">
+                        <input id="archimedes-law-gravitational-acceleration" class="formula-input" type="text" placeholder="Ускорение свободного падения">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-archimedes-force-by-archimedes-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Плотность жидкости или газа по закону Архимеда
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>ρ</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mrow>
+                                        <mi>V</mi>
+                                        <mi>g</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="archimedes-law-archimedes-force" class="formula-input" type="text" placeholder="Выталкивающая сила">
+                        <input id="archimedes-law-submerged-volume" class="formula-input" type="text" placeholder="Объём погружённой части тела">
+                        <input id="archimedes-law-gravitational-acceleration" class="formula-input" type="text" placeholder="Ускорение свободного падения">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-fluid-density-by-archimedes-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Объём погружённой части тела по закону Архимеда
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>V</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mrow>
+                                        <mi>ρ</mi>
+                                        <mi>g</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="archimedes-law-archimedes-force" class="formula-input" type="text" placeholder="Выталкивающая сила">
+                        <input id="archimedes-law-fluid-density" class="formula-input" type="text" placeholder="Плотность жидкости или газа">
+                        <input id="archimedes-law-gravitational-acceleration" class="formula-input" type="text" placeholder="Ускорение свободного падения">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-submerged-volume-by-archimedes-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Ускорение свободного падения по закону Архимеда
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>g</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>F</mi>
+                                    <mrow>
+                                        <mi>ρ</mi>
+                                        <mi>V</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="archimedes-law-archimedes-force" class="formula-input" type="text" placeholder="Выталкивающая сила">
+                        <input id="archimedes-law-fluid-density" class="formula-input" type="text" placeholder="Плотность жидкости или газа">
+                        <input id="archimedes-law-submerged-volume" class="formula-input" type="text" placeholder="Объём погружённой части тела">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-gravitational-acceleration-by-archimedes-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Гидростатическое давление по его закону
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>p</mi>
+                                <mo>=</mo>
+                                <mi>ρ</mi>
+                                <mi>g</mi>
+                                <mi>h</mi>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="hydrostatic-pressure-law-fluid-density" class="formula-input" type="text" placeholder="Плотность жидкости">
+                        <input id="hydrostatic-pressure-law-gravitational-acceleration" class="formula-input" type="text" placeholder="Ускорение свободного падения">
+                        <input id="hydrostatic-pressure-law-fluid-height" class="formula-input" type="text" placeholder="Высота столба жидкости">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-hydrostatic-pressure-by-hydrostatic-pressure-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Плотность жидкости по закону гидростатического давления
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>ρ</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>p</mi>
+                                    <mrow>
+                                        <mi>g</mi>
+                                        <mi>h</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="hydrostatic-pressure-law-hydrostatic-pressure" class="formula-input" type="text" placeholder="Гидростатическое давление">
+                        <input id="hydrostatic-pressure-law-gravitational-acceleration" class="formula-input" type="text" placeholder="Ускорение свободного падения">
+                        <input id="hydrostatic-pressure-law-fluid-height" class="formula-input" type="text" placeholder="Высота столба жидкости">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-fluid-density-by-hydrostatic-pressure-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>
+                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Ускорение свободного падения по закону гидростатического давления
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>g</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>p</mi>
+                                    <mrow>
+                                        <mi>ρ</mi>
+                                        <mi>h</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="hydrostatic-pressure-law-hydrostatic-pressure" class="formula-input" type="text" placeholder="Гидростатическое давление">
+                        <input id="hydrostatic-pressure-law-fluid-density" class="formula-input" type="text" placeholder="Плотность жидкости">
+                        <input id="hydrostatic-pressure-law-fluid-height" class="formula-input" type="text" placeholder="Высота столба жидкости">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-gravitational-acceleration-by-hydrostatic-pressure-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
+                    </div>                </div>
+                <div class="formula-card">
+                    <div class="formula-card-info">
+                        <p class="formula-name">
+                            Высота столба жидкости по закону гидростатического давления
+                        </p>
+                        <p class="formula-object">
+                            <math display="block">
+                                <mi>h</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mi>p</mi>
+                                    <mrow>
+                                        <mi>ρ</mi>
+                                        <mi>g</mi>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                    </div>
+                    <div class="formula-card-input">
+                        <input id="hydrostatic-pressure-law-hydrostatic-pressure" class="formula-input" type="text" placeholder="Гидростатическое давление">
+                        <input id="hydrostatic-pressure-law-fluid-density" class="formula-input" type="text" placeholder="Плотность жидкости">
+                        <input id="hydrostatic-pressure-law-gravitational-acceleration" class="formula-input" type="text" placeholder="Ускорение свободного падения">
+                    </div>
+                    <div class="formula-card-button">
+                        <button id="get-fluid-height-by-hydrostatic-pressure-law" class="formula-calculate-button">
+                            Посчитать
+                        </button>
                     </div>
                 </div>
             </div>
