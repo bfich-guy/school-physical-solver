@@ -1,165 +1,175 @@
 from decimal import Decimal
+from typing import Callable
+
+from config import PhysMathConstants, QuantitiesNames, global_error_message
+
+from utils import clean_trailing_zeros_from_decimal_number
 
 
-#region Sensible heat
+#region Classic thermodynamics
 
-def get_sensible_heat_by_specific_heat_and_object_mass_and_delta_temperature(
+def sensible_heat_law(
     *,
-    specific_heat: Decimal,
-    object_mass: Decimal,
-    delta_temperature: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    sensible_heat: Decimal | None = None,
+    specific_heat: Decimal | None = None,
+    object_mass: Decimal | None = None,
+    delta_temperature: Decimal | None = None,
+) -> tuple[bool, str]:
 
-    sensible_heat: Decimal = specific_heat * object_mass * delta_temperature
-    return sensible_heat
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.SPECIFIC_HEAT.value: lambda: specific_heat * object_mass * delta_temperature, #type: ignore
+        QuantitiesNames.SPECIFIC_HEAT.value: lambda: sensible_heat / (object_mass * delta_temperature), #type: ignore
+        QuantitiesNames.OBJECT_MASS.value: lambda: sensible_heat / (specific_heat * delta_temperature), #type: ignore
+        QuantitiesNames.DELTA_TEMPERATURE.value: lambda: sensible_heat / (specific_heat * object_mass), #type: ignore
+    }
+
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
+
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result
 
 
-def get_specific_heat_by_sensible_heat_and_object_mass_and_delta_temperature(
+def combustion_heat_law(
     *,
-    sensible_heat: Decimal,
-    object_mass: Decimal,
-    delta_temperature: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    combustion_heat: Decimal | None = None,
+    specific_heat_of_combustion: Decimal | None = None,
+    object_mass: Decimal | None = None,
+) -> tuple[bool, str]:
 
-    specific_heat: Decimal = sensible_heat / (object_mass * delta_temperature)
-    return specific_heat
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.COMBUSTION_HEAT.value: lambda: specific_heat_of_combustion * object_mass, #type: ignore
+        QuantitiesNames.SPECIFIC_HEAT_OF_COMBUSTION.value: lambda: combustion_heat / object_mass, #type: ignore
+        QuantitiesNames.OBJECT_MASS.value: lambda: combustion_heat / specific_heat_of_combustion, #type: ignore
+    }
+
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
+
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result
 
 
-def get_object_mass_by_sensible_heat_and_specific_heat_and_delta_temperature(
+def fusion_heat_law(
     *,
-    sensible_heat: Decimal,
-    specific_heat: Decimal,
-    delta_temperature: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    fusion_heat: Decimal | None = None,
+    specific_heat_of_fusion: Decimal | None = None,
+    object_mass: Decimal | None = None,
+) -> tuple[bool, str]:
 
-    object_mass: Decimal = sensible_heat / (specific_heat * delta_temperature)
-    return object_mass
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.FUSION_HEAT.value: lambda: specific_heat_of_fusion * object_mass, #type: ignore
+        QuantitiesNames.SPECIFIC_HEAT_OF_FUSION.value: lambda: fusion_heat / object_mass, #type: ignore
+        QuantitiesNames.OBJECT_MASS.value: lambda: fusion_heat / specific_heat_of_fusion, #type: ignore
+    }
+
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
+
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result
 
 
-def get_delta_temperature_by_sensible_heat_and_specific_heat_and_object_mass(
+def vaporization_heat_law(
     *,
-    sensible_heat: Decimal,
-    specific_heat: Decimal,
-    object_mass: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    vaporization_heat: Decimal | None = None,
+    specific_heat_of_vaporization: Decimal | None = None,
+    object_mass: Decimal | None = None,
+) -> tuple[bool, str]:
 
-    delta_temperature: Decimal = sensible_heat / (specific_heat * object_mass)
-    return delta_temperature
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.VAPORIZATION_HEAT.value: lambda: specific_heat_of_vaporization * object_mass, #type: ignore
+        QuantitiesNames.SPECIFIC_HEAT_OF_VAPORIZATION.value: lambda: vaporization_heat / object_mass, #type: ignore
+        QuantitiesNames.OBJECT_MASS.value: lambda: vaporization_heat / specific_heat_of_vaporization, #type: ignore
+    }
+
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
+
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result
 
 #endregion
 
 
-#region Combusion heat
+#region Molecular kinetic theory
 
-def get_combusion_heat_by_object_mass_and_calorific_value(
+def mendeleev_clayperon_law(
     *,
-    object_mass: Decimal,
-    calorific_value: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    gas_pressure: Decimal | None = None,
+    gas_volume: Decimal | None = None,
+    gas_moles: Decimal | None = None,
+    gas_constant: Decimal = PhysMathConstants.GAS_CONSTANT.value,
+    gas_temperature: Decimal | None = None,     
+) -> tuple[bool, str]:
 
-    combusion_heat: Decimal = calorific_value * object_mass
-    return combusion_heat
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.GAS_PRESSURE.value: lambda: (gas_moles * gas_constant * gas_temperature) / gas_volume, #type: ignore
+        QuantitiesNames.GAS_VOLUME.value: lambda: (gas_moles * gas_constant * gas_temperature) / gas_pressure, #type: ignore
+        QuantitiesNames.GAS_MOLES.value: lambda: (gas_pressure * gas_volume) / (gas_constant * gas_temperature), #type: ignore
+        QuantitiesNames.GAS_TEMPERATURE.value: lambda: (gas_pressure * gas_volume) / (gas_constant * gas_moles), #type: ignore
+    }
+
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
+
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result
 
 
-def get_object_mass_by_combusion_heat_and_calorific_value(
+def molar_mass_law(
     *,
-    combusion_heat: Decimal,
-    calorific_value: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    object_moles: Decimal | None = None,
+    object_mass: Decimal | None = None,
+    object_molar_mass: Decimal | None = None,
+) -> tuple[bool, str]:
 
-    object_mass: Decimal = combusion_heat / calorific_value
-    return object_mass
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.OBJECT_MASS.value: lambda: object_moles * object_molar_mass, #type: ignore
+        QuantitiesNames.OBJECT_MOLAR_MASS.value: lambda: object_mass / object_molar_mass, #type: ignore
+        QuantitiesNames.OBJECT_MOLES.value: lambda: object_mass / object_moles, #type: ignore
+    }
 
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
 
-def get_calorific_value_by_combusion_heat_and_object_mass(
-    *,
-    combusion_heat: Decimal,
-    object_mass: Decimal,
-) -> Decimal:
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
 
-    calorific_value: Decimal = combusion_heat / object_mass
-    return calorific_value
-
-#endregion
-
-
-#region Mendeleev-Clayperon law
-
-def get_gas_pressure_by_mendeleev_clayperon_law(
-    *,
-    gas_volume: Decimal,
-    gas_moles: Decimal,
-    gas_constant: Decimal,
-    gas_temperature: Decimal,
-) -> Decimal:
-
-    gas_pressure: Decimal = (gas_moles * gas_constant * gas_temperature) / gas_volume
-    return gas_pressure
-
-
-def get_gas_volume_by_mendeleev_clayperon_law(
-    *,
-    gas_pressure: Decimal,
-    gas_moles: Decimal,
-    gas_constant: Decimal,
-    gas_temperature: Decimal,
-) -> Decimal:
-
-    gas_volume: Decimal = (gas_moles * gas_constant * gas_temperature) / gas_pressure
-    return gas_volume
-
-
-def get_gas_moles_by_mendeleev_clayperon_law(
-    *,
-    gas_pressure: Decimal,
-    gas_volume: Decimal,
-    gas_constant: Decimal,
-    gas_temperature: Decimal,
-) -> Decimal:
-
-    gas_moles: Decimal = (gas_pressure * gas_volume) / (gas_constant * gas_temperature)
-    return gas_moles
-
-
-def get_gas_temperature_by_mendeleev_clayperon_law(
-    *,
-    gas_pressure: Decimal,
-    gas_volume: Decimal,
-    gas_constant: Decimal,
-    gas_moles: Decimal,
-) -> Decimal:
-
-    gas_temperature: Decimal = (gas_pressure * gas_volume) / (gas_moles * gas_constant)
-    return gas_temperature
-
-
-def get_object_moles_by_object_mass_and_object_molar_mass(
-    *,
-    object_mass: Decimal,
-    object_molar_mass: Decimal,
-) -> Decimal:
-
-    object_moles: Decimal = object_mass / object_molar_mass
-    return object_moles
-
-
-def get_object_mass_by_object_molar_mass_and_object_moles(
-    *,
-    object_molar_mass: Decimal,
-    object_moles: Decimal,
-) -> Decimal:
-
-    object_mass: Decimal = object_molar_mass * object_moles
-    return object_mass
-
-
-def get_object_molar_mass_by_object_mass_and_object_moles(
-    *,
-    object_mass: Decimal,
-    object_moles: Decimal,
-) -> Decimal:
-
-    object_molar_mass: Decimal = object_mass / object_moles
-    return object_molar_mass
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result    
 
 #endregion

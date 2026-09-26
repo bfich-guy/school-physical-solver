@@ -3,10 +3,8 @@ from fastapi import FastAPI, APIRouter
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
-from system.config.system import Folders
-from system.config.server import Mounts
-
-from system.utils.server import include_routers
+from config import Folders, Mounts
+from utils import include_routers
 
 from routers.templates.index import index_router
 from routers.templates.answer import answer_router

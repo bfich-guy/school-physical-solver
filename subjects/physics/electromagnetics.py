@@ -1,445 +1,290 @@
 from decimal import Decimal
+from typing import Callable
 
-from system.utils.calculators import decimal_product
+from config import PhysMathConstants, QuantitiesNames, global_error_message
+
+from utils import clean_trailing_zeros_from_decimal_number, decimal_product, decimal_power
 
 
-#region Ohms Law
+#region Electricity
 
-def get_electric_voltage_by_ohms_law(
+def ohms_specific_law(
     *,
-    electric_current: Decimal,
-    electric_resistance: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    electric_voltage: Decimal | None = None,
+    electric_current: Decimal | None = None,
+    electric_resistance: Decimal | None = None,
+) -> tuple[bool, str]:
 
-    electric_voltage: Decimal = electric_current * electric_resistance
-    return electric_voltage
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.ELECTRIC_VOLTAGE.value: lambda: electric_current * electric_resistance, #type: ignore
+        QuantitiesNames.ELECTRIC_CURRENT.value: lambda: electric_voltage / electric_resistance, #type: ignore
+        QuantitiesNames.ELECTRIC_RESISTANCE.value: lambda: electric_voltage / electric_current, #type: ignore
+    }
+
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
+
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result    
 
 
-def get_electric_current_by_ohms_law(
+def ohms_full_law(
     *,
-    electric_voltage: Decimal,
-    electric_resistance: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    electromotive_force: Decimal | None = None,
+    electric_voltage: Decimal | None = None,
+    electric_current: Decimal | None = None,
+    electric_internal_resistance: Decimal | None = None,
+) -> tuple[bool, str]:
 
-    electric_current: Decimal = electric_voltage / electric_resistance
-    return electric_current
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.ELECTROMOTIVE_FORCE.value: lambda: electric_voltage + (electric_current * electric_internal_resistance), #type: ignore
+        QuantitiesNames.ELECTRIC_VOLTAGE.value: lambda: electromotive_force - (electric_current * electric_internal_resistance), #type: ignore
+        QuantitiesNames.ELECTRIC_CURRENT.value: lambda: (electromotive_force - electric_voltage) / electric_internal_resistance, #type: ignore
+        QuantitiesNames.ELECTRIC_INTERNAL_RESISTANCE.value: lambda: (electromotive_force - electric_voltage) / electric_current, #type: ignore
+    }
+
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
+
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result
 
 
-def get_electric_resistance_by_ohms_law(
+def watts_law(
     *,
-    electric_voltage: Decimal,
-    electric_current: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    electric_power: Decimal | None = None,
+    electric_voltage: Decimal | None = None,
+    electric_current: Decimal | None = None, 
+) -> tuple[bool, str]:
 
-    electric_resistance: Decimal = electric_voltage / electric_current
-    return electric_resistance
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.ELECTRIC_POWER.value: lambda: electric_voltage * electric_current, #type: ignore
+        QuantitiesNames.ELECTRIC_VOLTAGE.value: lambda: electric_power / electric_current, #type: ignore
+        QuantitiesNames.ELECTRIC_CURRENT.value: lambda: electric_power / electric_voltage, #type: ignore
+    }
+
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
+
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result
 
 
-def get_electromotive_force_by_ohms_full_law(
+def joule_lenz_law(
     *,
-    electric_voltage: Decimal,
-    electric_current: Decimal,
-    electric_internal_resistance: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    joule_heat: Decimal | None = None,
+    electric_power: Decimal | None = None,
+    heating_time: Decimal | None = None,
+) -> tuple[bool, str]:
 
-    electromotive_force: Decimal = electric_voltage + (electric_current * electric_internal_resistance)
-    return electromotive_force
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.JOULE_HEAT.value: lambda: electric_power * heating_time, #type: ignore
+        QuantitiesNames.ELECTRIC_POWER.value: lambda: joule_heat / heating_time, #type: ignore
+        QuantitiesNames.HEATING_TIME.value: lambda: joule_heat / electric_power, #type: ignore
+    }
+
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
+
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result
 
 
-def get_electric_voltage_by_ohms_full_law(
+def coulombs_law(
     *,
-    electromotive_force: Decimal,
-    electric_current: Decimal,
-    electric_internal_resistance: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    electrostatic_force: Decimal | None = None,
+    coulomb_constant: Decimal = PhysMathConstants.COULOMB_CONSTANT.value,
+    particle_charges: tuple[Decimal, Decimal] | None = None,
+    particle_charge: Decimal | None = None,
+    distance_between_charges: Decimal | None = None,
+) -> tuple[bool, str]:
 
-    electric_voltage: Decimal = electromotive_force - (electric_current * electric_internal_resistance)
-    return electric_voltage
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.ELECTROSTATIC_FORCE.value: lambda: (coulomb_constant * decimal_product(particle_charges)) / decimal_power(distance_between_charges, Decimal("2")), #type: ignore
+        QuantitiesNames.DISTANCE_BETWEEN_CHARGES.value: lambda: ((coulomb_constant * decimal_product(particle_charges)) / electrostatic_force).sqrt(), #type: ignore
+        QuantitiesNames.PARTICLE_CHARGE.value: lambda: (electrostatic_force * decimal_power(distance_between_charges, Decimal("2"))) / (coulomb_constant * particle_charge), #type: ignore
+    }
+
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
+
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result
 
 
-def get_electric_current_by_ohms_full_law(
+def conductor_resistance_law(
     *,
-    electromotive_force: Decimal,
-    electric_voltage: Decimal,
-    electric_internal_resistance: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    conductor_electric_resistance: Decimal | None = None,
+    conductor_electric_resistivity: Decimal | None = None,
+    conductor_length: Decimal | None = None,
+    conductor_cross_sectional_area: Decimal | None = None,
+) -> tuple[bool, str]:
 
-    electric_current: Decimal = (electromotive_force - electric_voltage) / electric_internal_resistance
-    return electric_current
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.CONDUCTOR_ELECTRIC_RESISTANCE.value: lambda: (conductor_electric_resistivity * conductor_length) / conductor_cross_sectional_area, #type: ignore
+        QuantitiesNames.CONDUCTOR_ELECTRIC_RESISTIVITY.value: lambda: (conductor_electric_resistance * conductor_cross_sectional_area) / conductor_length, #type: ignore
+        QuantitiesNames.CONDUCTOR_LENGTH.value: lambda: (conductor_electric_resistance * conductor_cross_sectional_area) / conductor_electric_resistivity, #type: ignore
+        QuantitiesNames.CONDUCTOR_CROSS_SECTIONAL_AREA.value: lambda: (conductor_electric_resistivity * conductor_length) / conductor_electric_resistance, #type: ignore
+    }
 
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
 
-def get_electric_internal_resistance_by_ohms_full_law(
-    *,
-    electromotive_force: Decimal,
-    electric_voltage: Decimal,
-    electric_current: Decimal,
-) -> Decimal:
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
 
-    electric_internal_resistance: Decimal = (electromotive_force - electric_voltage) / electric_current
-    return electric_internal_resistance
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result
 
 #endregion
 
 
-#region Watts law
+#region Magnetism
 
-def get_electric_power_by_watts_law(
+def amperes_law(
     *,
-    electric_voltage: Decimal,
-    electric_current: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    ampere_force: Decimal | None = None,
+    electric_current: Decimal | None = None,
+    magnetic_induction: Decimal | None = None,
+    conductor_length: Decimal | None = None,
+    angle_sinus: Decimal | None = None,   
+) -> tuple[bool, str]:
 
-    electric_power: Decimal = electric_voltage * electric_current
-    return electric_power
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.AMPERES_FORCE.value: lambda: electric_current * magnetic_induction * conductor_length * angle_sinus, #type: ignore
+        QuantitiesNames.ELECTRIC_CURRENT.value: lambda: ampere_force / (magnetic_induction * conductor_length * angle_sinus), #type: ignore
+        QuantitiesNames.MAGNETIC_INDUCTION.value: lambda: ampere_force / (electric_current * conductor_length * angle_sinus), #type: ignore
+        QuantitiesNames.CONDUCTOR_LENGTH.value: lambda: ampere_force / (electric_current * magnetic_induction * angle_sinus), #type: ignore
+        QuantitiesNames.ANGLE_SINUS.value: lambda: ampere_force / (magnetic_induction * electric_current * conductor_length), #type: ignore
+    }
+
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
+
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result
 
 
-def get_electric_voltage_by_watts_law(
+def lorentz_law(
     *,
-    electric_power: Decimal,
-    electric_current: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    lorentz_force: Decimal | None = None,
+    particle_charge: Decimal | None = None,
+    particle_velocity: Decimal | None = None,
+    magnetic_induction: Decimal | None = None,
+    angle_sinus: Decimal | None = None,   
+) -> tuple[bool, str]:
 
-    electric_voltage: Decimal = electric_power / electric_current
-    return electric_voltage
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.LORENTZ_FORCE.value: lambda: particle_charge * particle_velocity * magnetic_induction * angle_sinus, #type: ignore
+        QuantitiesNames.PARTICLE_CHARGE.value: lambda: lorentz_force / (particle_velocity * magnetic_induction * angle_sinus), #type: ignore
+        QuantitiesNames.PARTICLE_VELOCITY.value: lambda: lorentz_force / (particle_charge * magnetic_induction * angle_sinus), #type: ignore
+        QuantitiesNames.MAGNETIC_INDUCTION.value: lambda: lorentz_force / (particle_charge * particle_velocity * angle_sinus), #type: ignore
+        QuantitiesNames.ANGLE_SINUS.value: lambda: lorentz_force / (particle_charge * particle_velocity * magnetic_induction), #type: ignore
+    }
+
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
+
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result
 
 
-def get_electric_current_by_watts_law(
+def faradays_law(
     *,
-    electric_power: Decimal,
-    electric_voltage: Decimal,
-) -> Decimal:
+    calculating_target: str,
+    delta_magnetic_flux: Decimal | None = None,
+    electromotive_force: Decimal | None = None,
+    delta_time: Decimal | None = None,
+) -> tuple[bool, str]:
 
-    electric_current: Decimal = electric_power / electric_voltage
-    return electric_current
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.DELTA_MAGNETIC_FLUX.value: lambda: -(electromotive_force * delta_time), #type: ignore
+        QuantitiesNames.PARTICLE_CHARGE.value: lambda: -(delta_magnetic_flux / delta_time), #type: ignore
+        QuantitiesNames.PARTICLE_VELOCITY.value: lambda: -(delta_magnetic_flux / electromotive_force), #type: ignore
+    }
 
-#endregion
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
+
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result
 
 
-#region Joule-Lenz law
-
-def get_joule_heat_by_joule_lenz_law(
+def magnetic_flux_law(
     *,
-    electric_power: Decimal,
-    heating_duration: Decimal,
-) -> Decimal:
-
-    joule_heat: Decimal = electric_power * heating_duration
-    return joule_heat
-
-
-def get_electric_power_by_joule_lenz_law(
-    *,
-    joule_heat: Decimal,
-    heating_duration: Decimal,
-) -> Decimal:
-
-    electric_power: Decimal = joule_heat / heating_duration
-    return electric_power
-
-
-def get_heating_duration_by_joule_lenz_law(
-    *,
-    joule_heat: Decimal,
-    electric_power: Decimal,
-) -> Decimal:
-
-    heating_duration: Decimal = joule_heat / electric_power
-    return heating_duration
-
-#endregion
-
-
-#region Coulombs law
-
-def get_coulombs_force_by_coulombs_law(
-    *,
-    coulomb_constant: Decimal,
-    charges_modules: list[Decimal],
-    charges_distance: Decimal,
-) -> Decimal:
-
-    coulomb_force: Decimal = (coulomb_constant * decimal_product(charges_modules)) / pow(charges_distance, Decimal("2"))
-    return coulomb_force
-
-
-def get_charge_module_by_coulombs_law(
-    *,
-    coulomb_force: Decimal,
-    coulomb_constant: Decimal,
-    charges_distance: Decimal,
-    given_charge_module: Decimal,
-) -> Decimal:
-
-    charge_module: Decimal = (coulomb_force * pow(charges_distance, Decimal("2"))) / (coulomb_constant * given_charge_module)
-    return charge_module
-
-
-def get_charge_distance_by_coulombs_law(
-    *,
-    coulomb_force: Decimal,
-    coulomb_constant: Decimal,
-    charge_modules: list[Decimal],
-) -> Decimal:
-
-    charge_distance: Decimal = ((coulomb_constant * decimal_product(charge_modules)) / coulomb_force).sqrt()
-    return charge_distance
-
-#endregion
-
-
-#region Conductor resistance law
-
-def get_conductor_electric_resistance_by_conductor_resistance_law(
-    *,
-    conductor_electric_resistivity: Decimal,
-    conductor_length: Decimal,
-    conductor_cross_sectional_area: Decimal,
-) -> Decimal:
-
-    conductor_electric_resistance: Decimal = (conductor_electric_resistivity * conductor_length) / conductor_cross_sectional_area
-    return conductor_electric_resistance
-
-
-def get_conductor_electric_resistivity_by_conductor_resistance_law(
-    *,
-    conductor_electric_resistance: Decimal,
-    conductor_cross_sectional_area: Decimal,
-    conductor_length: Decimal,
-) -> Decimal:
-
-    conductor_electric_resistivity: Decimal = (conductor_electric_resistance * conductor_cross_sectional_area) / conductor_length
-    return conductor_electric_resistivity
-
-
-def get_conductor_length_by_conductor_resistance_law(
-    *,
-    conductor_electric_resistance: Decimal,
-    conductor_cross_sectional_area: Decimal,
-    conductor_electric_resistivity: Decimal,
-) -> Decimal:
-
-    conductor_length: Decimal = (conductor_electric_resistance * conductor_cross_sectional_area) / conductor_electric_resistivity
-    return conductor_length
-
-
-def get_conductor_cross_sectional_area_by_conductor_resistance_law(
-    *,
-    conductor_electric_resistivity: Decimal,
-    conductor_length: Decimal,
-    conductor_electric_resistance: Decimal,
-) -> Decimal:
-
-    conductor_cross_sectional_area: Decimal = (conductor_electric_resistivity * conductor_length) / conductor_electric_resistance
-    return conductor_cross_sectional_area
-
-#endregion
-
-
-#region Amperes law
-
-def get_ampere_force_by_amperes_law(
-    *,
-    magnetic_induction: Decimal,
-    electric_current: Decimal,
-    conductor_length: Decimal,
-    angle_sinus: Decimal,   
-) -> Decimal:
-
-    ampere_force: Decimal = magnetic_induction * electric_current * conductor_length * angle_sinus
-    return ampere_force
-
-
-def get_magnetic_induction_by_amperes_law(
-    *,
-    ampere_force: Decimal,
-    electric_current: Decimal,
-    conductor_length: Decimal,
-    angle_sinus: Decimal,
-) -> Decimal:
-
-    magnetic_induction: Decimal = ampere_force / (electric_current * conductor_length * angle_sinus)
-    return magnetic_induction
-
-
-def get_electric_current_by_amperes_law(
-    *,
-    ampere_force: Decimal,
-    magnetic_induction: Decimal,
-    conductor_length: Decimal,
-    angle_sinus: Decimal,
-) -> Decimal:
-
-    electric_current: Decimal = ampere_force / (magnetic_induction * conductor_length * angle_sinus)
-    return electric_current
-
-
-def get_conductor_length_by_amperes_law(
-    *,
-    ampere_force: Decimal,
-    magnetic_induction: Decimal,
-    electric_current: Decimal,
-    angle_sinus: Decimal,
-) -> Decimal:
-
-    conductor_length: Decimal = ampere_force / (electric_current * magnetic_induction * angle_sinus)
-    return conductor_length
-
-
-def get_angle_sinus_by_amperes_law(
-    *,
-    ampere_force: Decimal,
-    magnetic_induction: Decimal,
-    electric_current: Decimal,
-    conductor_length: Decimal,
-) -> Decimal:
-
-    angle_sinus: Decimal = ampere_force / (magnetic_induction * electric_current * conductor_length)
-    return angle_sinus
-
-#endregion
-
-
-#region Lorentz law
-
-def get_lorentz_force_by_lorentz_law(
-    *,
-    particle_charge: Decimal,
-    particle_velocity: Decimal,
-    magnetic_induction: Decimal,
-    angle_sinus: Decimal,
-) -> Decimal:
-
-    lorentz_force: Decimal = particle_charge * particle_velocity * magnetic_induction * angle_sinus
-    return lorentz_force
-
-
-def get_particle_charge_by_lorentz_law(
-    *,
-    lorentz_force: Decimal,
-    particle_velocity: Decimal,
-    magnetic_induction: Decimal,
-    angle_sinus: Decimal,
-) -> Decimal:
-
-    particle_charge: Decimal = lorentz_force / (particle_velocity * magnetic_induction * angle_sinus)
-    return particle_charge
-
-
-def get_particle_velocity_by_lorentz_law(
-    *,
-    lorentz_force: Decimal,
-    particle_charge: Decimal,
-    magnetic_induction: Decimal,
-    angle_sinus: Decimal,
-) -> Decimal:
-
-    particle_velocity: Decimal = lorentz_force / (particle_charge * magnetic_induction * angle_sinus)
-    return particle_velocity
-
-
-def get_magnetic_induction_by_lorentz_law(
-    *,
-    lorentz_force: Decimal,
-    particle_charge: Decimal,
-    particle_velocity: Decimal,
-    angle_sinus: Decimal,
-) -> Decimal:
-
-    magnetic_induction: Decimal = lorentz_force / (particle_charge * particle_velocity * angle_sinus)
-    return magnetic_induction
-
-
-def get_angle_sinus_by_lorentz_law(
-    *,
-    lorentz_force: Decimal,
-    particle_charge: Decimal,
-    particle_velocity: Decimal,
-    magnetic_induction: Decimal,
-) -> Decimal:
-
-    angle_sinus: Decimal = lorentz_force / (particle_charge * particle_velocity * magnetic_induction)
-    return angle_sinus
-
-#endregion
-
-
-#region Faradays law
-
-def get_electromotive_force_by_faradays_law(
-    *,
-    delta_magnetic_flux: Decimal,
-    delta_duration: Decimal,
-) -> Decimal:
-
-    electromotive_force: Decimal = -(delta_magnetic_flux / delta_duration)
-    return electromotive_force
-
-
-def get_delta_magnetic_flux_by_faradays_law(
-    *,
-    electromotive_force: Decimal,
-    delta_duration: Decimal,
-) -> Decimal:
-
-    delta_magnetic_flux: Decimal = -(electromotive_force * delta_duration)
-    return delta_magnetic_flux
-
-
-def get_delta_duration_by_faradays_law(
-    *,
-    electromotive_force: Decimal,
-    delta_magnetic_flux: Decimal,
-) -> Decimal:
-
-    delta_duration: Decimal = -(delta_magnetic_flux / electromotive_force)
-    return delta_duration
-
-#endregion
-
-
-#region Magnetic flux law
-
-def get_magnetic_flux_by_magnetic_flux_law(
-    *,
-    magnetic_induction: Decimal,
-    contour_area: Decimal,
-    angle_cosinus: Decimal,
-) -> Decimal:
-
-    magnetic_flux: Decimal = magnetic_induction * contour_area * angle_cosinus
-    return magnetic_flux
-
-
-def get_magnetic_induction_by_magnetic_flux_law(
-    *,
-    magnetic_flux: Decimal,
-    contour_area: Decimal,
-    angle_cosinus: Decimal,
-) -> Decimal:
-
-    magnetic_induction: Decimal = magnetic_flux / (contour_area * angle_cosinus)
-    return magnetic_induction
-
-
-def get_contour_area_by_magnetic_flux_law(
-    *,
-    magnetic_flux: Decimal,
-    magnetic_induction: Decimal,
-    angle_cosinus: Decimal,
-) -> Decimal:
-
-    contour_area: Decimal = magnetic_flux / (magnetic_induction * angle_cosinus)
-    return contour_area
-
-
-def get_angle_cosinus_by_magnetic_flux_law(
-    *,
-    magnetic_flux: Decimal,
-    magnetic_induction: Decimal,
-    contour_area: Decimal,
-) -> Decimal:
-
-    angle_cosinus: Decimal = magnetic_flux / (magnetic_induction * contour_area)
-    return angle_cosinus
+    calculating_target: str,
+    magnetic_flux: Decimal | None = None,
+    magnetic_induction: Decimal | None = None,
+    contour_area: Decimal | None = None,
+    angle_cosinus: Decimal | None = None,      
+) -> tuple[bool, str]:
+
+    formulas_map: dict[str, Callable[[], Decimal]] = {
+        QuantitiesNames.MAGNETIC_FLUX.value: lambda: magnetic_induction * contour_area * angle_cosinus, #type: ignore
+        QuantitiesNames.MAGNETIC_INDUCTION.value: lambda: magnetic_flux / (contour_area * angle_cosinus), #type: ignore
+        QuantitiesNames.CONTOUR_AREA.value: lambda: magnetic_flux / (magnetic_induction * angle_cosinus), #type: ignore
+        QuantitiesNames.ANGLE_COSINUS.value: lambda: magnetic_flux / (magnetic_induction * contour_area), #type: ignore
+    }
+
+    try:
+        raw_answer: Decimal = formulas_map[calculating_target]()
+        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+
+        calculations_result: tuple[bool, str] = (True, cleaned_answer)
+        return calculations_result
+
+    except (ZeroDivisionError, TypeError):
+        calculations_result: tuple[bool, str] = (False, global_error_message)
+        return calculations_result    
 
 #endregion
