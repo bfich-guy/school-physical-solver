@@ -1,175 +1,214 @@
 from decimal import Decimal
-from typing import Callable
-
-from config import PhysMathConstants, QuantitiesNames, global_error_message
-
-from utils import clean_trailing_zeros_from_decimal_number
 
 
 #region Classic thermodynamics
 
-def sensible_heat_law(
-    *,
-    calculating_target: str,
-    sensible_heat: Decimal | None = None,
-    specific_heat: Decimal | None = None,
-    object_mass: Decimal | None = None,
-    delta_temperature: Decimal | None = None,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.SPECIFIC_HEAT.value: lambda: specific_heat * object_mass * delta_temperature, #type: ignore
-        QuantitiesNames.SPECIFIC_HEAT.value: lambda: sensible_heat / (object_mass * delta_temperature), #type: ignore
-        QuantitiesNames.OBJECT_MASS.value: lambda: sensible_heat / (specific_heat * delta_temperature), #type: ignore
-        QuantitiesNames.DELTA_TEMPERATURE.value: lambda: sensible_heat / (specific_heat * object_mass), #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+class SensibleHeatLaw:
+    def __init__(self, *, Q: Decimal | None = None, c: Decimal | None = None, m: Decimal | None = None, Dt: Decimal | None = None) -> None:
+        self.Q: Decimal | None = Q
+        self.c: Decimal | None = c
+        self.m: Decimal | None = m
+        self.Dt: Decimal | None = Dt
 
 
-def combustion_heat_law(
-    *,
-    calculating_target: str,
-    combustion_heat: Decimal | None = None,
-    specific_heat_of_combustion: Decimal | None = None,
-    object_mass: Decimal | None = None,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.COMBUSTION_HEAT.value: lambda: specific_heat_of_combustion * object_mass, #type: ignore
-        QuantitiesNames.SPECIFIC_HEAT_OF_COMBUSTION.value: lambda: combustion_heat / object_mass, #type: ignore
-        QuantitiesNames.OBJECT_MASS.value: lambda: combustion_heat / specific_heat_of_combustion, #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+    def get_Q(self) -> Decimal | None:
+        try:
+            Q: Decimal = self.c * self.m * self.Dt #type: ignore
+            return Q
+        except TypeError:
+            return None
 
 
-def fusion_heat_law(
-    *,
-    calculating_target: str,
-    fusion_heat: Decimal | None = None,
-    specific_heat_of_fusion: Decimal | None = None,
-    object_mass: Decimal | None = None,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.FUSION_HEAT.value: lambda: specific_heat_of_fusion * object_mass, #type: ignore
-        QuantitiesNames.SPECIFIC_HEAT_OF_FUSION.value: lambda: fusion_heat / object_mass, #type: ignore
-        QuantitiesNames.OBJECT_MASS.value: lambda: fusion_heat / specific_heat_of_fusion, #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+    def get_c(self) -> Decimal | None:
+        try:
+            c: Decimal = self.Q / (self.m * self.Dt) #type: ignore
+            return c
+        except (ZeroDivisionError, TypeError):
+            return None
 
 
-def vaporization_heat_law(
-    *,
-    calculating_target: str,
-    vaporization_heat: Decimal | None = None,
-    specific_heat_of_vaporization: Decimal | None = None,
-    object_mass: Decimal | None = None,
-) -> tuple[bool, str]:
+    def get_m(self) -> Decimal | None:
+        try:
+            m: Decimal = self.Q / (self.c * self.Dt) #type: ignore
+            return m
+        except (ZeroDivisionError, TypeError):
+            return None
 
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.VAPORIZATION_HEAT.value: lambda: specific_heat_of_vaporization * object_mass, #type: ignore
-        QuantitiesNames.SPECIFIC_HEAT_OF_VAPORIZATION.value: lambda: vaporization_heat / object_mass, #type: ignore
-        QuantitiesNames.OBJECT_MASS.value: lambda: vaporization_heat / specific_heat_of_vaporization, #type: ignore
-    }
 
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+    def get_Dt(self) -> Decimal | None:
+        try:
+            Dt: Decimal = self.Q / (self.c * self.m) #type: ignore
+            return Dt
+        except (ZeroDivisionError, TypeError):
+            return None
 
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
 
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+class CombustionHeatLaw:
+    def __init__(self, *, Q: Decimal | None = None, q: Decimal | None = None, m: Decimal | None = None) -> None:
+        self.Q: Decimal | None = Q
+        self.q: Decimal | None = q
+        self.m: Decimal | None = m
+
+
+    def get_Q(self) -> Decimal | None:
+        try:
+            Q: Decimal = self.q * self.m #type: ignore
+            return Q
+        except TypeError:
+            return None
+
+
+    def get_q(self) -> Decimal | None:
+        try:
+            q: Decimal = self.Q / self.m #type: ignore
+            return q
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_m(self) -> Decimal | None:
+        try:
+            m: Decimal = self.Q / self.q #type: ignore
+            return m
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+class FusionHeatLaw:
+    def __init__(self, *, Q: Decimal | None = None, lmb: Decimal | None = None, m: Decimal | None = None) -> None:
+        self.Q: Decimal | None = Q
+        self.lmb: Decimal | None = lmb
+        self.m: Decimal | None = m
+
+
+    def get_Q(self) -> Decimal | None:
+        try:
+            Q: Decimal = self.lmb * self.m #type: ignore
+            return Q
+        except TypeError:
+            return None
+
+
+    def get_lmb(self) -> Decimal | None:
+        try:
+            lmb: Decimal = self.Q / self.m #type: ignore
+            return lmb
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_m(self) -> Decimal | None:
+        try:
+            m: Decimal = self.Q / self.lmb #type: ignore
+            return m
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+class VaporizationHeatLaw:
+    def __init__(self, *, Q: Decimal | None = None, L: Decimal | None = None, m: Decimal | None = None) -> None:
+        self.Q: Decimal | None = Q
+        self.L: Decimal | None = L
+        self.m: Decimal | None = m
+
+
+    def get_Q(self) -> Decimal | None:
+        try:
+            Q: Decimal = self.L * self.m #type: ignore
+            return Q
+        except TypeError:
+            return None
+
+
+    def get_L(self) -> Decimal | None:
+        try:
+            L: Decimal = self.Q / self.m #type: ignore
+            return L
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_m(self) -> Decimal | None:
+        try:
+            m: Decimal = self.Q / self.L #type: ignore
+            return m
+        except (ZeroDivisionError, TypeError):
+            return None
 
 #endregion
 
 
 #region Molecular kinetic theory
 
-def mendeleev_clayperon_law(
-    *,
-    calculating_target: str,
-    gas_pressure: Decimal | None = None,
-    gas_volume: Decimal | None = None,
-    gas_moles: Decimal | None = None,
-    gas_constant: Decimal = PhysMathConstants.GAS_CONSTANT.value,
-    gas_temperature: Decimal | None = None,     
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.GAS_PRESSURE.value: lambda: (gas_moles * gas_constant * gas_temperature) / gas_volume, #type: ignore
-        QuantitiesNames.GAS_VOLUME.value: lambda: (gas_moles * gas_constant * gas_temperature) / gas_pressure, #type: ignore
-        QuantitiesNames.GAS_MOLES.value: lambda: (gas_pressure * gas_volume) / (gas_constant * gas_temperature), #type: ignore
-        QuantitiesNames.GAS_TEMPERATURE.value: lambda: (gas_pressure * gas_volume) / (gas_constant * gas_moles), #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+class MendeleevClapeyronLaw:
+    def __init__(self, *, p: Decimal | None = None, V: Decimal | None = None, v: Decimal | None = None, R: Decimal | None = None, T: Decimal | None = None) -> None:
+        self.p: Decimal | None = p
+        self.V: Decimal | None = V
+        self.v: Decimal | None = v
+        self.R: Decimal | None = R
+        self.T: Decimal | None = T
 
 
-def molar_mass_law(
-    *,
-    calculating_target: str,
-    object_moles: Decimal | None = None,
-    object_mass: Decimal | None = None,
-    object_molar_mass: Decimal | None = None,
-) -> tuple[bool, str]:
+    def get_p(self) -> Decimal | None:
+        try:
+            p: Decimal = (self.v * self.R * self.T) / self.V #type: ignore
+            return p
+        except (ZeroDivisionError, TypeError):
+            return None
 
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.OBJECT_MASS.value: lambda: object_moles * object_molar_mass, #type: ignore
-        QuantitiesNames.OBJECT_MOLAR_MASS.value: lambda: object_mass / object_molar_mass, #type: ignore
-        QuantitiesNames.OBJECT_MOLES.value: lambda: object_mass / object_moles, #type: ignore
-    }
 
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+    def get_V(self) -> Decimal | None:
+        try:
+            V: Decimal = (self.v * self.R * self.T) / self.p #type: ignore
+            return V
+        except (ZeroDivisionError, TypeError):
+            return None
 
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
 
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result    
+    def get_v(self) -> Decimal | None:
+        try:
+            v: Decimal = (self.p * self.V) / (self.R * self.T) #type: ignore
+            return v
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_T(self) -> Decimal | None:
+        try:
+            T: Decimal = (self.p * self.V) / (self.R * self.v) #type: ignore
+            return T
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+class MolarMassLaw:
+    def __init__(self, *, v: Decimal | None = None, m: Decimal | None = None, M: Decimal | None = None) -> None:
+        self.v: Decimal | None = v
+        self.m: Decimal | None = m
+        self.M: Decimal | None = M
+
+
+    def get_v(self) -> Decimal | None:
+        try:
+            v: Decimal = self.m / self.M #type: ignore
+            return v
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_m(self) -> Decimal | None:
+        try:
+            m: Decimal = self.v * self.M #type: ignore
+            return m
+        except TypeError:
+            return None
+
+
+    def get_M(self) -> Decimal | None:
+        try:
+            M: Decimal = self.m / self.v #type: ignore
+            return M
+        except (ZeroDivisionError, TypeError):
+            return None
 
 #endregion

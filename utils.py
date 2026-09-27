@@ -55,11 +55,6 @@ def decimal_product(decimal_numbers: list[Decimal] | tuple[Decimal]) -> Decimal:
     return decimal_product
 
 
-def decimal_power(decimal_base: Decimal, decimal_exponent: Decimal) -> Decimal:
-    decimal_power: Decimal = pow(decimal_base, decimal_exponent)
-    return decimal_power
-
-
 def decimal_logarithm(decimal_value: Decimal, decimal_base: Decimal) -> Decimal:
     decimal_logarithm: Decimal = (decimal_value.ln() / decimal_base.ln()).quantize(Decimal("1"))
     return decimal_logarithm
@@ -148,27 +143,24 @@ def reduce_fraction(
 
     greatest_divisor_multipliers: list[Decimal] = []
 
-    sorted_fraction_numerator_multipliers: list[Decimal] = sorted(fraction_numerator_multipliers, reverse=True)
-    sorted_fraction_denominator_multipliers: list[Decimal] = sorted(fraction_denominator_multipliers, reverse=True)
+    fraction_numerator: Decimal = decimal_product(fraction_numerator_multipliers)
+    fraction_denominator: Decimal = decimal_product(fraction_denominator_multipliers)
 
-    fraction_numerator: Decimal = decimal_product(sorted_fraction_numerator_multipliers)
-    fraction_denominator: Decimal = decimal_product(sorted_fraction_denominator_multipliers)
+    fraction_numerator_multipliers_are_not_ran_out: bool = len(fraction_numerator_multipliers) > 0
 
-    sorted_fraction_numerator_multipliers_are_not_ran_out: bool = len(sorted_fraction_numerator_multipliers) > 0
-
-    while sorted_fraction_numerator_multipliers_are_not_ran_out:
-        greatest_number: Decimal = sorted_fraction_numerator_multipliers[0]
-        greatest_number_in_denominator: bool = greatest_number in sorted_fraction_denominator_multipliers
+    while fraction_numerator_multipliers_are_not_ran_out:
+        greatest_number: Decimal = fraction_numerator_multipliers[-1]
+        greatest_number_in_denominator: bool = greatest_number in fraction_denominator_multipliers
 
         if greatest_number_in_denominator:
             greatest_divisor_multipliers.append(greatest_number)
 
-            sorted_fraction_numerator_multipliers.remove(greatest_number)
-            sorted_fraction_denominator_multipliers.remove(greatest_number)
+            fraction_numerator_multipliers.pop()
+            fraction_denominator_multipliers.remove(greatest_number)
         else:
-            sorted_fraction_numerator_multipliers.remove(greatest_number)
+            fraction_numerator_multipliers.pop()
 
-        sorted_fraction_numerator_multipliers_are_not_ran_out: bool = len(sorted_fraction_numerator_multipliers) > 0
+        fraction_numerator_multipliers_are_not_ran_out: bool = len(fraction_numerator_multipliers) > 0
 
     greatest_divisor: Decimal = decimal_product(greatest_divisor_multipliers)
 
@@ -196,5 +188,21 @@ def turn_decimal_number_into_fraction(
     )
 
     return reduced_common_fraction
+
+
+def get_quadratic_equation_roots(
+    *,
+    a: Decimal,
+    b: Decimal,
+    c: Decimal,
+) -> list[Decimal]:
+
+    D: Decimal = (b ** Decimal("2") - (Decimal("4") * a * c)).sqrt()
+
+    x1: Decimal = (-b - D) / (Decimal("2") * a)
+    x2: Decimal = (-b + D) / (Decimal("2") * a)
+
+    quadratic_equation_roots: list[Decimal] = [x1, x2]
+    return quadratic_equation_roots
 
 #endregion

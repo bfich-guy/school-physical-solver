@@ -1,442 +1,542 @@
 from decimal import Decimal
-from typing import Callable
-
-from config import PhysMathConstants, QuantitiesNames, global_error_message
-
-from utils import clean_trailing_zeros_from_decimal_number
 
 
 #region Dynamics
 
-def second_newton_law(
-    *,
-    calculating_target: str,
-    resultant_force: Decimal | None = None,
-    object_mass: Decimal | None = None,
-    object_acceleration: Decimal = PhysMathConstants.EARTH_GRAVITY_ACCELERATION.value,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.RESULTANT_FORCE.value: lambda: object_mass * object_acceleration, #type: ignore
-        QuantitiesNames.OBJECT_MASS.value: lambda: resultant_force / object_acceleration, #type: ignore
-        QuantitiesNames.OBJECT_ACCELERATION.value: lambda: resultant_force / object_mass, #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+class SecondNewtonLaw:
+    def __init__(self, *, F: Decimal | None = None, m: Decimal | None = None, a: Decimal | None = None) -> None:
+        self.F: Decimal | None = F
+        self.m: Decimal | None = m
+        self.a: Decimal | None = a
 
 
-def hookes_law(
-    *,
-    calculating_target: str,
-    hookes_force: Decimal | None = None,
-    spring_stiffness: Decimal | None = None,
-    spring_elongation: Decimal | None = None,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.HOOKES_FORCE.value: lambda: spring_stiffness * spring_elongation, #type: ignore
-        QuantitiesNames.SPRING_STIFFNESS.value: lambda: hookes_force / spring_elongation, #type: ignore
-        QuantitiesNames.SPRING_ELONGATION.value: lambda: hookes_force / spring_stiffness, #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-    
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+    def get_F(self) -> Decimal | None:
+        try:
+            F: Decimal = self.m * self.a #type: ignore
+            return F
+        except TypeError:
+            return None
 
 
-def amontons_coulomb_law(
-    *,
-    calculating_target: str,
-    amontons_coulomb_force: Decimal | None = None,
-    friction_coefficient: Decimal | None = None,
-    normal_force: Decimal | None = None,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.AMONTONS_COULOMB_FORCE.value: lambda: friction_coefficient * normal_force, #type: ignore
-        QuantitiesNames.FRICTION_COEFFICIENT.value: lambda: amontons_coulomb_force / normal_force, #type: ignore
-        QuantitiesNames.NORMAL_FORCE.value: lambda: amontons_coulomb_force / friction_coefficient, #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+    def get_m(self) -> Decimal | None:
+        try:
+            m: Decimal = self.F / self.a #type: ignore
+            return m
+        except (ZeroDivisionError, TypeError):
+            return None
 
 
-def normal_reaction_law(
-    *,
-    calculating_target: str,
-    normal_force: Decimal | None = None,
-    weight_force: Decimal | None = None,
-    angle_cosinus: Decimal | None = None,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.NORMAL_FORCE.value: lambda: weight_force * angle_cosinus, #type: ignore
-        QuantitiesNames.WEIGHT_FORCE.value: lambda: normal_force / angle_cosinus, #type: ignore
-        QuantitiesNames.ANGLE_COSINUS.value: lambda: normal_force / weight_force, #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+    def get_a(self) -> Decimal | None:
+        try:
+            a: Decimal = self.F / self.m #type: ignore
+            return a
+        except (ZeroDivisionError, TypeError):
+            return None
 
 
-def momentum_law(
-    *,
-    calculating_target: str,
-    object_momentum: Decimal | None = None,
-    object_mass: Decimal | None = None,
-    object_velocity: Decimal | None = None,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.OBJECT_MOMENTUM.value: lambda: object_mass * object_velocity, #type: ignore
-        QuantitiesNames.OBJECT_MASS.value: lambda: object_momentum / object_velocity, #type: ignore
-        QuantitiesNames.OBJECT_VELOCITY.value: lambda: object_momentum / object_mass, #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+class HookesLaw:
+    def __init__(self, *, F: Decimal | None = None, k: Decimal | None = None, Dx: Decimal | None = None) -> None:
+        self.F: Decimal | None = F
+        self.k: Decimal | None = k
+        self.Dx: Decimal | None = Dx
 
 
-def momentum_conversation_law(
-    *,
-    calculating_target: str,
-    first_initial_momentum: Decimal | None = None,
-    second_initial_momentum: Decimal | None = None,
-    first_final_momentum: Decimal | None = None,
-    second_final_momentum: Decimal | None = None,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.FIRST_INITIAL_MOMENTUM.value: lambda: first_final_momentum + second_final_momentum - second_initial_momentum, #type: ignore
-        QuantitiesNames.FIRST_FINAL_MOMENTUM.value: lambda: first_initial_momentum + second_initial_momentum - second_final_momentum, #type: ignore
-        QuantitiesNames.SECOND_INITIAL_MOMENTUM.value: lambda: first_final_momentum + second_final_momentum - first_initial_momentum, #type: ignore
-        QuantitiesNames.SECOND_FINAL_MOMENTUM.value: lambda: first_initial_momentum + second_initial_momentum - first_final_momentum, #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+    def get_F(self) -> Decimal | None:
+        try:
+            F: Decimal = self.k * self.Dx #type: ignore
+            return F
+        except TypeError:
+            return None
 
 
-def kinetic_energy_law(
-    *,
-    calculating_target: str,
-    kinetic_energy: Decimal | None = None,
-    object_momentum: Decimal | None = None,
-    object_velocity: Decimal | None = None,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.KINETIC_ENERGY.value: lambda: (object_momentum + object_velocity) / Decimal("2"), #type: ignore
-        QuantitiesNames.OBJECT_MOMENTUM.value: lambda: (Decimal("2") * kinetic_energy) / object_velocity, #type: ignore
-        QuantitiesNames.OBJECT_VELOCITY.value: lambda: (Decimal("2") * kinetic_energy) / object_momentum, #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+    def get_k(self) -> Decimal | None:
+        try:
+            k: Decimal = self.F / self.Dx #type: ignore
+            return k
+        except (ZeroDivisionError, TypeError):
+            return None
 
 
-def potential_energy_law(
-    *,
-    calculating_target: str,
-    potential_energy: Decimal | None = None,
-    weight_force: Decimal | None = None,
-    height_above_surface: Decimal | None = None,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.POTENTIAL_ENERGY.value: lambda: weight_force * height_above_surface, #type: ignore
-        QuantitiesNames.WEIGHT_FORCE.value: lambda: potential_energy / height_above_surface, #type: ignore
-        QuantitiesNames.HEIGHT_ABOVE_SURFACE.value: lambda: potential_energy / weight_force, #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+    def get_Dx(self) -> Decimal | None:
+        try:
+            Dx: Decimal = self.F / self.k #type: ignore
+            return Dx
+        except (ZeroDivisionError, TypeError):
+            return None
 
 
-def mechanical_work_law(
-    *,
-    calculating_target: str,
-    mechanical_work: Decimal | None = None,
-    applied_force: Decimal | None = None,
-    covered_distance: Decimal | None = None,
-    angle_cosinus: Decimal | None = None,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.MECHANICAL_WORK.value: lambda: applied_force * covered_distance * angle_cosinus, #type: ignore
-        QuantitiesNames.APPLIED_FORCE.value: lambda: mechanical_work / (covered_distance * angle_cosinus), #type: ignore
-        QuantitiesNames.COVERED_DISTANCE.value: lambda: mechanical_work / (applied_force * angle_cosinus), #type: ignore
-        QuantitiesNames.ANGLE_COSINUS.value: lambda: mechanical_work / (applied_force * covered_distance), #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+class AmontonsCoulombLaw:
+    def __init__(self, *, F: Decimal | None = None, mu: Decimal | None = None, N: Decimal | None = None) -> None:
+        self.F: Decimal | None = F
+        self.mu: Decimal | None = mu
+        self.N: Decimal | None = N
 
 
-def mechanical_power_law(
-    *,
-    calculating_target: str,
-    mechanical_power: Decimal | None = None,
-    mechanical_work: Decimal | None = None,
-    elapsed_time: Decimal | None = None,
-) -> tuple[bool, str]:
+    def get_F(self) -> Decimal | None:
+        try:
+            F: Decimal = self.mu * self.N #type: ignore
+            return F
+        except TypeError:
+            return None
 
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.MECHANICAL_WORK.value: lambda: mechanical_power * elapsed_time, #type: ignore
-        QuantitiesNames.MECHANICAL_POWER.value: lambda: mechanical_work / elapsed_time, #type: ignore
-        QuantitiesNames.ELAPSED_TIME.value: lambda: mechanical_work / mechanical_power, #type: ignore
-    }
 
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+    def get_mu(self) -> Decimal | None:
+        try:
+            mu: Decimal = self.F / self.N #type: ignore
+            return mu
+        except (ZeroDivisionError, TypeError):
+            return None
 
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
 
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+    def get_N(self) -> Decimal | None:
+        try:
+            N: Decimal = self.F / self.mu #type: ignore
+            return N
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+class NormalReactionLaw:
+    def __init__(self, *, N: Decimal | None = None, F: Decimal | None = None, cosa: Decimal | None = None) -> None:
+        self.N: Decimal | None = N
+        self.F: Decimal | None = F
+        self.cosa: Decimal | None = cosa
+
+
+    def get_N(self) -> Decimal | None:
+        try:
+            N: Decimal = self.F * self.cosa #type: ignore
+            return N
+        except TypeError:
+            return None
+
+
+    def get_F(self) -> Decimal | None:
+        try:
+            F: Decimal = self.N / self.cosa #type: ignore
+            return F
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_cosa(self) -> Decimal | None:
+        try:
+            cosa: Decimal = self.N / self.F #type: ignore
+            return cosa
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+class MomentumLaw:
+    def __init__(self, *, p: Decimal | None = None, m: Decimal | None = None, v: Decimal | None = None) -> None:
+        self.p: Decimal | None = p
+        self.m: Decimal | None = m
+        self.v: Decimal | None = v
+
+
+    def get_p(self) -> Decimal | None:
+        try:
+            p: Decimal = self.m * self.v #type: ignore
+            return p
+        except TypeError:
+            return None
+
+
+    def get_m(self) -> Decimal | None:
+        try:
+            m: Decimal = self.p / self.v #type: ignore
+            return m
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_v(self) -> Decimal | None:
+        try:
+            v: Decimal = self.p / self.m #type: ignore
+            return v
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+class MomentumConservationLaw:
+    def __init__(self, *, p1i: Decimal | None = None, p2i: Decimal | None = None, p1f: Decimal | None = None, p2f: Decimal | None = None) -> None:
+        self.p1i: Decimal | None = p1i
+        self.p2i: Decimal | None = p2i
+        self.p1f: Decimal | None = p1f
+        self.p2f: Decimal | None = p2f
+
+
+    def get_p1i(self) -> Decimal | None:
+        try:
+            p1i: Decimal = self.p1f + self.p2f - self.p2i #type: ignore
+            return p1i
+        except TypeError:
+            return None
+
+    def get_p2i(self) -> Decimal | None:
+        try:
+            p2i: Decimal = self.p1f + self.p2f - self.p1i #type: ignore
+            return p2i
+        except TypeError:
+            return None
+
+    def get_p1f(self) -> Decimal | None:
+        try:
+            p1f: Decimal = self.p1i + self.p2i - self.p2f #type: ignore
+            return p1f
+        except TypeError:
+            return None
+
+    def get_p2f(self) -> Decimal | None:
+        try:
+            p2f: Decimal = self.p1i + self.p2i - self.p1f #type: ignore
+            return p2f
+        except TypeError:
+            return None
+
+
+class KineticEnergyLaw:
+    def __init__(self, *, E: Decimal | None = None, p: Decimal | None = None, v: Decimal | None = None) -> None:
+        self.E: Decimal | None = E
+        self.p: Decimal | None = p
+        self.v: Decimal | None = v
+
+
+    def get_E(self) -> Decimal | None:
+        try:
+            E: Decimal = (self.p * self.v) / Decimal("2") #type: ignore
+            return E
+        except TypeError:
+            return None
+
+
+    def get_p(self) -> Decimal | None:
+        try:
+            p: Decimal = (Decimal("2") * self.E) / self.v #type: ignore
+            return p
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_v(self) -> Decimal | None:
+        try:
+            v: Decimal = (Decimal("2") * self.E) / self.p #type: ignore
+            return v
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+class PotentialEnergyLaw:
+    def __init__(self, *, E: Decimal | None = None, F: Decimal | None = None, h: Decimal | None = None) -> None:
+        self.E: Decimal | None = E
+        self.F: Decimal | None = F
+        self.h: Decimal | None = h
+
+
+    def get_E(self) -> Decimal | None:
+        try:
+            E: Decimal = self.F * self.H #type: ignore
+            return E
+        except TypeError:
+            return None
+
+
+    def get_F(self) -> Decimal | None:
+        try:
+            F: Decimal = self.E / self.h #type: ignore
+            return F
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_h(self) -> Decimal | None:
+        try:
+            h: Decimal = self.E / self.F #type: ignore
+            return h
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+class MechanicalWorkLaw:
+    def __init__(self, *, A: Decimal | None = None, F: Decimal | None = None, S: Decimal | None = None, cosa: Decimal | None = None) -> None:
+        self.A: Decimal | None = A
+        self.F: Decimal | None = F
+        self.S: Decimal | None = S
+        self.cosa: Decimal | None = cosa
+
+
+    def get_A(self) -> Decimal | None:
+        try:
+            A: Decimal = self.F * self.S * self.cosa #type: ignore
+            return A
+        except TypeError:
+            return None
+
+
+    def get_F(self) -> Decimal | None:
+        try:
+            F: Decimal = self.A / (self.S * self.cosa) #type: ignore
+            return F
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_S(self) -> Decimal | None:
+        try:
+            S: Decimal = self.A / (self.F * self.cosa) #type: ignore
+            return S
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_cosa(self) -> Decimal | None:
+        try:
+            cosa: Decimal = self.A / (self.F * self.S) #type: ignore
+            return cosa
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+class MechanicalPowerLaw:
+    def __init__(self, *, P: Decimal | None = None, A: Decimal | None = None, t: Decimal | None = None) -> None:
+        self.P: Decimal | None = P
+        self.A: Decimal | None = A
+        self.t: Decimal | None = t
+
+
+    def get_P(self) -> Decimal | None:
+        try:
+            P: Decimal = self.A / self.t #type: ignore
+            return P
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_A(self) -> Decimal | None:
+        try:
+            A: Decimal = self.P * self.t #type: ignore
+            return A
+        except TypeError:
+            return None
+
+
+    def get_t(self) -> Decimal | None:
+        try:
+            t: Decimal = self.A / self.P #type: ignore
+            return t
+        except (ZeroDivisionError, TypeError):
+            return None
 
 #endregion
 
 
 #region Kinematics
 
-def linear_acceleration_law(
-    *,
-    calculating_target: str,
-    linear_acceleration: Decimal | None = None,
-    delta_velocity: Decimal | None = None,
-    delta_time: Decimal | None = None,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.DELTA_VELOCITY.value: lambda: linear_acceleration * delta_time, #type: ignore
-        QuantitiesNames.LINEAR_ACCELERATION.value: lambda: delta_velocity / delta_time, #type: ignore
-        QuantitiesNames.DELTA_TIME.value: lambda: delta_velocity / linear_acceleration, #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+class LinearAccelerationLaw:
+    def __init__(self, *, a: Decimal | None = None, Dv: Decimal | None = None, Dt: Decimal | None = None) -> None:
+        self.a: Decimal | None = a
+        self.Dv: Decimal | None = Dv
+        self.Dt: Decimal | None = Dt
 
 
-def centripetal_acceleration_law(
-    *,
-    calculating_target: str,
-    centripetal_acceleration: Decimal | None = None,
-    linear_velocity: Decimal | None = None,
-    angular_velocity: Decimal | None = None,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.CENTRIPETAL_ACCELERATION.value: lambda: linear_velocity * angular_velocity, #type: ignore
-        QuantitiesNames.LINEAR_VELOCITY.value: lambda: centripetal_acceleration / angular_velocity, #type: ignore
-        QuantitiesNames.ANGULAR_VELOCITY.value: lambda: centripetal_acceleration / linear_velocity, #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+    def get_a(self) -> Decimal | None:
+        try:
+            a: Decimal = self.Dv / self.Dt#type: ignore
+            return a
+        except (ZeroDivisionError, TypeError):
+            return None
 
 
-def trajectory_radius_law(
-    *,
-    calculating_target: str,
-    trajectory_radius: Decimal | None = None,
-    linear_velocity: Decimal | None = None,
-    angular_velocity: Decimal | None = None,    
-) -> tuple[bool, str]:
+    def get_Dv(self) -> Decimal | None:
+        try:
+            Dv: Decimal = self.a * self.Dt #type: ignore
+            return Dv
+        except TypeError:
+            return None
 
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.LINEAR_VELOCITY.value: lambda: angular_velocity * trajectory_radius, #type: ignore
-        QuantitiesNames.TRAJECTORY_RADIUS.value: lambda: linear_velocity / trajectory_radius, #type: ignore
-        QuantitiesNames.ANGULAR_VELOCITY.value: lambda: linear_velocity / angular_velocity, #type: ignore
-    }
 
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+    def get_Dt(self) -> Decimal | None:
+        try:
+            Dt: Decimal = self.Dv / self.a #type: ignore
+            return Dt
+        except (ZeroDivisionError, TypeError):
+            return None
 
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
 
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+class CentripetalAccelerationLaw:
+    def __init__(self, *, a: Decimal | None = None, v: Decimal | None = None, w: Decimal | None = None) -> None:
+        self.a: Decimal | None = a
+        self.v: Decimal | None = v
+        self.w: Decimal | None = w
+
+
+    def get_a(self) -> Decimal | None:
+        try:
+            a: Decimal = self.v * self.w #type: ignore
+            return a
+        except TypeError:
+            return None
+
+
+    def get_v(self) -> Decimal | None:
+        try:
+            v: Decimal = self.a / self.w #type: ignore
+            return v
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_w(self) -> Decimal | None:
+        try:
+            w: Decimal = self.a / self.v #type: ignore
+            return w
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+class TrajectoryRadiusLaw:
+    def __init__(self, *, R: Decimal | None = None, v: Decimal | None = None, w: Decimal | None = None) -> None:
+        self.R: Decimal | None = R
+        self.v: Decimal | None = v
+        self.w: Decimal | None = w
+
+
+    def get_R(self) -> Decimal | None:
+        try:
+            R: Decimal = self.v / self.w #type: ignore
+            return R
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_v(self) -> Decimal | None:
+        try:
+            v: Decimal = self.w * self.R #type: ignore
+            return v
+        except TypeError:
+            return None
+
+
+    def get_w(self) -> Decimal | None:
+        try:
+            w: Decimal = self.v / self.R #type: ignore
+            return w
+        except (ZeroDivisionError, TypeError):
+            return None
 
 #endregion
 
 
 #region Statics
 
-def pascals_law(
-    *,
-    calculating_target: str,
-    mechanical_pressure: Decimal | None = None,
-    surface_area: Decimal | None = None,
-    pressure_force: Decimal | None = None,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.PRESSURE_FORCE.value: lambda: mechanical_pressure * surface_area, #type: ignore
-        QuantitiesNames.MECHANICAL_PRESSURE.value: lambda: pressure_force / surface_area, #type: ignore
-        QuantitiesNames.SURFACE_AREA.value: lambda: pressure_force / mechanical_pressure, #type: ignore
-    }
-
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+class PascalsLaw:
+    def __init__(self, *, p: Decimal | None = None, F: Decimal | None = None, S: Decimal | None = None) -> None:
+        self.p: Decimal | None = p
+        self.F: Decimal | None = F
+        self.S: Decimal | None = S
 
 
-def archimedes_law(
-    *,
-    calculating_target: str,
-    archimedes_force: Decimal | None = None,
-    fluid_density: Decimal | None = None,
-    submerged_volume: Decimal | None = None,
-    gravitational_acceleration: Decimal = PhysMathConstants.EARTH_GRAVITY_ACCELERATION.value,
-) -> tuple[bool, str]:
-
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.ARCHIMEDES_FORCE.value: lambda: fluid_density * submerged_volume * gravitational_acceleration, #type: ignore
-        QuantitiesNames.FLUID_DENSITY.value: lambda: archimedes_force / (submerged_volume * gravitational_acceleration), #type: ignore
-        QuantitiesNames.SUBMERGED_VOLUME.value: lambda: archimedes_force / (fluid_density * gravitational_acceleration), #type: ignore
-        QuantitiesNames.GRAVITATIONAL_ACCELERATION.value: lambda: archimedes_force / (fluid_density * submerged_volume), #type: ignore
-    }
-    
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
-
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
-
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+    def get_p(self) -> Decimal | None:
+        try:
+            p: Decimal = self.F / self.S #type: ignore
+            return p
+        except (ZeroDivisionError, TypeError):
+            return None
 
 
-def hydrostatic_pressure_law(
-    *,
-    calculating_target: str,
-    hydrostatic_pressure: Decimal | None = None,
-    fluid_density: Decimal | None = None,
-    gravitational_acceleration: Decimal = PhysMathConstants.EARTH_GRAVITY_ACCELERATION.value,
-    fluid_column_height: Decimal | None = None,
-) -> tuple[bool, str]:
+    def get_F(self) -> Decimal | None:
+        try:
+            F: Decimal = self.p * self.S #type: ignore
+            return F
+        except TypeError:
+            return None
 
-    formulas_map: dict[str, Callable[[], Decimal]] = {
-        QuantitiesNames.HYDROSTATIC_PRESSURE.value: lambda: fluid_density * gravitational_acceleration * fluid_column_height, #type: ignore
-        QuantitiesNames.FLUID_DENSITY.value: lambda: hydrostatic_pressure / (gravitational_acceleration * fluid_column_height), #type: ignore
-        QuantitiesNames.GRAVITATIONAL_ACCELERATION.value: lambda: hydrostatic_pressure / (fluid_density * fluid_column_height), #type: ignore
-        QuantitiesNames.FLUID_COLUMN_HEIGHT.value: lambda: hydrostatic_pressure / (fluid_density * gravitational_acceleration), #type: ignore
-    }
 
-    try:
-        raw_answer: Decimal = formulas_map[calculating_target]()
-        cleaned_answer: str = f"{clean_trailing_zeros_from_decimal_number(decimal_number=raw_answer)}"
+    def get_S(self) -> Decimal | None:
+        try:
+            S: Decimal = self.F / self.p #type: ignore
+            return S
+        except (ZeroDivisionError, TypeError):
+            return None
 
-        calculations_result: tuple[bool, str] = (True, cleaned_answer)
-        return calculations_result
 
-    except (ZeroDivisionError, TypeError):
-        calculations_result: tuple[bool, str] = (False, global_error_message)
-        return calculations_result
+class ArchimedesLaw:
+    def __init__(self, *, F: Decimal | None = None, rho: Decimal | None = None, V: Decimal | None = None, g: Decimal | None = None) -> None:
+        self.F: Decimal | None = F
+        self.rho: Decimal | None = rho
+        self.V: Decimal | None = V
+        self.g: Decimal | None = g
+
+
+    def get_F(self) -> Decimal | None:
+        try:
+            F: Decimal = self.rho * self.V * self.g #type: ignore
+            return F
+        except TypeError:
+            return None
+
+
+    def get_rho(self) -> Decimal | None:
+        try:
+            rho: Decimal = self.F / (self.V * self.g) #type: ignore
+            return rho
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_V(self) -> Decimal | None:
+        try:
+            V: Decimal = self.F / (self.rho * self.g) #type: ignore
+            return V
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_g(self) -> Decimal | None:
+        try:
+            g: Decimal = self.F / (self.rho * self.V) #type: ignore
+            return g
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+class HydrostaticPressureLaw:
+    def __init__(self, *, p: Decimal | None = None, rho: Decimal | None = None, g: Decimal | None = None, h: Decimal | None = None) -> None:
+        self.p: Decimal | None = p
+        self.rho: Decimal | None = rho
+        self.g: Decimal | None = g
+        self.h: Decimal | None = h
+
+
+    def get_p(self) -> Decimal | None:
+        try:
+            p: Decimal = self.rho * self.g * self.h #type: ignore
+            return p
+        except TypeError:
+            return None
+
+
+    def get_rho(self) -> Decimal | None:
+        try:
+            rho: Decimal = self.p / (self.g * self.h) #type: ignore
+            return rho
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_g(self) -> Decimal | None:
+        try:
+            g: Decimal = self.p / (self.rho * self.h) #type: ignore
+            return g
+        except (ZeroDivisionError, TypeError):
+            return None
+
+
+    def get_h(self) -> Decimal | None:
+        try:
+            h: Decimal = self.p / (self.rho * self.g) #type: ignore
+            return h
+        except (ZeroDivisionError, TypeError):
+            return None
 
 #endregion
