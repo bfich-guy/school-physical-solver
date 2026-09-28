@@ -4,328 +4,235 @@ from decimal import Decimal
 #region Dynamics
 
 class SecondNewtonLaw:
-    def __init__(self, *, F: Decimal | None = None, m: Decimal | None = None, a: Decimal | None = None) -> None:
-        self.F: Decimal | None = F
-        self.m: Decimal | None = m
-        self.a: Decimal | None = a
+    def __init__(self, *, F: Decimal, m: Decimal, a: Decimal) -> None:
+        self.F: Decimal = F
+        self.m: Decimal = m
+        self.a: Decimal = a
 
 
-    def get_F(self) -> Decimal | None:
-        try:
-            F: Decimal = self.m * self.a #type: ignore
-            return F
-        except TypeError:
-            return None
+    def get_F(self) -> Decimal:
+        F: Decimal = self.m * self.a
+        return F
 
 
-    def get_m(self) -> Decimal | None:
-        try:
-            m: Decimal = self.F / self.a #type: ignore
-            return m
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_m(self) -> Decimal:
+        m: Decimal = self.F / self.a
+        return m
 
 
-    def get_a(self) -> Decimal | None:
-        try:
-            a: Decimal = self.F / self.m #type: ignore
-            return a
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_a(self) -> Decimal:
+        a: Decimal = self.F / self.m
+        return a
 
 
 class HookesLaw:
-    def __init__(self, *, F: Decimal | None = None, k: Decimal | None = None, Dx: Decimal | None = None) -> None:
-        self.F: Decimal | None = F
-        self.k: Decimal | None = k
-        self.Dx: Decimal | None = Dx
+    def __init__(self, *, F: Decimal, k: Decimal, Dx: Decimal) -> None:
+        self.F: Decimal = F
+        self.k: Decimal = k
+        self.Dx: Decimal = Dx
 
 
-    def get_F(self) -> Decimal | None:
-        try:
-            F: Decimal = self.k * self.Dx #type: ignore
-            return F
-        except TypeError:
-            return None
+    def get_F(self) -> Decimal:
+        F: Decimal = self.k * self.Dx
+        return F
 
 
-    def get_k(self) -> Decimal | None:
-        try:
-            k: Decimal = self.F / self.Dx #type: ignore
-            return k
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_k(self) -> Decimal:
+        k: Decimal = self.F / self.Dx
+        return k
 
 
-    def get_Dx(self) -> Decimal | None:
-        try:
-            Dx: Decimal = self.F / self.k #type: ignore
-            return Dx
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_Dx(self) -> Decimal:
+        Dx: Decimal = self.F / self.k
+        return Dx
 
 
 class AmontonsCoulombLaw:
-    def __init__(self, *, F: Decimal | None = None, mu: Decimal | None = None, N: Decimal | None = None) -> None:
-        self.F: Decimal | None = F
-        self.mu: Decimal | None = mu
-        self.N: Decimal | None = N
+    def __init__(self, *, F: Decimal, mu: Decimal, N: Decimal) -> None:
+        self.F: Decimal = F
+        self.mu: Decimal = mu
+        self.N: Decimal = N
 
 
-    def get_F(self) -> Decimal | None:
-        try:
-            F: Decimal = self.mu * self.N #type: ignore
-            return F
-        except TypeError:
-            return None
+    def get_F(self) -> Decimal:
+        F: Decimal = self.mu * self.N
+        return F
 
 
-    def get_mu(self) -> Decimal | None:
-        try:
-            mu: Decimal = self.F / self.N #type: ignore
-            return mu
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_mu(self) -> Decimal:
+        mu: Decimal = self.F / self.N
+        return mu
 
 
-    def get_N(self) -> Decimal | None:
-        try:
-            N: Decimal = self.F / self.mu #type: ignore
-            return N
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_N(self) -> Decimal:
+        N: Decimal = self.F / self.mu
+        return N
 
 
 class NormalReactionLaw:
-    def __init__(self, *, N: Decimal | None = None, F: Decimal | None = None, cosa: Decimal | None = None) -> None:
-        self.N: Decimal | None = N
-        self.F: Decimal | None = F
-        self.cosa: Decimal | None = cosa
+    def __init__(self, *, N: Decimal, F: Decimal, cosa: Decimal) -> None:
+        self.N: Decimal = N
+        self.F: Decimal = F
+        self.cosa: Decimal = cosa
 
 
-    def get_N(self) -> Decimal | None:
-        try:
-            N: Decimal = self.F * self.cosa #type: ignore
-            return N
-        except TypeError:
-            return None
+    def get_N(self) -> Decimal:
+        N: Decimal = self.F * self.cosa
+        return N
 
 
-    def get_F(self) -> Decimal | None:
-        try:
-            F: Decimal = self.N / self.cosa #type: ignore
-            return F
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_F(self) -> Decimal:
+        F: Decimal = self.N / self.cosa
+        return F
 
 
-    def get_cosa(self) -> Decimal | None:
-        try:
-            cosa: Decimal = self.N / self.F #type: ignore
-            return cosa
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_cosa(self) -> Decimal:
+        cosa: Decimal = self.N / self.F
+        return cosa
 
 
 class MomentumLaw:
-    def __init__(self, *, p: Decimal | None = None, m: Decimal | None = None, v: Decimal | None = None) -> None:
-        self.p: Decimal | None = p
-        self.m: Decimal | None = m
-        self.v: Decimal | None = v
+    def __init__(self, *, p: Decimal, m: Decimal, v: Decimal) -> None:
+        self.p: Decimal = p
+        self.m: Decimal = m
+        self.v: Decimal = v
 
 
-    def get_p(self) -> Decimal | None:
-        try:
-            p: Decimal = self.m * self.v #type: ignore
-            return p
-        except TypeError:
-            return None
+    def get_p(self) -> Decimal:
+        p: Decimal = self.m * self.v
+        return p
 
 
-    def get_m(self) -> Decimal | None:
-        try:
-            m: Decimal = self.p / self.v #type: ignore
-            return m
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_m(self) -> Decimal:
+        m: Decimal = self.p / self.v
+        return m
 
 
-    def get_v(self) -> Decimal | None:
-        try:
-            v: Decimal = self.p / self.m #type: ignore
-            return v
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_v(self) -> Decimal:
+        v: Decimal = self.p / self.m
+        return v
 
 
 class MomentumConservationLaw:
-    def __init__(self, *, p1i: Decimal | None = None, p2i: Decimal | None = None, p1f: Decimal | None = None, p2f: Decimal | None = None) -> None:
-        self.p1i: Decimal | None = p1i
-        self.p2i: Decimal | None = p2i
-        self.p1f: Decimal | None = p1f
-        self.p2f: Decimal | None = p2f
+    def __init__(self, *, p1i: Decimal, p2i: Decimal, p1f: Decimal, p2f: Decimal) -> None:
+        self.p1i: Decimal = p1i
+        self.p2i: Decimal = p2i
+        self.p1f: Decimal = p1f
+        self.p2f: Decimal = p2f
 
 
-    def get_p1i(self) -> Decimal | None:
-        try:
-            p1i: Decimal = self.p1f + self.p2f - self.p2i #type: ignore
-            return p1i
-        except TypeError:
-            return None
+    def get_p1i(self) -> Decimal:
+        p1i: Decimal = self.p1f + self.p2f - self.p2i
+        return p1i
 
-    def get_p2i(self) -> Decimal | None:
-        try:
-            p2i: Decimal = self.p1f + self.p2f - self.p1i #type: ignore
-            return p2i
-        except TypeError:
-            return None
 
-    def get_p1f(self) -> Decimal | None:
-        try:
-            p1f: Decimal = self.p1i + self.p2i - self.p2f #type: ignore
-            return p1f
-        except TypeError:
-            return None
+    def get_p2i(self) -> Decimal:
+        p2i: Decimal = self.p1f + self.p2f - self.p1i
+        return p2i
 
-    def get_p2f(self) -> Decimal | None:
-        try:
-            p2f: Decimal = self.p1i + self.p2i - self.p1f #type: ignore
-            return p2f
-        except TypeError:
-            return None
+
+    def get_p1f(self) -> Decimal:
+        p1f: Decimal = self.p1i + self.p2i - self.p2f
+        return p1f
+
+
+    def get_p2f(self) -> Decimal:
+        p2f: Decimal = self.p1i + self.p2i - self.p1f
+        return p2f
 
 
 class KineticEnergyLaw:
-    def __init__(self, *, E: Decimal | None = None, p: Decimal | None = None, v: Decimal | None = None) -> None:
-        self.E: Decimal | None = E
-        self.p: Decimal | None = p
-        self.v: Decimal | None = v
+    def __init__(self, *, E: Decimal, p: Decimal, v: Decimal) -> None:
+        self.E: Decimal = E
+        self.p: Decimal = p
+        self.v: Decimal = v
 
 
-    def get_E(self) -> Decimal | None:
-        try:
-            E: Decimal = (self.p * self.v) / Decimal("2") #type: ignore
-            return E
-        except TypeError:
-            return None
+    def get_E(self) -> Decimal:
+        E: Decimal = (self.p * self.v) / Decimal("2")
+        return E
 
 
-    def get_p(self) -> Decimal | None:
-        try:
-            p: Decimal = (Decimal("2") * self.E) / self.v #type: ignore
-            return p
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_p(self) -> Decimal:
+        p: Decimal = (Decimal("2") * self.E) / self.v
+        return p
 
 
-    def get_v(self) -> Decimal | None:
-        try:
-            v: Decimal = (Decimal("2") * self.E) / self.p #type: ignore
-            return v
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_v(self) -> Decimal:
+        v: Decimal = (Decimal("2") * self.E) / self.p
+        return v
 
 
 class PotentialEnergyLaw:
-    def __init__(self, *, E: Decimal | None = None, F: Decimal | None = None, h: Decimal | None = None) -> None:
-        self.E: Decimal | None = E
-        self.F: Decimal | None = F
-        self.h: Decimal | None = h
+    def __init__(self, *, E: Decimal, F: Decimal, h: Decimal) -> None:
+        self.E: Decimal = E
+        self.F: Decimal = F
+        self.h: Decimal = h
 
 
-    def get_E(self) -> Decimal | None:
-        try:
-            E: Decimal = self.F * self.H #type: ignore
-            return E
-        except TypeError:
-            return None
+    def get_E(self) -> Decimal:
+        E: Decimal = self.F * self.h
+        return E
 
 
-    def get_F(self) -> Decimal | None:
-        try:
-            F: Decimal = self.E / self.h #type: ignore
-            return F
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_F(self) -> Decimal:
+        F: Decimal = self.E / self.h
+        return F
 
 
-    def get_h(self) -> Decimal | None:
-        try:
-            h: Decimal = self.E / self.F #type: ignore
-            return h
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_h(self) -> Decimal:
+        h: Decimal = self.E / self.F
+        return h
 
 
 class MechanicalWorkLaw:
-    def __init__(self, *, A: Decimal | None = None, F: Decimal | None = None, S: Decimal | None = None, cosa: Decimal | None = None) -> None:
-        self.A: Decimal | None = A
-        self.F: Decimal | None = F
-        self.S: Decimal | None = S
-        self.cosa: Decimal | None = cosa
+    def __init__(self, *, A: Decimal, F: Decimal, S: Decimal, cosa: Decimal) -> None:
+        self.A: Decimal = A
+        self.F: Decimal = F
+        self.S: Decimal = S
+        self.cosa: Decimal = cosa
 
 
-    def get_A(self) -> Decimal | None:
-        try:
-            A: Decimal = self.F * self.S * self.cosa #type: ignore
-            return A
-        except TypeError:
-            return None
+    def get_A(self) -> Decimal:
+        A: Decimal = self.F * self.S * self.cosa
+        return A
 
 
-    def get_F(self) -> Decimal | None:
-        try:
-            F: Decimal = self.A / (self.S * self.cosa) #type: ignore
-            return F
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_F(self) -> Decimal:
+        F: Decimal = self.A / (self.S * self.cosa)
+        return F
 
 
-    def get_S(self) -> Decimal | None:
-        try:
-            S: Decimal = self.A / (self.F * self.cosa) #type: ignore
-            return S
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_S(self) -> Decimal:
+        S: Decimal = self.A / (self.F * self.cosa)
+        return S
 
 
-    def get_cosa(self) -> Decimal | None:
-        try:
-            cosa: Decimal = self.A / (self.F * self.S) #type: ignore
-            return cosa
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_cosa(self) -> Decimal:
+        cosa: Decimal = self.A / (self.F * self.S)
+        return cosa
 
 
 class MechanicalPowerLaw:
-    def __init__(self, *, P: Decimal | None = None, A: Decimal | None = None, t: Decimal | None = None) -> None:
-        self.P: Decimal | None = P
-        self.A: Decimal | None = A
-        self.t: Decimal | None = t
+    def __init__(self, *, P: Decimal, A: Decimal, t: Decimal) -> None:
+        self.P: Decimal = P
+        self.A: Decimal = A
+        self.t: Decimal = t
 
 
-    def get_P(self) -> Decimal | None:
-        try:
-            P: Decimal = self.A / self.t #type: ignore
-            return P
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_P(self) -> Decimal:
+        P: Decimal = self.A / self.t
+        return P
 
 
-    def get_A(self) -> Decimal | None:
-        try:
-            A: Decimal = self.P * self.t #type: ignore
-            return A
-        except TypeError:
-            return None
+    def get_A(self) -> Decimal:
+        A: Decimal = self.P * self.t
+        return A
 
 
-    def get_t(self) -> Decimal | None:
-        try:
-            t: Decimal = self.A / self.P #type: ignore
-            return t
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_t(self) -> Decimal:
+        t: Decimal = self.A / self.P
+        return t
 
 #endregion
 
@@ -333,96 +240,69 @@ class MechanicalPowerLaw:
 #region Kinematics
 
 class LinearAccelerationLaw:
-    def __init__(self, *, a: Decimal | None = None, Dv: Decimal | None = None, Dt: Decimal | None = None) -> None:
-        self.a: Decimal | None = a
-        self.Dv: Decimal | None = Dv
-        self.Dt: Decimal | None = Dt
+    def __init__(self, *, a: Decimal, Dv: Decimal, Dt: Decimal) -> None:
+        self.a: Decimal = a
+        self.Dv: Decimal = Dv
+        self.Dt: Decimal = Dt
 
 
-    def get_a(self) -> Decimal | None:
-        try:
-            a: Decimal = self.Dv / self.Dt#type: ignore
-            return a
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_a(self) -> Decimal:
+        a: Decimal = self.Dv / self.Dt
+        return a
 
 
-    def get_Dv(self) -> Decimal | None:
-        try:
-            Dv: Decimal = self.a * self.Dt #type: ignore
-            return Dv
-        except TypeError:
-            return None
+    def get_Dv(self) -> Decimal:
+        Dv: Decimal = self.a * self.Dt
+        return Dv
 
 
-    def get_Dt(self) -> Decimal | None:
-        try:
-            Dt: Decimal = self.Dv / self.a #type: ignore
-            return Dt
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_Dt(self) -> Decimal:
+        Dt: Decimal = self.Dv / self.a
+        return Dt
 
 
 class CentripetalAccelerationLaw:
-    def __init__(self, *, a: Decimal | None = None, v: Decimal | None = None, w: Decimal | None = None) -> None:
-        self.a: Decimal | None = a
-        self.v: Decimal | None = v
-        self.w: Decimal | None = w
+    def __init__(self, *, a: Decimal, v: Decimal, w: Decimal) -> None:
+        self.a: Decimal = a
+        self.v: Decimal = v
+        self.w: Decimal = w
 
 
-    def get_a(self) -> Decimal | None:
-        try:
-            a: Decimal = self.v * self.w #type: ignore
-            return a
-        except TypeError:
-            return None
+    def get_a(self) -> Decimal:
+        a: Decimal = self.v * self.w
+        return a
 
 
-    def get_v(self) -> Decimal | None:
-        try:
-            v: Decimal = self.a / self.w #type: ignore
-            return v
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_v(self) -> Decimal:
+        v: Decimal = self.a / self.w
+        return v
 
 
-    def get_w(self) -> Decimal | None:
-        try:
-            w: Decimal = self.a / self.v #type: ignore
-            return w
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_w(self) -> Decimal:
+        w: Decimal = self.a / self.v
+        return w
 
 
 class TrajectoryRadiusLaw:
-    def __init__(self, *, R: Decimal | None = None, v: Decimal | None = None, w: Decimal | None = None) -> None:
-        self.R: Decimal | None = R
-        self.v: Decimal | None = v
-        self.w: Decimal | None = w
+    def __init__(self, *, R: Decimal, v: Decimal, w: Decimal) -> None:
+        self.R: Decimal = R
+        self.v: Decimal = v
+        self.w: Decimal = w
 
 
-    def get_R(self) -> Decimal | None:
-        try:
-            R: Decimal = self.v / self.w #type: ignore
-            return R
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_R(self) -> Decimal:
+        R: Decimal = self.v / self.w
+        return R
 
 
-    def get_v(self) -> Decimal | None:
-        try:
-            v: Decimal = self.w * self.R #type: ignore
-            return v
-        except TypeError:
-            return None
+    def get_v(self) -> Decimal:
+        v: Decimal = self.w * self.R
+        return v
 
 
-    def get_w(self) -> Decimal | None:
-        try:
-            w: Decimal = self.v / self.R #type: ignore
-            return w
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_w(self) -> Decimal:
+        w: Decimal = self.v / self.R
+        return w
 
 #endregion
 
@@ -430,113 +310,80 @@ class TrajectoryRadiusLaw:
 #region Statics
 
 class PascalsLaw:
-    def __init__(self, *, p: Decimal | None = None, F: Decimal | None = None, S: Decimal | None = None) -> None:
-        self.p: Decimal | None = p
-        self.F: Decimal | None = F
-        self.S: Decimal | None = S
+    def __init__(self, *, p: Decimal, F: Decimal, S: Decimal) -> None:
+        self.p: Decimal = p
+        self.F: Decimal = F
+        self.S: Decimal = S
 
 
-    def get_p(self) -> Decimal | None:
-        try:
-            p: Decimal = self.F / self.S #type: ignore
-            return p
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_p(self) -> Decimal:
+        p: Decimal = self.F / self.S
+        return p
 
 
-    def get_F(self) -> Decimal | None:
-        try:
-            F: Decimal = self.p * self.S #type: ignore
-            return F
-        except TypeError:
-            return None
+    def get_F(self) -> Decimal:
+        F: Decimal = self.p * self.S
+        return F
 
 
-    def get_S(self) -> Decimal | None:
-        try:
-            S: Decimal = self.F / self.p #type: ignore
-            return S
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_S(self) -> Decimal:
+        S: Decimal = self.F / self.p
+        return S
 
 
 class ArchimedesLaw:
-    def __init__(self, *, F: Decimal | None = None, rho: Decimal | None = None, V: Decimal | None = None, g: Decimal | None = None) -> None:
-        self.F: Decimal | None = F
-        self.rho: Decimal | None = rho
-        self.V: Decimal | None = V
-        self.g: Decimal | None = g
+    def __init__(self, *, F: Decimal, rho: Decimal, V: Decimal, g: Decimal) -> None:
+        self.F: Decimal = F
+        self.rho: Decimal = rho
+        self.V: Decimal = V
+        self.g: Decimal = g
 
 
-    def get_F(self) -> Decimal | None:
-        try:
-            F: Decimal = self.rho * self.V * self.g #type: ignore
-            return F
-        except TypeError:
-            return None
+    def get_F(self) -> Decimal:
+        F: Decimal = self.rho * self.V * self.g
+        return F
 
 
-    def get_rho(self) -> Decimal | None:
-        try:
-            rho: Decimal = self.F / (self.V * self.g) #type: ignore
-            return rho
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_rho(self) -> Decimal:
+        rho: Decimal = self.F / (self.V * self.g)
+        return rho
 
 
-    def get_V(self) -> Decimal | None:
-        try:
-            V: Decimal = self.F / (self.rho * self.g) #type: ignore
-            return V
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_V(self) -> Decimal:
+        V: Decimal = self.F / (self.rho * self.g)
+        return V
 
 
-    def get_g(self) -> Decimal | None:
-        try:
-            g: Decimal = self.F / (self.rho * self.V) #type: ignore
-            return g
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_g(self) -> Decimal:
+        g: Decimal = self.F / (self.rho * self.V)
+        return g
 
 
 class HydrostaticPressureLaw:
-    def __init__(self, *, p: Decimal | None = None, rho: Decimal | None = None, g: Decimal | None = None, h: Decimal | None = None) -> None:
-        self.p: Decimal | None = p
-        self.rho: Decimal | None = rho
-        self.g: Decimal | None = g
-        self.h: Decimal | None = h
+    def __init__(self, *, p: Decimal, rho: Decimal, g: Decimal, h: Decimal) -> None:
+        self.p: Decimal = p
+        self.rho: Decimal = rho
+        self.g: Decimal = g
+        self.h: Decimal = h
 
 
-    def get_p(self) -> Decimal | None:
-        try:
-            p: Decimal = self.rho * self.g * self.h #type: ignore
-            return p
-        except TypeError:
-            return None
+    def get_p(self) -> Decimal:
+        p: Decimal = self.rho * self.g * self.h
+        return p
 
 
-    def get_rho(self) -> Decimal | None:
-        try:
-            rho: Decimal = self.p / (self.g * self.h) #type: ignore
-            return rho
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_rho(self) -> Decimal:
+        rho: Decimal = self.p / (self.g * self.h)
+        return rho
 
 
-    def get_g(self) -> Decimal | None:
-        try:
-            g: Decimal = self.p / (self.rho * self.h) #type: ignore
-            return g
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_g(self) -> Decimal:
+        g: Decimal = self.p / (self.rho * self.h)
+        return g
 
 
-    def get_h(self) -> Decimal | None:
-        try:
-            h: Decimal = self.p / (self.rho * self.g) #type: ignore
-            return h
-        except (ZeroDivisionError, TypeError):
-            return None
+    def get_h(self) -> Decimal:
+        h: Decimal = self.p / (self.rho * self.g)
+        return h
 
 #endregion
