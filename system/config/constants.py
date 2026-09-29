@@ -106,7 +106,7 @@ class Templates(Enum):
     PHYSICS = f"{Files.PHYSICS.value}.{FileExtenstions.HTML.value}"
 
     ALGEBRA = f"/{Folders.MATH.value}/{Files.ALGEBRA.value}.{FileExtenstions.HTML.value}"
-    GEOMETRY = f"/{Folders.MATH.value}/{Files.GEOMETRY.value}.{FileExtenstions.HTML.value}"\
+    GEOMETRY = f"/{Folders.MATH.value}/{Files.GEOMETRY.value}.{FileExtenstions.HTML.value}"
 
     ELECTROMAGNETICS = f"/{Folders.PHYSICS.value}/{Files.ELECTROMAGNETICS.value}.{FileExtenstions.HTML.value}"
     MECHANICS = f"/{Folders.PHYSICS.value}/{Files.MECHANICS.value}.{FileExtenstions.HTML.value}"
@@ -137,7 +137,5 @@ calculations_error_message: str = (
     "Увы, но Физмат-калькулятор заметил математические ошибки в Вашем вводе. "
     "Проверьте, чтобы в Вашем следующем вводе не содержалось деление на ноль или отрицательных корней. "
 )
-
-
 
 #endregion

@@ -1,19 +1,4 @@
-from fastapi import FastAPI, APIRouter
 from decimal import Decimal
-
-
-#region Server helpers
-
-def include_routers(
-    *,
-    app: FastAPI,
-    routers_list: list[APIRouter],
-) -> None:
-
-    for router in routers_list:
-        app.include_router(router=router)
-
-#endregion
 
 
 #region Decimal helpers

@@ -3,7 +3,7 @@ from decimal import Decimal
 
 #region Dynamics
 
-class SecondNewtonLaw:
+class NewtonSecondLaw:
     def __init__(self, *, F: Decimal, m: Decimal, a: Decimal) -> None:
         self.F: Decimal = F
         self.m: Decimal = m
@@ -259,6 +259,34 @@ class LinearAccelerationLaw:
     def get_Dt(self) -> Decimal:
         Dt: Decimal = self.Dv / self.a
         return Dt
+
+
+class UniformlyAcceleratedRectilinearMotionLaw:
+    def __init__(self, *, S: Decimal, t: Decimal, v0: Decimal, Dv: Decimal) -> None:
+        self.S: Decimal = S
+        self.t: Decimal = t
+        self.v0: Decimal = v0
+        self.Dv: Decimal = Dv
+
+
+    def get_S(self) -> Decimal:
+        S: Decimal = self.t * (self.v0 + (self.Dv / Decimal("2")))
+        return S
+
+
+    def get_t(self) -> Decimal:
+        t: Decimal = self.S / (self.v0 + (self.Dv / Decimal("2")))
+        return t
+
+
+    def get_v0(self) -> Decimal:
+        v0: Decimal = (self.S - self.t * (self.Dv / Decimal("2"))) / self.t
+        return v0
+
+
+    def get_Dv(self) -> Decimal:
+        Dv: Decimal = (Decimal("2") * (self.S - self.t * self.v0)) / self.t
+        return Dv
 
 
 class CentripetalAccelerationLaw:

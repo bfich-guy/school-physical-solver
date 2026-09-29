@@ -1,9 +1,9 @@
 from decimal import Decimal
 
-from utils import decimal_sum, decimal_product, get_quadratic_equation_roots
+from system.utils.calculators import decimal_sum, decimal_product, get_quadratic_equation_roots
 
 
-#region Circles
+#region Planimetry
 
 class CircleAreaTheorem:
     def __init__(self, *, S: Decimal, pi: Decimal, r: Decimal) -> None:
@@ -37,10 +37,6 @@ class CircumferenceTheorem:
         r: Decimal = self.l / (Decimal("2") * self.pi)
         return r
 
-#endregion
-
-
-#region Parallelograms
 
 class ParallelogramAreaByBaseAndHeightTheorem:
     def __init__(self, *, S: Decimal, a: Decimal, h: Decimal) -> None:
@@ -62,11 +58,7 @@ class ParallelogramAreaByBaseAndHeightTheorem:
     def get_h(self) -> Decimal:
         h: Decimal = self.S / self.a
         return h
-
-#endregion
-
-
-#region Trapezoids
+    
 
 class TrapezoidMidlineTheorem:
     def __init__(self, *, m: Decimal, a: Decimal, b: Decimal) -> None:
@@ -111,10 +103,6 @@ class TrapezoidAreaByMidlineAndHeightTheorem:
         h: Decimal = self.S / self.m
         return h
 
-#endregion
-
-
-#region Triangles
 
 class TriangleAreaByBaseAndHeightTheorem:
     def __init__(self, *, S: Decimal, a: Decimal, h: Decimal) -> None:
@@ -277,5 +265,121 @@ class TriangleAreaByCircumscripedCircleTheorem:
     def get_R(self) -> Decimal:
         R: Decimal = (self.a * self.b * self.c) / (Decimal("4") * self.S)
         return R
+
+#endregion
+
+
+#region Stereometry
+
+class PlaneEquation:
+    def __init__(self, *, x: Decimal, y: Decimal, z: Decimal, A: Decimal, B: Decimal, C: Decimal, D: Decimal) -> None:
+        self.x: Decimal = x
+        self.y: Decimal = y
+        self.z: Decimal = z
+        self.A: Decimal = A
+        self.B: Decimal = B
+        self.C: Decimal = C
+        self.D: Decimal = D
+
+
+    def get_x(self) -> Decimal:
+        x: Decimal = (Decimal("0") - self.D - (self.C * self.z) - (self.B * self.y)) / self.A
+        return x
+
+
+    def get_y(self) -> Decimal:
+        y: Decimal = (Decimal("0") - self.D - (self.C * self.z) - (self.A * self.x)) / self.B
+        return y
+
+
+    def get_z(self) -> Decimal:
+        z: Decimal = (Decimal("0") - self.D - (self.A * self.x) - (self.B * self.y)) / self.C
+        return z
+
+
+    def get_A(self) -> Decimal:
+        A: Decimal = (Decimal("0") - self.D - (self.C * self.z) - (self.B * self.y)) / self.x
+        return A
+
+
+    def get_B(self) -> Decimal:
+        B: Decimal = (Decimal("0") - self.D - (self.C * self.z) - (self.A * self.x)) / self.y
+        return B
+
+
+    def get_C(self) -> Decimal:
+        C: Decimal = (Decimal("0") - self.D - (self.A * self.x) - (self.B * self.y)) / self.z
+        return C
+
+
+    def get_D(self) -> Decimal:
+        D: Decimal = Decimal("0") - self.D - (self.A * self.x) - (self.B * self.y) - (self.C * self.z)
+        return D
+
+
+class PrismSurfaceBySidesAndBasesAreasTheorem:
+    def __init__(self, *, S: Decimal, Ss: Decimal, Sb: Decimal) -> None:
+        self.S: Decimal = S
+        self.Ss: Decimal = Ss
+        self.Sb: Decimal = Sb
+
+
+    def get_S(self) -> Decimal:
+        S: Decimal = self.Ss + Decimal("2") * self.Sb
+        return S
+
+
+    def get_Ss(self) -> Decimal:
+        Ss: Decimal = self.S - Decimal("2") * self.Sb
+        return Ss
+
+
+    def get_Sb(self) -> Decimal:
+        Sb: Decimal = (self.S - self.Sb) / Decimal("2")
+        return Sb
+
+
+class PrismVolumeByBaseAndHeightTheorem:
+    def __init__(self, *, V: Decimal, Sb: Decimal, h: Decimal) -> None:
+        self.V: Decimal = V
+        self.Sb: Decimal = Sb
+        self.h: Decimal = h
+
+
+    def get_V(self) -> Decimal:
+        V: Decimal = self.Sb * self.h
+        return V
+
+
+    def get_Sb(self) -> Decimal:
+        Sb: Decimal = self.V / self.h
+        return Sb
+
+
+    def get_h(self) -> Decimal:
+        h: Decimal = self.V / self.Sb
+        return h
+
+
+class ConeVolumeByBaseAndHeightTheorem:
+    def __init__(self, *, V: Decimal, Sb: Decimal, h: Decimal) -> None:
+        self.V: Decimal = V
+        self.Sb: Decimal = Sb
+        self.h: Decimal = h
+
+
+    def get_V(self) -> Decimal:
+        V: Decimal = (self.Sb * self.h) / Decimal("3")
+        return V
+
+
+    def get_Sb(self) -> Decimal:
+        Sb: Decimal = (Decimal("3") * self.V) / self.h
+        return Sb
+
+
+    def get_h(self) -> Decimal:
+        h: Decimal = (Decimal("3") * self.V) / self.Sb
+        return h
 
 #endregion

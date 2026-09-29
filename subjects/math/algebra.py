@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from utils import get_quadratic_equation_roots, decimal_logarithm
+from system.utils.calculators import get_quadratic_equation_roots, decimal_logarithm
 
 
 #region Equations
@@ -26,6 +26,56 @@ class QuadraticEquationSolving:
     def get_x(self) -> list[Decimal]:
         x: list[Decimal] = get_quadratic_equation_roots(a=self.a, b=self.b, c=self.c)
         return x
+
+
+class DerivativeEquationSolving:
+    def __init__(self, *, d: Decimal, Dy: Decimal, Dx: Decimal) -> None:
+        self.d: Decimal = d
+        self.Dy: Decimal = Dy
+        self.Dx: Decimal = Dx
+
+
+    def get_d(self) -> Decimal:
+        d: Decimal = self.Dy / self.Dx
+        return d
+
+
+    def get_Dy(self) -> Decimal:
+        d: Decimal = self.d * self.Dx
+        return d
+
+
+    def get_Dx(self) -> Decimal:
+        d: Decimal = self.Dy / self.d
+        return d
+
+
+class TangentEquationSolving:
+    def __init__(self, *, y: Decimal, dfx: Decimal, Dx: Decimal, fx: Decimal) -> None:
+        self.y: Decimal = y
+        self.dfx: Decimal = dfx
+        self.Dx: Decimal = Dx
+        self.fx: Decimal = fx
+
+
+    def get_y(self) -> Decimal:
+        y: Decimal = self.dfx * self.Dx + self.fx
+        return y
+
+
+    def get_dfx(self) -> Decimal:
+        dfx: Decimal = (self.y - self.fx) / self.Dx
+        return dfx
+
+
+    def get_Dx(self) -> Decimal:
+        Dx: Decimal = (self.y - self.fx) / self.dfx
+        return Dx
+
+
+    def get_fx(self) -> Decimal:
+        fx: Decimal = self.y - (self.dfx * self.Dx)
+        return fx
 
 #endregion
 
@@ -82,6 +132,28 @@ class QuadraticGraphFunction:
     def get_c(self) -> Decimal:
         c: Decimal = self.y - self.a * (self.x ** Decimal("2")) - (self.b * self.x)
         return c
+
+
+class CircleGraphFunction:
+    def __init__(self, *, r: Decimal, Dx: Decimal, Dy: Decimal) -> None:
+        self.r: Decimal = r
+        self.Dx: Decimal = Dx
+        self.Dy: Decimal = Dy
+
+
+    def get_r(self) -> Decimal:
+        r: Decimal = (self.Dx ** Decimal("2") + self.Dy ** Decimal("2")).sqrt()
+        return r
+
+
+    def get_Dx(self) -> Decimal:
+        Dy: Decimal = (self.r ** Decimal("2") - self.Dy ** Decimal("2")).sqrt()
+        return Dy
+
+
+    def get_Dy(self) -> Decimal:
+        Dx: Decimal = (self.r ** Decimal("2") - self.Dx ** Decimal("2")).sqrt()
+        return Dx
 
 #endregion
 
