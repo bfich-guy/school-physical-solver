@@ -4,96 +4,87 @@ from decimal import Decimal
 #region Classic thermodynamics
 
 class SensibleHeatLaw:
-    def __init__(self, *, Q: Decimal, c: Decimal, m: Decimal, Dt: Decimal) -> None:
-        self.Q: Decimal = Q
-        self.c: Decimal = c
-        self.m: Decimal = m
-        self.Dt: Decimal = Dt
+    def __init__(self) -> None:
+        pass
 
 
-    def get_Q(self) -> Decimal:
-        Q: Decimal = self.c * self.m * self.Dt
+    def get_Q(self, *, c: Decimal, m: Decimal, Dt: Decimal) -> Decimal:
+        Q: Decimal = c * m * Dt
         return Q
 
 
-    def get_c(self) -> Decimal:
-        c: Decimal = self.Q / (self.m * self.Dt)
+    def get_c(self, *, Q: Decimal, m: Decimal, Dt: Decimal) -> Decimal:
+        c: Decimal = Q / (m * Dt)
         return c
 
 
-    def get_m(self) -> Decimal:
-        m: Decimal = self.Q / (self.c * self.Dt)
+    def get_m(self, *, Q: Decimal, c: Decimal, Dt: Decimal) -> Decimal:
+        m: Decimal = Q / (c * Dt)
         return m
 
 
-    def get_Dt(self) -> Decimal:
-        Dt: Decimal = self.Q / (self.c * self.m)
+    def get_Dt(self, *, Q: Decimal, c: Decimal, m: Decimal) -> Decimal:
+        Dt: Decimal = Q / (c * m)
         return Dt
 
 
 class CombustionHeatLaw:
-    def __init__(self, *, Q: Decimal, q: Decimal, m: Decimal) -> None:
-        self.Q: Decimal = Q
-        self.q: Decimal = q
-        self.m: Decimal = m
+    def __init__(self) -> None:
+        pass
 
 
-    def get_Q(self) -> Decimal:
-        Q: Decimal = self.q * self.m
+    def get_Q(self, *, q: Decimal, m: Decimal) -> Decimal:
+        Q: Decimal = q * m
         return Q
 
 
-    def get_q(self) -> Decimal:
-        q: Decimal = self.Q / self.m
+    def get_q(self, *, Q: Decimal, m: Decimal) -> Decimal:
+        q: Decimal = Q / m
         return q
 
 
-    def get_m(self) -> Decimal:
-        m: Decimal = self.Q / self.q
+    def get_m(self, *, Q: Decimal, q: Decimal) -> Decimal:
+        m: Decimal = Q / q
         return m
 
 
 class FusionHeatLaw:
-    def __init__(self, *, Q: Decimal, lmb: Decimal, m: Decimal) -> None:
-        self.Q: Decimal = Q
-        self.lmb: Decimal = lmb
-        self.m: Decimal = m
+    def __init__(self) -> None:
+        pass
 
 
-    def get_Q(self) -> Decimal:
-        Q: Decimal = self.lmb * self.m
+    def get_Q(self, *, lmb: Decimal, m: Decimal) -> Decimal:
+        Q: Decimal = lmb * m
         return Q
 
 
-    def get_lmb(self) -> Decimal:
-        lmb: Decimal = self.Q / self.m
+    def get_lmb(self, *, Q: Decimal, m: Decimal) -> Decimal:
+        lmb: Decimal = Q / m
         return lmb
 
 
-    def get_m(self) -> Decimal:
-        m: Decimal = self.Q / self.lmb
+    def get_m(self, *, Q: Decimal, lmb: Decimal) -> Decimal:
+        m: Decimal = Q / lmb
         return m
 
 
 class VaporizationHeatLaw:
-    def __init__(self, *, Q: Decimal, L: Decimal, m: Decimal) -> None:
-        self.Q: Decimal = Q
-        self.L: Decimal = L
-        self.m: Decimal = m
+    def __init__(self) -> None:
+        pass
 
 
-    def get_Q(self) -> Decimal:
-        Q: Decimal = self.L * self.m
+    def get_Q(self, *, L: Decimal, m: Decimal) -> Decimal:
+        Q: Decimal = L * m
         return Q
 
 
-    def get_L(self) -> Decimal:
-        L: Decimal = self.Q / self.m
+    def get_L(self, *, Q: Decimal, m: Decimal) -> Decimal:
+        L: Decimal = Q / m
         return L
 
 
-    def get_m(self) -> Decimal:
-        m: Decimal = self.Q / self.L
+    def get_m(self, *, Q: Decimal, L: Decimal) -> Decimal:
+        m: Decimal = Q / L
         return m
 
 #endregion
@@ -102,53 +93,47 @@ class VaporizationHeatLaw:
 #region Molecular kinetic theory
 
 class MendeleevClapeyronLaw:
-    def __init__(self, *, p: Decimal, V: Decimal, v: Decimal, R: Decimal, T: Decimal) -> None:
-        self.p: Decimal = p
-        self.V: Decimal = V
-        self.v: Decimal = v
-        self.R: Decimal = R
-        self.T: Decimal = T
+    def __init__(self) -> None:
+        pass
 
 
-    def get_p(self) -> Decimal:
-        p: Decimal = (self.v * self.R * self.T) / self.V
+    def get_p(self, *, v: Decimal, R: Decimal, T: Decimal, V: Decimal) -> Decimal:
+        p: Decimal = (v * R * T) / V
         return p
 
 
-    def get_V(self) -> Decimal:
-        V: Decimal = (self.v * self.R * self.T) / self.p
+    def get_V(self, *, v: Decimal, R: Decimal, T: Decimal, p: Decimal) -> Decimal:
+        V: Decimal = (v * R * T) / p
         return V
 
 
-    def get_v(self) -> Decimal:
-        v: Decimal = (self.p * self.V) / (self.R * self.T)
+    def get_v(self, *, p: Decimal, V: Decimal, R: Decimal, T: Decimal) -> Decimal:
+        v: Decimal = (p * V) / (R * T)
         return v
 
 
-    def get_T(self) -> Decimal:
-        T: Decimal = (self.p * self.V) / (self.R * self.v)
+    def get_T(self, *, p: Decimal, V: Decimal, R: Decimal, v: Decimal) -> Decimal:
+        T: Decimal = (p * V) / (R * v)
         return T
 
 
 class MolarMassLaw:
-    def __init__(self, *, v: Decimal, m: Decimal, M: Decimal) -> None:
-        self.v: Decimal = v
-        self.m: Decimal = m
-        self.M: Decimal = M
+    def __init__(self) -> None:
+        pass
 
 
-    def get_v(self) -> Decimal:
-        v: Decimal = self.m / self.M
+    def get_v(self, *, m: Decimal, M: Decimal) -> Decimal:
+        v: Decimal = m / M
         return v
 
 
-    def get_m(self) -> Decimal:
-        m: Decimal = self.v * self.M
+    def get_m(self, *, v: Decimal, M: Decimal) -> Decimal:
+        m: Decimal = v * M
         return m
 
 
-    def get_M(self) -> Decimal:
-        M: Decimal = self.m / self.v
+    def get_M(self, *, m: Decimal, v: Decimal) -> Decimal:
+        M: Decimal = m / v
         return M
 
 #endregion

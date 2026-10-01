@@ -6,75 +6,66 @@ from system.utils.calculators import get_quadratic_equation_roots, decimal_logar
 #region Equations
 
 class LinearEquationSolving:
-    def __init__(self, *, a: Decimal, b: Decimal) -> None:
-        self.a: Decimal = a
-        self.b: Decimal = b
+    def __init__(self) -> None:
+        pass
 
 
-    def get_x(self) -> Decimal:
-        x: Decimal = -self.a / self.b
+    def get_x(self, *, a: Decimal, b: Decimal) -> Decimal:
+        x: Decimal = -a / b
         return x
 
 
 class QuadraticEquationSolving:
-    def __init__(self, *, a: Decimal, b: Decimal, c: Decimal) -> None:
-        self.a: Decimal = a
-        self.b: Decimal = b
-        self.c: Decimal = c
+    def __init__(self) -> None:
+        pass
 
-
-    def get_x(self) -> list[Decimal]:
-        x: list[Decimal] = get_quadratic_equation_roots(a=self.a, b=self.b, c=self.c)
+    def get_x(self, *, a: Decimal, b: Decimal, c: Decimal) -> list[Decimal]:
+        x: list[Decimal] = get_quadratic_equation_roots(a=a, b=b, c=c)
         return x
 
 
 class DerivativeEquationSolving:
-    def __init__(self, *, d: Decimal, Dy: Decimal, Dx: Decimal) -> None:
-        self.d: Decimal = d
-        self.Dy: Decimal = Dy
-        self.Dx: Decimal = Dx
+    def __init__(self) -> None:
+        pass
 
 
-    def get_d(self) -> Decimal:
-        d: Decimal = self.Dy / self.Dx
+    def get_d(self, *, Dy: Decimal, Dx: Decimal) -> Decimal:
+        d: Decimal = Dy / Dx
         return d
 
 
-    def get_Dy(self) -> Decimal:
-        d: Decimal = self.d * self.Dx
-        return d
+    def get_Dy(self, *, d: Decimal, Dx: Decimal) -> Decimal:
+        Dy: Decimal = d * Dx
+        return Dy
 
 
-    def get_Dx(self) -> Decimal:
-        d: Decimal = self.Dy / self.d
-        return d
-
-
-class TangentEquationSolving:
-    def __init__(self, *, y: Decimal, dfx: Decimal, Dx: Decimal, fx: Decimal) -> None:
-        self.y: Decimal = y
-        self.dfx: Decimal = dfx
-        self.Dx: Decimal = Dx
-        self.fx: Decimal = fx
-
-
-    def get_y(self) -> Decimal:
-        y: Decimal = self.dfx * self.Dx + self.fx
-        return y
-
-
-    def get_dfx(self) -> Decimal:
-        dfx: Decimal = (self.y - self.fx) / self.Dx
-        return dfx
-
-
-    def get_Dx(self) -> Decimal:
-        Dx: Decimal = (self.y - self.fx) / self.dfx
+    def get_Dx(self, *, Dy: Decimal, d: Decimal) -> Decimal:
+        Dx: Decimal = Dy / d
         return Dx
 
 
-    def get_fx(self) -> Decimal:
-        fx: Decimal = self.y - (self.dfx * self.Dx)
+class TangentEquationSolving:
+    def __init__(self) -> None:
+        pass
+
+
+    def get_y(self, *, dfx: Decimal, Dx: Decimal, fx: Decimal) -> Decimal:
+        y: Decimal = dfx * Dx + fx
+        return y
+
+
+    def get_dfx(self, *, y: Decimal, fx: Decimal, Dx: Decimal) -> Decimal:
+        dfx: Decimal = (y - fx) / Dx
+        return dfx
+
+
+    def get_Dx(self, *, y: Decimal, fx: Decimal, dfx: Decimal) -> Decimal:
+        Dx: Decimal = (y - fx) / dfx
+        return Dx
+
+
+    def get_fx(self, *, y: Decimal, dfx: Decimal, Dx: Decimal) -> Decimal:
+        fx: Decimal = y - (dfx * Dx)
         return fx
 
 #endregion
@@ -83,77 +74,68 @@ class TangentEquationSolving:
 #region Functions
 
 class LinearGraphFunction:
-    def __init__(self, *, x: Decimal, y: Decimal, a: Decimal, b: Decimal) -> None:
-        self.x: Decimal = x
-        self.y: Decimal = y
-        self.a: Decimal = a
-        self.b: Decimal = b
+    def __init__(self) -> None:
+        pass
 
 
-    def get_y(self) -> Decimal:
-        y: Decimal = self.a * self.x + self.b
+    def get_y(self, *, a: Decimal, x: Decimal, b: Decimal) -> Decimal:
+        y: Decimal = a * x + b
         return y
 
 
-    def get_a(self) -> Decimal:
-        a: Decimal = (self.y - self.b) / self.x
+    def get_a(self, *, y: Decimal, b: Decimal, x: Decimal) -> Decimal:
+        a: Decimal = (y - b) / x
         return a
 
 
-    def get_b(self) -> Decimal:
-        b: Decimal = self.y - (self.a * self.x)
+    def get_b(self, *, y: Decimal, a: Decimal, x: Decimal) -> Decimal:
+        b: Decimal = y - (a * x)
         return b
 
 
 class QuadraticGraphFunction:
-    def __init__(self, *, x: Decimal, y: Decimal, a: Decimal, b: Decimal, c: Decimal) -> None:
-        self.x: Decimal = x
-        self.y: Decimal = y
-        self.a: Decimal = a
-        self.b: Decimal = b
-        self.c: Decimal = c
+    def __init__(self) -> None:
+        pass
 
 
-    def get_y(self) -> Decimal:
-        y: Decimal = self.a * (self.x ** Decimal("2")) + (self.b * self.x) + self.c
+    def get_y(self, *, x: Decimal, a: Decimal, b: Decimal, c: Decimal) -> Decimal:
+        y: Decimal = a * x ** Decimal("2") + (b * x) + c
         return y
 
 
-    def get_a(self) -> Decimal:
-        a: Decimal = (self.y - (self.b * self.x) - self.c) / (self.x ** Decimal("2"))
+    def get_a(self, *, x: Decimal, y: Decimal, b: Decimal, c: Decimal) -> Decimal:
+        a: Decimal = (y - b * x - c) / (x ** Decimal("2"))
         return a
 
 
-    def get_b(self) -> Decimal:
-        b: Decimal = (self.y - self.a * (self.x ** Decimal("2")) - self.c) / self.x
+    def get_b(self, *, x: Decimal, y: Decimal, a: Decimal, c: Decimal) -> Decimal:
+        b: Decimal = (y - a * x ** Decimal("2") - c) / x
         return b
 
 
-    def get_c(self) -> Decimal:
-        c: Decimal = self.y - self.a * (self.x ** Decimal("2")) - (self.b * self.x)
+    def get_c(self, *, x: Decimal, y: Decimal, a: Decimal, b: Decimal) -> Decimal:
+        c: Decimal = y - a * x ** Decimal("2") - (b * x)
         return c
 
 
 class CircleGraphFunction:
-    def __init__(self, *, r: Decimal, Dx: Decimal, Dy: Decimal) -> None:
-        self.r: Decimal = r
-        self.Dx: Decimal = Dx
-        self.Dy: Decimal = Dy
+    def __init__(self) -> None:
+        pass
 
 
-    def get_r(self) -> Decimal:
-        r: Decimal = (self.Dx ** Decimal("2") + self.Dy ** Decimal("2")).sqrt()
+    def get_r(self, *, Dx: Decimal, Dy: Decimal) -> Decimal:
+        r: Decimal = (Dx ** Decimal("2") + Dy ** Decimal("2")).sqrt()
         return r
 
 
-    def get_Dx(self) -> Decimal:
-        Dy: Decimal = (self.r ** Decimal("2") - self.Dy ** Decimal("2")).sqrt()
-        return Dy
-
-
-    def get_Dy(self) -> Decimal:
-        Dx: Decimal = (self.r ** Decimal("2") - self.Dx ** Decimal("2")).sqrt()
+    def get_Dx(self, *, r: Decimal, Dy: Decimal) -> Decimal:
+        Dx: Decimal = (r ** Decimal("2") - Dy ** Decimal("2")).sqrt()
         return Dx
+
+
+    def get_Dy(self, *, r: Decimal, Dx: Decimal) -> Decimal:
+        Dy: Decimal = (r ** Decimal("2") - Dx ** Decimal("2")).sqrt()
+        return Dy
 
 #endregion
 
@@ -161,116 +143,104 @@ class CircleGraphFunction:
 #region Progressions
 
 class ArithmeticProgressionSumTheorem:
-    def __init__(self, *, S: Decimal, a1: Decimal, an: Decimal, n: Decimal) -> None:
-        self.S: Decimal = S
-        self.a1: Decimal = a1
-        self.an: Decimal = an
-        self.n: Decimal = n
+    def __init__(self) -> None:
+        pass
 
 
-    def get_S(self) -> Decimal:
-        S: Decimal = ((self.a1 + self.an) * self.n) / Decimal("2")
+    def get_S(self, *, a1: Decimal, an: Decimal, n: Decimal) -> Decimal:
+        S: Decimal = ((a1 + an) * n) / Decimal("2")
         return S
 
 
-    def get_a1(self) -> Decimal:
-        a1: Decimal = (Decimal("2") * self.S) / (self.a1 + self.an)
+    def get_a1(self, *, S: Decimal, n: Decimal, an: Decimal) -> Decimal:
+        a1: Decimal = (Decimal("2") * S) / n - an
         return a1
 
 
-    def get_an(self) -> Decimal:
-        an: Decimal = ((Decimal("2") * self.S) - (self.an * self.n)) / self.n
+    def get_an(self, *, S: Decimal, n: Decimal, a1: Decimal) -> Decimal:
+        an: Decimal = (Decimal("2") * S) / n - a1
         return an
 
 
-    def get_n(self) -> Decimal:
-        n: Decimal = ((Decimal("2") * self.S) - (self.a1 * self.n)) / self.n
+    def get_n(self, *, S: Decimal, a1: Decimal, an: Decimal) -> Decimal:
+        n: Decimal = (Decimal("2") * S) / (a1 + an)
         return n
 
 
 class GeometricProgressionSumTheorem:
-    def __init__(self, *, S: Decimal, b1: Decimal, bn: Decimal, q: Decimal) -> None:
-        self.S: Decimal = S
-        self.b1: Decimal = b1
-        self.bn: Decimal = bn
-        self.q: Decimal = q
+    def __init__(self) -> None:
+        pass
 
     
-    def get_S(self) -> Decimal:
-        S: Decimal = ((self.bn * self.q) - self.b1) / (self.q - Decimal("1"))
+    def get_S(self, *, bn: Decimal, q: Decimal, b1: Decimal) -> Decimal:
+        S: Decimal = ((bn * q) - b1) / (q - Decimal("1"))
         return S
 
 
-    def get_b1(self) -> Decimal:
-        b1: Decimal = self.S * (self.q - Decimal("1")) - (self.bn * self.q)
+    def get_b1(self, *, S: Decimal, q: Decimal, bn: Decimal) -> Decimal:
+        b1: Decimal = S * (q - Decimal("1")) - (bn * q)
         return b1
 
 
-    def get_bn(self) -> Decimal:
-        bn: Decimal = (self.S * (self.q - Decimal("1")) + self.bn) / self.q
+    def get_bn(self, *, S: Decimal, q: Decimal, b1: Decimal) -> Decimal:
+        bn: Decimal = (S * (q - Decimal("1")) + b1) / q
         return bn
 
 
-    def get_q(self) -> Decimal:
-        q: Decimal = (self.S - self.b1) / (self.S - self.bn)
+    def get_q(self, *, S: Decimal, b1: Decimal, bn: Decimal) -> Decimal:
+        q: Decimal = (S - b1) / (S - bn)
         return q
 
 
 class ArithmeticProgressionTermTheorem:
-    def __init__(self, *, an: Decimal, a1: Decimal, d: Decimal, n: Decimal) -> None:
-        self.an: Decimal = an
-        self.a1: Decimal = a1
-        self.d: Decimal = d
-        self.n: Decimal = n
+    def __init__(self) -> None:
+        pass
 
 
-    def get_an(self) -> Decimal:
-        an: Decimal = self.a1 + self.d * (self.n - Decimal("1"))
+    def get_an(self, *, a1: Decimal, d: Decimal, n: Decimal) -> Decimal:
+        an: Decimal = a1 + d * (n - Decimal("1"))
         return an
 
 
-    def get_a1(self) -> Decimal:
-        a1: Decimal = self.an - self.d * (self.n - Decimal("1"))
+    def get_a1(self, *, an: Decimal, d: Decimal, n: Decimal) -> Decimal:
+        a1: Decimal = an - d * (n - Decimal("1"))
         return a1
 
 
-    def get_d(self) -> Decimal:
-        d: Decimal = (self.an - self.a1) / (self.n - Decimal("1"))
+    def get_d(self, *, an: Decimal, a1: Decimal, n: Decimal) -> Decimal:
+        d: Decimal = (an - a1) / (n - Decimal("1"))
         return d
 
 
-    def get_n(self) -> Decimal:
-        n: Decimal = ((self.an - self.a1) / self.d) + Decimal("1")
+    def get_n(self, *, an: Decimal, a1: Decimal, d: Decimal) -> Decimal:
+        n: Decimal = ((an - a1) / d) + Decimal("1")
         return n
 
 
 class GeometricProgressionTermTheorem:
-    def __init__(self, *, bn: Decimal, b1: Decimal, q: Decimal, n: Decimal) -> None:
-        self.bn: Decimal = bn
-        self.b1: Decimal = b1
-        self.q: Decimal = q
-        self.n: Decimal = n
+    def __init__(self) -> None:
+        pass
 
 
-    def get_bn(self) -> Decimal:
-        q_is_one: bool = self.q == Decimal("1")
+    def get_bn(self, *, b1: Decimal, q: Decimal, n: Decimal) -> Decimal:
+        q_is_one: bool = q == Decimal("1")
 
         if q_is_one:
-            bn: Decimal = self.b1 * self.q
+            bn: Decimal = b1 * q
             return bn
         else:
-            bn: Decimal = self.b1 * (self.q ** (self.n - Decimal("1")))
+            bn: Decimal = b1 * (q ** (n - Decimal("1")))
             return bn
 
 
-    def get_b1(self) -> Decimal:
-        b1: Decimal = self.bn / (self.q ** (self.n - Decimal("1")))
+    def get_b1(self, *, bn: Decimal, q: Decimal, n: Decimal) -> Decimal:
+        b1: Decimal = bn / (q ** (n - Decimal("1")))
         return b1
 
 
-    def get_q(self) -> Decimal:
-        ratio: Decimal = self.bn / self.b1
-        steps: Decimal = self.n - Decimal("1")
+    def get_q(self, *, bn: Decimal, b1: Decimal, n: Decimal) -> Decimal:
+        ratio: Decimal = bn / b1
+        steps: Decimal = n - Decimal("1")
 
         ratio_is_less_than_zero: bool = ratio < Decimal("0")
         steps_amount_is_odd: bool = steps % Decimal("2") != Decimal("0")
@@ -283,8 +253,8 @@ class GeometricProgressionTermTheorem:
             return q
 
 
-    def get_n(self) -> Decimal:
-        n: Decimal = decimal_logarithm((self.bn / self.b1), self.q) + Decimal("1")
+    def get_n(self, *, bn: Decimal, b1: Decimal, q: Decimal) -> Decimal:
+        n: Decimal = decimal_logarithm((bn / b1), q) + Decimal("1")
         return n
 
 #endregion
@@ -293,36 +263,34 @@ class GeometricProgressionTermTheorem:
 #region Vectors
 
 class VectorCorrdinatesTheorem:
-    def __init__(self, *, a: list[Decimal], B: list[Decimal], A: list[Decimal]) -> None:
-        self.a: list[Decimal] = a
-        self.B: list[Decimal] = B
-        self.A: list[Decimal] = A
+    def __init__(self) -> None:
+        pass
 
 
-    def get_a(self) -> list[Decimal]:
-        a: list[Decimal] = [x2 - x1 for x2, x1 in zip(self.B, self.A)]
+    def get_a(self, *, B: list[Decimal], A: list[Decimal]) -> list[Decimal]:
+        a: list[Decimal] = [x2 - x1 for x2, x1 in zip(B, A)]
         return a
 
 
-    def get_B(self) -> list[Decimal]:
-        B: list[Decimal] = [x2 + x1 for x2, x1 in zip(self.a, self.A)]
+    def get_B(self, *, a: list[Decimal], A: list[Decimal]) -> list[Decimal]:
+        B: list[Decimal] = [x2 + x1 for x2, x1 in zip(a, A)]
         return B
 
 
-    def get_A(self) -> list[Decimal]:
-        A: list[Decimal] = [x2 - x1 for x2, x1 in zip(self.B, self.a)]
+    def get_A(self, *, a: list[Decimal], B: list[Decimal]) -> list[Decimal]:
+        A: list[Decimal] = [x2 - x1 for x2, x1 in zip(B, a)]
         return A
 
 
 class VectorMagnitudeTheorem:
-    def __init__(self, *, a: list[Decimal]) -> None:
-        self.a: list[Decimal] = a
+    def __init__(self) -> None:
+        pass
 
 
-    def get_la(self) -> Decimal:
+    def get_la(self, *, a: list[Decimal]) -> Decimal:
         la = Decimal("0")
 
-        for Dx in self.a:
+        for Dx in a:
             la += Dx ** Decimal("2")
 
         la = la.sqrt()
@@ -330,45 +298,41 @@ class VectorMagnitudeTheorem:
 
 
 class VectorDotProductTheorem:
-    def __init__(self, *, a: list[Decimal], b: list[Decimal]) -> None:
-        self.a: list[Decimal] = a
-        self.b: list[Decimal] = b
+    def __init__(self) -> None:
+        pass
 
 
-    def get_ab(self) -> Decimal:
+    def get_ab(self, *, a: list[Decimal], b: list[Decimal]) -> Decimal:
         ab = Decimal("0")
 
-        for x1i, x1j in zip(self.a, self.b):
+        for x1i, x1j in zip(a, b):
             ab += x1i * x1j
 
         return ab
 
 
 class AngleBetweenVectorsCosinusTheorem:
-    def __init__(self, *, cosa: Decimal, ab: Decimal, la: Decimal, lb: Decimal) -> None:
-        self.cosa: Decimal = cosa
-        self.ab: Decimal = ab
-        self.la: Decimal = la
-        self.lb: Decimal = lb
+    def __init__(self) -> None:
+        pass
 
 
-    def get_cosa(self) -> Decimal:
-        cosa: Decimal = self.ab / (self.la * self.lb)
+    def get_cosa(self, *, ab: Decimal, la: Decimal, lb: Decimal) -> Decimal:
+        cosa: Decimal = ab / (la * lb)
         return cosa
 
 
-    def get_ab(self) -> Decimal:
-        ab: Decimal = self.cosa * self.la * self.lb
+    def get_ab(self, *, cosa: Decimal, la: Decimal, lb: Decimal) -> Decimal:
+        ab: Decimal = cosa * la * lb
         return ab
 
 
-    def get_la(self) -> Decimal:
-        la: Decimal = self.ab / (self.lb * self.cosa)
+    def get_la(self, *, ab: Decimal, lb: Decimal, cosa: Decimal) -> Decimal:
+        la: Decimal = ab / (lb * cosa)
         return la
 
 
-    def get_lb(self) -> Decimal:
-        lb: Decimal = self.ab / (self.la * self.cosa)
+    def get_lb(self, *, ab: Decimal, la: Decimal, cosa: Decimal) -> Decimal:
+        lb: Decimal = ab / (la * cosa)
         return lb
 
 #endregion

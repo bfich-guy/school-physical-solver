@@ -94,6 +94,10 @@ class Endpoints(Enum):
     THERMODYNAMICS = f"/{Files.THERMODYNAMICS.value}"
 
 
+class CalculatorsEndpoints(Enum):
+    LINEAR_EQUATION_SOLVING = "/linear_equation_solving"
+
+
 class Templates(Enum):
     INDEX = f"{Files.INDEX.value}.{FileExtenstions.HTML.value}"
     ANSWER = f"{Files.ANSWER.value}.{FileExtenstions.HTML.value}"
@@ -125,6 +129,13 @@ class PhysMathConstants(Enum):
 
 class SystemConstants(Enum):
     USER_INPUT_MAX_LENGTH = 64
+    DECIMAL_ITERABLE_OBJECT_VALID_TYPE = (list,)
+    DECIMAL_FORMAT_MODE = "f"
+    MAX_USER_INPUT_LENGTH = 32
+    MAX_DECIMAL_LIST_LENGTH = 1
+    VALID_DIGIT_CHARACTERS = "0123456789-."
+    INTEGER_NUMBER = "INTEGER"
+    FRACTION_NUMBER = "FRACTION"
 
 
 user_input_error_message: str = (

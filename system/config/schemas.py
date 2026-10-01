@@ -177,32 +177,10 @@ class TriangleAreaByCircumscripedCircleTheorem(BaseModel):
     R: list[str]
 
 
-class PlaneEquation(BaseModel):
-    x: str
-    y: str
-    z: str
-    A: str
-    B: str
-    C: str
-    D: str
-
-
-class PrismSurfaceBySidesAndBasesAreasTheorem(BaseModel):
-    S: str
-    Ss: str
-    Sb: str
-
-
-class PrismVolumeByBaseAndHeightTheorem(BaseModel):
-    S: str
-    Sb: str
+class TriangleSideProjection(BaseModel):
+    c: str
     h: str
-
-
-class ConeVolumeByBaseAndHeightTheorem(BaseModel):
-    S: str
-    Sb: str
-    h: str
+    cossina: str
 
 #endregion
 
@@ -312,13 +290,6 @@ class MomentumLaw(BaseModel):
     v: str
 
 
-class MomentumConservationLaw(BaseModel):
-    p1i: str
-    p2i: str
-    p1f: str
-    p2f: str
-
-
 class KineticEnergyLaw(BaseModel):
     E: str
     p: str
@@ -380,5 +351,54 @@ class ArchimedesLaw(BaseModel):
     rho: str
     g: str
     h: str
+
+
+class HydrostaticPressureLaw(BaseModel):
+    p: str
+    rho: str
+    g: str
+    h: str   
+
+#endregion
+
+
+#region Thermodynamics
+
+class SensibleHeatLaw(BaseModel):
+    Q: str
+    c: str
+    m: str
+    Dt: str
+
+
+class CombustionHeatLaw(BaseModel):
+    Q: str
+    q: str
+    m: str
+
+
+class FusionHeatLaw(BaseModel):
+    Q: str
+    lmb: str
+    m: str
+
+
+class VaporizationHeatLaw(BaseModel):
+    Q: str
+    L: str
+    m: str
+
+
+class MendeleevClapeyronLaw(BaseModel):
+    p: str
+    V: str
+    v: str
+    T: str
+
+
+class MolarMassLaw(BaseModel):
+    v: str
+    m: str
+    M: str
 
 #endregion

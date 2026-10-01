@@ -4,158 +4,142 @@ from decimal import Decimal
 #region Electricity
 
 class OhmsSpecificLaw:
-    def __init__(self, *, U: Decimal, I: Decimal, R: Decimal) -> None:
-        self.U: Decimal = U
-        self.I: Decimal = I
-        self.R: Decimal = R
+    def __init__(self) -> None:
+        pass
 
     
-    def get_U(self) -> Decimal:
-        U: Decimal = self.I * self.R
+    def get_U(self, *, I: Decimal, R: Decimal) -> Decimal:
+        U: Decimal = I * R
         return U
 
 
-    def get_I(self) -> Decimal:
-        I: Decimal = self.U / self.R
+    def get_I(self, *, U: Decimal, R: Decimal) -> Decimal:
+        I: Decimal = U / R
         return I
 
 
-    def get_R(self) -> Decimal:
-        R: Decimal = self.U / self.I
+    def get_R(self, *, U: Decimal, I: Decimal) -> Decimal:
+        R: Decimal = U / I
         return R
 
 
 class OhmsFullLaw:
-    def __init__(self, *, E: Decimal, U: Decimal, I: Decimal, r: Decimal) -> None:
-        self.E: Decimal = E
-        self.U: Decimal = U
-        self.I: Decimal = I
-        self.r: Decimal = r
+    def __init__(self) -> None:
+        pass
 
 
-    def get_E(self) -> Decimal:
-        E: Decimal = self.U + self.I * self.r
+    def get_E(self, *, U: Decimal, I: Decimal, r: Decimal) -> Decimal:
+        E: Decimal = U + I * r
         return E
 
 
-    def get_U(self) -> Decimal:
-        U: Decimal = self.E - self.I * self.r
+    def get_U(self, *, E: Decimal, I: Decimal, r: Decimal) -> Decimal:
+        U: Decimal = E - I * r
         return U
 
 
-    def get_I(self) -> Decimal:
-        I: Decimal = (self.E - self.U) / self.r
+    def get_I(self, *, E: Decimal, U: Decimal, r: Decimal) -> Decimal:
+        I: Decimal = (E - U) / r
         return I
 
 
-    def get_r(self) -> Decimal:
-        r: Decimal = (self.E - self.U) / self.I
+    def get_r(self, *, E: Decimal, U: Decimal, I: Decimal) -> Decimal:
+        r: Decimal = (E - U) / I
         return r
 
 
 class WattsLaw:
-    def __init__(self, *, P: Decimal, U: Decimal, I: Decimal) -> None:
-        self.P: Decimal = P
-        self.U: Decimal = U
-        self.I: Decimal = I
+    def __init__(self) -> None:
+        pass
 
 
-    def get_P(self) -> Decimal:
-        P: Decimal = self.U * self.I
+    def get_P(self, *, U: Decimal, I: Decimal) -> Decimal:
+        P: Decimal = U * I
         return P
 
 
-    def get_U(self) -> Decimal:
-        U: Decimal = self.P / self.I
+    def get_U(self, *, P: Decimal, I: Decimal) -> Decimal:
+        U: Decimal = P / I
         return U
 
 
-    def get_I(self) -> Decimal:
-        I: Decimal = self.P / self.U
+    def get_I(self, *, P: Decimal, U: Decimal) -> Decimal:
+        I: Decimal = P / U
         return I
 
 
 class JouleLenzLaw:
-    def __init__(self, *, Q: Decimal, P: Decimal, t: Decimal) -> None:
-        self.Q: Decimal = Q
-        self.P: Decimal = P
-        self.t: Decimal = t
+    def __init__(self) -> None:
+        pass
 
 
-    def get_Q(self) -> Decimal:
-        Q: Decimal = self.P * self.t
+    def get_Q(self, *, P: Decimal, t: Decimal) -> Decimal:
+        Q: Decimal = P * t
         return Q
 
 
-    def get_P(self) -> Decimal:
-        P: Decimal = self.Q / self.t
+    def get_P(self, *, Q: Decimal, t: Decimal) -> Decimal:
+        P: Decimal = Q / t
         return P
 
 
-    def get_t(self) -> Decimal:
-        t: Decimal = self.Q / self.P
+    def get_t(self, *, Q: Decimal, P: Decimal) -> Decimal:
+        t: Decimal = Q / P
         return t
 
 
 class CoulombsLaw:
-    def __init__(self, *, F: Decimal, k: Decimal, q1: Decimal, q2: Decimal, r: Decimal) -> None:
-        self.F: Decimal = F
-        self.k: Decimal = k
-        self.q1: Decimal = q1
-        self.q2: Decimal = q2
-        self.r: Decimal = r
+    def __init__(self) -> None:
+        pass
 
 
-    def get_F(self) -> Decimal:
-        F: Decimal = (self.k * self.q1 * self.q2) / (self.r ** Decimal("2"))
+    def get_F(self, *, k: Decimal, q1: Decimal, q2: Decimal, r: Decimal) -> Decimal:
+        F: Decimal = (k * q1 * q2) / (r ** Decimal("2"))
         return F
 
 
-    def get_k(self) -> Decimal:
-        k: Decimal = self.F * (self.r ** Decimal("2")) / (self.q1 * self.q2)
+    def get_k(self, *, F: Decimal, r: Decimal, q1: Decimal, q2: Decimal) -> Decimal:
+        k: Decimal = F * (r ** Decimal("2")) / (q1 * q2)
         return k
 
 
-    def get_q1(self) -> Decimal:
-        q1: Decimal = self.F * (self.r ** Decimal("2")) / (self.k * self.q2)
+    def get_q1(self, *, F: Decimal, r: Decimal, k: Decimal, q2: Decimal) -> Decimal:
+        q1: Decimal = F * (r ** Decimal("2")) / (k * q2)
         return q1
 
 
-    def get_q2(self) -> Decimal:
-        q2: Decimal = self.F * (self.r ** Decimal("2")) / (self.k * self.q1)
+    def get_q2(self, *, F: Decimal, r: Decimal, k: Decimal, q1: Decimal) -> Decimal:
+        q2: Decimal = F * (r ** Decimal("2")) / (k * q1)
         return q2
 
 
-    def get_r(self) -> Decimal:
-        r: Decimal = ((self.k * self.q1 * self.q2) / self.F).sqrt()
+    def get_r(self, *, k: Decimal, q1: Decimal, q2: Decimal, F: Decimal) -> Decimal:
+        r: Decimal = ((k * q1 * q2) / F).sqrt()
         return r
 
 
 class ConductorResistanceLaw:
-    def __init__(self, *, R: Decimal, rho: Decimal, l: Decimal, S: Decimal) -> None:
-        self.R: Decimal = R
-        self.rho: Decimal = rho
-        self.l: Decimal = l
-        self.S: Decimal = S
+    def __init__(self) -> None:
+        pass
 
 
-    def get_R(self) -> Decimal:
-        R: Decimal = (self.rho * self.l) / self.S
+    def get_R(self, *, rho: Decimal, l: Decimal, S: Decimal) -> Decimal:
+        R: Decimal = (rho * l) / S
         return R
 
 
-    def get_rho(self) -> Decimal:
-        rho: Decimal = (self.R * self.S) / self.l
+    def get_rho(self, *, R: Decimal, S: Decimal, l: Decimal) -> Decimal:
+        rho: Decimal = (R * S) / l
         return rho
 
 
-    def get_l(self) -> Decimal:
-        l: Decimal = (self.R * self.S) / self.rho
+    def get_l(self, *, R: Decimal, S: Decimal, rho: Decimal) -> Decimal:
+        l: Decimal = (R * S) / rho
         return l
 
 
-    def get_S(self) -> Decimal:
-        S: Decimal = (self.rho * self.l) / self.R
+    def get_S(self, *, rho: Decimal, l: Decimal, R: Decimal) -> Decimal:
+        S: Decimal = (rho * l) / R
         return S
 
 #endregion
@@ -164,120 +148,107 @@ class ConductorResistanceLaw:
 #region Magnetism
 
 class AmperesLaw:
-    def __init__(self, *, F: Decimal, I: Decimal, B: Decimal, L: Decimal, sina: Decimal) -> None:
-        self.F: Decimal = F
-        self.I: Decimal = I
-        self.B: Decimal = B
-        self.L: Decimal = L
-        self.sina: Decimal = sina
+    def __init__(self) -> None:
+        pass
 
 
-    def get_F(self) -> Decimal:
-        F: Decimal = self.I * self.B * self.L * self.sina
+    def get_F(self, *, I: Decimal, B: Decimal, L: Decimal, sina: Decimal) -> Decimal:
+        F: Decimal = I * B * L * sina
         return F
 
 
-    def get_I(self) -> Decimal:
-        I: Decimal = self.F / (self.B * self.I * self.sina)
+    def get_I(self, *, F: Decimal, B: Decimal, L: Decimal, sina: Decimal) -> Decimal:
+        I: Decimal = F / (B * L * sina)
         return I
 
 
-    def get_B(self) -> Decimal:
-        B: Decimal = self.F / (self.I * self.L * self.sina)
+    def get_B(self, *, F: Decimal, I: Decimal, L: Decimal, sina: Decimal) -> Decimal:
+        B: Decimal = F / (I * L * sina)
         return B
 
 
-    def get_L(self) -> Decimal:
-        L: Decimal = self.F / (self.I * self.B * self.sina)
+    def get_L(self, *, F: Decimal, I: Decimal, B: Decimal, sina: Decimal) -> Decimal:
+        L: Decimal = F / (I * B * sina)
         return L
 
 
-    def get_sina(self) -> Decimal:
-        sina: Decimal = self.F / (self.I * self.B * self.L)
+    def get_sina(self, *, F: Decimal, I: Decimal, B: Decimal, L: Decimal) -> Decimal:
+        sina: Decimal = F / (I * B * L)
         return sina
 
 
 class LorentzLaw:
-    def __init__(self, *, F: Decimal, q: Decimal, v: Decimal, B: Decimal, sina: Decimal) -> None:
-        self.F: Decimal = F
-        self.q: Decimal = q
-        self.v: Decimal = v
-        self.B: Decimal = B
-        self.sina: Decimal = sina
+    def __init__(self) -> None:
+        pass
 
 
-    def get_F(self) -> Decimal:
-        F: Decimal = self.q * self.v * self.B * self.sina
+    def get_F(self, *, q: Decimal, v: Decimal, B: Decimal, sina: Decimal) -> Decimal:
+        F: Decimal = q * v * B * sina
         return F
 
 
-    def get_q(self) -> Decimal:
-        q: Decimal = self.F / (self.v * self.B * self.sina)
+    def get_q(self, *, F: Decimal, v: Decimal, B: Decimal, sina: Decimal) -> Decimal:
+        q: Decimal = F / (v * B * sina)
         return q
 
 
-    def get_v(self) -> Decimal:
-        v: Decimal = self.F / (self.q * self.B * self.sina)
+    def get_v(self, *, F: Decimal, q: Decimal, B: Decimal, sina: Decimal) -> Decimal:
+        v: Decimal = F / (q * B * sina)
         return v
 
 
-    def get_B(self) -> Decimal:
-        B: Decimal = self.F / (self.q * self.v * self.sina)
+    def get_B(self, *, F: Decimal, q: Decimal, v: Decimal, sina: Decimal) -> Decimal:
+        B: Decimal = F / (q * v * sina)
         return B
 
 
-    def get_sina(self) -> Decimal:
-        sina: Decimal = self.F / (self.q * self.v * self.B)
+    def get_sina(self, *, F: Decimal, q: Decimal, v: Decimal, B: Decimal) -> Decimal:
+        sina: Decimal = F / (q * v * B)
         return sina
 
 
 class FaradaysLaw:
-    def __init__(self, *, E: Decimal, Dphi: Decimal, Dt: Decimal) -> None:
-        self.E: Decimal = E
-        self.Dphi: Decimal = Dphi
-        self.Dt: Decimal = Dt
+    def __init__(self) -> None:
+        pass
 
 
-    def get_E(self) -> Decimal:
-        E: Decimal = -self.Dphi / self.Dt
+    def get_E(self, *, Dphi: Decimal, Dt: Decimal) -> Decimal:
+        E: Decimal = -Dphi / Dt
         return E
 
 
-    def get_Dphi(self) -> Decimal:
-        Dphi: Decimal = -self.E * self.Dt
+    def get_Dphi(self, *, E: Decimal, Dt: Decimal) -> Decimal:
+        Dphi: Decimal = -E * Dt
         return Dphi
 
 
-    def get_Dt(self) -> Decimal:
-        Dt: Decimal = -self.Dphi / self.E
+    def get_Dt(self, *, Dphi: Decimal, E: Decimal) -> Decimal:
+        Dt: Decimal = -Dphi / E
         return Dt
 
 
 class MagneticFluxLaw:
-    def __init__(self, *, phi: Decimal, B: Decimal, S: Decimal, cosa: Decimal) -> None:
-        self.phi: Decimal = phi
-        self.B: Decimal = B
-        self.S: Decimal = S
-        self.cosa: Decimal = cosa
+    def __init__(self) -> None:
+        pass
 
 
-    def get_phi(self) -> Decimal:
-        phi: Decimal = self.B * self.S * self.cosa
+    def get_phi(self, *, B: Decimal, S: Decimal, cosa: Decimal) -> Decimal:
+        phi: Decimal = B * S * cosa
         return phi
 
 
-    def get_B(self) -> Decimal:
-        B: Decimal = self.phi / (self.S * self.cosa)
+    def get_B(self, *, phi: Decimal, S: Decimal, cosa: Decimal) -> Decimal:
+        B: Decimal = phi / (S * cosa)
         return B
 
 
-    def get_S(self) -> Decimal:
-        S: Decimal = self.phi / (self.B * self.cosa)
+    def get_S(self, *, phi: Decimal, B: Decimal, cosa: Decimal) -> Decimal:
+        S: Decimal = phi / (B * cosa)
         return S
 
 
-    def get_cosa(self) -> Decimal:
-        cosa: Decimal = self.phi / (self.B * self.S)
+    def get_cosa(self, *, phi: Decimal, B: Decimal, S: Decimal) -> Decimal:
+        cosa: Decimal = phi / (B * S)
         return cosa
 
 #endregion
