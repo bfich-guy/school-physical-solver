@@ -1,9 +1,6 @@
-/* Background */
-
 .solver-header-background {
-    background-color: white;
-    border-top: 4px solid lightgray;
-    border-bottom: 4px solid lightgray;
+    background-color: lightgray;
+    border: 4px solid gray;
 }
 
 .solver-main-background {
@@ -13,8 +10,7 @@
 
 .solver-footer-background {
     background-color: lightgray;
-    border-top: 4px solid gray;
-    border-bottom: 4px solid gray;
+    border: 4px solid gray;
 }
 
 .solver-physmath-background {
@@ -41,13 +37,9 @@
     background-attachment: fixed;  
 }
 
-
-/* Text */
-
-.solver-title {
+.solver-header-text {
+    font: bold 32px 'Franklin Gothic Medium';
     color: black;
-    font-size: 32px;
-    font-family: 'Franklin Gothic Medium';
     text-align: center;
 }
 
@@ -67,36 +59,10 @@
     margin: 4% 4%;
 }
 
-
-/* Menu */
-
 .solver-header-menu {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background-color: lightgray;
-    z-index: 100;
-    border-bottom: 4px solid gray;
-}
-
-.solver-header-text {
-    font: bold 16px 'Franklin Gothic Medium';
-    color: black;
-    text-align: center;
-}
-
-.solver-header-button {
-    background: none;
-    border: none;
-    font: bold 32px 'Franklin Gothic Medium';
-    text-decoration: none;
-    color: black;
-    padding-top: 8px;
-    padding-bottom: 8px;
 }
 
 .solver-footer-menu {

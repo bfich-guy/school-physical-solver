@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Алгебра | Физмат-калькулятор - научный калькулятор для школы по физике и математике
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', path='css/solver.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', path='css/formulas.css') }}">
+        <link rel="icon" type="image/x-icon" href="/static/images/school_physmath_solver_favicon.png">
+    </head>
+    <body class="solver-math-background">
+        <header>
+            <div id="solver-header" class="solver-header-background solver-header-menu">
+
+            </div>
+        </header>
+        <main>
+            <div class="solver-main-background">
+                <div class="formulas-grid">
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            Линейное уравнение
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <mi>a</mi>
+                                <mi>x</mi>
+                                <mo>+</mo>
+                                <mi>b</mi>
+                                <mo>=</mo>
+                                <mi>0</mi>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="linear-equation-a-input" type="text" class="formula-input-field" placeholder="a">
+                            <input id="linear-equation-b-input" type="text" class="formula-input-field" placeholder="b">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="linear-equation-solving-button" class="formula-button">
+                                Решить уравнение
+                            </button>
+                        </div>
+                        <p id="linear-equation-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            Квадратное уравнение
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <mi>a</mi>
+                                <msup>
+                                    <mi>x</mi>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>+</mo>
+                                <mi>b</mi>
+                                <mi>x</mi>
+                                <mo>+</mo>
+                                <mi>c</mi>
+                                <mo>=</mo>
+                                <mi>0</mi>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="quadratic-equation-a-input" type="text" class="formula-input-field" placeholder="a">
+                            <input id="quadratic-equation-b-input" type="text" class="formula-input-field" placeholder="b">
+                            <input id="quadratic-equation-c-input" type="text" class="formula-input-field" placeholder="c">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="quadratic-equation-solving-button" class="formula-button">
+                                Решить уравнение
+                            </button>
+                        </div>
+                        <p id="quadratic-equation-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            Линейная функция
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <mi>y</mi>
+                                <mo>=</mo>
+                                <mi>k</mi>
+                                <mi>x</mi>
+                                <mo>+</mo>
+                                <mi>b</mi>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="linear-function-x-input" type="text" class="formula-input-field" placeholder="x">
+                            <input id="linear-function-y-input" type="text" class="formula-input-field" placeholder="y">
+                            <input id="linear-function-k-input" type="text" class="formula-input-field" placeholder="k">
+                            <input id="linear-function-b-input" type="text" class="formula-input-field" placeholder="b">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="linear-function-y-button" class="formula-button">
+                                Значение функции, y
+                            </button>
+                            <button id="linear-function-k-button" class="formula-button">
+                                Линейный коэффициент, k
+                            </button>
+                            <button id="linear-function-b-button" class="formula-button">
+                                Свободный коэффициент, b
+                            </button>
+                        </div>
+                        <p id="linear-function-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            Квадратичная функция
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <mi>y</mi>
+                                <mo>=</mo>
+                                <mi>a</mi>
+                                <msup>
+                                    <mi>x</mi>
+                                    <mn>2</mn>
+                                </msup>
+                                <mo>+</mo>
+                                <mi>b</mi>
+                                <mi>x</mi>
+                                <mo>+</mo>
+                                <mi>c</mi>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="quadratic-function-x-input" type="text" class="formula-input-field" placeholder="x">
+                            <input id="quadratic-function-y-input" type="text" class="formula-input-field" placeholder="y">
+                            <input id="quadratic-function-a-input" type="text" class="formula-input-field" placeholder="a">
+                            <input id="quadratic-function-b-input" type="text" class="formula-input-field" placeholder="b">
+                            <input id="quadratic-function-c-input" type="text" class="formula-input-field" placeholder="c">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="quadratic-function-y-button" class="formula-button">
+                                Значение функции, y
+                            </button>
+                            <button id="quadratic-function-a-button" class="formula-button">
+                                Квадратичный коэффициент, a
+                            </button>
+                            <button id="quadratic-function-b-button" class="formula-button">
+                                Линейный коэффициент, b
+                            </button>
+                            <button id="quadratic-function-c-button" class="formula-button">
+                                Свободный коэффициент, b
+                            </button>
+                        </div>
+                        <p id="quadratic-function-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            Сумма арифметической прогрессии
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <mi>S</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mo>(</mo>
+                                        <msub>
+                                            <mi>a</mi>
+                                            <mn>1</mn>
+                                        </msub>
+                                        <mo>+</mo>
+                                        <msub>
+                                            <mi>a</mi>
+                                            <mn>n</mn>
+                                        </msub>
+                                        <mo>)</mo>
+                                        <mi>n</mi>
+                                    </mrow>
+                                    <mn>2</mn>
+                                </mfrac>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="arithmetic-progression-sum-theorem-s-input" type="text" class="formula-input-field" placeholder="S">
+                            <input id="arithmetic-progression-sum-theorem-a1-input" type="text" class="formula-input-field" placeholder="a1">
+                            <input id="arithmetic-progression-sum-theorem-an-input" type="text" class="formula-input-field" placeholder="an">
+                            <input id="arithmetic-progression-sum-theorem-n-input" type="text" class="formula-input-field" placeholder="n">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="arithmetic-progression-sum-theorem-s-button" class="formula-button">
+                                Сумма прогрессии
+                            </button>
+                            <button id="arithmetic-progression-sum-theorem-a1-button" class="formula-button">
+                                Первый элемент
+                            </button>
+                            <button id="arithmetic-progression-sum-theorem-an-button" class="formula-button">
+                                N-ый элемент
+                            </button>
+                            <button id="arithmetic-progression-sum-theorem-n-button" class="formula-button">
+                                Количество элементов
+                            </button>
+                        </div>
+                        <p id="arithmetic-progression-sum-theorem-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            Сумма геометрической прогрессии
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <mi>S</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <msub>
+                                            <mi>b</mi>
+                                            <mi>n</mi>
+                                        </msub>
+                                        <mi>q</mi>
+                                        <mo>−</mo>
+                                        <msub>
+                                            <mi>b</mi>
+                                            <mn>1</mn>
+                                        </msub>
+                                    </mrow>
+                                    <mrow>
+                                        <mi>q</mi>
+                                        <mo>−</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="geometric-progression-sum-theorem-s-input" type="text" class="formula-input-field" placeholder="S">
+                            <input id="geometric-progression-sum-theorem-b1-input" type="text" class="formula-input-field" placeholder="b1">
+                            <input id="geometric-progression-sum-theorem-bn-input" type="text" class="formula-input-field" placeholder="bn">
+                            <input id="geometric-progression-sum-theorem-q-input" type="text" class="formula-input-field" placeholder="q">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="geometric-progression-sum-theorem-s-button" class="formula-button">
+                                Сумма прогрессии
+                            </button>
+                            <button id="geometric-progression-sum-theorem-b1-button" class="formula-button">
+                                Первый элемент
+                            </button>
+                            <button id="geometric-progression-sum-theorem-bn-button" class="formula-button">
+                                N-ый элемент
+                            </button>
+                            <button id="geometric-progression-sum-theorem-q-button" class="formula-button">
+                                Количество элементов
+                            </button>
+                        </div>
+                        <p id="geometric-progression-sum-theorem-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            N-ый элемент арифметической прогрессии
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <msub>
+                                    <mi>a</mi>
+                                    <mi>n</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>a</mi>
+                                    <mn>1</mn>
+                                </msub>
+                                <mo>+</mo>
+                                <mi>d</mi>
+                                <mo>(</mo>
+                                <mi>n</mi>
+                                <mo>−</mo>
+                                <mn>1</mn>
+                                <mo>)</mo>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="arithmetic-progression-term-theorem-an-input" type="text" class="formula-input-field" placeholder="an">
+                            <input id="arithmetic-progression-term-theorem-a1-input" type="text" class="formula-input-field" placeholder="a1">
+                            <input id="arithmetic-progression-term-theorem-d-input" type="text" class="formula-input-field" placeholder="d">
+                            <input id="arithmetic-progression-term-theorem-n-input" type="text" class="formula-input-field" placeholder="n">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="arithmetic-progression-term-theorem-an-button" class="formula-button">
+                                N-элемент
+                            </button>
+                            <button id="arithmetic-progression-term-theorem-a1-button" class="formula-button">
+                                Первый элемент
+                            </button>
+                            <button id="arithmetic-progression-term-theorem-d-button" class="formula-button">
+                                Шаг прогрессии
+                            </button>
+                            <button id="arithmetic-progression-term-theorem-n-button" class="formula-button">
+                                Количество элементов
+                            </button>
+                        </div>
+                        <p id="arithmetic-progression-term-theorem-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            N-ый элемент геометрической прогрессии
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <msub>
+                                    <mi>b</mi>
+                                    <mi>n</mi>
+                                </msub>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>b</mi>
+                                    <mn>1</mn>
+                                </msub>
+                                <msup>
+                                    <mi>q</mi>
+                                    <mrow>
+                                        <mi>n</mi>
+                                        <mo>−</mo>
+                                        <mn>1</mn>
+                                    </mrow>
+                                </msup>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="geometric-progression-term-theorem-bn-input" type="text" class="formula-input-field" placeholder="bn">
+                            <input id="geometric-progression-term-theorem-b1-input" type="text" class="formula-input-field" placeholder="b1">
+                            <input id="geometric-progression-term-theorem-q-input" type="text" class="formula-input-field" placeholder="q">
+                            <input id="geometric-progression-term-theorem-n-input" type="text" class="formula-input-field" placeholder="n">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="geometric-progression-term-theorem-bn-button" class="formula-button">
+                                N-элемент
+                            </button>
+                            <button id="geometric-progression-term-theorem-b1-button" class="formula-button">
+                                Первый элемент
+                            </button>
+                            <button id="geometric-progression-term-theorem-q-button" class="formula-button">
+                                Шаг прогрессии
+                            </button>
+                            <button id="geometric-progression-term-theorem-n-button" class="formula-button">
+                                Количество элементов
+                            </button>
+                        </div>
+                        <p id="geometric-progression-term-theorem-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div id="solver-footer" class="solver-footer-background solver-footer-menu">
+                
+            </div>
+        </footer>
+        <script src="/static/js/pagesetup.js" type="module"></script>
+        <script src="/static/js/calculateformula.js" type="module"></script>
+    </body>
+</html>

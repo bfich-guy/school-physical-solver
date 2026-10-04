@@ -1,21 +1,21 @@
 from decimal import Decimal
 
-from system.utils.calculators import get_quadratic_equation_roots, decimal_logarithm
+from system.utils.decimalhelpers import get_quadratic_equation_roots, decimal_logarithm, decimal_zip
 
 
 #region Equations
 
-class LinearEquationSolving:
+class LinearEquation:
     def __init__(self) -> None:
         pass
 
 
     def get_x(self, *, a: Decimal, b: Decimal) -> Decimal:
-        x: Decimal = -a / b
+        x: Decimal = -b / a
         return x
 
 
-class QuadraticEquationSolving:
+class QuadraticEquation:
     def __init__(self) -> None:
         pass
 
@@ -23,77 +23,32 @@ class QuadraticEquationSolving:
         x: list[Decimal] = get_quadratic_equation_roots(a=a, b=b, c=c)
         return x
 
-
-class DerivativeEquationSolving:
-    def __init__(self) -> None:
-        pass
-
-
-    def get_d(self, *, Dy: Decimal, Dx: Decimal) -> Decimal:
-        d: Decimal = Dy / Dx
-        return d
-
-
-    def get_Dy(self, *, d: Decimal, Dx: Decimal) -> Decimal:
-        Dy: Decimal = d * Dx
-        return Dy
-
-
-    def get_Dx(self, *, Dy: Decimal, d: Decimal) -> Decimal:
-        Dx: Decimal = Dy / d
-        return Dx
-
-
-class TangentEquationSolving:
-    def __init__(self) -> None:
-        pass
-
-
-    def get_y(self, *, dfx: Decimal, Dx: Decimal, fx: Decimal) -> Decimal:
-        y: Decimal = dfx * Dx + fx
-        return y
-
-
-    def get_dfx(self, *, y: Decimal, fx: Decimal, Dx: Decimal) -> Decimal:
-        dfx: Decimal = (y - fx) / Dx
-        return dfx
-
-
-    def get_Dx(self, *, y: Decimal, fx: Decimal, dfx: Decimal) -> Decimal:
-        Dx: Decimal = (y - fx) / dfx
-        return Dx
-
-
-    def get_fx(self, *, y: Decimal, dfx: Decimal, Dx: Decimal) -> Decimal:
-        fx: Decimal = y - (dfx * Dx)
-        return fx
-
 #endregion
 
 
 #region Functions
 
-class LinearGraphFunction:
+class LinearFunction:
     def __init__(self) -> None:
         pass
 
 
-    def get_y(self, *, a: Decimal, x: Decimal, b: Decimal) -> Decimal:
-        y: Decimal = a * x + b
+    def get_y(self, *, k: Decimal, x: Decimal, b: Decimal) -> Decimal:
+        y: Decimal = k * x + b
         return y
 
 
-    def get_a(self, *, y: Decimal, b: Decimal, x: Decimal) -> Decimal:
-        a: Decimal = (y - b) / x
-        return a
+    def get_k(self, *, y: Decimal, b: Decimal, x: Decimal) -> Decimal:
+        k: Decimal = (y - b) / x
+        return k
 
 
-    def get_b(self, *, y: Decimal, a: Decimal, x: Decimal) -> Decimal:
-        b: Decimal = y - (a * x)
+    def get_b(self, *, y: Decimal, k: Decimal, x: Decimal) -> Decimal:
+        b: Decimal = y - (k * x)
         return b
 
 
-class QuadraticGraphFunction:
+class QuadraticFunction:
     def __init__(self) -> None:
         pass
 
@@ -116,26 +71,6 @@ class QuadraticGraphFunction:
     def get_c(self, *, x: Decimal, y: Decimal, a: Decimal, b: Decimal) -> Decimal:
         c: Decimal = y - a * x ** Decimal("2") - (b * x)
         return c
-
-
-class CircleGraphFunction:
-    def __init__(self) -> None:
-        pass
-
-
-    def get_r(self, *, Dx: Decimal, Dy: Decimal) -> Decimal:
-        r: Decimal = (Dx ** Decimal("2") + Dy ** Decimal("2")).sqrt()
-        return r
-
-
-    def get_Dx(self, *, r: Decimal, Dy: Decimal) -> Decimal:
-        Dx: Decimal = (r ** Decimal("2") - Dy ** Decimal("2")).sqrt()
-        return Dx
-
-
-    def get_Dy(self, *, r: Decimal, Dx: Decimal) -> Decimal:
-        Dy: Decimal = (r ** Decimal("2") - Dx ** Decimal("2")).sqrt()
-        return Dy
 
 #endregion
 
@@ -178,7 +113,7 @@ class GeometricProgressionSumTheorem:
 
 
     def get_b1(self, *, S: Decimal, q: Decimal, bn: Decimal) -> Decimal:
-        b1: Decimal = S * (q - Decimal("1")) - (bn * q)
+        b1: Decimal = -(S * (q - Decimal("1")) - (bn * q))
         return b1
 
 
@@ -262,23 +197,23 @@ class GeometricProgressionTermTheorem:
 
 #region Vectors
 
-class VectorCorrdinatesTheorem:
+class VectorCoordinatesTheorem:
     def __init__(self) -> None:
         pass
 
 
     def get_a(self, *, B: list[Decimal], A: list[Decimal]) -> list[Decimal]:
-        a: list[Decimal] = [x2 - x1 for x2, x1 in zip(B, A)]
+        a: list[Decimal] = [x2 - x1 for x2, x1 in decimal_zip(B, A)]
         return a
 
 
     def get_B(self, *, a: list[Decimal], A: list[Decimal]) -> list[Decimal]:
-        B: list[Decimal] = [x2 + x1 for x2, x1 in zip(a, A)]
+        B: list[Decimal] = [x2 + x1 for x2, x1 in decimal_zip(a, A)]
         return B
 
 
     def get_A(self, *, a: list[Decimal], B: list[Decimal]) -> list[Decimal]:
-        A: list[Decimal] = [x2 - x1 for x2, x1 in zip(B, a)]
+        A: list[Decimal] = [x2 - x1 for x2, x1 in decimal_zip(B, a)]
         return A
 
 
@@ -288,6 +223,11 @@ class VectorMagnitudeTheorem:
 
 
     def get_la(self, *, a: list[Decimal]) -> Decimal:
+        vector_is_empty: bool = not a
+
+        if vector_is_empty:
+            raise ValueError
+
         la = Decimal("0")
 
         for Dx in a:
@@ -305,7 +245,7 @@ class VectorDotProductTheorem:
     def get_ab(self, *, a: list[Decimal], b: list[Decimal]) -> Decimal:
         ab = Decimal("0")
 
-        for x1i, x1j in zip(a, b):
+        for x1i, x1j in decimal_zip(a, b):
             ab += x1i * x1j
 
         return ab
@@ -334,5 +274,20 @@ class AngleBetweenVectorsCosinusTheorem:
     def get_lb(self, *, ab: Decimal, la: Decimal, cosa: Decimal) -> Decimal:
         lb: Decimal = ab / (la * cosa)
         return lb
+
+
+class ScaledVectorTheorem:
+    def __init__(self) -> None:
+        pass
+
+
+    def get_b(self, *, a: list[Decimal], k: Decimal) -> list[Decimal]:
+        vector_is_empty: bool = not a
+        
+        if vector_is_empty:
+            raise ValueError
+
+        b: list[Decimal] = [Dx * k for Dx in a]
+        return b
 
 #endregion

@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from system.utils.calculators import get_quadratic_equation_roots
+from system.utils.decimalhelpers import get_quadratic_equation_roots
 
 
 #region Planimetry
@@ -259,5 +259,25 @@ class TriangleSideProjection:
     def get_cossina(self, *, h: Decimal, c: Decimal) -> Decimal:
         cossina: Decimal = h / c
         return cossina
+
+
+class FigureAreaBySimilarityCoefficientTheorem:
+    def __init__(self) -> None:
+        pass
+
+
+    def get_S1(self, *, S2: Decimal, k: Decimal) -> Decimal:
+        S1: Decimal = S2 / k ** Decimal("2")
+        return S1
+
+
+    def get_k(self, *, S1: Decimal, S2: Decimal) -> Decimal:
+        k: Decimal = (S2 / S1).sqrt()
+        return k
+
+
+    def get_S2(self, *, S1: Decimal, k: Decimal) -> Decimal:
+        S2: Decimal = S1 * k ** Decimal("2")
+        return S2
 
 #endregion

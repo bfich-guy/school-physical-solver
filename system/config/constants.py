@@ -1,5 +1,6 @@
 from enum import Enum
 from decimal import Decimal
+from pydantic import BaseModel
 
 
 #region System
@@ -8,22 +9,21 @@ class Folders(Enum):
     TEMPLATES = "templates"
     STATIC = "static"
 
-    ABOUTUS = "aboutusfolder"
+    ABOUTUS = "aboutus"
 
-    MATH = "mathfolder"
-    PHYSICS = "physicsfolder"
+    MATH = "math"
+    PHYSICS = "physics"
 
-    ALGEBRA = "algebrafolder"
-    GEOMETRY = "geometryfolder"
+    ALGEBRA = "algebra"
+    GEOMETRY = "geometry"
 
-    ELECTROMAGNETICS = "electromagneticsfolder"
-    MECHANICS = "mechanicsfolder"
-    THERMODYNAMICS = "thermodynamicsfolder"
+    ELECTROMAGNETICS = "electromagnetics"
+    MECHANICS = "mechanics"
+    THERMODYNAMICS = "thermodynamics"
 
 
 class Files(Enum):
     INDEX = "index"
-    ANSWER = "answer"
 
     USAGEPOLICY = "usagepolicy"
     FAQ = "faq"
@@ -77,7 +77,7 @@ class Prefix(Enum):
 
 class Endpoints(Enum):
     INDEX = f"/"
-    ANSWER = f"/{Files.ANSWER.value}"
+    CALCULATE = "/calculate"
 
     USAGEPOLICY = f"/{Files.USAGEPOLICY.value}"
     FAQ = f"/{Files.FAQ.value}"
@@ -94,13 +94,8 @@ class Endpoints(Enum):
     THERMODYNAMICS = f"/{Files.THERMODYNAMICS.value}"
 
 
-class CalculatorsEndpoints(Enum):
-    LINEAR_EQUATION_SOLVING = "/linear_equation_solving"
-
-
 class Templates(Enum):
     INDEX = f"{Files.INDEX.value}.{FileExtenstions.HTML.value}"
-    ANSWER = f"{Files.ANSWER.value}.{FileExtenstions.HTML.value}"
 
     USAGEPOLICY = f"{Folders.ABOUTUS.value}/{Files.USAGEPOLICY.value}.{FileExtenstions.HTML.value}"
     FAQ = f"{Folders.ABOUTUS.value}/{Files.FAQ.value}.{FileExtenstions.HTML.value}"
@@ -119,7 +114,7 @@ class Templates(Enum):
 #endregion
 
 
-#region Constants
+#region General constants
 
 class PhysMathConstants(Enum):
     EARTH_GRAVITY_ACCELERATION = Decimal("9.81")
@@ -127,26 +122,43 @@ class PhysMathConstants(Enum):
     COULOMB_CONSTANT = Decimal("8987551792.3")
 
 
-class SystemConstants(Enum):
-    USER_INPUT_MAX_LENGTH = 64
-    DECIMAL_ITERABLE_OBJECT_VALID_TYPE = (list,)
-    DECIMAL_FORMAT_MODE = "f"
-    MAX_USER_INPUT_LENGTH = 32
-    MAX_DECIMAL_LIST_LENGTH = 1
-    VALID_DIGIT_CHARACTERS = "0123456789-."
-    INTEGER_NUMBER = "INTEGER"
-    FRACTION_NUMBER = "FRACTION"
-
-
 user_input_error_message: str = (
-    "К сожалению, Ваш ввод оказался недействительным для Физмат-калькулятора." 
-    f"Проверьте, что Ваш ввод не больше {SystemConstants.USER_INPUT_MAX_LENGTH.value} символов."
-    "Так же рекомендуем убедиться, что Вы ввели хотя бы одно число в поле формулы."
+    "К сожалению, Ваш ввод оказался недействительным для Физмат-калькулятора. " 
+    f"Проверьте, что Ваш ввод не больше 64 символов. "
+    "Так же рекомендуем убедиться, что Вы ввели хотя бы одно число в поле формулы. "
 )
+
 
 calculations_error_message: str = (
     "Увы, но Физмат-калькулятор заметил математические ошибки в Вашем вводе. "
     "Проверьте, чтобы в Вашем следующем вводе не содержалось деление на ноль или отрицательных корней. "
 )
+
+
+unknown_formula_error_message: str = (
+    "Кажется, Физмат-калькулятор пока не знает эту формулу или Вы что-то с ним сделали. "
+    "Как бы то нибыло, мы будем учить Физмат-калькулятор это считать! "
+)
+
+
+tecnical_error_message: str = (
+    "Похоже, что Физмат-калькулятор сегодня не в духе. "
+    "Попробуйте зайти к нему за расчётами в следующий раз. "
+)
+
+
+class InputMethod(Enum):
+    FIRST_NUMBER = "FIRST_NUMBER"
+    ALL_NUMBERS = "ALL_NUMBERS"
+
+
+class FormulaMapData(Enum):
+    FUNCTION = "function"
+    METHOD = "method"
+
+
+class CalculationSchema(BaseModel):
+    formula: list[str]
+    quantities: dict[str, str]
 
 #endregion

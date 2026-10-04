@@ -108,18 +108,18 @@ class KineticEnergyLaw:
         pass
 
 
-    def get_E(self, *, p: Decimal, v: Decimal) -> Decimal:
-        E: Decimal = (p * v) / Decimal("2")
+    def get_E(self, *, m: Decimal, v: Decimal) -> Decimal:
+        E: Decimal = (m * v ** Decimal("2")) / Decimal("2")
         return E
 
 
-    def get_p(self, *, E: Decimal, v: Decimal) -> Decimal:
-        p: Decimal = (Decimal("2") * E) / v
-        return p
+    def get_m(self, *, E: Decimal, v: Decimal) -> Decimal:
+        m: Decimal = (Decimal("2") * E) / (v ** Decimal("2"))
+        return m
 
 
-    def get_v(self, *, E: Decimal, p: Decimal) -> Decimal:
-        v: Decimal = (Decimal("2") * E) / p
+    def get_v(self, *, E: Decimal, m: Decimal) -> Decimal:
+        v: Decimal = ((Decimal("2") * E) / m).sqrt()
         return v
 
 
@@ -186,6 +186,26 @@ class MechanicalPowerLaw:
     def get_t(self, *, A: Decimal, P: Decimal) -> Decimal:
         t: Decimal = A / P
         return t
+
+
+class MechanicalEfficiencyLaw:
+    def __init__(self) -> None:
+        pass
+
+
+    def get_eta(self, *, Au: Decimal, At: Decimal) -> Decimal:
+        eta: Decimal = (Au / At) * Decimal("100")
+        return eta
+
+
+    def get_Au(self, *, eta: Decimal, At: Decimal) -> Decimal:
+        Au: Decimal = (eta / Decimal("100")) * At
+        return Au
+
+
+    def get_At(self, *, Au: Decimal, eta: Decimal) -> Decimal:
+        At: Decimal = (Au / Decimal("100")) * eta
+        return At
 
 #endregion
 

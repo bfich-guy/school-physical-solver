@@ -10,10 +10,8 @@
     </head>
     <body>
         <header>
-            <div class="solver-header-background">
-                <div id="solver-header" class="solver-header-menu">
-                    
-                </div>
+            <div id="solver-header" class="solver-header-background solver-header-menu">
+                
             </div>
         </header>
         <main>
@@ -21,40 +19,55 @@
                 <p class="solver-main-text">
                     Физмат-калькулятор - это сайт, созданный для быстрых вычислений школьных формул из учебников.
                     Он предназначен для экономии времени и высокой производительности на уроке.
-                    В отличии от обычного калькулятора, он не падает от деления на ноль или некорректного ввода.
+                    В отличии от обычного калькулятора, он не падает от деления на ноль или отрицательного корня.
                     Его преимущество против нейросетей заключается в скорости и точности вычислений.
                 </p>
                 <p class="solver-main-text">
-                    Физмат-калькулятор может быть использован для решения задач прямо на уроке.
+                    Наш научный калькулятор может быть использован для решения задач прямо на уроке.
                     С помощью него учитель сможет подготовить учеников к контрольной или экзаменам.
                     Он предлагает пользователю интерактивное учебное пособие в сопровождении школьной программы.
                     Им могут пользоваться учителя, ученики или просто интересующиеся люди.
                 </p>
+                <p class="solver-main-text">
+                    Данный проект прощает пользователю отрицательную массу или скорость, но не позволит ему совершать математические ошибки.
+                    Задача калькулятора - чистый расчёт по готовым формулам и каждый пользователь сам отвечает за решённые им задачи, мы лишь предлагаем быстрые вычисления.
+                </p>
                 <div class="subjects-grid">
-                    <div class="subject-physics-image">
+                    <div class="subject-card subject-physics-image">
                         <p class="subject-name">
                             Физика
                         </p>
-                        <a href="/physics" class="subject-redirect-button">
-                            Перейти
-                        </a>
+                        <div class="subjects-list">
+                            <a href="/physics/electromagnetics" class="subject-redirect-button">
+                                Электромагнетизм
+                            </a>
+                            <a href="/physics/electromagnetics" class="subject-redirect-button">
+                                Механика
+                            </a>
+                            <a href="/physics/electromagnetics" class="subject-redirect-button">
+                                Термодинамика
+                            </a>
+                        </div>
                     </div>
-                    <div class="subject-math-image">
+                    <div class="subject-card subject-math-image">
                         <p class="subject-name">
                             Математика
                         </p>
-                        <a href="/math" class="subject-redirect-button">
-                            Перейти
-                        </a>
+                        <div class="subjects-list">
+                            <a href="/math/algebra" class="subject-redirect-button">
+                                Алгебра
+                            </a>
+                            <a href="/math/geometry" class="subject-redirect-button">
+                                Геометрия
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </main>
         <footer>
-            <div class="solver-footer-background">
-                <div id="solver-footer" class="solver-footer-menu">
-                    
-                </div>
+            <div id="solver-footer" class="solver-footer-background solver-footer-menu">
+                
             </div>
         </footer>
         <script src="/static/js/pagesetup.js" type="module"></script>

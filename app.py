@@ -3,25 +3,22 @@ from fastapi import FastAPI, APIRouter
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
 
-from config import Folders, Mounts
-from utils import include_routers
+from system.config.constants import Folders, Mounts
+from system.utils.systemserverhelpers import include_routers
 
 from routers.templates.index import index_router
-from routers.templates.answer import answer_router
+from routers.calculate import calculate_router
 
-from routers.templates.aboutusrouter.extrainfo import extrainfo_router
-from routers.templates.aboutusrouter.faq import faq_router 
-from routers.templates.aboutusrouter.usagepolicy import usage_policy_router
+from routers.templates.aboutus.extrainfo import extrainfo_router
+from routers.templates.aboutus.faq import faq_router 
+from routers.templates.aboutus.usagepolicy import usage_policy_router
 
-from routers.templates.math import math_router
-from routers.templates.physics import physics_router
+from routers.templates.math.algebra import algebra_router
+from routers.templates.math.geometry import geometry_router
 
-from routers.templates.mathfolder.algebra import algebra_router
-from routers.templates.mathfolder.geometry import geometry_router
-
-from routers.templates.physicsfolder.electromagnetics import electromagnetics_router
-from routers.templates.physicsfolder.mechanics import mechanics_router
-from routers.templates.physicsfolder.thermodynamics import thermodynamics_router
+from routers.templates.physics.electromagnetics import electromagnetics_router
+from routers.templates.physics.mechanics import mechanics_router
+from routers.templates.physics.thermodynamics import thermodynamics_router
 
 
 app = FastAPI()
@@ -45,14 +42,11 @@ app.add_middleware(
 
 routers_list: list[APIRouter] = [
     index_router,
-    answer_router,
+    calculate_router,
 
     extrainfo_router,
     faq_router,
     usage_policy_router,
-
-    math_router,
-    physics_router,
 
     algebra_router,
     geometry_router,

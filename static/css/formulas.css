@@ -1,91 +1,70 @@
-.formula-header {
-    margin: 64px 0;
-    border-top: 4px dashed black;
-    border-bottom: 4px dashed black;
-    background-color: white;
-}
-
-.formula-title {
-    font: bold 32px 'Franklin Gothic Medium';
-    color: black;
-    text-align: center;
-}
-
 .formulas-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .formula-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border: 4px solid lightgray;
     border-radius: 16px;
     background-color: white;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 2%;
-}
-
-.formula-card-info {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    margin: 8px;
 }
 
 .formula-name {
-    font: bold 16px "Arial";
-    text-align: center;
+    color: black;
+    font: bold 24px 'Franklin Gothic Medium';
 }
 
 .formula-object {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     border: 4px solid gray;
-    padding: 8px;
-    font-size: 24px;
+    font: bold 24px 'Franklin Gothic Medium';
+    text-align: center;
     width: auto;
+    padding: 16px;
 }
 
-.formula-card-input {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+.formula-inputs-card {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
 }
 
-.formula-input {
+.formula-input-field {
+    font: bold 24px 'Franklin Gothic Medium';
+    margin: 2px;
+}
+
+.formula-buttons-card {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.formula-button {
     border: 2px solid gray;
-    background-color: white;
-    width: 64%;
-    font-size: 16px;
-    margin-top: 4px;
-    margin-bottom: 4px;
-}
-
-.formula-card-button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.formula-calculate-button {
     border-radius: 16px;
     background-color: green;
     color: white;
-    font: bold 32px 'Franklin Gothic Medium';
-    text-align: center;
+    font: bold 24px 'Franklin Gothic Medium';
+    margin: 8px;
+}
+
+.formula-button:hover {
+    cursor: pointer;
+    border: 2px solid greenyellow;
+}
+
+.formula-button:active {
+    scale: 0.8;
+}
+
+.formula-answer {
+    border: 4px solid gray;
+    color: black;
+    background-color: white;
+    font: bold 24px 'Franklin Gothic Medium';
     margin-top: 8px;
     margin-bottom: 8px;
-    box-shadow: 4px 4px gray;
-}
-
-.formula-calculate-button:hover {
-    cursor: pointer;
-}
-
-.formula-calculate-button:active {
-    cursor: grab;
-    scale: 0.9;
-    box-shadow: 0px 0px;
+    padding: 16px;
 }
