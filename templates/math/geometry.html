@@ -16,7 +16,70 @@
         </header>
         <main>
             <div class="solver-main-background">
-                
+                <div class="formulas-grid">
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            Площадь круга
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <mi>S</mi>
+                                <mo>=</mo>
+                                <mi>π</mi>
+                                <msup>
+                                    <mi>r</mi>
+                                    <mn>2</mn>
+                                </msup>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="circle-area-theorem-S-input" type="text" class="formula-input-field" placeholder="S">
+                            <input id="circle-area-theorem-pi-input" type="text" class="formula-input-field" placeholder="pi">
+                            <input id="circle-area-theorem-r-input" type="text" class="formula-input-field" placeholder="r">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="circle-area-theorem-S-button" class="formula-button">
+                                Площадь круга
+                            </button>
+                            <button id="circle-area-theorem-r-button" class="formula-button">
+                                Радиус круга
+                            </button>
+                        </div>
+                        <p id="circle-area-theorem-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            Длина окружности
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <mi>S</mi>
+                                <mo>=</mo>
+                                <mn>2</mn>
+                                <mi>π</mi>
+                                <mi>r</mi>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="circumference-theorem-l-input" type="text" class="formula-input-field" placeholder="l">
+                            <input id="circumference-theorem-pi-input" type="text" class="formula-input-field" placeholder="pi">
+                            <input id="circumference-theorem-r-input" type="text" class="formula-input-field" placeholder="r">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="circumference-theorem-l-button" class="formula-button">
+                                Длина окружности
+                            </button>
+                            <button id="circumference-theorem-r-button" class="formula-button">
+                                Радиус круга
+                            </button>
+                        </div>
+                        <p id="circumference-theorem-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                </div>
             </div>
         </main>
         <footer>
@@ -25,5 +88,6 @@
             </div>
         </footer>
         <script src="/static/js/pagesetup.js" type="module"></script>
+        <script src="/static/js/calculateformula.js" type="module"></script>
     </body>
 </html>

@@ -14,6 +14,7 @@ class CircleAreaTheorem:
         S: Decimal = pi * (r ** Decimal("2"))
         return S
 
+
     def get_r(self, *, S: Decimal, pi: Decimal) -> Decimal:
         r: Decimal = (S / pi).sqrt()
         return r

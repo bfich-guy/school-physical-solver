@@ -1,4 +1,4 @@
-import { pageSetup } from "./utils.js";
+import { pageSetup } from "./utils/templates.js";
 
 
 pageSetup();

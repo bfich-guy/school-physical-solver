@@ -1,4 +1,4 @@
-import { calculateFormula } from "./utils.js";
+import { calculateFormula } from "./utils/formulashandling.js";
 
 
 calculateFormula();

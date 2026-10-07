@@ -16,6 +16,7 @@
 .formula-name {
     color: black;
     font: bold 24px 'Franklin Gothic Medium';
+    text-align: center;
 }
 
 .formula-object {

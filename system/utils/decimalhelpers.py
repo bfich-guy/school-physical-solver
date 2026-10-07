@@ -4,6 +4,9 @@ from decimal import Decimal, InvalidOperation
 #region Decimal calculators
 
 def decimal_sum(decimal_numbers: list[Decimal] | tuple[Decimal]) -> Decimal:
+    if not decimal_numbers:
+        raise ValueError
+
     decimal_sum = Decimal("0")
 
     for decimal_number in decimal_numbers:
@@ -13,6 +16,9 @@ def decimal_sum(decimal_numbers: list[Decimal] | tuple[Decimal]) -> Decimal:
 
 
 def decimal_product(decimal_numbers: list[Decimal] | tuple[Decimal]) -> Decimal:
+    if not decimal_numbers:
+        raise ValueError
+    
     decimal_product = Decimal("1")
 
     for decimal_number in decimal_numbers:
@@ -24,6 +30,14 @@ def decimal_product(decimal_numbers: list[Decimal] | tuple[Decimal]) -> Decimal:
 def decimal_logarithm(decimal_value: Decimal, decimal_base: Decimal) -> Decimal:
     decimal_logarithm: Decimal = (decimal_value.ln() / decimal_base.ln()).quantize(Decimal("1"))
     return decimal_logarithm
+
+
+def decimal_scalar(decimal_numbers: list[Decimal] | tuple[Decimal], scalar_value: Decimal) -> list[Decimal]:
+    if not decimal_numbers:
+        raise ValueError
+    
+    decimal_scalar: list[Decimal] = [decimal_number * scalar_value for decimal_number in decimal_numbers]
+    return decimal_scalar
 
 
 def get_quadratic_equation_roots(

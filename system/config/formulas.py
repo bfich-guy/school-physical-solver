@@ -4,8 +4,6 @@ from subjects.physics.electromagnetics import *
 from subjects.physics.mechanics import *
 from subjects.physics.thermodynamics import *
 
-from system.config.constants import FormulaMapData, InputMethod
-
 
 #region Algebra
 
@@ -18,107 +16,45 @@ ArithmeticProgressionSumTheoremSolver = ArithmeticProgressionSumTheorem()
 GeometricProgressionSumTheoremSolver = GeometricProgressionSumTheorem()
 ArithmeticProgressionTermTheoremSolver = ArithmeticProgressionTermTheorem()
 GeometricProgressionTermTheoremSolver = GeometricProgressionTermTheorem()
+VectorCoordinatesTheoremSolver = VectorCoordinatesTheorem()
+VectorMagnitudeTheoremSolver = VectorMagnitudeTheorem()
+VectorDotProductTheoremSolver = VectorDotProductTheorem()
+VectorAngleCosinusTheoremSolver = VectorAngleCosinusTheorem()
+VectorScalingTheoremSolver = VectorScalingTheorem()
+
+#endregion
+
+
+#region Geometry
+
+CircleAreaTheoremSolver = CircleAreaTheorem()
+CircumferenceTheoremSolver = CircumferenceTheorem()
 
 
 formulas_map: dict = {
-    ("LinearEquation", "get_x"): {
-        FormulaMapData.FUNCTION.value: LinearEquationSolver.get_x,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("QuadraticEquation", "get_x"): {
-        FormulaMapData.FUNCTION.value: QuadraticEquationSolver.get_x,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("LinearFunction", "get_y"): {
-        FormulaMapData.FUNCTION.value: LinearFunctionSolver.get_y,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("LinearFunction", "get_k"): {
-        FormulaMapData.FUNCTION.value: LinearFunctionSolver.get_k,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("LinearFunction", "get_b"): {
-        FormulaMapData.FUNCTION.value: LinearFunctionSolver.get_b,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("QuadraticFunction", "get_y"): {
-        FormulaMapData.FUNCTION.value: QuadraticFunctionSolver.get_y,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("QuadraticFunction", "get_a"): {
-        FormulaMapData.FUNCTION.value: QuadraticFunctionSolver.get_a,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("QuadraticFunction", "get_b"): {
-        FormulaMapData.FUNCTION.value: QuadraticFunctionSolver.get_b,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("QuadraticFunction", "get_c"): {
-        FormulaMapData.FUNCTION.value: QuadraticFunctionSolver.get_c,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("ArithmeticProgressionSumTheorem", "get_S"): {
-        FormulaMapData.FUNCTION.value: ArithmeticProgressionSumTheoremSolver.get_S,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("ArithmeticProgressionSumTheorem", "get_a1"): {
-        FormulaMapData.FUNCTION.value: ArithmeticProgressionSumTheoremSolver.get_a1,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("ArithmeticProgressionSumTheorem", "get_an"): {
-        FormulaMapData.FUNCTION.value: ArithmeticProgressionSumTheoremSolver.get_an,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("ArithmeticProgressionSumTheorem", "get_n"): {
-        FormulaMapData.FUNCTION.value: ArithmeticProgressionSumTheoremSolver.get_n,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("GeometricProgressionSumTheorem", "get_S"): {
-        FormulaMapData.FUNCTION.value: GeometricProgressionSumTheoremSolver.get_S,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("GeometricProgressionSumTheorem", "get_b1"): {
-        FormulaMapData.FUNCTION.value: GeometricProgressionSumTheoremSolver.get_b1,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("GeometricProgressionSumTheorem", "get_bn"): {
-        FormulaMapData.FUNCTION.value: GeometricProgressionSumTheoremSolver.get_bn,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("GeometricProgressionSumTheorem", "get_q"): {
-        FormulaMapData.FUNCTION.value: GeometricProgressionSumTheoremSolver.get_q,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("ArithmeticProgressionTermTheorem", "get_an"): {
-        FormulaMapData.FUNCTION.value: ArithmeticProgressionTermTheoremSolver.get_an,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("ArithmeticProgressionTermTheorem", "get_a1"): {
-        FormulaMapData.FUNCTION.value: ArithmeticProgressionTermTheoremSolver.get_a1,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("ArithmeticProgressionTermTheorem", "get_d"): {
-        FormulaMapData.FUNCTION.value: ArithmeticProgressionTermTheoremSolver.get_d,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("ArithmeticProgressionTermTheorem", "get_n"): {
-        FormulaMapData.FUNCTION.value: ArithmeticProgressionTermTheoremSolver.get_n,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("GeometricProgressionTermTheorem", "get_bn"): {
-        FormulaMapData.FUNCTION.value: GeometricProgressionTermTheoremSolver.get_bn,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("GeometricProgressionTermTheorem", "get_b1"): {
-        FormulaMapData.FUNCTION.value: GeometricProgressionTermTheoremSolver.get_b1,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("GeometricProgressionTermTheorem", "get_q"): {
-        FormulaMapData.FUNCTION.value: GeometricProgressionTermTheoremSolver.get_q,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
-    ("GeometricProgressionTermTheorem", "get_n"): {
-        FormulaMapData.FUNCTION.value: GeometricProgressionTermTheoremSolver.get_n,
-        FormulaMapData.METHOD.value: InputMethod.FIRST_NUMBER.value,
-        },
+    ("LinearEquation", "get_x"): LinearEquationSolver.get_x,
+    ("QuadraticEquation", "get_x"): QuadraticEquationSolver.get_x,
+    ("LinearFunction", "get_y"): LinearFunctionSolver.get_y,
+    ("LinearFunction", "get_k"): LinearFunctionSolver.get_k,
+    ("LinearFunction", "get_b"): LinearFunctionSolver.get_b,
+    ("QuadraticFunction", "get_y"): QuadraticFunctionSolver.get_y,
+    ("QuadraticFunction", "get_a"): QuadraticFunctionSolver.get_a,
+    ("QuadraticFunction", "get_b"): QuadraticFunctionSolver.get_b,
+    ("QuadraticFunction", "get_c"): QuadraticFunctionSolver.get_c,
+    ("ArithmeticProgressionSumTheorem", "get_S"): ArithmeticProgressionSumTheoremSolver.get_S,
+    ("ArithmeticProgressionSumTheorem", "get_a1"): ArithmeticProgressionSumTheoremSolver.get_a1,
+    ("ArithmeticProgressionSumTheorem", "get_an"): ArithmeticProgressionSumTheoremSolver.get_an,
+    ("ArithmeticProgressionSumTheorem", "get_n"): ArithmeticProgressionSumTheoremSolver.get_n,
+    ("GeometricProgressionSumTheorem", "get_S"): GeometricProgressionSumTheoremSolver.get_S,
+    ("GeometricProgressionSumTheorem", "get_b1"): GeometricProgressionSumTheoremSolver.get_b1,
+    ("GeometricProgressionSumTheorem", "get_bn"): GeometricProgressionSumTheoremSolver.get_bn,
+    ("GeometricProgressionSumTheorem", "get_q"): GeometricProgressionSumTheoremSolver.get_q,
+    ("ArithmeticProgressionTermTheorem", "get_an"): ArithmeticProgressionTermTheoremSolver.get_an,
+    ("ArithmeticProgressionTermTheorem", "get_a1"): ArithmeticProgressionTermTheoremSolver.get_a1,
+    ("ArithmeticProgressionTermTheorem", "get_d"): ArithmeticProgressionTermTheoremSolver.get_d,
+    ("ArithmeticProgressionTermTheorem", "get_n"): ArithmeticProgressionTermTheoremSolver.get_n,
+    ("GeometricProgressionTermTheorem", "get_bn"): GeometricProgressionTermTheoremSolver.get_bn,
+    ("GeometricProgressionTermTheorem", "get_b1"): GeometricProgressionTermTheoremSolver.get_b1,
+    ("GeometricProgressionTermTheorem", "get_q"): GeometricProgressionTermTheoremSolver.get_q,
+    ("GeometricProgressionTermTheorem", "get_n"): GeometricProgressionTermTheoremSolver.get_n,
 }

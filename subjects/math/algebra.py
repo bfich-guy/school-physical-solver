@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from system.utils.decimalhelpers import get_quadratic_equation_roots, decimal_logarithm, decimal_zip
+from system.utils.decimalhelpers import get_quadratic_equation_roots, decimal_scalar, decimal_logarithm, decimal_zip
 
 
 #region Equations
@@ -251,7 +251,7 @@ class VectorDotProductTheorem:
         return ab
 
 
-class AngleBetweenVectorsCosinusTheorem:
+class VectorAngleCosinusTheorem:
     def __init__(self) -> None:
         pass
 
@@ -276,18 +276,13 @@ class AngleBetweenVectorsCosinusTheorem:
         return lb
 
 
-class ScaledVectorTheorem:
+class VectorScalingTheorem:
     def __init__(self) -> None:
         pass
 
 
-    def get_b(self, *, a: list[Decimal], k: Decimal) -> list[Decimal]:
-        vector_is_empty: bool = not a
-        
-        if vector_is_empty:
-            raise ValueError
-
-        b: list[Decimal] = [Dx * k for Dx in a]
+    def get_b(self, *, a: list[Decimal], k: list[Decimal]) -> list[Decimal]:
+        b: list[Decimal] = decimal_scalar(a, k[0])
         return b
 
 #endregion

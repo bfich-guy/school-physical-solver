@@ -36,7 +36,7 @@
                             <input id="linear-equation-b-input" type="text" class="formula-input-field" placeholder="b">
                         </div>
                         <div class="formula-buttons-card">
-                            <button id="linear-equation-solving-button" class="formula-button">
+                            <button id="linear-equation-x-button" class="formula-button">
                                 Решить уравнение
                             </button>
                         </div>
@@ -70,7 +70,7 @@
                             <input id="quadratic-equation-c-input" type="text" class="formula-input-field" placeholder="c">
                         </div>
                         <div class="formula-buttons-card">
-                            <button id="quadratic-equation-solving-button" class="formula-button">
+                            <button id="quadratic-equation-x-button" class="formula-button">
                                 Решить уравнение
                             </button>
                         </div>
@@ -151,7 +151,7 @@
                                 Линейный коэффициент, b
                             </button>
                             <button id="quadratic-function-c-button" class="formula-button">
-                                Свободный коэффициент, b
+                                Свободный коэффициент, c
                             </button>
                         </div>
                         <p id="quadratic-function-answer-output" class="formula-answer">
@@ -186,23 +186,23 @@
                             </math>
                         </p>
                         <div class="formula-inputs-card">
-                            <input id="arithmetic-progression-sum-theorem-s-input" type="text" class="formula-input-field" placeholder="S">
+                            <input id="arithmetic-progression-sum-theorem-S-input" type="text" class="formula-input-field" placeholder="S">
                             <input id="arithmetic-progression-sum-theorem-a1-input" type="text" class="formula-input-field" placeholder="a1">
                             <input id="arithmetic-progression-sum-theorem-an-input" type="text" class="formula-input-field" placeholder="an">
                             <input id="arithmetic-progression-sum-theorem-n-input" type="text" class="formula-input-field" placeholder="n">
                         </div>
                         <div class="formula-buttons-card">
-                            <button id="arithmetic-progression-sum-theorem-s-button" class="formula-button">
-                                Сумма прогрессии
+                            <button id="arithmetic-progression-sum-theorem-S-button" class="formula-button">
+                                Сумма прогрессии, S
                             </button>
                             <button id="arithmetic-progression-sum-theorem-a1-button" class="formula-button">
-                                Первый элемент
+                                Первый элемент, a1
                             </button>
                             <button id="arithmetic-progression-sum-theorem-an-button" class="formula-button">
-                                N-ый элемент
+                                N-ый элемент, an
                             </button>
                             <button id="arithmetic-progression-sum-theorem-n-button" class="formula-button">
-                                Количество элементов
+                                Количество элементов, n
                             </button>
                         </div>
                         <p id="arithmetic-progression-sum-theorem-answer-output" class="formula-answer">
@@ -239,23 +239,23 @@
                             </math>
                         </p>
                         <div class="formula-inputs-card">
-                            <input id="geometric-progression-sum-theorem-s-input" type="text" class="formula-input-field" placeholder="S">
+                            <input id="geometric-progression-sum-theorem-S-input" type="text" class="formula-input-field" placeholder="S">
                             <input id="geometric-progression-sum-theorem-b1-input" type="text" class="formula-input-field" placeholder="b1">
                             <input id="geometric-progression-sum-theorem-bn-input" type="text" class="formula-input-field" placeholder="bn">
                             <input id="geometric-progression-sum-theorem-q-input" type="text" class="formula-input-field" placeholder="q">
                         </div>
                         <div class="formula-buttons-card">
-                            <button id="geometric-progression-sum-theorem-s-button" class="formula-button">
-                                Сумма прогрессии
+                            <button id="geometric-progression-sum-theorem-S-button" class="formula-button">
+                                Сумма прогрессии, S
                             </button>
                             <button id="geometric-progression-sum-theorem-b1-button" class="formula-button">
-                                Первый элемент
+                                Первый элемент, b1
                             </button>
                             <button id="geometric-progression-sum-theorem-bn-button" class="formula-button">
-                                N-ый элемент
+                                N-ый элемент, bn
                             </button>
                             <button id="geometric-progression-sum-theorem-q-button" class="formula-button">
-                                Количество элементов
+                                Знаменатель прогрессии, q
                             </button>
                         </div>
                         <p id="geometric-progression-sum-theorem-answer-output" class="formula-answer">
@@ -356,6 +356,256 @@
                             </button>
                         </div>
                         <p id="geometric-progression-term-theorem-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            Координаты вектора
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <mover>
+                                    <mi>a</mi>
+                                    <mo>→</mo>
+                                </mover>
+                                <mo>{</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>1B</mtext>
+                                </msub>
+                                <mo>−</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>1A</mtext>
+                                </msub>
+                                <mo>;</mo>
+                                <mo>…</mo>
+                                <mo>;</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>nB</mtext>
+                                </msub>
+                                <mo>−</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>nA</mtext>
+                                </msub>
+                                <mo>}</mo>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="vector-coordinates-theorem-A-input" type="text" class="formula-input-field" placeholder="A">
+                            <input id="vector-coordinates-theorem-B-input" type="text" class="formula-input-field" placeholder="B">
+                            <input id="vector-coordinates-theorem-a-input" type="text" class="formula-input-field" placeholder="a">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="vector-coordinates-theorem-A-button" class="formula-button">
+                                Начало вектора
+                            </button>
+                            <button id="vector-coordinates-theorem-B-button" class="formula-button">
+                                Конец вектора
+                            </button>
+                            <button id="vector-coordinates-theorem-a-button" class="formula-button">
+                                Координаты вектора
+                            </button>
+                        </div>
+                        <p id="vector-coordinates-theorem-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            Длина вектора
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <mo><mi>|</mi></mo>
+                                <mover>
+                                    <mi>a</mi>
+                                    <mo>→</mo>
+                                </mover>
+                                <mo><mi>|</mi></mo>
+                                <mo>=</mo>
+                                <msqrt>
+                                    <msup>
+                                        <msub>
+                                            <mi>x</mi>
+                                            <mn>1</mn>
+                                        </msub>
+                                        <mn>2</mn>
+                                    </msup>
+                                    <mo>+</mo>
+                                    <mo>…</mo>
+                                    <mo>+</mo>
+                                    <msup>
+                                        <msub>
+                                            <mi>x</mi>
+                                            <mi>n</mi>
+                                        </msub>
+                                        <mn>2</mn>
+                                    </msup>
+                                </msqrt>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="vector-magnitude-theorem-a-input" type="text" class="formula-input-field" placeholder="a">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="vector-magnitude-theorem-la-button" class="formula-button">
+                                Координаты вектора
+                            </button>
+                        </div>
+                        <p id="vector-magnitude-theorem-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            Скалярное произведение векторов
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <mover>
+                                    <mi>a</mi>
+                                    <mo>→</mo>
+                                </mover>
+                                <mover>
+                                    <mi>b</mi>
+                                    <mo>→</mo>
+                                </mover>
+                                <mo>=</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>1a</mtext>
+                                </msub>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>1b</mtext>
+                                </msub>
+                                <mo>+</mo>
+                                <mo>…</mo>
+                                <mo>+</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>na</mtext>
+                                </msub>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mtext>nb</mtext>
+                                </msub>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="vector-dot-product-theorem-a-input" type="text" class="formula-input-field" placeholder="a">
+                            <input id="vector-dot-product-theorem-b-input" type="text" class="formula-input-field" placeholder="b">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="vector-dot-product-theorem-ab-button" class="formula-button">
+                                Скалярное произведение векторов
+                            </button>
+                        </div>
+                        <p id="vector-dot-product-theorem-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            Косинус угла между векторами
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <mi>cosa</mi>
+                                <mo>=</mo>
+                                <mfrac>
+                                    <mrow>
+                                        <mover>
+                                            <mi>a</mi>
+                                            <mo>→</mo>
+                                        </mover>
+                                        <mover>
+                                            <mi>b</mi>
+                                            <mo>→</mo>
+                                        </mover>
+                                    </mrow>
+                                    <mrow>
+                                        <mo><mi>|</mi></mo>
+                                        <mover>
+                                            <mi>a</mi>
+                                            <mo>→</mo>
+                                        </mover>
+                                        <mo><mi>|</mi></mo>
+                                        <mo><mi>|</mi></mo>
+                                        <mover>
+                                            <mi>b</mi>
+                                            <mo>→</mo>
+                                        </mover>
+                                        <mo><mi>|</mi></mo>
+                                    </mrow>
+                                </mfrac>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="vector-angle-cosinus-theorem-cosa-input" type="text" class="formula-input-field" placeholder="cosa">
+                            <input id="vector-angle-cosinus-theorem-ab-input" type="text" class="formula-input-field" placeholder="ab">
+                            <input id="vector-angle-cosinus-theorem-la-input" type="text" class="formula-input-field" placeholder="la">
+                            <input id="vector-angle-cosinus-theorem-lb-input" type="text" class="formula-input-field" placeholder="lb">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="vector-angle-cosinus-theorem-cosa-button" class="formula-button">
+                                Косинус угла между векторами
+                            </button>
+                            <button id="vector-angle-cosinus-theorem-ab-button" class="formula-button">
+                                Скалярное произведение векторов
+                            </button>
+                            <button id="vector-angle-cosinus-theorem-la-button" class="formula-button">
+                                Длина первого вектора
+                            </button>
+                            <button id="vector-angle-cosinus-theorem-lb-button" class="formula-button">
+                                Длина второго вектора
+                            </button>
+                        </div>
+                        <p id="vector-angle-cosinus-theorem-answer-output" class="formula-answer">
+                            Физмат-калькулятор ждёт Вашего ввода!
+                        </p>
+                    </div>
+                    <div class="formula-card">
+                        <p class="formula-name">
+                            Пропорциональный вектор
+                        </p>
+                        <p class="formula-object">
+                            <math>
+                                <mover>
+                                    <mi>b</mi>
+                                    <mo>→</mo>
+                                </mover>
+                                <mo>{</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mn>1</mn>
+                                </msub>
+                                <mi>k</mi>
+                                <mo>;</mo>
+                                <mo>…</mo>
+                                <mo>;</mo>
+                                <msub>
+                                    <mi>x</mi>
+                                    <mi>n</mi>
+                                </msub>
+                                <mi>k</mi>
+                                <mo>}</mo>
+                            </math>
+                        </p>
+                        <div class="formula-inputs-card">
+                            <input id="vector-scaling-theorem-a-input" type="text" class="formula-input-field" placeholder="a">
+                            <input id="vector-scaling-theorem-k-input" type="text" class="formula-input-field" placeholder="k">
+                        </div>
+                        <div class="formula-buttons-card">
+                            <button id="vector-scaling-theorem-b-button" class="formula-button">
+                                Пропорциональный вектор
+                            </button>
+                        </div>
+                        <p id="vector-scaling-theorem-answer-output" class="formula-answer">
                             Физмат-калькулятор ждёт Вашего ввода!
                         </p>
                     </div>
