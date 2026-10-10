@@ -20,8 +20,5 @@
     color: black;
     font: bold 24px 'Franklin Gothic Medium';
     text-align: left;
-    margin-top: 8px;
-    margin-right: 64px;
-    margin-bottom: 64px;
-    margin-left: 64px;
+    margin: 32px;
 }

@@ -281,8 +281,8 @@ class VectorScalingTheorem:
         pass
 
 
-    def get_b(self, *, a: list[Decimal], k: list[Decimal]) -> list[Decimal]:
-        b: list[Decimal] = decimal_scalar(a, k[0])
+    def get_b(self, *, a: list[Decimal], k: Decimal) -> list[Decimal]:
+        b: list[Decimal] = decimal_scalar(a, k)
         return b
 
 #endregion

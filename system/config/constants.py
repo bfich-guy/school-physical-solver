@@ -1,5 +1,4 @@
 from enum import Enum
-from decimal import Decimal
 from pydantic import BaseModel
 
 
@@ -24,10 +23,7 @@ class Folders(Enum):
 
 class Files(Enum):
     INDEX = "index"
-
-    USAGEPOLICY = "usagepolicy"
-    FAQ = "faq"
-    EXTRAINFO = "extrainfo"
+    ABOUTUS = "aboutus"
 
     MATH = "math"
     PHYSICS = "physics"
@@ -38,6 +34,8 @@ class Files(Enum):
     ELECTROMAGNETICS = "electromagnetics"
     MECHANICS = "mechanics"
     THERMODYNAMICS = "thermodynamics"
+
+    CALCULATE = "calculate"
 
 
 class FileExtenstions(Enum):
@@ -77,11 +75,8 @@ class Prefix(Enum):
 
 class Endpoints(Enum):
     INDEX = f"/"
-    CALCULATE = "/calculate"
-
-    USAGEPOLICY = f"/{Files.USAGEPOLICY.value}"
-    FAQ = f"/{Files.FAQ.value}"
-    EXTRAINFO = f"/{Files.EXTRAINFO.value}"
+    ABOUTUS = f"/{Files.ABOUTUS.value}"
+    CALCULATE = f"/{Files.CALCULATE.value}"
 
     MATH = f"/{Files.MATH.value}"
     PHYSICS = f"/{Files.PHYSICS.value}"
@@ -96,10 +91,7 @@ class Endpoints(Enum):
 
 class Templates(Enum):
     INDEX = f"{Files.INDEX.value}.{FileExtenstions.HTML.value}"
-
-    USAGEPOLICY = f"{Folders.ABOUTUS.value}/{Files.USAGEPOLICY.value}.{FileExtenstions.HTML.value}"
-    FAQ = f"{Folders.ABOUTUS.value}/{Files.FAQ.value}.{FileExtenstions.HTML.value}"
-    EXTRAINFO = f"{Folders.ABOUTUS.value}/{Files.EXTRAINFO.value}.{FileExtenstions.HTML.value}"
+    ABOUTUS = f"{Files.ABOUTUS.value}.{FileExtenstions.HTML.value}"
 
     MATH = f"{Files.MATH.value}.{FileExtenstions.HTML.value}"
     PHYSICS = f"{Files.PHYSICS.value}.{FileExtenstions.HTML.value}"
@@ -118,22 +110,16 @@ class Templates(Enum):
 
 class ErrorMessages(Enum):
     USER_INPUT = (
-        "К сожалению, Ваш ввод оказался недействительным для Физмат-калькулятора. " 
-        "Проверьте, что Ваш ввод не больше 64 символов. "
-        "Так же рекомендуем убедиться, что Вы ввели хотя бы одно число в поле формулы. "
-        "Если Вы вводите векторы, то убедитесь, что они строго одноразмерные. "
+        "Некорректный ввод"
     )
     CALCULATIONS = (
-        "Увы, но Физмат-калькулятор заметил математические ошибки в Вашем вводе. "
-        "Проверьте, чтобы в Вашем следующем вводе не содержалось деление на ноль или отрицательных корней. "
+        "Ошибки в вычислениях"
     )
     UNKNOWN_FORMULA = (
-        "Кажется, Физмат-калькулятор пока не знает эту формулу или Вы что-то с ним сделали. "
-        "Как бы то нибыло, мы будем учить Физмат-калькулятор это считать! "
+        "Неизвестная формула"
     )
     TECHNICAL = (
-        "Похоже, что Физмат-калькулятор сегодня не в духе. "
-        "Попробуйте зайти к нему за расчётами в следующий раз. "
+        "Техническая ошибка"
     )
 
 

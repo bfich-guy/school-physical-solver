@@ -7,11 +7,8 @@ from system.config.constants import Folders, Mounts
 from system.utils.systemserverhelpers import include_routers
 
 from routers.templates.index import index_router
+from routers.templates.aboutus import aboutus_router
 from routers.calculate import calculate_router
-
-from routers.templates.aboutus.extrainfo import extrainfo_router
-from routers.templates.aboutus.faq import faq_router 
-from routers.templates.aboutus.usagepolicy import usage_policy_router
 
 from routers.templates.math.algebra import algebra_router
 from routers.templates.math.geometry import geometry_router
@@ -43,10 +40,7 @@ app.add_middleware(
 routers_list: list[APIRouter] = [
     index_router,
     calculate_router,
-
-    extrainfo_router,
-    faq_router,
-    usage_policy_router,
+    aboutus_router,
 
     algebra_router,
     geometry_router,

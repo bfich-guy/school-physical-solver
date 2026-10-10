@@ -28,10 +28,11 @@ def is_user_input_valid(
 
     if user_input_is_not_a_string:
         return False
+    
+    user_input_length: int = len(user_input)
+    user_input_is_too_long: bool = user_input_length > input_limit
 
-    user_input_is_in_valid_length_range: bool = 0 < input_limit < input_limit
-
-    if user_input_is_in_valid_length_range:
+    if user_input_is_too_long:
         return False
 
     return True
@@ -98,11 +99,11 @@ def run_solver(
         formula_answer_is_scalar: bool = isinstance(formula_answer, Decimal)
 
         if formula_answer_is_vector:
-            stringified_answer: str = ", ".join([str(decimal_number) for decimal_number in formula_answer])
+            stringified_answer: str = ", ".join([str(clean_trailing_zeros_from_decimal_number(decimal_number=decimal_number)) for decimal_number in formula_answer])
             return stringified_answer
 
         if formula_answer_is_scalar:
-            stringified_answer = str(formula_answer)
+            stringified_answer = str(clean_trailing_zeros_from_decimal_number(decimal_number=formula_answer))
             return stringified_answer
 
         return ""

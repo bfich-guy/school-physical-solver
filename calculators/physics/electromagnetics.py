@@ -98,11 +98,6 @@ class CoulombsLaw:
         return F
 
 
-    def get_k(self, *, F: Decimal, r: Decimal, q1: Decimal, q2: Decimal) -> Decimal:
-        k: Decimal = F * (r ** Decimal("2")) / (q1 * q2)
-        return k
-
-
     def get_q1(self, *, F: Decimal, r: Decimal, k: Decimal, q2: Decimal) -> Decimal:
         q1: Decimal = F * (r ** Decimal("2")) / (k * q2)
         return q1
@@ -227,7 +222,7 @@ class FaradaysLaw:
         return Dt
 
 
-class MagneticFluxLaw:
+class MagneticFluxToContourLaw:
     def __init__(self) -> None:
         pass
 

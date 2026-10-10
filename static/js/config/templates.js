@@ -8,32 +8,35 @@ export const SolverTemplatesData = {
     "SolverTitle": "Физмат-калькулятор",
     "SolverSlogan": "Все расчёты верны!",
     "SolverHeader": `
-        <p class="solver-header-text">
-            Физмат-калькулятор
-        </p>
+        <a href="/aboutus" class="solver-header-link">
+            О нас
+        </a>
+        <a href="/" class="solver-header-link">
+            Главная
+        </a>
     `,
     "SolverFooter": `
         <div class="solver-footer-card">
             <p class="solver-footer-card-title">
                 Навигация
             </p>
-            <div>
-                <a class="solver-footer-redirect-button" href="/">
+            <div class="solver-footer-card-links">
+                <a class="solver-footer-link" href="/">
                     Главная
                 </a>
-                <a class="solver-footer-redirect-button" href="/math/algebra">
+                <a class="solver-footer-link" href="/math/algebra">
                     Алгебра
                 </a>
-                <a class="solver-footer-redirect-button" href="/math/geometry">
+                <a class="solver-footer-link" href="/math/geometry">
                     Геометрия
                 </a>
-                <a class="solver-footer-redirect-button" href="/physics/electromagnetics">
+                <a class="solver-footer-link" href="/physics/electromagnetics">
                     Электромагнетизм
                 </a>
-                <a class="solver-footer-redirect-button" href="/physics/mechanics">
+                <a class="solver-footer-link" href="/physics/mechanics">
                     Механика
                 </a>
-                <a class="solver-footer-redirect-button" href="/physics/thermodynamics">
+                <a class="solver-footer-link" href="/physics/thermodynamics">
                     Термодинамика
                 </a>
             </div>
@@ -42,14 +45,14 @@ export const SolverTemplatesData = {
             <p class="solver-footer-card-title">
                 Поддержка
             </p>
-            <div>
-                <a class="solver-footer-redirect-button" href="/usagepolicy">
+            <div class="solver-footer-card-links">
+                <a class="solver-footer-link" href="/usagepolicy">
                     Политика пользования
                 </a>
-                <a class="solver-footer-redirect-button" href="/faq">
+                <a class="solver-footer-link" href="/faq">
                     Помощь в использовании
                 </a>
-                <a class="solver-footer-redirect-button" href="/extrainfo">
+                <a class="solver-footer-link" href="/extrainfo">
                     Дополнительная информация
                 </a>
             </div>

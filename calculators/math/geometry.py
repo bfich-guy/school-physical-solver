@@ -143,7 +143,7 @@ class CosineTheorem:
 
 
     def get_c(self, *, a: Decimal, b: Decimal, cosa: Decimal) -> Decimal:
-        c: Decimal = (a ** Decimal("2")) + (b ** Decimal("2")) - (Decimal("2") * a * b * cosa)
+        c: Decimal = ((a ** Decimal("2")) + (b ** Decimal("2")) - (Decimal("2") * a * b * cosa)).sqrt()
         return c
 
 
@@ -242,23 +242,23 @@ class TriangleAreaByCircumscripedCircleTheorem:
         return R
 
 
-class TriangleSideProjection:
+class TriangleSideProjectionTheorem:
     def __init__(self) -> None:
         pass
 
 
-    def get_h(self, *, c: Decimal, cossina: Decimal) -> Decimal:
-        h: Decimal = c * cossina
+    def get_h(self, *, a: Decimal, cossina: Decimal) -> Decimal:
+        h: Decimal = a * cossina
         return h
 
 
-    def get_c(self, *, h: Decimal, cossina: Decimal) -> Decimal:
-        c: Decimal = h / cossina
-        return c
+    def get_a(self, *, h: Decimal, cossina: Decimal) -> Decimal:
+        a: Decimal = h / cossina
+        return a
 
 
-    def get_cossina(self, *, h: Decimal, c: Decimal) -> Decimal:
-        cossina: Decimal = h / c
+    def get_cossina(self, *, h: Decimal, a: Decimal) -> Decimal:
+        cossina: Decimal = h / a
         return cossina
 
 
@@ -267,18 +267,18 @@ class FigureAreaBySimilarityCoefficientTheorem:
         pass
 
 
-    def get_S1(self, *, S2: Decimal, k: Decimal) -> Decimal:
-        S1: Decimal = S2 / k ** Decimal("2")
-        return S1
-
-
-    def get_k(self, *, S1: Decimal, S2: Decimal) -> Decimal:
-        k: Decimal = (S2 / S1).sqrt()
-        return k
-
-
     def get_S2(self, *, S1: Decimal, k: Decimal) -> Decimal:
         S2: Decimal = S1 * k ** Decimal("2")
         return S2
+
+
+    def get_S1(self, *, S2: Decimal, k: Decimal) -> Decimal:
+        S1: Decimal = S2 / k ** Decimal("2")
+        return S1
+    
+    
+    def get_k(self, *, S1: Decimal, S2: Decimal) -> Decimal:
+        k: Decimal = (S2 / S1).sqrt()
+        return k
 
 #endregion
