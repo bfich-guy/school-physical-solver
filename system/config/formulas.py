@@ -61,6 +61,39 @@ MagneticFluxToContourLawSolver = MagneticFluxToContourLaw()
 #endregion
 
 
+#region Mechanics
+
+NewtonsSecondLawSolver = NewtonsSecondLaw()
+HookesLawSolver = HookesLaw()
+AmontonsCoulombLawSolver = AmontonsCoulombLaw()
+NormalReactionLawSolver = NormalReactionLaw()
+MomentumLawSolver = MomentumLaw()
+KineticEnergyLawSolver = KineticEnergyLaw()
+PotentialEnergyLawSolver = PotentialEnergyLaw()
+MechanicalWorkLawSolver = MechanicalWorkLaw()
+MechanicalPowerLawSolver = MechanicalPowerLaw()
+MechanicalEfficiencyLawSolver = MechanicalEfficiencyLaw()
+LinearAccelerationLawSolver = LinearAccelerationLaw()
+UniformlyAcceleratedRectilinearMotionLawSolver = UniformlyAcceleratedRectilinearMotionLaw()
+CentripetalAccelerationLawSolver = CentripetalAccelerationLaw()
+TrajectoryRadiusLawSolver = TrajectoryRadiusLaw()
+PascalsLawSolver = PascalsLaw()
+ArchimedesLawSolver = ArchimedesLaw()
+HydrostaticPressureLawSolver = HydrostaticPressureLaw()
+
+#endregion
+
+
+#region Thermodynamics
+
+SensibleHeatLawSolver = SensibleHeatLaw()
+CombustionHeatLawSolver = CombustionHeatLaw()
+FusionHeatLawSolver = FusionHeatLaw()
+VaporizationHeatLawSolver = VaporizationHeatLaw()
+MendeleevClapeyronLawSolver = MendeleevClapeyronLaw()
+MolarMassLawSolver = MolarMassLaw()
+
+
 formulas_map: dict = {
     ("LinearEquation", "get_x"): LinearEquationSolver.get_x,
     ("QuadraticEquation", "get_x"): QuadraticEquationSolver.get_x,
@@ -178,4 +211,81 @@ formulas_map: dict = {
     ("MagneticFluxToContourLaw", "get_B"): MagneticFluxToContourLawSolver.get_B,
     ("MagneticFluxToContourLaw", "get_S"): MagneticFluxToContourLawSolver.get_S,
     ("MagneticFluxToContourLaw", "get_cosa"): MagneticFluxToContourLawSolver.get_cosa,
+
+    ("NewtonsSecondLaw", "get_F"): NewtonsSecondLawSolver.get_F,
+    ("NewtonsSecondLaw", "get_m"): NewtonsSecondLawSolver.get_m,
+    ("NewtonsSecondLaw", "get_a"): NewtonsSecondLawSolver.get_a,
+    ("HookesLaw", "get_F"): HookesLawSolver.get_F,
+    ("HookesLaw", "get_k"): HookesLawSolver.get_k,
+    ("HookesLaw", "get_Dx"): HookesLawSolver.get_Dx,
+    ("AmontonsCoulombLaw", "get_F"): AmontonsCoulombLawSolver.get_F,
+    ("AmontonsCoulombLaw", "get_mu"): AmontonsCoulombLawSolver.get_mu,
+    ("AmontonsCoulombLaw", "get_N"): AmontonsCoulombLawSolver.get_N,
+    ("NormalReactionLaw", "get_N"): NormalReactionLawSolver.get_N,
+    ("NormalReactionLaw", "get_F"): NormalReactionLawSolver.get_F,
+    ("NormalReactionLaw", "get_cosa"): NormalReactionLawSolver.get_cosa,
+    ("MomentumLaw", "get_p"): MomentumLawSolver.get_p,
+    ("MomentumLaw", "get_m"): MomentumLawSolver.get_m,
+    ("MomentumLaw", "get_v"): MomentumLawSolver.get_v,
+    ("KineticEnergyLaw", "get_E"): KineticEnergyLawSolver.get_E,
+    ("KineticEnergyLaw", "get_m"): KineticEnergyLawSolver.get_m,
+    ("KineticEnergyLaw", "get_v"): KineticEnergyLawSolver.get_v,
+    ("PotentialEnergyLaw", "get_E"): PotentialEnergyLawSolver.get_E,
+    ("PotentialEnergyLaw", "get_F"): PotentialEnergyLawSolver.get_F,
+    ("PotentialEnergyLaw", "get_h"): PotentialEnergyLawSolver.get_h,
+    ("MechanicalWorkLaw", "get_A"): MechanicalWorkLawSolver.get_A,
+    ("MechanicalWorkLaw", "get_F"): MechanicalWorkLawSolver.get_F,
+    ("MechanicalWorkLaw", "get_S"): MechanicalWorkLawSolver.get_S,
+    ("MechanicalWorkLaw", "get_cosa"): MechanicalWorkLawSolver.get_cosa,
+    ("MechanicalPowerLaw", "get_P"): MechanicalPowerLawSolver.get_P,
+    ("MechanicalPowerLaw", "get_A"): MechanicalPowerLawSolver.get_A,
+    ("MechanicalPowerLaw", "get_t"): MechanicalPowerLawSolver.get_t,
+    ("MechanicalEfficiencyLaw", "get_eta"): MechanicalEfficiencyLawSolver.get_eta,
+    ("MechanicalEfficiencyLaw", "get_Au"): MechanicalEfficiencyLawSolver.get_Au,
+    ("MechanicalEfficiencyLaw", "get_At"): MechanicalEfficiencyLawSolver.get_At,
+    ("LinearAccelerationLaw", "get_a"): LinearAccelerationLawSolver.get_a,
+    ("LinearAccelerationLaw", "get_v"): LinearAccelerationLawSolver.get_v,
+    ("LinearAccelerationLaw", "get_t"): LinearAccelerationLawSolver.get_t,
+    ("UniformlyAcceleratedRectilinearMotionLaw", "get_S"): UniformlyAcceleratedRectilinearMotionLawSolver.get_S,
+    ("UniformlyAcceleratedRectilinearMotionLaw", "get_v0"): UniformlyAcceleratedRectilinearMotionLawSolver.get_v0,
+    ("UniformlyAcceleratedRectilinearMotionLaw", "get_a"): UniformlyAcceleratedRectilinearMotionLawSolver.get_a,
+    ("UniformlyAcceleratedRectilinearMotionLaw", "get_t"): UniformlyAcceleratedRectilinearMotionLawSolver.get_t,
+    ("CentripetalAccelerationLaw", "get_a"): CentripetalAccelerationLawSolver.get_a,
+    ("CentripetalAccelerationLaw", "get_v"): CentripetalAccelerationLawSolver.get_v,
+    ("CentripetalAccelerationLaw", "get_w"): CentripetalAccelerationLawSolver.get_w,
+    ("TrajectoryRadiusLaw", "get_R"): TrajectoryRadiusLawSolver.get_R,
+    ("TrajectoryRadiusLaw", "get_v"): TrajectoryRadiusLawSolver.get_v,
+    ("TrajectoryRadiusLaw", "get_w"): TrajectoryRadiusLawSolver.get_w,
+    ("PascalsLaw", "get_p"): PascalsLawSolver.get_p,
+    ("PascalsLaw", "get_F"): PascalsLawSolver.get_F,
+    ("PascalsLaw", "get_S"): PascalsLawSolver.get_S,
+    ("ArchimedesLaw", "get_F"): ArchimedesLawSolver.get_F,
+    ("ArchimedesLaw", "get_rho"): ArchimedesLawSolver.get_rho,
+    ("ArchimedesLaw", "get_V"): ArchimedesLawSolver.get_V,
+    ("ArchimedesLaw", "get_g"): ArchimedesLawSolver.get_g,
+    ("HydrostaticPressureLaw", "get_p"): HydrostaticPressureLawSolver.get_p,
+    ("HydrostaticPressureLaw", "get_rho"): HydrostaticPressureLawSolver.get_rho,
+    ("HydrostaticPressureLaw", "get_g"): HydrostaticPressureLawSolver.get_g,
+    ("HydrostaticPressureLaw", "get_h"): HydrostaticPressureLawSolver.get_h,
+
+    ("SensibleHeatLaw", "get_Q"): SensibleHeatLawSolver.get_Q,
+    ("SensibleHeatLaw", "get_c"): SensibleHeatLawSolver.get_c,
+    ("SensibleHeatLaw", "get_m"): SensibleHeatLawSolver.get_m,
+    ("SensibleHeatLaw", "get_Dt"): SensibleHeatLawSolver.get_Dt,
+    ("CombustionHeatLaw", "get_Q"): CombustionHeatLawSolver.get_Q,
+    ("CombustionHeatLaw", "get_q"): CombustionHeatLawSolver.get_q,
+    ("CombustionHeatLaw", "get_m"): CombustionHeatLawSolver.get_m,
+    ("FusionHeatLaw", "get_Q"): FusionHeatLawSolver.get_Q,
+    ("FusionHeatLaw", "get_lmb"): FusionHeatLawSolver.get_lmb,
+    ("FusionHeatLaw", "get_m"): FusionHeatLawSolver.get_m,
+    ("VaporizationHeatLaw", "get_Q"): VaporizationHeatLawSolver.get_Q,
+    ("VaporizationHeatLaw", "get_L"): VaporizationHeatLawSolver.get_L,
+    ("VaporizationHeatLaw", "get_m"): VaporizationHeatLawSolver.get_m,
+    ("MolarMassLaw", "get_v"): MolarMassLawSolver.get_v,
+    ("MolarMassLaw", "get_m"): MolarMassLawSolver.get_m,
+    ("MolarMassLaw", "get_M"): MolarMassLawSolver.get_M,
+    ("MendeleevClapeyronLaw", "get_p"): MendeleevClapeyronLawSolver.get_p,
+    ("MendeleevClapeyronLaw", "get_V"): MendeleevClapeyronLawSolver.get_V,
+    ("MendeleevClapeyronLaw", "get_v"): MendeleevClapeyronLawSolver.get_v,
+    ("MendeleevClapeyronLaw", "get_T"): MendeleevClapeyronLawSolver.get_T,
 }

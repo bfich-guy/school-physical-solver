@@ -92,6 +92,26 @@ class VaporizationHeatLaw:
 
 #region Molecular kinetic theory
 
+class MolarMassLaw:
+    def __init__(self) -> None:
+        pass
+
+
+    def get_v(self, *, m: Decimal, M: Decimal) -> Decimal:
+        v: Decimal = m / M
+        return v
+
+
+    def get_m(self, *, v: Decimal, M: Decimal) -> Decimal:
+        m: Decimal = v * M
+        return m
+
+
+    def get_M(self, *, m: Decimal, v: Decimal) -> Decimal:
+        M: Decimal = m / v
+        return M
+
+
 class MendeleevClapeyronLaw:
     def __init__(self) -> None:
         pass
@@ -115,25 +135,5 @@ class MendeleevClapeyronLaw:
     def get_T(self, *, p: Decimal, V: Decimal, R: Decimal, v: Decimal) -> Decimal:
         T: Decimal = (p * V) / (R * v)
         return T
-
-
-class MolarMassLaw:
-    def __init__(self) -> None:
-        pass
-
-
-    def get_v(self, *, m: Decimal, M: Decimal) -> Decimal:
-        v: Decimal = m / M
-        return v
-
-
-    def get_m(self, *, v: Decimal, M: Decimal) -> Decimal:
-        m: Decimal = v * M
-        return m
-
-
-    def get_M(self, *, m: Decimal, v: Decimal) -> Decimal:
-        M: Decimal = m / v
-        return M
 
 #endregion

@@ -2292,4 +2292,1466 @@ export const FormulasData = {
             "MagneticFluxToContourLaw", "get_cosa",
         ],
     },
+    "newtons-second-law-F-button": {
+        "input": {
+            "newtons-second-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+            "newtons-second-law-a-input": {
+                "name": "a",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "newtons-second-law-answer-output",
+        },
+        "formula": [
+            "NewtonsSecondLaw", "get_F",
+        ],
+    },
+    "newtons-second-law-m-button": {
+        "input": {
+            "newtons-second-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "newtons-second-law-a-input": {
+                "name": "a",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "newtons-second-law-answer-output",
+        },
+        "formula": [
+            "NewtonsSecondLaw", "get_m",
+        ],
+    },
+    "newtons-second-law-a-button": {
+        "input": {
+            "newtons-second-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "newtons-second-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "newtons-second-law-answer-output",
+        },
+        "formula": [
+            "NewtonsSecondLaw", "get_a",
+        ],
+    },
+    "hookes-law-F-button": {
+        "input": {
+            "hookes-law-k-input": {
+                "name": "k",
+                "mode": "scalar",
+            },
+            "hookes-law-Dx-input": {
+                "name": "Dx",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "hookes-law-answer-output",
+        },
+        "formula": [
+            "HookesLaw", "get_F",
+        ],
+    },
+    "hookes-law-k-button": {
+        "input": {
+            "hookes-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "hookes-law-Dx-input": {
+                "name": "Dx",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "hookes-law-answer-output",
+        },
+        "formula": [
+            "HookesLaw", "get_k",
+        ],
+    },
+    "hookes-law-Dx-button": {
+        "input": {
+            "hookes-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "hookes-law-k-input": {
+                "name": "k",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "hookes-law-answer-output",
+        },
+        "formula": [
+            "HookesLaw", "get_Dx",
+        ],
+    },
+    "amontons-coulomb-law-F-button": {
+        "input": {
+            "amontons-coulomb-law-mu-input": {
+                "name": "mu",
+                "mode": "scalar",
+            },
+            "amontons-coulomb-law-N-input": {
+                "name": "N",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "amontons-coulomb-law-answer-output",
+        },
+        "formula": [
+            "AmontonsCoulombLaw", "get_F",
+        ],
+    },
+    "amontons-coulomb-law-mu-button": {
+        "input": {
+            "amontons-coulomb-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "amontons-coulomb-law-N-input": {
+                "name": "N",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "amontons-coulomb-law-answer-output",
+        },
+        "formula": [
+            "AmontonsCoulombLaw", "get_mu",
+        ],
+    },
+    "amontons-coulomb-law-N-button": {
+        "input": {
+            "amontons-coulomb-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "amontons-coulomb-law-mu-input": {
+                "name": "mu",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "amontons-coulomb-law-answer-output",
+        },
+        "formula": [
+            "AmontonsCoulombLaw", "get_N",
+        ],
+    },
+    "normal-reaction-law-N-button": {
+        "input": {
+            "normal-reaction-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "normal-reaction-law-cosa-input": {
+                "name": "cosa",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "normal-reaction-law-answer-output",
+        },
+        "formula": [
+            "NormalReactionLaw", "get_N",
+        ],
+    },
+    "normal-reaction-law-F-button": {
+        "input": {
+            "normal-reaction-law-N-input": {
+                "name": "N",
+                "mode": "scalar",
+            },
+            "normal-reaction-law-cosa-input": {
+                "name": "cosa",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "normal-reaction-law-answer-output",
+        },
+        "formula": [
+            "NormalReactionLaw", "get_F",
+        ],
+    },
+    "normal-reaction-law-cosa-button": {
+        "input": {
+            "normal-reaction-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "normal-reaction-law-N-input": {
+                "name": "N",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "normal-reaction-law-answer-output",
+        },
+        "formula": [
+            "NormalReactionLaw", "get_cosa",
+        ],
+    },
+    "momentum-law-p-button": {
+        "input": {
+            "momentum-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+            "momentum-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "momentum-law-answer-output",
+        },
+        "formula": [
+            "MomentumLaw", "get_p",
+        ],
+    },
+    "momentum-law-m-button": {
+        "input": {
+            "momentum-law-p-input": {
+                "name": "p",
+                "mode": "scalar",
+            },
+            "momentum-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "momentum-law-answer-output",
+        },
+        "formula": [
+            "MomentumLaw", "get_m",
+        ],
+    },
+    "momentum-law-v-button": {
+        "input": {
+            "momentum-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+            "momentum-law-p-input": {
+                "name": "p",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "momentum-law-answer-output",
+        },
+        "formula": [
+            "MomentumLaw", "get_v",
+        ],
+    },
+    "kinetic-energy-law-E-button": {
+        "input": {
+            "kinetic-energy-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+            "kinetic-energy-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "kinetic-energy-law-answer-output",
+        },
+        "formula": [
+            "KineticEnergyLaw", "get_E",
+        ],
+    },
+    "kinetic-energy-law-m-button": {
+        "input": {
+            "kinetic-energy-law-E-input": {
+                "name": "E",
+                "mode": "scalar",
+            },
+            "kinetic-energy-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "kinetic-energy-law-answer-output",
+        },
+        "formula": [
+            "KineticEnergyLaw", "get_m",
+        ],
+    },
+    "kinetic-energy-law-v-button": {
+        "input": {
+            "kinetic-energy-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+            "kinetic-energy-law-p-input": {
+                "name": "p",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "kinetic-energy-law-answer-output",
+        },
+        "formula": [
+            "KineticEnergyLaw", "get_v",
+        ],
+    },
+    "potential-energy-law-E-button": {
+        "input": {
+            "potential-energy-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "potential-energy-law-h-input": {
+                "name": "h",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "potential-energy-law-answer-output",
+        },
+        "formula": [
+            "PotentialEnergyLaw", "get_E",
+        ],
+    },
+    "potential-energy-law-F-button": {
+        "input": {
+            "potential-energy-law-E-input": {
+                "name": "E",
+                "mode": "scalar",
+            },
+            "potential-energy-law-h-input": {
+                "name": "h",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "potential-energy-law-answer-output",
+        },
+        "formula": [
+            "PotentialEnergyLaw", "get_F",
+        ],
+    },
+    "potential-energy-law-h-button": {
+        "input": {
+            "potential-energy-law-E-input": {
+                "name": "E",
+                "mode": "scalar",
+            },
+            "potential-energy-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "potential-energy-law-answer-output",
+        },
+        "formula": [
+            "PotentialEnergyLaw", "get_h",
+        ],
+    },
+    "mechanical-work-law-A-button": {
+        "input": {
+            "mechanical-work-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "mechanical-work-law-S-input": {
+                "name": "S",
+                "mode": "scalar",
+            },
+            "mechanical-work-law-cosa-input": {
+                "name": "cosa",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "mechanical-work-law-answer-output",
+        },
+        "formula": [
+            "MechanicalWorkLaw", "get_A",
+        ],
+    },
+    "mechanical-work-law-F-button": {
+        "input": {
+            "mechanical-work-law-A-input": {
+                "name": "A",
+                "mode": "scalar",
+            },
+            "mechanical-work-law-S-input": {
+                "name": "S",
+                "mode": "scalar",
+            },
+            "mechanical-work-law-cosa-input": {
+                "name": "cosa",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "mechanical-work-law-answer-output",
+        },
+        "formula": [
+            "MechanicalWorkLaw", "get_F",
+        ],
+    },
+    "mechanical-work-law-S-button": {
+        "input": {
+            "mechanical-work-law-A-input": {
+                "name": "A",
+                "mode": "scalar",
+            },
+            "mechanical-work-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "mechanical-work-law-cosa-input": {
+                "name": "cosa",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "mechanical-work-law-answer-output",
+        },
+        "formula": [
+            "MechanicalWorkLaw", "get_S",
+        ],
+    },
+    "mechanical-work-law-cosa-button": {
+        "input": {
+            "mechanical-work-law-A-input": {
+                "name": "A",
+                "mode": "scalar",
+            },
+            "mechanical-work-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "mechanical-work-law-S-input": {
+                "name": "S",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "mechanical-work-law-answer-output",
+        },
+        "formula": [
+            "MechanicalWorkLaw", "get_cosa",
+        ],
+    },
+    "mechanical-power-law-P-button": {
+        "input": {
+            "mechanical-power-law-A-input": {
+                "name": "A",
+                "mode": "scalar",
+            },
+            "mechanical-power-law-t-input": {
+                "name": "t",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "mechanical-power-law-answer-output",
+        },
+        "formula": [
+            "MechanicalPowerLaw", "get_P",
+        ],
+    },
+    "mechanical-power-law-A-button": {
+        "input": {
+            "mechanical-power-law-P-input": {
+                "name": "P",
+                "mode": "scalar",
+            },
+            "mechanical-power-law-t-input": {
+                "name": "t",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "mechanical-power-law-answer-output",
+        },
+        "formula": [
+            "MechanicalPowerLaw", "get_A",
+        ],
+    },
+    "mechanical-power-law-t-button": {
+        "input": {
+            "mechanical-power-law-P-input": {
+                "name": "P",
+                "mode": "scalar",
+            },
+            "mechanical-power-law-A-input": {
+                "name": "A",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "mechanical-power-law-answer-output",
+        },
+        "formula": [
+            "MechanicalPowerLaw", "get_t",
+        ],
+    },
+    "mechanical-efficiency-law-eta-button": {
+        "input": {
+            "mechanical-efficiency-law-Au-input": {
+                "name": "Au",
+                "mode": "scalar",
+            },
+            "mechanical-efficiency-law-At-input": {
+                "name": "At",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "mechanical-efficiency-law-answer-output",
+        },
+        "formula": [
+            "MechanicalEfficiencyLaw", "get_eta",
+        ],
+    },
+    "mechanical-efficiency-law-Au-button": {
+        "input": {
+            "mechanical-efficiency-law-eta-input": {
+                "name": "eta",
+                "mode": "scalar",
+            },
+            "mechanical-efficiency-law-At-input": {
+                "name": "At",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "mechanical-efficiency-law-answer-output",
+        },
+        "formula": [
+            "MechanicalEfficiencyLaw", "get_Au",
+        ],
+    },
+    "mechanical-efficiency-law-At-button": {
+        "input": {
+            "mechanical-efficiency-law-eta-input": {
+                "name": "eta",
+                "mode": "scalar",
+            },
+            "mechanical-efficiency-law-Au-input": {
+                "name": "Au",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "mechanical-efficiency-law-answer-output",
+        },
+        "formula": [
+            "MechanicalEfficiencyLaw", "get_At",
+        ],
+    },
+    "linear-acceleration-law-a-button": {
+        "input": {
+            "linear-acceleration-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+            "linear-acceleration-law-t-input": {
+                "name": "t",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "linear-acceleration-law-answer-output",
+        },
+        "formula": [
+            "LinearAccelerationLaw", "get_a",
+        ],
+    },
+    "linear-acceleration-law-v-button": {
+        "input": {
+            "linear-acceleration-law-a-input": {
+                "name": "a",
+                "mode": "scalar",
+            },
+            "linear-acceleration-law-t-input": {
+                "name": "t",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "linear-acceleration-law-answer-output",
+        },
+        "formula": [
+            "LinearAccelerationLaw", "get_v",
+        ],
+    },
+    "linear-acceleration-law-t-button": {
+        "input": {
+            "linear-acceleration-law-a-input": {
+                "name": "a",
+                "mode": "scalar",
+            },
+            "linear-acceleration-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "linear-acceleration-law-answer-output",
+        },
+        "formula": [
+            "LinearAccelerationLaw", "get_t",
+        ],
+    },
+    "uniform-accelerated-rectilinear-motion-law-S-button": {
+        "input": {
+            "uniform-accelerated-rectilinear-motion-law-v0-input": {
+                "name": "v0",
+                "mode": "scalar",
+            },
+            "uniform-accelerated-rectilinear-motion-law-a-input": {
+                "name": "a",
+                "mode": "scalar",
+            },
+            "uniform-accelerated-rectilinear-motion-law-t-input": {
+                "name": "t",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "uniform-accelerated-rectilinear-motion-law-answer-output",
+        },
+        "formula": [
+            "UniformlyAcceleratedRectilinearMotionLaw", "get_S",
+        ],
+    },
+    "uniform-accelerated-rectilinear-motion-law-v0-button": {
+        "input": {
+            "uniform-accelerated-rectilinear-motion-law-S-input": {
+                "name": "S",
+                "mode": "scalar",
+            },
+            "uniform-accelerated-rectilinear-motion-law-a-input": {
+                "name": "a",
+                "mode": "scalar",
+            },
+            "uniform-accelerated-rectilinear-motion-law-t-input": {
+                "name": "t",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "uniform-accelerated-rectilinear-motion-law-answer-output",
+        },
+        "formula": [
+            "UniformlyAcceleratedRectilinearMotionLaw", "get_v0",
+        ],
+    },
+    "uniform-accelerated-rectilinear-motion-law-a-button": {
+        "input": {
+            "uniform-accelerated-rectilinear-motion-law-S-input": {
+                "name": "S",
+                "mode": "scalar",
+            },
+            "uniform-accelerated-rectilinear-motion-law-v0-input": {
+                "name": "v0",
+                "mode": "scalar",
+            },
+            "uniform-accelerated-rectilinear-motion-law-t-input": {
+                "name": "t",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "uniform-accelerated-rectilinear-motion-law-answer-output",
+        },
+        "formula": [
+            "UniformlyAcceleratedRectilinearMotionLaw", "get_a",
+        ],
+    },
+    "uniform-accelerated-rectilinear-motion-law-t-button": {
+        "input": {
+            "uniform-accelerated-rectilinear-motion-law-S-input": {
+                "name": "S",
+                "mode": "scalar",
+            },
+            "uniform-accelerated-rectilinear-motion-law-v0-input": {
+                "name": "v0",
+                "mode": "scalar",
+            },
+            "uniform-accelerated-rectilinear-motion-law-a-input": {
+                "name": "a",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "uniform-accelerated-rectilinear-motion-law-answer-output",
+        },
+        "formula": [
+            "UniformlyAcceleratedRectilinearMotionLaw", "get_t",
+        ],
+    },
+    "centripetal-acceleration-law-a-button": {
+        "input": {
+            "centripetal-acceleration-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+            "centripetal-acceleration-law-w-input": {
+                "name": "w",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "centripetal-acceleration-law-answer-output",
+        },
+        "formula": [
+            "CentripetalAccelerationLaw", "get_a",
+        ],
+    },
+    "centripetal-acceleration-law-v-button": {
+        "input": {
+            "centripetal-acceleration-law-a-input": {
+                "name": "a",
+                "mode": "scalar",
+            },
+            "centripetal-acceleration-law-w-input": {
+                "name": "w",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "centripetal-acceleration-law-answer-output",
+        },
+        "formula": [
+            "CentripetalAccelerationLaw", "get_v",
+        ],
+    },
+    "centripetal-acceleration-law-w-button": {
+        "input": {
+            "centripetal-acceleration-law-a-input": {
+                "name": "a",
+                "mode": "scalar",
+            },
+            "centripetal-acceleration-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "centripetal-acceleration-law-answer-output",
+        },
+        "formula": [
+            "CentripetalAccelerationLaw", "get_w",
+        ],
+    },
+    "trajectory-radius-law-R-button": {
+        "input": {
+            "trajectory-radius-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+            "trajectory-radius-law-w-input": {
+                "name": "w",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "trajectory-radius-law-answer-output",
+        },
+        "formula": [
+            "TrajectoryRadiusLaw", "get_R",
+        ],
+    },
+    "trajectory-radius-law-v-button": {
+        "input": {
+            "trajectory-radius-law-R-input": {
+                "name": "R",
+                "mode": "scalar",
+            },
+            "trajectory-radius-law-w-input": {
+                "name": "w",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "trajectory-radius-law-answer-output",
+        },
+        "formula": [
+            "TrajectoryRadiusLaw", "get_v",
+        ],
+    },
+    "trajectory-radius-law-w-button": {
+        "input": {
+            "trajectory-radius-law-R-input": {
+                "name": "R",
+                "mode": "scalar",
+            },
+            "trajectory-radius-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "trajectory-radius-law-answer-output",
+        },
+        "formula": [
+            "TrajectoryRadiusLaw", "get_w",
+        ],
+    },
+    "pascals-law-p-button": {
+        "input": {
+            "pascals-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "pascals-law-S-input": {
+                "name": "S",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "pascals-law-answer-output",
+        },
+        "formula": [
+            "PascalsLaw", "get_p",
+        ],
+    },
+    "pascals-law-F-button": {
+        "input": {
+            "pascals-law-p-input": {
+                "name": "p",
+                "mode": "scalar",
+            },
+            "pascals-law-S-input": {
+                "name": "S",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "pascals-law-answer-output",
+        },
+        "formula": [
+            "PascalsLaw", "get_F",
+        ],
+    },
+    "pascals-law-S-button": {
+        "input": {
+            "pascals-law-p-input": {
+                "name": "p",
+                "mode": "scalar",
+            },
+            "pascals-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "pascals-law-answer-output",
+        },
+        "formula": [
+            "PascalsLaw", "get_S",
+        ],
+    },
+    "archimedes-law-F-button": {
+        "input": {
+            "archimedes-law-rho-input": {
+                "name": "rho",
+                "mode": "scalar",
+            },
+            "archimedes-law-V-input": {
+                "name": "V",
+                "mode": "scalar",
+            },
+            "archimedes-law-g-input": {
+                "name": "g",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "archimedes-law-answer-output",
+        },
+        "formula": [
+            "ArchimedesLaw", "get_F",
+        ],
+    },
+    "archimedes-law-rho-button": {
+        "input": {
+            "archimedes-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "archimedes-law-V-input": {
+                "name": "V",
+                "mode": "scalar",
+            },
+            "archimedes-law-g-input": {
+                "name": "g",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "archimedes-law-answer-output",
+        },
+        "formula": [
+            "ArchimedesLaw", "get_rho",
+        ],
+    },
+    "archimedes-law-V-button": {
+        "input": {
+            "archimedes-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "archimedes-law-rho-input": {
+                "name": "rho",
+                "mode": "scalar",
+            },
+            "archimedes-law-g-input": {
+                "name": "g",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "archimedes-law-answer-output",
+        },
+        "formula": [
+            "ArchimedesLaw", "get_V",
+        ],
+    },
+    "archimedes-law-g-button": {
+        "input": {
+            "archimedes-law-F-input": {
+                "name": "F",
+                "mode": "scalar",
+            },
+            "archimedes-law-rho-input": {
+                "name": "rho",
+                "mode": "scalar",
+            },
+            "archimedes-law-V-input": {
+                "name": "V",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "archimedes-law-answer-output",
+        },
+        "formula": [
+            "ArchimedesLaw", "get_g",
+        ],
+    },
+    "hydrostatic-pressure-law-p-button": {
+        "input": {
+            "hydrostatic-pressure-law-rho-input": {
+                "name": "rho",
+                "mode": "scalar",
+            },
+            "hydrostatic-pressure-law-g-input": {
+                "name": "g",
+                "mode": "scalar",
+            },
+            "hydrostatic-pressure-law-h-input": {
+                "name": "h",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "hydrostatic-pressure-law-answer-output",
+        },
+        "formula": [
+            "HydrostaticPressureLaw", "get_p",
+        ],
+    },
+    "hydrostatic-pressure-law-rho-button": {
+        "input": {
+            "hydrostatic-pressure-law-p-input": {
+                "name": "p",
+                "mode": "scalar",
+            },
+            "hydrostatic-pressure-law-g-input": {
+                "name": "g",
+                "mode": "scalar",
+            },
+            "hydrostatic-pressure-law-h-input": {
+                "name": "h",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "hydrostatic-pressure-law-answer-output",
+        },
+        "formula": [
+            "HydrostaticPressureLaw", "get_rho",
+        ],
+    },
+    "hydrostatic-pressure-law-g-button": {
+        "input": {
+            "hydrostatic-pressure-law-p-input": {
+                "name": "p",
+                "mode": "scalar",
+            },
+            "hydrostatic-pressure-law-rho-input": {
+                "name": "rho",
+                "mode": "scalar",
+            },
+            "hydrostatic-pressure-law-h-input": {
+                "name": "h",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "hydrostatic-pressure-law-answer-output",
+        },
+        "formula": [
+            "HydrostaticPressureLaw", "get_g",
+        ],
+    },
+    "hydrostatic-pressure-law-h-button": {
+        "input": {
+            "hydrostatic-pressure-law-p-input": {
+                "name": "p",
+                "mode": "scalar",
+            },
+            "hydrostatic-pressure-law-rho-input": {
+                "name": "rho",
+                "mode": "scalar",
+            },
+            "hydrostatic-pressure-law-g-input": {
+                "name": "g",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "hydrostatic-pressure-law-answer-output",
+        },
+        "formula": [
+            "HydrostaticPressureLaw", "get_h",
+        ],
+    },
+    "sensible-heat-law-Q-button": {
+        "input": {
+            "sensible-heat-law-c-input": {
+                "name": "c",
+                "mode": "scalar",
+            },
+            "sensible-heat-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+            "sensible-heat-law-Dt-input": {
+                "name": "Dt",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "sensible-heat-law-answer-output",
+        },
+        "formula": [
+            "SensibleHeatLaw", "get_Q",
+        ],
+    },
+    "sensible-heat-law-c-button": {
+        "input": {
+            "sensible-heat-law-Q-input": {
+                "name": "Q",
+                "mode": "scalar",
+            },
+            "sensible-heat-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+            "sensible-heat-law-Dt-input": {
+                "name": "Dt",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "sensible-heat-law-answer-output",
+        },
+        "formula": [
+            "SensibleHeatLaw", "get_c",
+        ],
+    },
+    "sensible-heat-law-m-button": {
+        "input": {
+            "sensible-heat-law-Q-input": {
+                "name": "Q",
+                "mode": "scalar",
+            },
+            "sensible-heat-law-c-input": {
+                "name": "c",
+                "mode": "scalar",
+            },
+            "sensible-heat-law-Dt-input": {
+                "name": "Dt",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "sensible-heat-law-answer-output",
+        },
+        "formula": [
+            "SensibleHeatLaw", "get_m",
+        ],
+    },
+    "sensible-heat-law-Dt-button": {
+        "input": {
+            "sensible-heat-law-Q-input": {
+                "name": "Q",
+                "mode": "scalar",
+            },
+            "sensible-heat-law-c-input": {
+                "name": "c",
+                "mode": "scalar",
+            },
+            "sensible-heat-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "sensible-heat-law-answer-output",
+        },
+        "formula": [
+            "SensibleHeatLaw", "get_Dt",
+        ],
+    },
+    "combustion-heat-law-Q-button": {
+        "input": {
+            "combustion-heat-law-q-input": {
+                "name": "q",
+                "mode": "scalar",
+            },
+            "combustion-heat-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "combustion-heat-law-answer-output",
+        },
+        "formula": [
+            "CombustionHeatLaw", "get_Q",
+        ],
+    },
+    "combustion-heat-law-q-button": {
+        "input": {
+            "combustion-heat-law-Q-input": {
+                "name": "Q",
+                "mode": "scalar",
+            },
+            "combustion-heat-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "combustion-heat-law-answer-output",
+        },
+        "formula": [
+            "CombustionHeatLaw", "get_q",
+        ],
+    },
+    "combustion-heat-law-m-button": {
+        "input": {
+            "combustion-heat-law-Q-input": {
+                "name": "Q",
+                "mode": "scalar",
+            },
+            "combustion-heat-law-q-input": {
+                "name": "q",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "combustion-heat-law-answer-output",
+        },
+        "formula": [
+            "CombustionHeatLaw", "get_m",
+        ],
+    },
+    "fusion-heat-law-Q-button": {
+        "input": {
+            "fusion-heat-law-lmb-input": {
+                "name": "lmb",
+                "mode": "scalar",
+            },
+            "fusion-heat-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "fusion-heat-law-answer-output",
+        },
+        "formula": [
+            "FusionHeatLaw", "get_Q",
+        ],
+    },
+    "fusion-heat-law-lmb-button": {
+        "input": {
+            "fusion-heat-law-Q-input": {
+                "name": "Q",
+                "mode": "scalar",
+            },
+            "fusion-heat-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "fusion-heat-law-answer-output",
+        },
+        "formula": [
+            "FusionHeatLaw", "get_lmb",
+        ],
+    },
+    "fusion-heat-law-m-button": {
+        "input": {
+            "fusion-heat-law-Q-input": {
+                "name": "Q",
+                "mode": "scalar",
+            },
+            "fusion-heat-law-lmb-input": {
+                "name": "lmb",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "fusion-heat-law-answer-output",
+        },
+        "formula": [
+            "FusionHeatLaw", "get_m",
+        ],
+    },
+    "vaporization-heat-law-Q-button": {
+        "input": {
+            "vaporization-heat-law-L-input": {
+                "name": "L",
+                "mode": "scalar",
+            },
+            "vaporization-heat-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "vaporization-heat-law-answer-output",
+        },
+        "formula": [
+            "VaporizationHeatLaw", "get_Q",
+        ],
+    },
+    "vaporization-heat-law-L-button": {
+        "input": {
+            "vaporization-heat-law-Q-input": {
+                "name": "Q",
+                "mode": "scalar",
+            },
+            "vaporization-heat-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "vaporization-heat-law-answer-output",
+        },
+        "formula": [
+            "VaporizationHeatLaw", "get_L",
+        ],
+    },
+    "vaporization-heat-law-m-button": {
+        "input": {
+            "vaporization-heat-law-Q-input": {
+                "name": "Q",
+                "mode": "scalar",
+            },
+            "vaporization-heat-law-L-input": {
+                "name": "L",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "vaporization-heat-law-answer-output",
+        },
+        "formula": [
+            "VaporizationHeatLaw", "get_m",
+        ],
+    },
+    "mendeleev-clapeyron-law-p-button": {
+        "input": {
+            "mendeleev-clapeyron-law-V-input": {
+                "name": "V",
+                "mode": "scalar",
+            },
+            "mendeleev-clapeyron-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+            "mendeleev-clapeyron-law-R-input": {
+                "name": "R",
+                "mode": "scalar",
+            },
+            "mendeleev-clapeyron-law-T-input": {
+                "name": "T",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "mendeleev-clapeyron-law-answer-output",
+        },
+        "formula": [
+            "MendeleevClapeyronLaw", "get_p",
+        ],
+    },
+    "mendeleev-clapeyron-law-V-button": {
+        "input": {
+            "mendeleev-clapeyron-law-p-input": {
+                "name": "p",
+                "mode": "scalar",
+            },
+            "mendeleev-clapeyron-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+            "mendeleev-clapeyron-law-R-input": {
+                "name": "R",
+                "mode": "scalar",
+            },
+            "mendeleev-clapeyron-law-T-input": {
+                "name": "T",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "mendeleev-clapeyron-law-answer-output",
+        },
+        "formula": [
+            "MendeleevClapeyronLaw", "get_V",
+        ],
+    },
+    "mendeleev-clapeyron-law-v-button": {
+        "input": {
+            "mendeleev-clapeyron-law-p-input": {
+                "name": "p",
+                "mode": "scalar",
+            },
+            "mendeleev-clapeyron-law-V-input": {
+                "name": "V",
+                "mode": "scalar",
+            },
+            "mendeleev-clapeyron-law-R-input": {
+                "name": "R",
+                "mode": "scalar",
+            },
+            "mendeleev-clapeyron-law-T-input": {
+                "name": "T",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "mendeleev-clapeyron-law-answer-output",
+        },
+        "formula": [
+            "MendeleevClapeyronLaw", "get_v",
+        ],
+    },
+    "mendeleev-clapeyron-law-T-button": {
+        "input": {
+            "mendeleev-clapeyron-law-p-input": {
+                "name": "p",
+                "mode": "scalar",
+            },
+            "mendeleev-clapeyron-law-V-input": {
+                "name": "V",
+                "mode": "scalar",
+            },
+            "mendeleev-clapeyron-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+            "mendeleev-clapeyron-law-R-input": {
+                "name": "R",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "mendeleev-clapeyron-law-answer-output",
+        },
+        "formula": [
+            "MendeleevClapeyronLaw", "get_T",
+        ],
+    },
+    "molar-mass-law-v-button": {
+        "input": {
+            "molar-mass-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+            "molar-mass-law-M-input": {
+                "name": "M",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "molar-mass-law-answer-output",
+        },
+        "formula": [
+            "MolarMassLaw", "get_v",
+        ],
+    },
+    "molar-mass-law-m-button": {
+        "input": {
+            "molar-mass-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+            "molar-mass-law-M-input": {
+                "name": "M",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "molar-mass-law-answer-output",
+        },
+        "formula": [
+            "MolarMassLaw", "get_m",
+        ],
+    },
+    "molar-mass-law-M-button": {
+        "input": {
+            "molar-mass-law-v-input": {
+                "name": "v",
+                "mode": "scalar",
+            },
+            "molar-mass-law-m-input": {
+                "name": "m",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "molar-mass-law-answer-output",
+        },
+        "formula": [
+            "MolarMassLaw", "get_M",
+        ],
+    },
 };

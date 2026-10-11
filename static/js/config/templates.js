@@ -18,12 +18,22 @@ export const SolverTemplatesData = {
     "SolverFooter": `
         <div class="solver-footer-card">
             <p class="solver-footer-card-title">
-                Навигация
+                Основные страницы
             </p>
             <div class="solver-footer-card-links">
                 <a class="solver-footer-link" href="/">
                     Главная
                 </a>
+                <a class="solver-footer-link" href="/aboutus">
+                    О нас
+                </a>
+            </div>
+        </div>
+        <div class="solver-footer-card">
+            <p class="solver-footer-card-title">
+                Школьные предметы
+            </p>
+            <div class="solver-footer-card-links">
                 <a class="solver-footer-link" href="/math/algebra">
                     Алгебра
                 </a>
@@ -38,22 +48,6 @@ export const SolverTemplatesData = {
                 </a>
                 <a class="solver-footer-link" href="/physics/thermodynamics">
                     Термодинамика
-                </a>
-            </div>
-        </div>
-        <div class="solver-footer-card">
-            <p class="solver-footer-card-title">
-                Поддержка
-            </p>
-            <div class="solver-footer-card-links">
-                <a class="solver-footer-link" href="/usagepolicy">
-                    Политика пользования
-                </a>
-                <a class="solver-footer-link" href="/faq">
-                    Помощь в использовании
-                </a>
-                <a class="solver-footer-link" href="/extrainfo">
-                    Дополнительная информация
                 </a>
             </div>
         </div>

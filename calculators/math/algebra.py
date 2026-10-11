@@ -3,7 +3,7 @@ from decimal import Decimal
 from system.utils.decimalhelpers import get_quadratic_equation_roots, decimal_scalar, decimal_logarithm, decimal_zip
 
 
-#region Equations
+#region Classic algebra
 
 class LinearEquation:
     def __init__(self) -> None:
@@ -23,10 +23,6 @@ class QuadraticEquation:
         x: list[Decimal] = get_quadratic_equation_roots(a=a, b=b, c=c)
         return x
 
-#endregion
-
-
-#region Functions
 
 class LinearFunction:
     def __init__(self) -> None:
@@ -71,11 +67,7 @@ class QuadraticFunction:
     def get_c(self, *, x: Decimal, y: Decimal, a: Decimal, b: Decimal) -> Decimal:
         c: Decimal = y - a * x ** Decimal("2") - (b * x)
         return c
-
-#endregion
-
-
-#region Progressions
+    
 
 class ArithmeticProgressionSumTheorem:
     def __init__(self) -> None:
@@ -195,7 +187,7 @@ class GeometricProgressionTermTheorem:
 #endregion
 
 
-#region Vectors
+#region Vector algebra
 
 class VectorCoordinatesTheorem:
     def __init__(self) -> None:

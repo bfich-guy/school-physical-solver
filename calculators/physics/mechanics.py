@@ -1,9 +1,11 @@
 from decimal import Decimal
 
+from system.utils.decimalhelpers import get_quadratic_equation_roots
+
 
 #region Dynamics
 
-class NewtonSecondLaw:
+class NewtonsSecondLaw:
     def __init__(self) -> None:
         pass
 
@@ -204,7 +206,7 @@ class MechanicalEfficiencyLaw:
 
 
     def get_At(self, *, Au: Decimal, eta: Decimal) -> Decimal:
-        At: Decimal = (Au / Decimal("100")) * eta
+        At: Decimal = (Au / eta) * Decimal("100")
         return At
 
 #endregion
@@ -217,19 +219,19 @@ class LinearAccelerationLaw:
         pass
 
 
-    def get_a(self, *, Dv: Decimal, Dt: Decimal) -> Decimal:
-        a: Decimal = Dv / Dt
+    def get_a(self, *, v: Decimal, t: Decimal) -> Decimal:
+        a: Decimal = v / t
         return a
 
 
-    def get_Dv(self, *, a: Decimal, Dt: Decimal) -> Decimal:
-        Dv: Decimal = a * Dt
-        return Dv
+    def get_v(self, *, a: Decimal, t: Decimal) -> Decimal:
+        v: Decimal = a * t
+        return v
 
 
-    def get_Dt(self, *, Dv: Decimal, a: Decimal) -> Decimal:
-        Dt: Decimal = Dv / a
-        return Dt
+    def get_t(self, *, v: Decimal, a: Decimal) -> Decimal:
+        t: Decimal = v / a
+        return t
 
 
 class UniformlyAcceleratedRectilinearMotionLaw:
@@ -237,24 +239,24 @@ class UniformlyAcceleratedRectilinearMotionLaw:
         pass
 
 
-    def get_S(self, *, t: Decimal, v0: Decimal, Dv: Decimal) -> Decimal:
-        S: Decimal = t * (v0 + (Dv / Decimal("2")))
+    def get_S(self, *, t: Decimal, v0: Decimal, a: Decimal) -> Decimal:
+        S: Decimal = (v0 * t) + (a * (t ** Decimal("2")) / Decimal("2"))
         return S
 
 
-    def get_t(self, *, S: Decimal, v0: Decimal, Dv: Decimal) -> Decimal:
-        t: Decimal = S / (v0 + (Dv / Decimal("2")))
-        return t
-
-
-    def get_v0(self, *, S: Decimal, t: Decimal, Dv: Decimal) -> Decimal:
-        v0: Decimal = (S - t * (Dv / Decimal("2"))) / t
+    def get_v0(self, *, S: Decimal, t: Decimal, a: Decimal) -> Decimal:
+        v0: Decimal = (S - (a * (t ** Decimal("2")) / Decimal("2"))) / t
         return v0
 
 
-    def get_Dv(self, *, S: Decimal, t: Decimal, v0: Decimal) -> Decimal:
-        Dv: Decimal = (Decimal("2") * (S - t * v0)) / t
-        return Dv
+    def get_t(self, *, S: Decimal, v0: Decimal, a: Decimal) -> list[Decimal]:
+        t: list[Decimal] = get_quadratic_equation_roots(a=(a / Decimal("2")), b=v0, c=S, mode="POSITIVE")
+        return t
+    
+
+    def get_a(self, *, S: Decimal, t: Decimal, v0: Decimal) -> Decimal:
+        a: Decimal = (Decimal("2") * (S - v0 * t)) / (t ** Decimal("2"))
+        return a
 
 
 class CentripetalAccelerationLaw:

@@ -45,6 +45,7 @@ def get_quadratic_equation_roots(
     a: Decimal,
     b: Decimal,
     c: Decimal,
+    mode: str | None = None,
 ) -> list[Decimal]:
 
     D: Decimal = ((b ** Decimal("2")) - ((Decimal("4") * a * c))).sqrt()
@@ -53,7 +54,19 @@ def get_quadratic_equation_roots(
     x2: Decimal = (-b + D) / (Decimal("2") * a)
 
     quadratic_equation_roots: list[Decimal] = [x1, x2]
-    return quadratic_equation_roots
+
+    modified_quadratic_equation_roots_map: dict = {
+        "POSITIVE": [x for x in quadratic_equation_roots if x > Decimal("0")],
+        "NEGATIVE": [x for x in quadratic_equation_roots if x < Decimal("0")],
+    }
+
+    quadratic_equation_solution: list[Decimal] = modified_quadratic_equation_roots_map.get(mode, quadratic_equation_roots)
+    there_ate_no_solutions: bool = not quadratic_equation_solution
+
+    if there_ate_no_solutions:
+        raise ValueError
+    else:
+        return quadratic_equation_solution
 
 #endregion
 

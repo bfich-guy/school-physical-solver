@@ -70,14 +70,14 @@
     border: none;
     text-decoration: none;
     color: black;
-    font: bold 16px 'Franklin Gothic Medium';
+    font: bold 24px 'Franklin Gothic Medium';
     margin-top: 8px;
     margin-bottom: 8px;
 }
 
 .solver-footer-menu {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .solver-footer-card {
