@@ -1,5 +1,8 @@
 {
   "version": 2,
+  "env": {
+    "PYTHONPATH": "."
+  },
   "builds": [
     {
       "src": "app.py",
@@ -21,3 +24,4 @@
     }
   ]
 }
+
