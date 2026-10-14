@@ -11,10 +11,10 @@ from system.utils.decimalhelpers import clean_decimal_number, get_decimal_number
 def include_routers(
     *,
     app: FastAPI,
-    routers_list: list[APIRouter],
+    routers: list[APIRouter],
 ) -> None:
 
-    for router in routers_list:
+    for router in routers:
         app.include_router(router=router)
 
 

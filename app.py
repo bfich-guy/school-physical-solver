@@ -29,7 +29,7 @@ app.add_middleware(
     allow_headers=["*"],
     )
 
-routers_list: list[APIRouter] = [
+routers: list[APIRouter] = [
     index_router,
     calculate_router,
     aboutus_router,
@@ -43,7 +43,7 @@ routers_list: list[APIRouter] = [
 
 include_routers(
     app=app, 
-    routers_list=routers_list,
+    routers=routers,
     )
 
 app.mount(
