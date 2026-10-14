@@ -48,7 +48,7 @@ include_routers(
 
 app.mount(
     Mounts.STATIC.value, 
-    StaticFiles(directory=Folders.STATIC.value), 
+    StaticFiles(directory=Folders.STATIC.value, html=True), 
     name=Folders.STATIC.value,
     )
 
