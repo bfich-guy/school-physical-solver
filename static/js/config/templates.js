@@ -21,7 +21,7 @@ export const SolverTemplatesData = {
     "SolverFooter": `
         <div class="solver-footer-card">
             <p class="solver-footer-card-title">
-                Основные страницы
+                Основные
             </p>
             <div class="solver-footer-card-links">
                 <a class="solver-footer-link" href="/">
@@ -34,7 +34,7 @@ export const SolverTemplatesData = {
         </div>
         <div class="solver-footer-card">
             <p class="solver-footer-card-title">
-                Школьные предметы
+                Предметы
             </p>
             <div class="solver-footer-card-links">
                 <a class="solver-footer-link" href="/math/algebra">

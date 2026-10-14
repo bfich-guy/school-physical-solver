@@ -13,20 +13,12 @@
     border: 4px solid gray;
 }
 
-.solver-physmath-background {
-    background-image: url("/static/images/school_physmath_solver_logo.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover; 
-    background-attachment: fixed;
-}
-
 .solver-math-background {
     background-image: url("/static/images/math_background.png");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover; 
-    background-attachment: fixed;  
+    background-attachment: fixed;
 }
 
 .solver-physics-background {
@@ -34,7 +26,7 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover; 
-    background-attachment: fixed;  
+    background-attachment: fixed;
 }
 
 .solver-header-text {

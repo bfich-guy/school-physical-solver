@@ -4,6 +4,7 @@
 }
 
 .formula-card {
+    width: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,7 +36,8 @@
 
 .formula-input-field {
     border: 2px dashed gray;
-    font: bold 24px 'Franklin Gothic Medium';
+    width: 90%;
+    font: bold 16px 'Franklin Gothic Medium';
     margin: 2% 2%;
     text-align: center;
 }
@@ -47,10 +49,11 @@
 }
 
 .formula-button {
+    width: auto;
     border: 2px dashed black;
     background-color: white;
     color: black;
-    font: bold 32px 'Franklin Gothic Medium';
+    font: bold 16px 'Franklin Gothic Medium';
     transition: 0.1s;
     padding: 8px;
     margin: 4% 4%;
@@ -65,7 +68,7 @@
     scale: 0.8;
 }
 
-.formula-answer {
+.formula-answer-field {
     border: 4px solid gray;
     border-radius: 16px;
     color: black;
@@ -74,4 +77,15 @@
     margin: 2% 0;
     padding: 16px;
     text-align: center;
+}
+
+@media (max-width: 768px) {
+    .formulas-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .solver-footer-menu {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
 }

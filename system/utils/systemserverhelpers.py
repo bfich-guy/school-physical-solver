@@ -21,7 +21,7 @@ def include_routers(
 def is_user_input_valid(
     *,
     user_input: str,
-    input_limit: int = 64,
+    input_limit: int = 16,
 ) -> bool:
 
     user_input_is_not_a_string: bool = not isinstance(user_input, str)

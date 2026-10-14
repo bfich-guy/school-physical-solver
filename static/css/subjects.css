@@ -27,6 +27,7 @@
 }
 
 .subject-link {
+    width: auto;
     background: none;
     border: none;
     color: black;
