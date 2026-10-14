@@ -476,6 +476,94 @@ export const FormulasData = {
             "ArithmeticProgressionTermTheorem", "get_n",
         ],
     },
+    "geometric-progression-term-theorem-bn-button": {
+        "input": {
+            "geometric-progression-term-theorem-b1-input": {
+                "name": "b1",
+                "mode": "scalar",
+            },
+            "geometric-progression-term-theorem-q-input": {
+                "name": "q",
+                "mode": "scalar",
+            },
+            "geometric-progression-term-theorem-n-input": {
+                "name": "n",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "geometric-progression-term-theorem-answer-output",
+        },
+        "formula": [
+            "GeometricProgressionTermTheorem", "get_bn",
+        ],
+    },
+    "geometric-progression-term-theorem-b1-button": {
+        "input": {
+            "geometric-progression-term-theorem-bn-input": {
+                "name": "bn",
+                "mode": "scalar",
+            },
+            "geometric-progression-term-theorem-q-input": {
+                "name": "q",
+                "mode": "scalar",
+            },
+            "geometric-progression-term-theorem-n-input": {
+                "name": "n",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "geometric-progression-term-theorem-answer-output",
+        },
+        "formula": [
+            "GeometricProgressionTermTheorem", "get_b1",
+        ],
+    },
+    "geometric-progression-term-theorem-q-button": {
+        "input": {
+            "geometric-progression-term-theorem-bn-input": {
+                "name": "bn",
+                "mode": "scalar",
+            },
+            "geometric-progression-term-theorem-b1-input": {
+                "name": "b1",
+                "mode": "scalar",
+            },
+            "geometric-progression-term-theorem-n-input": {
+                "name": "n",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "geometric-progression-term-theorem-answer-output",
+        },
+        "formula": [
+            "GeometricProgressionTermTheorem", "get_q",
+        ],
+    },
+    "geometric-progression-term-theorem-n-button": {
+        "input": {
+            "geometric-progression-term-theorem-bn-input": {
+                "name": "bn",
+                "mode": "scalar",
+            },
+            "geometric-progression-term-theorem-b1-input": {
+                "name": "b1",
+                "mode": "scalar",
+            },
+            "geometric-progression-term-theorem-q-input": {
+                "name": "q",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "geometric-progression-term-theorem-answer-output",
+        },
+        "formula": [
+            "GeometricProgressionTermTheorem", "get_n",
+        ],
+    },
     "vector-coordinates-theorem-a-button": {
         "input": {
             "vector-coordinates-theorem-A-input": {
@@ -936,6 +1024,24 @@ export const FormulasData = {
         },
         "formula": [
             "TriangleAreaByBaseAndHeightTheorem", "get_a",
+        ],
+    },
+    "triangle-area-by-base-and-height-theorem-h-button": {
+        "input": {
+            "triangle-area-by-base-and-height-theorem-S-input": {
+                "name": "S",
+                "mode": "scalar",
+            },
+            "triangle-area-by-base-and-height-theorem-a-input": {
+                "name": "a",
+                "mode": "scalar",
+            },
+        },
+        "output": {
+            "id": "triangle-area-by-base-and-height-theorem-answer-output",
+        },
+        "formula": [
+            "TriangleAreaByBaseAndHeightTheorem", "get_h",
         ],
     },
     "heron-theorem-S-button": {
@@ -2600,12 +2706,12 @@ export const FormulasData = {
     },
     "kinetic-energy-law-v-button": {
         "input": {
-            "kinetic-energy-law-m-input": {
-                "name": "m",
+            "kinetic-energy-law-E-input": {
+                "name": "E",
                 "mode": "scalar",
             },
-            "kinetic-energy-law-p-input": {
-                "name": "p",
+            "kinetic-energy-law-m-input": {
+                "name": "m",
                 "mode": "scalar",
             },
         },

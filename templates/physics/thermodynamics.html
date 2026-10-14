@@ -15,256 +15,254 @@
             </div>
         </header>
         <main>
-            <div class="solver-main-background">
-                <div class="formulas-grid">
-                    <div class="formula-card">
-                        <p class="formula-name">
-                            Закон количества выделяемой теплоты
-                        </p>
-                        <p class="formula-object">
+           <div class="solver-main-background formulas-grid">
+                <div class="formula-card">
+                    <p class="formula-name">
+                        Закон количества выделяемой теплоты
+                    </p>
+                    <p class="formula-object">
+                        <math>
+                            <mi>Q</mi>
+                            <mo>=</mo>
+                            <mi>c</mi>
+                            <mi>m</mi>
+                            <mi>Δ</mi>
+                            <mi>t</mi>
+                        </math>
+                    </p>
+                    <div class="formula-inputs-card">
+                        <input id="sensible-heat-law-Q-input" type="text" class="formula-input-field" placeholder="Q">
+                        <input id="sensible-heat-law-c-input" type="text" class="formula-input-field" placeholder="c">
+                        <input id="sensible-heat-law-m-input" type="text" class="formula-input-field" placeholder="m">
+                        <input id="sensible-heat-law-Dt-input" type="text" class="formula-input-field" placeholder="Δt">
+                    </div>
+                    <div class="formula-buttons-card">
+                        <button id="sensible-heat-law-Q-button" class="formula-button">
                             <math>
                                 <mi>Q</mi>
-                                <mo>=</mo>
+                            </math>
+                        </button>
+                        <button id="sensible-heat-law-c-button" class="formula-button">
+                            <math>
                                 <mi>c</mi>
+                            </math>
+                        </button>
+                        <button id="sensible-heat-law-m-button" class="formula-button">
+                            <math>
                                 <mi>m</mi>
+                            </math>
+                        </button>
+                        <button id="sensible-heat-law-Dt-button" class="formula-button">
+                            <math>
                                 <mi>Δ</mi>
                                 <mi>t</mi>
                             </math>
-                        </p>
-                        <div class="formula-inputs-card">
-                            <input id="sensible-heat-law-Q-input" type="text" class="formula-input-field" placeholder="Q">
-                            <input id="sensible-heat-law-c-input" type="text" class="formula-input-field" placeholder="c">
-                            <input id="sensible-heat-law-m-input" type="text" class="formula-input-field" placeholder="m">
-                            <input id="sensible-heat-law-Dt-input" type="text" class="formula-input-field" placeholder="Δt">
-                        </div>
-                        <div class="formula-buttons-card">
-                            <button id="sensible-heat-law-Q-button" class="formula-button">
-                                <math>
-                                    <mi>Q</mi>
-                                </math>
-                            </button>
-                            <button id="sensible-heat-law-c-button" class="formula-button">
-                                <math>
-                                    <mi>c</mi>
-                                </math>
-                            </button>
-                            <button id="sensible-heat-law-m-button" class="formula-button">
-                                <math>
-                                    <mi>m</mi>
-                                </math>
-                            </button>
-                            <button id="sensible-heat-law-Dt-button" class="formula-button">
-                                <math>
-                                    <mi>Δ</mi>
-                                    <mi>t</mi>
-                                </math>
-                            </button>
-                        </div>
-                        <p id="sensible-heat-law-answer-output" class="formula-answer">
-                            Физмат-калькулятор ждёт Вашего ввода!
-                        </p>
+                        </button>
                     </div>
-                    <div class="formula-card">
-                        <p class="formula-name">
-                            Закон теплоты сгорания топлива
-                        </p>
-                        <p class="formula-object">
+                    <p id="sensible-heat-law-answer-output" class="formula-answer">
+                        Физмат-калькулятор ждёт Вашего ввода!
+                    </p>
+                </div>
+                <div class="formula-card">
+                    <p class="formula-name">
+                        Закон теплоты сгорания топлива
+                    </p>
+                    <p class="formula-object">
+                        <math>
+                            <mi>Q</mi>
+                            <mo>=</mo>
+                            <mi>q</mi>
+                            <mi>m</mi>
+                        </math>
+                    </p>
+                    <div class="formula-inputs-card">
+                        <input id="combustion-heat-law-Q-input" type="text" class="formula-input-field" placeholder="Q">
+                        <input id="combustion-heat-law-q-input" type="text" class="formula-input-field" placeholder="q">
+                        <input id="combustion-heat-law-m-input" type="text" class="formula-input-field" placeholder="m">
+                    </div>
+                    <div class="formula-buttons-card">
+                        <button id="combustion-heat-law-Q-button" class="formula-button">
                             <math>
                                 <mi>Q</mi>
-                                <mo>=</mo>
+                            </math>
+                        </button>
+                        <button id="combustion-heat-law-q-button" class="formula-button">
+                            <math>
                                 <mi>q</mi>
+                            </math>
+                        </button>
+                        <button id="combustion-heat-law-m-button" class="formula-button">
+                            <math>
                                 <mi>m</mi>
                             </math>
-                        </p>
-                        <div class="formula-inputs-card">
-                            <input id="combustion-heat-law-Q-input" type="text" class="formula-input-field" placeholder="Q">
-                            <input id="combustion-heat-law-q-input" type="text" class="formula-input-field" placeholder="q">
-                            <input id="combustion-heat-law-m-input" type="text" class="formula-input-field" placeholder="m">
-                        </div>
-                        <div class="formula-buttons-card">
-                            <button id="combustion-heat-law-Q-button" class="formula-button">
-                                <math>
-                                    <mi>Q</mi>
-                                </math>
-                            </button>
-                            <button id="combustion-heat-law-q-button" class="formula-button">
-                                <math>
-                                    <mi>q</mi>
-                                </math>
-                            </button>
-                            <button id="combustion-heat-law-m-button" class="formula-button">
-                                <math>
-                                    <mi>m</mi>
-                                </math>
-                            </button>
-                        </div>
-                        <p id="combustion-heat-law-answer-output" class="formula-answer">
-                            Физмат-калькулятор ждёт Вашего ввода!
-                        </p>
+                        </button>
                     </div>
-                    <div class="formula-card">
-                        <p class="formula-name">
-                            Закон теплоты плавления вещества
-                        </p>
-                        <p class="formula-object">
+                    <p id="combustion-heat-law-answer-output" class="formula-answer">
+                        Физмат-калькулятор ждёт Вашего ввода!
+                    </p>
+                </div>
+                <div class="formula-card">
+                    <p class="formula-name">
+                        Закон теплоты плавления вещества
+                    </p>
+                    <p class="formula-object">
+                        <math>
+                            <mi>Q</mi>
+                            <mo>=</mo>
+                            <mi>λ</mi>
+                            <mi>m</mi>
+                        </math>
+                    </p>
+                    <div class="formula-inputs-card">
+                        <input id="fusion-heat-law-Q-input" type="text" class="formula-input-field" placeholder="Q">
+                        <input id="fusion-heat-law-lmb-input" type="text" class="formula-input-field" placeholder="λ">
+                        <input id="fusion-heat-law-m-input" type="text" class="formula-input-field" placeholder="m">
+                    </div>
+                    <div class="formula-buttons-card">
+                        <button id="fusion-heat-law-Q-button" class="formula-button">
                             <math>
                                 <mi>Q</mi>
-                                <mo>=</mo>
+                            </math>
+                        </button>
+                        <button id="fusion-heat-law-lmb-button" class="formula-button">
+                            <math>
                                 <mi>λ</mi>
+                            </math>
+                        </button>
+                        <button id="fusion-heat-law-m-button" class="formula-button">
+                            <math>
                                 <mi>m</mi>
                             </math>
-                        </p>
-                        <div class="formula-inputs-card">
-                            <input id="fusion-heat-law-Q-input" type="text" class="formula-input-field" placeholder="Q">
-                            <input id="fusion-heat-law-lmb-input" type="text" class="formula-input-field" placeholder="λ">
-                            <input id="fusion-heat-law-m-input" type="text" class="formula-input-field" placeholder="m">
-                        </div>
-                        <div class="formula-buttons-card">
-                            <button id="fusion-heat-law-Q-button" class="formula-button">
-                                <math>
-                                    <mi>Q</mi>
-                                </math>
-                            </button>
-                            <button id="fusion-heat-law-lmb-button" class="formula-button">
-                                <math>
-                                    <mi>λ</mi>
-                                </math>
-                            </button>
-                            <button id="fusion-heat-law-m-button" class="formula-button">
-                                <math>
-                                    <mi>m</mi>
-                                </math>
-                            </button>
-                        </div>
-                        <p id="fusion-heat-law-answer-output" class="formula-answer">
-                            Физмат-калькулятор ждёт Вашего ввода!
-                        </p>
+                        </button>
                     </div>
-                    <div class="formula-card">
-                        <p class="formula-name">
-                            Закон теплоты испарения жидкости
-                        </p>
-                        <p class="formula-object">
+                    <p id="fusion-heat-law-answer-output" class="formula-answer">
+                        Физмат-калькулятор ждёт Вашего ввода!
+                    </p>
+                </div>
+                <div class="formula-card">
+                    <p class="formula-name">
+                        Закон теплоты испарения жидкости
+                    </p>
+                    <p class="formula-object">
+                        <math>
+                            <mi>Q</mi>
+                            <mo>=</mo>
+                            <mi>L</mi>
+                            <mi>m</mi>
+                        </math>
+                    </p>
+                    <div class="formula-inputs-card">
+                        <input id="vaporization-heat-law-Q-input" type="text" class="formula-input-field" placeholder="Q">
+                        <input id="vaporization-heat-law-L-input" type="text" class="formula-input-field" placeholder="L">
+                        <input id="vaporization-heat-law-m-input" type="text" class="formula-input-field" placeholder="m">
+                    </div>
+                    <div class="formula-buttons-card">
+                        <button id="vaporization-heat-law-Q-button" class="formula-button">
                             <math>
                                 <mi>Q</mi>
-                                <mo>=</mo>
+                            </math>
+                        </button>
+                        <button id="vaporization-heat-law-L-button" class="formula-button">
+                            <math>
                                 <mi>L</mi>
+                            </math>
+                        </button>
+                        <button id="vaporization-heat-law-m-button" class="formula-button">
+                            <math>
                                 <mi>m</mi>
                             </math>
-                        </p>
-                        <div class="formula-inputs-card">
-                            <input id="vaporization-heat-law-Q-input" type="text" class="formula-input-field" placeholder="Q">
-                            <input id="vaporization-heat-law-L-input" type="text" class="formula-input-field" placeholder="L">
-                            <input id="vaporization-heat-law-m-input" type="text" class="formula-input-field" placeholder="m">
-                        </div>
-                        <div class="formula-buttons-card">
-                            <button id="vaporization-heat-law-Q-button" class="formula-button">
-                                <math>
-                                    <mi>Q</mi>
-                                </math>
-                            </button>
-                            <button id="vaporization-heat-law-L-button" class="formula-button">
-                                <math>
-                                    <mi>L</mi>
-                                </math>
-                            </button>
-                            <button id="vaporization-heat-law-m-button" class="formula-button">
-                                <math>
-                                    <mi>m</mi>
-                                </math>
-                            </button>
-                        </div>
-                        <p id="vaporization-heat-law-answer-output" class="formula-answer">
-                            Физмат-калькулятор ждёт Вашего ввода!
-                        </p>
+                        </button>
                     </div>
-                    <div class="formula-card">
-                        <p class="formula-name">
-                            Закон молярной массы
-                        </p>
-                        <p class="formula-object">
-                            <math>
-                                <mi>v</mi>
-                                <mo>=</mo>
-                                <mfrac>
-                                    <mi>m</mi>
-                                    <mi>M</mi>
-                                </mfrac>
-                            </math>
-                        </p>
-                        <div class="formula-inputs-card">
-                            <input id="molar-mass-law-v-input" type="text" class="formula-input-field" placeholder="v">
-                            <input id="molar-mass-law-m-input" type="text" class="formula-input-field" placeholder="M">
-                            <input id="molar-mass-law-M-input" type="text" class="formula-input-field" placeholder="M">
-                        </div>
-                        <div class="formula-buttons-card">
-                            <button id="molar-mass-law-p-button" class="formula-button">
-                                <math>
-                                    <mi>p</mi>
-                                </math>
-                            </button>
-                            <button id="molar-mass-law-m-button" class="formula-button">
-                                <math>
-                                    <mi>m</mi>
-                                </math>
-                            </button>
-                            <button id="molar-mass-law-M-button" class="formula-button">
-                                <math>
-                                    <mi>M</mi>
-                                </math>
-                            </button>
-                        </div>
-                        <p id="molar-mass-law-answer-output" class="formula-answer">
-                            Физмат-калькулятор ждёт Вашего ввода!
-                        </p>
+                    <p id="vaporization-heat-law-answer-output" class="formula-answer">
+                        Физмат-калькулятор ждёт Вашего ввода!
+                    </p>
+                </div>
+                <div class="formula-card">
+                    <p class="formula-name">
+                        Закон молярной массы
+                    </p>
+                    <p class="formula-object">
+                        <math>
+                            <mi>v</mi>
+                            <mo>=</mo>
+                            <mfrac>
+                                <mi>m</mi>
+                                <mi>M</mi>
+                            </mfrac>
+                        </math>
+                    </p>
+                    <div class="formula-inputs-card">
+                        <input id="molar-mass-law-v-input" type="text" class="formula-input-field" placeholder="v">
+                        <input id="molar-mass-law-m-input" type="text" class="formula-input-field" placeholder="M">
+                        <input id="molar-mass-law-M-input" type="text" class="formula-input-field" placeholder="M">
                     </div>
-                    <div class="formula-card">
-                        <p class="formula-name">
-                            Закон Менделеева-Клапейрона
-                        </p>
-                        <p class="formula-object">
+                    <div class="formula-buttons-card">
+                        <button id="molar-mass-law-v-button" class="formula-button">
                             <math>
                                 <mi>p</mi>
+                            </math>
+                        </button>
+                        <button id="molar-mass-law-m-button" class="formula-button">
+                            <math>
+                                <mi>m</mi>
+                            </math>
+                        </button>
+                        <button id="molar-mass-law-M-button" class="formula-button">
+                            <math>
+                                <mi>M</mi>
+                            </math>
+                        </button>
+                    </div>
+                    <p id="molar-mass-law-answer-output" class="formula-answer">
+                        Физмат-калькулятор ждёт Вашего ввода!
+                    </p>
+                </div>
+                <div class="formula-card">
+                    <p class="formula-name">
+                        Закон Менделеева-Клапейрона
+                    </p>
+                    <p class="formula-object">
+                        <math>
+                            <mi>p</mi>
+                            <mi>V</mi>
+                            <mo>=</mo>
+                            <mi>v</mi>
+                            <mi>R</mi>
+                            <mi>T</mi>
+                        </math>
+                    </p>
+                    <div class="formula-inputs-card">
+                        <input id="mendeleev-clapeyron-law-p-input" type="text" class="formula-input-field" placeholder="p">
+                        <input id="mendeleev-clapeyron-law-V-input" type="text" class="formula-input-field" placeholder="V">
+                        <input id="mendeleev-clapeyron-law-v-input" type="text" class="formula-input-field" placeholder="v">
+                        <input id="mendeleev-clapeyron-law-R-input" type="text" class="formula-input-field" placeholder="R">
+                        <input id="mendeleev-clapeyron-law-T-input" type="text" class="formula-input-field" placeholder="T">
+                    </div>
+                    <div class="formula-buttons-card">
+                        <button id="mendeleev-clapeyron-law-p-button" class="formula-button">
+                            <math>
+                                <mi>p</mi>
+                            </math>
+                        </button>
+                        <button id="mendeleev-clapeyron-law-V-button" class="formula-button">
+                            <math>
                                 <mi>V</mi>
-                                <mo>=</mo>
+                            </math>
+                        </button>
+                        <button id="mendeleev-clapeyron-law-v-button" class="formula-button">
+                            <math>
                                 <mi>v</mi>
-                                <mi>R</mi>
+                            </math>
+                        </button>
+                        <button id="mendeleev-clapeyron-law-T-button" class="formula-button">
+                            <math>
                                 <mi>T</mi>
                             </math>
-                        </p>
-                        <div class="formula-inputs-card">
-                            <input id="mendeleev-clapeyron-law-p-input" type="text" class="formula-input-field" placeholder="p">
-                            <input id="mendeleev-clapeyron-law-V-input" type="text" class="formula-input-field" placeholder="V">
-                            <input id="mendeleev-clapeyron-law-v-input" type="text" class="formula-input-field" placeholder="v">
-                            <input id="mendeleev-clapeyron-law-R-input" type="text" class="formula-input-field" placeholder="R">
-                            <input id="mendeleev-clapeyron-law-T-input" type="text" class="formula-input-field" placeholder="T">
-                        </div>
-                        <div class="formula-buttons-card">
-                            <button id="mendeleev-clapeyron-law-p-button" class="formula-button">
-                                <math>
-                                    <mi>p</mi>
-                                </math>
-                            </button>
-                            <button id="mendeleev-clapeyron-law-V-button" class="formula-button">
-                                <math>
-                                    <mi>V</mi>
-                                </math>
-                            </button>
-                            <button id="mendeleev-clapeyron-law-v-button" class="formula-button">
-                                <math>
-                                    <mi>v</mi>
-                                </math>
-                            </button>
-                            <button id="mendeleev-clapeyron-law-T-button" class="formula-button">
-                                <math>
-                                    <mi>T</mi>
-                                </math>
-                            </button>
-                        </div>
-                        <p id="mendeleev-clapeyron-law-answer-output" class="formula-answer">
-                            Физмат-калькулятор ждёт Вашего ввода!
-                        </p>
+                        </button>
                     </div>
+                    <p id="mendeleev-clapeyron-law-answer-output" class="formula-answer">
+                        Физмат-калькулятор ждёт Вашего ввода!
+                    </p>
                 </div>
             </div>
         </main>

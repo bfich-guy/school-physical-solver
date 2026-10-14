@@ -5,7 +5,7 @@ from typing import Callable
 from system.config.constants import ErrorMessages, InputMethod
 from system.config.formulas import formulas_map
 
-from system.utils.decimalhelpers import clean_trailing_zeros_from_decimal_number, get_decimal_numbers_from_user_input
+from system.utils.decimalhelpers import clean_decimal_number, get_decimal_numbers_from_user_input
 
 
 def include_routers(
@@ -30,15 +30,15 @@ def is_user_input_valid(
         return False
     
     user_input_length: int = len(user_input)
-    user_input_is_too_long: bool = user_input_length > input_limit
+    user_input_is_not_in_range: bool = user_input_length not in range(1, input_limit + 1)
 
-    if user_input_is_too_long:
+    if user_input_is_not_in_range:
         return False
 
     return True
 
 
-def parse_user_input(
+def parse_user_quantity_input(
     *,
     user_input: list[Decimal],
     input_mode: str,
@@ -53,7 +53,7 @@ def parse_user_input(
     return parsed_user_input
 
 
-def parse_quantities(
+def parse_user_formula_input(
     *,
     quantities: dict,
 ) -> dict[str, Decimal | list[Decimal]] | None:
@@ -71,20 +71,15 @@ def parse_quantities(
                 return None
             
             decimaled_quantities: list[Decimal] = get_decimal_numbers_from_user_input(user_input=quantity_value)
-            there_is_no_digit_in_the_input: bool = not decimaled_quantities
-
-            if there_is_no_digit_in_the_input:
-                return None
-            
-            parsed_quantity_value: list[Decimal] | Decimal = parse_user_input(user_input=decimaled_quantities, input_mode=quantity_mode)
+            parsed_quantity_value: list[Decimal] | Decimal = parse_user_quantity_input(user_input=decimaled_quantities, input_mode=quantity_mode)
             parsed_quantities[quantity_name] = parsed_quantity_value
 
         return parsed_quantities
-    except (TypeError, KeyError):
+    except (TypeError, KeyError, IndexError):
         return None
     
 
-def run_solver(
+def run_solver(  
     *,
     formula: tuple,
     formulas_map: dict = formulas_map,
@@ -95,18 +90,8 @@ def run_solver(
         formula_solver: Callable = formulas_map[formula]
         formula_answer: list[Decimal] | Decimal = formula_solver(**quantities)
 
-        formula_answer_is_vector: bool = isinstance(formula_answer, list)
-        formula_answer_is_scalar: bool = isinstance(formula_answer, Decimal)
-
-        if formula_answer_is_vector:
-            stringified_answer: str = ", ".join([str(clean_trailing_zeros_from_decimal_number(decimal_number=decimal_number)) for decimal_number in formula_answer])
-            return stringified_answer
-
-        if formula_answer_is_scalar:
-            stringified_answer = str(clean_trailing_zeros_from_decimal_number(decimal_number=formula_answer))
-            return stringified_answer
-
-        return ""
+        stringified_answer: str = ", ".join([str(clean_decimal_number(decimal_number=decimal_number)) for decimal_number in formula_answer]) if isinstance(formula_answer, list) else str(clean_decimal_number(decimal_number=formula_answer))
+        return stringified_answer
 
     except KeyError:
         return ErrorMessages.UNKNOWN_FORMULA.value

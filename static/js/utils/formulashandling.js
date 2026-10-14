@@ -1,10 +1,11 @@
 import { calculateEndpoint, FormulasData } from "../config/formulasdata.js";
+import { areObjectsNull } from "./helpers.js";
 
 
 export function calculateFormula() {
     for (const [buttonId, buttonData] of Object.entries(FormulasData)) {
         const formulaButtonWidget = document.getElementById(buttonId);
-        const formulaButtonDoesNotExist = formulaButtonWidget === null;
+        const formulaButtonDoesNotExist = areObjectsNull({objects: [formulaButtonWidget]});
 
         if (formulaButtonDoesNotExist) {
             continue;
@@ -16,6 +17,13 @@ export function calculateFormula() {
             const quantitiesOutputData = buttonData["output"];
             const formula = buttonData["formula"];
 
+            const buttonDataIsNull = areObjectsNull({objects: [quantitiesInputData, quantitiesOutputData, formula]});
+
+            if (buttonDataIsNull) {
+                console.log(buttonId);
+                return null;
+            };
+
             request["formula"] = formula;
             request["quantities"] = {};
 
@@ -24,6 +32,12 @@ export function calculateFormula() {
                 const quantityInputValue = quantityInputWidget.value;
                 const quantityInputName = inputData["name"];
                 const quantityInputMode = inputData["mode"];
+
+                const quantityDataIsNull = areObjectsNull({objects: [quantityInputWidget, quantityInputValue, quantityInputName, quantityInputMode]});
+
+                if (quantityDataIsNull) {
+                    return null;
+                };
 
                 request["quantities"][quantityInputName] = {
                     "value": quantityInputValue,
@@ -38,14 +52,28 @@ export function calculateFormula() {
                 },
                 body: JSON.stringify(request)
             })
-            .then(responce => responce.json())
+            .then(response => {
+                const responseDoesNotExist = !response.ok;
+
+                if (responseDoesNotExist) {
+                    return null;
+                } else {
+                    return response.json();
+                };
+            })
             .then(data => {
                 const formulaAnswer = data.answer;
                 const formulaAnswerId = quantitiesOutputData["id"];
-                const formulaAnswerWidget = document.getElementById(formulaAnswerId);
 
+                const formulaDataIsNull = areObjectsNull({objects: [formulaAnswer, formulaAnswerId]});
+
+                if (formulaDataIsNull) {
+                    return null;
+                };
+
+                const formulaAnswerWidget = document.getElementById(formulaAnswerId);
                 formulaAnswerWidget.textContent = formulaAnswer;
-            });
+            })
         });
     };
 };

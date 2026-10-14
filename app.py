@@ -1,9 +1,10 @@
-from uvicorn import run
-from fastapi import FastAPI, APIRouter
+from fastapi import FastAPI, APIRouter, Request
+from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.exceptions import RequestValidationError
 
-from system.config.constants import Folders, Mounts
+from system.config.constants import Folders, Mounts, origins
 from system.utils.systemserverhelpers import include_routers
 
 from routers.templates.index import index_router
@@ -20,22 +21,13 @@ from routers.templates.physics.thermodynamics import thermodynamics_router
 
 app = FastAPI()
 
-"""
-origins_list: list[str] = [
-    "http://localhost:8000",
-    "http://127.0.0.1:8000",
-    "http://localhost:3000",
-    "https://school-physmath-solver.vercel.app",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins_list,
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
     )
-"""
 
 routers_list: list[APIRouter] = [
     index_router,
@@ -60,12 +52,7 @@ app.mount(
     name=Folders.STATIC.value,
     )
 
-server_is_launching_directly: bool = __name__ == "__main__"
-
-if server_is_launching_directly:
-    run(
-        "app:app",
-        host="127.0.0.1",
-        port=8000,
-        reload=True,
-    )
+@app.exception_handler(RequestValidationError)
+async def validation_exception_handler(request: Request, exception: RequestValidationError) -> JSONResponse:
+    json_responce = JSONResponse({"answer": None})
+    return json_responce

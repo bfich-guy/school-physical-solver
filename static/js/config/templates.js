@@ -5,15 +5,18 @@ export const WidgetsIdRegistry = {
 
 
 export const SolverTemplatesData = {
-    "SolverTitle": "Физмат-калькулятор",
-    "SolverSlogan": "Все расчёты верны!",
     "SolverHeader": `
-        <a href="/aboutus" class="solver-header-link">
-            О нас
-        </a>
-        <a href="/" class="solver-header-link">
-            Главная
-        </a>
+        <p class="solver-header-text">
+            Физмат-калькулятор — все расчёты верны
+        </p>
+        <div class="solver-header-links">
+            <a href="/" class="solver-header-link">
+                Главная
+            </a>
+            <a href="/aboutus" class="solver-header-link">
+                О нас
+            </a>
+        </div>
     `,
     "SolverFooter": `
         <div class="solver-footer-card">

@@ -38,8 +38,8 @@
 }
 
 .solver-header-text {
-    font: bold 32px 'Franklin Gothic Medium';
-    color: black;
+    font: bold 24px 'Franklin Gothic Medium';
+    color: gray;
     text-align: center;
 }
 
@@ -60,19 +60,26 @@
 
 .solver-header-menu {
     display: flex;
+    flex-direction: column;
+}
+
+.solver-header-links {
+    display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    align-items: center;
 }
 
 .solver-header-link {
-    background: none;
-    border: none;
+    border-radius: 16px;
     text-decoration: none;
-    color: black;
+    color: gray;
     font: bold 24px 'Franklin Gothic Medium';
-    margin-top: 8px;
-    margin-bottom: 8px;
+    padding: 8px;
+}
+
+.solver-header-link:hover {
+    background-color: gray;
+    color: white;
 }
 
 .solver-footer-menu {
@@ -98,8 +105,14 @@
 }
 
 .solver-footer-link {
-    font: bold 24px 'Franklin Gothic Medium';
-    color: gray;
+    border-radius: 16px;
     text-decoration: none;
-    margin: 8px;
+    color: gray;
+    font: bold 24px 'Franklin Gothic Medium';
+    padding: 8px;
+}
+
+.solver-footer-link:hover {
+    background-color: gray;
+    color: white;
 }

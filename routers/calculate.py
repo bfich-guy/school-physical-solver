@@ -4,7 +4,7 @@ from decimal import Decimal
 
 from system.config.constants import Prefix, Endpoints, CalculationSchema, ErrorMessages
 
-from system.utils.systemserverhelpers import parse_quantities, run_solver
+from system.utils.systemserverhelpers import parse_user_formula_input, run_solver
 
 
 calculate_router = APIRouter(prefix=Prefix.INDEX.value)
@@ -17,8 +17,8 @@ def calculate(request: CalculationSchema) -> JSONResponse:
     formula: list = request.formula
     quantities: dict = request.quantities
 
-    parsed_quantities: dict[str, Decimal | list[Decimal]] | None = parse_quantities(quantities=quantities)
-    user_input_is_not_valid: bool = parsed_quantities == None
+    parsed_quantities: dict[str, Decimal | list[Decimal]] | None = parse_user_formula_input(quantities=quantities)
+    user_input_is_not_valid: bool = parsed_quantities is None
 
     if user_input_is_not_valid:
         json_responce = JSONResponse({"answer": answer})

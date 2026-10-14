@@ -60,6 +60,11 @@ def get_quadratic_equation_roots(
         "NEGATIVE": [x for x in quadratic_equation_roots if x < Decimal("0")],
     }
 
+    roots_are_equal: bool = x1 == x2
+
+    if roots_are_equal:
+        quadratic_equation_roots = [x1]
+
     quadratic_equation_solution: list[Decimal] = modified_quadratic_equation_roots_map.get(mode, quadratic_equation_roots)
     there_ate_no_solutions: bool = not quadratic_equation_solution
 
@@ -73,7 +78,7 @@ def get_quadratic_equation_roots(
 
 #region Decimal parsers
 
-def clean_trailing_zeros_from_decimal_number(
+def clean_decimal_number(
     *,
     decimal_number: Decimal,
     format_mode: str = "f",
@@ -128,18 +133,18 @@ def get_decimal_numbers_from_user_input(
             valid_characters_matrix.append(valid_characters_list)
             valid_characters_list: list[str] = []
 
-    decimal_numbers_list: list[Decimal] = []
+    decimal_numbers: list[Decimal] = []
 
     for valid_characters_list in valid_characters_matrix:
         potential_decimal_number: str = "".join(valid_characters_list)
     
         try:
             raw_decimal_number: Decimal = Decimal(potential_decimal_number)
-            cleaned_decimal_number: Decimal = clean_trailing_zeros_from_decimal_number(decimal_number=raw_decimal_number)
-            decimal_numbers_list.append(cleaned_decimal_number)
+            cleaned_decimal_number: Decimal = clean_decimal_number(decimal_number=raw_decimal_number)
+            decimal_numbers.append(cleaned_decimal_number)
         except InvalidOperation:
             continue
 
-    return decimal_numbers_list
+    return decimal_numbers
 
 #endregion

@@ -40,8 +40,6 @@ class Files(Enum):
 
 class FileExtenstions(Enum):
     HTML = "html"
-    PY = "py"
-    PNG = "png"
 
 
 class DotenvServerKeys(Enum):
@@ -54,6 +52,14 @@ class DotenvServerKeys(Enum):
 
 
 #region Server
+
+origins: list[str] = [
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+    "http://localhost:3000",
+    "https://school-physmath-solver.vercel.app",
+]
+
 
 class Mounts(Enum):
     STATIC = f"/{Folders.STATIC.value}"    
@@ -113,7 +119,7 @@ class ErrorMessages(Enum):
         "Некорректный ввод"
     )
     CALCULATIONS = (
-        "Ошибки в вычислениях"
+        "Математические ошибки"
     )
     UNKNOWN_FORMULA = (
         "Неизвестная формула"

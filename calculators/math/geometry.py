@@ -133,12 +133,12 @@ class CosineTheorem:
 
 
     def get_a(self, *, b: Decimal, c: Decimal, cosa: Decimal) -> list[Decimal]:
-        a: list[Decimal] = get_quadratic_equation_roots(a=Decimal("1"), b=(Decimal("-2") * b * cosa), c=((b ** Decimal("2")) - (c ** Decimal("2"))))
+        a: list[Decimal] = get_quadratic_equation_roots(a=Decimal("1"), b=(Decimal("-2") * b * cosa), c=((b ** Decimal("2")) - (c ** Decimal("2"))), mode="POSITIVE")
         return a
 
 
     def get_b(self, *, a: Decimal, c: Decimal, cosa: Decimal) -> list[Decimal]:
-        b: list[Decimal] = get_quadratic_equation_roots(a=Decimal("1"), b=(Decimal("-2") * a * cosa), c=((a ** Decimal("2")) - (c ** Decimal("2"))))
+        b: list[Decimal] = get_quadratic_equation_roots(a=Decimal("1"), b=(Decimal("-2") * a * cosa), c=((a ** Decimal("2")) - (c ** Decimal("2"))), mode="POSITIVE")
         return b
 
 
