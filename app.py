@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, APIRouter, Request
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
@@ -18,6 +19,8 @@ from routers.templates.physics.electromagnetics import electromagnetics_router
 from routers.templates.physics.mechanics import mechanics_router
 from routers.templates.physics.thermodynamics import thermodynamics_router
 
+
+base_directory = os.path.dirname(os.path.abspath(__file__))
 
 app = FastAPI()
 
@@ -48,9 +51,9 @@ include_routers(
 
 app.mount(
     Mounts.STATIC.value, 
-    StaticFiles(directory=Folders.STATIC.value, html=True), 
+    StaticFiles(directory=os.path.join(base_directory, Folders.STATIC.value), html=True), 
     name=Folders.STATIC.value,
-    )
+)
 
 @app.exception_handler(RequestValidationError)
 async def validation_exception_handler(request: Request, exception: RequestValidationError) -> JSONResponse:
